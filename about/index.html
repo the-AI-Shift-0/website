@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About The AI Shift - Meet the Team</title>
+<meta name="description" content="Learn about The AI Shift team: Sai Katikaneni and Apurv Gujar. Building practical AI tools for SMB owners.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+  }
+  .header-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .header-wordmark {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .header-nav {
+    margin-left: auto;
+    display: flex;
+    gap: 32px;
+  }
+  .header-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-nav a:hover { color: #7c3aed; }
+  .header-nav a.active { color: #7c3aed; font-weight: 800; }
+
+  /* ── HERO ── */
+  .hero {
+    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
+    padding: 100px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .hero-h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ── MISSION ── */
+  .mission {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  .mission-text h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .mission-text p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .mission-highlight {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7c3aed;
+    padding: 20px;
+    background: #f3f0ff;
+    border-radius: 12px;
+    border-left: 4px solid #7c3aed;
+  }
+  .mission-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .stat-box {
+    text-align: center;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e9d5ff;
+    border-radius: 12px;
+  }
+  .stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #7c3aed;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── TEAM ── */
+  .team {
+    background: #fff;
+    padding: 80px 40px;
+  }
+  .team-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .team-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .team-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 12px;
+  }
+  .team-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .team-sub {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .founder-card {
+    background: #f9f8ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+  }
+  .founder-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background: #e9d5ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+  .founder-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .founder-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #7c3aed;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .founder-bio {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .founder-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .stat-item {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e9d5ff;
+  }
+  .stat-item-num {
+    font-size: 14px;
+    font-weight: 800;
+    color: #7c3aed;
+  }
+  .stat-item-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CREDIBILITY ── */
+  .credibility {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+  .credibility-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .credibility-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .credibility-sub {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+  .credibility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .cred-item {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e9d5ff;
+    border-radius: 12px;
+  }
+  .cred-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .cred-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .cred-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  /* ── ORIGIN STORY ── */
+  .origin {
+    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .origin::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .origin-inner {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .origin-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 16px;
+  }
+  .origin-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .origin-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #1e1b4b;
+    padding: 48px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @media (max-width: 768px) {
+    .header-nav { gap: 16px; }
+    .mission-grid { grid-template-columns: 1fr; gap: 32px; }
+    .mission-stats { grid-template-columns: 1fr; }
+    .founder-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero { padding: 80px 24px 60px; }
+    .mission, .credibility, .origin { padding: 60px 24px; }
+    .team { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="../brand/profile-pic.png" alt="The AI Shift" class="header-logo">
+  <span class="header-wordmark">The AI Shift</span>
+  <nav class="header-nav">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="index.html" class="active">About</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Meet The Team</p>
+    <h1 class="hero-h1">We help $1M-$10M businesses cut through the AI noise</h1>
+    <p class="hero-sub">and implement tools that actually work. Built by operators, for operators.</p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>The AI shift isn't about having access to the best tools. It's about implementing them for real business outcomes.</p>
+      <p>Most SMB owners we talk to have tried 15 AI tools. Maybe used 2. Regret 14. We've been there too.</p>
+      <p>That's why we built this differently: one tested tool per episode, proven in real companies, explained without the hype.</p>
+    </div>
+    <div class="mission-highlight">
+      <p><strong>We don't teach theory.</strong> We've done it ourselves in our own companies - cutting costs, finding revenue, removing bottlenecks. Now we're showing you exactly how.</p>
+    </div>
+  </div>
+
+  <div class="mission-stats">
+    <div class="stat-box">
+      <div class="stat-number">14</div>
+      <div class="stat-label">Years Building</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">1.4k+</div>
+      <div class="stat-label">Coached to Success</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="team-container">
+    <div class="team-header">
+      <p class="team-eyebrow">The People</p>
+      <h2 class="team-title">Who We Are</h2>
+      <p class="team-sub">Two operators with 14+ years building, fixing, and scaling real businesses. No MBA theories. Just what works.</p>
+    </div>
+
+    <div class="founder-grid">
+      <!-- SAI -->
+      <div class="founder-card">
+        <div class="founder-avatar">🎤</div>
+        <p class="founder-name">Sai Katikaneni</p>
+        <p class="founder-title">Host & Co-Founder</p>
+        <p class="founder-bio">Former investment banker turned serial operator. Founded Coach Foundation in 2015, scaling it to serve 1,400+ clients globally. Expert in business strategy, sales, and operational workflow. Sai obsesses over SMB pain points - because he's lived them.</p>
+        <div class="founder-stats">
+          <div class="stat-item">
+            <div class="stat-item-num">1.4k+</div>
+            <div class="stat-item-label">Clients Coached</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-num">11yrs</div>
+            <div class="stat-item-label">Remote First</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- APURV -->
+      <div class="founder-card">
+        <div class="founder-avatar">⚙️</div>
+        <p class="founder-name">Apurv Gujar</p>
+        <p class="founder-title">Technical Co-Founder</p>
+        <p class="founder-bio">Builder and operator with 14 years scaling companies. BITS Pilani engineer who's shipped products from AI calling to health optimization. Apurv lives in the gap between "AI sounds useful" and "it actually works" - and fixes it. Currently exploring what AI fundamentally changes about building businesses.</p>
+        <div class="founder-stats">
+          <div class="stat-item">
+            <div class="stat-item-num">14yrs</div>
+            <div class="stat-item-label">Building Companies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-num">3</div>
+            <div class="stat-item-label">Live Products</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY / WHY TRUST US -->
+<section class="credibility">
+  <div class="credibility-header">
+    <h2 class="credibility-title">Why Trust Us</h2>
+    <p class="credibility-sub">We're not selling you courses. We're showing you what works because we've done it.</p>
+  </div>
+
+  <div class="credibility-grid">
+    <div class="cred-item">
+      <div class="cred-icon">✓</div>
+      <p class="cred-title">We've Done It First</p>
+      <p class="cred-desc">Every tool we teach has been built, tested, and refined in our own companies before you see it.</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🎯</div>
+      <p class="cred-title">We Know Your Budget</p>
+      <p class="cred-desc">We focus on SMBs with $1M-$10M revenue. Enterprise solutions don't fit. We build for you.</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">⚡</div>
+      <p class="cred-title">Real Results Matter</p>
+      <p class="cred-desc">We measure in cost cut, revenue found, hours saved - not vanity metrics. We show the math.</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🔗</div>
+      <p class="cred-title">Built to Ship Fast</p>
+      <p class="cred-desc">Every tool comes with copy-paste prompts, vendor stacks, and implementation checklists. Use it today.</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">📊</div>
+      <p class="cred-title">Track Real Metrics</p>
+      <p class="cred-desc">Sai built Coach Foundation to 1,400+ global clients by obsessing over what actually converts.</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🧠</div>
+      <p class="cred-title">No Hype</p>
+      <p class="cred-desc">We're operators first. We skip the AI jargon and focus on the operational outcome you need.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="origin">
+  <div class="origin-inner">
+    <p class="origin-eyebrow">Our Story</p>
+    <h2 class="origin-title">Why We Built This</h2>
+    <p class="origin-text">We watched too many SMB owners fumble with 15 different AI tools, implement none of them well, and give up. Meanwhile, the ones who won were using 1-2 tools brilliantly and reinvesting the time saved. That's the shift. We decided to make it less lonely.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+</footer>
+
+<!-- JSON-LD STRUCTURED DATA FOR EAT/E-E-A-T -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "About The AI Shift",
+  "description": "Learn about The AI Shift team: Sai Katikaneni and Apurv Gujar. Building practical AI tools for SMB owners.",
+  "url": "https://theaishift.biz/about/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The AI Shift",
+    "logo": "https://theaishift.biz/brand/profile-pic.png",
+    "sameAs": [
+      "https://www.youtube.com/@theaishift"
+    ]
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sai Katikaneni",
+      "jobTitle": "Host & Co-Founder",
+      "description": "Former investment banker turned serial operator. Founded Coach Foundation in 2015, scaling it to serve 1,400+ clients globally. Expert in business strategy, sales, and operational workflow.",
+      "email": "sai@coachfoundation.com",
+      "url": "https://coachfoundation.com"
+    },
+    {
+      "@type": "Person",
+      "name": "Apurv Gujar",
+      "jobTitle": "Technical Co-Founder",
+      "description": "Builder and operator with 14 years scaling companies. BITS Pilani engineer who has shipped products from AI calling to health optimization platforms.",
+      "url": "https://apurv.org"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

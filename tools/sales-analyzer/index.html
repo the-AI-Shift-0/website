@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Analyzer - Analyze Sales Calls with AI</title>
+  <meta name="description" content="Stop guessing why deals are lost. Analyze sales calls with AI, spot patterns, and coach your reps to close more deals.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
+
+    /* ── HEADER NAV ── */
+    .header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(248, 247, 255, 0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e9d5ff;
+      padding: 16px 40px;
+    }
+    .nav { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-size: 13px; font-weight: 800; color: #111827; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 24px; margin-left: auto; }
+    .nav-link { font-size: 14px; font-weight: 600; color: #6b7280; text-decoration: none; transition: color 0.15s; }
+    .nav-link:hover { color: #111827; }
+    .nav-link.active { color: #7c3aed; border-bottom: 2px solid #7c3aed; padding-bottom: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 720px; margin: 0 auto; padding: 80px 32px 60px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 16px;
+    }
+    .hero-h1 {
+      font-size: clamp(28px, 5vw, 42px); font-weight: 800; color: #111827;
+      letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 16px; color: #6b7280; line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      max-width: 720px; margin: 0 auto; padding: 0 32px 64px;
+    }
+    .benefits-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+    }
+    .benefit-grid {
+      display: grid; gap: 14px;
+    }
+    .benefit-item {
+      background: #fff; border: 1px solid #e9d5ff; border-radius: 10px;
+      padding: 16px 20px; text-align: left;
+    }
+    .benefit-item-title {
+      font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 4px;
+    }
+    .benefit-item-desc {
+      font-size: 13px; color: #6b7280; line-height: 1.5;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works {
+      max-width: 720px; margin: 0 auto; padding: 64px 32px;
+      background: #fff; border: 1px solid #e9d5ff; border-radius: 12px;
+    }
+    .section-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+    }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
+      margin-bottom: 40px;
+    }
+    .step {
+      text-align: center;
+    }
+    .step-num {
+      font-size: 32px; font-weight: 800; color: #7c3aed; margin-bottom: 8px;
+    }
+    .step-title {
+      font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px; color: #6b7280; line-height: 1.5;
+    }
+
+    /* ── DEMO SECTION ── */
+    .demo-section {
+      max-width: 960px; margin: 0 auto; padding: 64px 32px;
+    }
+    .demo-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+    }
+    .demo-container {
+      background: #fff; border: 1.5px solid #e9d5ff; border-radius: 12px;
+      overflow: hidden; margin-bottom: 24px;
+    }
+    .demo-topbar {
+      background: #f8f7ff; border-bottom: 1px solid #f3f4f6; padding: 12px 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+    .demo-title { font-size: 13px; font-weight: 700; color: #374151; }
+    .demo-content { padding: 32px; text-align: center; }
+    .demo-content p {
+      font-size: 14px; color: #6b7280; margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .demo-link {
+      display: inline-block; background: #7c3aed; color: #fff;
+      font-size: 14px; font-weight: 700; padding: 12px 24px;
+      border-radius: 8px; text-decoration: none; transition: background 0.15s;
+    }
+    .demo-link:hover { background: #6d28d9; }
+
+    /* ── CTA BOXES ── */
+    .cta-section {
+      max-width: 960px; margin: 0 auto; padding: 64px 32px;
+    }
+    .cta-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+    }
+    .cta-box {
+      background: #7c3aed; border-radius: 12px; padding: 32px 28px;
+      text-align: center;
+    }
+    .cta-eyebrow {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #ddd6fe; margin-bottom: 12px;
+    }
+    .cta-title {
+      font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .cta-desc {
+      font-size: 13px; color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-block; background: #fff; color: #7c3aed;
+      font-size: 14px; font-weight: 800; padding: 12px 24px;
+      border-radius: 8px; text-decoration: none; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1e1b4b; padding: 32px;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 12px; color: rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 680px) {
+      .header { padding: 16px 20px; }
+      .nav { gap: 20px; }
+      .nav-links { gap: 12px; }
+      .hero { padding: 60px 20px 40px; }
+      .how-steps { gap: 16px; }
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="nav">
+    <a href="https://theaishift.biz" class="nav-logo">
+      <span class="nav-logo-text">The AI Shift</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://theaishift.biz" class="nav-link">Home</a>
+      <a href="https://theaishift.biz/tools/" class="nav-link active">Tools</a>
+      <a href="#" class="nav-link">About</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Sales Analyzer</p>
+  <h1 class="hero-h1">Stop guessing why deals are lost</h1>
+  <p class="hero-sub">Analyze your sales calls with AI. Spot what's winning and losing deals. Coach your team based on real patterns, not guesses.</p>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-label">What It Does</div>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <div class="benefit-item-title">Identify winning patterns</div>
+      <div class="benefit-item-desc">See exactly which talk tracks, questions, and responses move prospects forward.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Spot objection handlers</div>
+      <div class="benefit-item-desc">Find the reps who close more on objections and learn their technique.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Coach faster</div>
+      <div class="benefit-item-desc">Give reps specific feedback, not general advice. "Here's the exact moment you lost this deal."</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Run every week</div>
+      <div class="benefit-item-desc">Upload transcripts. Get insights. No setup required. Fits into your existing workflow.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="max-width: 960px; margin: 0 auto; padding: 0 32px;">
+  <div class="how-it-works">
+    <div class="section-label">How It Works</div>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Upload transcript</div>
+        <div class="step-desc">Paste or upload your sales call recording or transcript.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">AI analyzes</div>
+        <div class="step-desc">The system identifies winning moments, objections, and deal breakers.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Get actionable report</div>
+        <div class="step-desc">See patterns, rep-by-rep performance, and exact coaching points.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO SECTION -->
+<section class="demo-section">
+  <div class="demo-label">See It In Action</div>
+  <div class="demo-container">
+    <div class="demo-topbar">
+      <div class="demo-dot"></div>
+      <div class="demo-dot"></div>
+      <div class="demo-title">Sales Analyzer</div>
+    </div>
+    <div class="demo-content">
+      <p>Try the live interactive demo. Upload a sample call and see the AI analysis in real-time.</p>
+      <a href="https://the-ai-shift-0.github.io/demos/sales-analyzer/" target="_blank" class="demo-link">Open Live Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="cta-grid">
+    <div class="cta-box">
+      <div class="cta-eyebrow">Get Started Free</div>
+      <div class="cta-title">Master Trove</div>
+      <div class="cta-desc">Everything you need to implement Sales Analyzer for your business, including templates and setup guides.</div>
+      <a href="https://theaishift.biz/tools/sales-analyzer/master-trove/" class="cta-btn">Access Master Trove</a>
+    </div>
+    <div class="cta-box">
+      <div class="cta-eyebrow">Learn More</div>
+      <div class="cta-title">Watch The Episode</div>
+      <div class="cta-desc">See how this works for a real $4M coaching business. Learn the setup and exact workflow.</div>
+      <a href="#" class="cta-btn">Watch Full Episode</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
