@@ -199,6 +199,14 @@
             .what-you-get ul { grid-template-columns: 1fr; }
         }
     </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F7FK9M526K');
+  </script>
 </head>
 <body>
 <div class="container">
@@ -562,6 +570,10 @@
 
             document.getElementById('processingState').classList.remove('show');
             document.getElementById('successState').classList.add('show');
+
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
+            }
 
             // If API returns generated output, use it (Claude generates scripts; static builders handle cost/stack)
             if (data.output) {
