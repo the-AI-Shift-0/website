@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Shift - Free AI Tools for Business Owners</title>
+<meta name="description" content="Practical AI tools for business owners who want results, not theory. Get the free resource from every episode.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
+
+  /* ── HEADER ── */
+  .header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .header-wordmark {
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.95;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
+    padding: 140px 40px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .hero-h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .hero-h1 span { color: #e9d5ff; }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .hero-pill {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-pill::before {
+    content: '▶';
+    font-size: 8px;
+    color: #c4b5fd;
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(91,33,182,0.25), 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .form-card-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 8px;
+  }
+  .form-card-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .form-card-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .form-row { display: flex; gap: 8px; }
+  .form-input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1.5px solid #e9d5ff;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.15s;
+    font-family: inherit;
+  }
+  .form-input:focus { border-color: #7c3aed; }
+  .form-input::placeholder { color: #9ca3af; }
+  .form-btn {
+    background: #7c3aed;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .form-btn:hover { background: #6d28d9; }
+  .form-success { display: none; text-align: center; padding: 12px 0 4px; }
+  .form-success-check {
+    width: 44px; height: 44px;
+    background: #f3f0ff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+  }
+  .form-success-title { font-size: 16px; font-weight: 800; color: #111827; margin-bottom: 4px; }
+  .form-success-sub { font-size: 13px; color: #6b7280; }
+
+  /* ── TOOLS SECTION ── */
+  .tools {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .tools-header { text-align: center; margin-bottom: 48px; }
+  .tools-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 12px;
+  }
+  .tools-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .tools-sub { font-size: 14px; color: #6b7280; line-height: 1.7; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .tool-card {
+    background: #fff;
+    border: 1px solid #e9d5ff;
+    border-radius: 14px;
+    padding: 24px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .tool-card:hover {
+    box-shadow: 0 8px 24px rgba(124,58,237,0.1);
+    transform: translateY(-2px);
+  }
+  .tool-num {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c4b5fd;
+    margin-bottom: 10px;
+  }
+  .tool-name { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .tool-desc { font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; }
+  .tool-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    background: #f3f0ff;
+    padding: 4px 10px;
+    border-radius: 99px;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    background: radial-gradient(ellipse at 50% 0%, #7c3aed 0%, #5b21b6 100%);
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .bottom-cta-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+  .bottom-cta-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .bottom-cta-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .bottom-form-row {
+    display: flex;
+    gap: 8px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .bottom-input {
+    flex: 1;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    color: #111827;
+    outline: none;
+    font-family: inherit;
+  }
+  .bottom-btn {
+    background: #fff;
+    color: #7c3aed;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: opacity 0.15s;
+  }
+  .bottom-btn:hover { opacity: 0.9; }
+
+  /* ── FOOTER ── */
+  .footer { background: #1e1b4b; padding: 28px 32px; text-align: center; }
+  .footer-text { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 120px 24px 80px; }
+    .header { padding: 20px 24px; }
+    .form-card { padding: 24px 20px; }
+    .form-row, .bottom-form-row { flex-direction: column; }
+    .tools { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="brand/profile-pic.png" alt="The AI Shift" class="header-logo">
+  <span class="header-wordmark">The AI Shift</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">The AI Shift - Free Resources</p>
+    <h1 class="hero-h1">Practical AI for business owners<br><span>who want results, not theory.</span></h1>
+    <p class="hero-sub">Each episode comes with a ready-to-use AI tool built for your specific business. Enter your email and we'll send everything to your inbox.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">Cut costs</span>
+      <span class="hero-pill">Grow revenue</span>
+      <span class="hero-pill">Remove dependencies</span>
+    </div>
+    <div class="form-card">
+      <p class="form-card-label">Free Access</p>
+      <p class="form-card-title">Get all the tools</p>
+      <p class="form-card-sub">One email. Every Master Trove from every episode, delivered to your inbox.</p>
+      <div id="hero-form-wrap">
+        <div class="form-row">
+          <input type="email" class="form-input" placeholder="your@email.com" id="hero-email">
+          <button class="form-btn" onclick="handleSubmit('hero-email','hero-form-wrap','hero-success',this)">Get All Tools</button>
+        </div>
+      </div>
+      <div class="form-success" id="hero-success">
+        <div class="form-success-check">✓</div>
+        <p class="form-success-title">Check your inbox!</p>
+        <p class="form-success-sub">The tools are on their way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS GRID -->
+<section class="tools">
+  <div class="tools-header">
+    <p class="tools-eyebrow">What You Get</p>
+    <h2 class="tools-title">One AI tool per episode</h2>
+    <p class="tools-sub">Every video ships with a free Master Trove: a ready-to-deploy AI system tailored to your business type.</p>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <p class="tool-num">Episode 01</p>
+      <p class="tool-name">Sales Call Analyzer</p>
+      <p class="tool-desc">Analyze sales calls with AI. Spot patterns, coach reps, close more deals.</p>
+      <span class="tool-tag">Sales</span>
+    </div>
+    <div class="tool-card">
+      <p class="tool-num">Episode 02</p>
+      <p class="tool-name">AI Caller / Voice Agent</p>
+      <p class="tool-desc">Calculate your AI calling costs. Get a vendor stack and ready-made scripts.</p>
+      <span class="tool-tag">Operations</span>
+    </div>
+    <div class="tool-card">
+      <p class="tool-num">Episode 03</p>
+      <p class="tool-name">Prompt Builder</p>
+      <p class="tool-desc">Build custom AI prompts for your business in minutes. No prompt engineering needed.</p>
+      <span class="tool-tag">Productivity</span>
+    </div>
+    <div class="tool-card">
+      <p class="tool-num">Episode 04</p>
+      <p class="tool-name">Legal Case Handler</p>
+      <p class="tool-desc">Organize and analyze case files with AI. Built for solo practitioners.</p>
+      <span class="tool-tag">Legal</span>
+    </div>
+    <div class="tool-card">
+      <p class="tool-num">Episode 05</p>
+      <p class="tool-name">FB Audience Unifier</p>
+      <p class="tool-desc">Unify your Facebook audience data for sharper targeting and lower ad spend.</p>
+      <span class="tool-tag">Marketing</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <p class="bottom-cta-eyebrow">Don't miss the next one</p>
+  <h2 class="bottom-cta-title">New tools drop every episode.</h2>
+  <p class="bottom-cta-sub">Get each Master Trove the moment it goes live. Free, practical, built for your business.</p>
+  <div class="bottom-form-row">
+    <input type="email" class="bottom-input" placeholder="your@email.com" id="bottom-email">
+    <button class="bottom-btn" onclick="handleBottomSubmit(this)">Get Notified</button>
+  </div>
+  <p id="bottom-success" style="display:none; color:rgba(255,255,255,0.85); margin-top:16px; font-size:14px; font-weight:700;">Check your inbox!</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+</footer>
+
+<script>
+const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
+
+async function subscribe(email) {
+  const res = await fetch(`${RAILWAY_API}/subscribe`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email })
+  });
+  return res.ok;
+}
+
+async function handleSubmit(inputId, wrapId, successId, btnEl) {
+  const input = document.getElementById(inputId);
+  if (!input.value || !input.value.includes('@')) {
+    input.style.borderColor = '#ef4444';
+    input.focus();
+    return;
+  }
+  if (btnEl) { btnEl.disabled = true; btnEl.textContent = 'Sending...'; }
+  await subscribe(input.value).catch(() => {});
+  document.getElementById(wrapId).style.display = 'none';
+  document.getElementById(successId).style.display = 'block';
+}
+
+async function handleBottomSubmit(btnEl) {
+  const input = document.getElementById('bottom-email');
+  if (!input.value || !input.value.includes('@')) {
+    input.style.outline = '2px solid rgba(255,255,255,0.5)';
+    input.focus();
+    return;
+  }
+  if (btnEl) { btnEl.disabled = true; btnEl.textContent = 'Sending...'; }
+  await subscribe(input.value).catch(() => {});
+  input.parentElement.style.display = 'none';
+  document.getElementById('bottom-success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
