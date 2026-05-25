@@ -19,6 +19,20 @@
     align-items: center;
     gap: 12px;
   }
+  .header-nav {
+    margin-left: auto;
+    display: flex;
+    gap: 24px;
+  }
+  .header-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.15s;
+  }
+  .header-nav a:hover { color: #fff; }
   .header-logo {
     width: 40px;
     height: 40px;
@@ -313,6 +327,11 @@
 <header class="header">
   <img src="brand/profile-pic.png" alt="The AI Shift" class="header-logo">
   <span class="header-wordmark">The AI Shift</span>
+  <nav class="header-nav">
+    <a href="/tools/sales-analyzer/">Sales Analyzer</a>
+    <a href="/tools/ai-caller/">AI Caller</a>
+    <a href="/about/">About</a>
+  </nav>
 </header>
 
 <!-- HERO -->
