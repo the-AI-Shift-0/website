@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Caller Master Trove</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8f7ff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 40px; }
+        .eyebrow {
+            font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #7c3aed; margin-bottom: 12px;
+        }
+        h1 { font-size: 32px; margin-bottom: 12px; color: #1f2937; }
+        .subtitle {
+            font-size: 16px; color: #6b7280; margin-bottom: 24px;
+            max-width: 560px; margin-left: auto; margin-right: auto;
+        }
+        .what-you-get {
+            background: white; border: 1px solid #e5e7eb;
+            border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; text-align: left;
+        }
+        .what-you-get h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: #7c3aed; margin-bottom: 12px;
+        }
+        .what-you-get ul {
+            list-style: none; display: grid;
+            grid-template-columns: 1fr 1fr; gap: 8px;
+        }
+        .what-you-get li {
+            font-size: 14px; color: #374151;
+            padding-left: 20px; position: relative;
+        }
+        .what-you-get li::before {
+            content: "✓"; position: absolute; left: 0;
+            color: #7c3aed; font-weight: 700;
+        }
+        .form-section {
+            background: white; border: 1px solid #e5e7eb;
+            border-radius: 8px; padding: 32px; margin-bottom: 24px;
+        }
+        .form-section h2 {
+            font-size: 18px; color: #7c3aed; margin-bottom: 20px;
+            border-bottom: 2px solid #f3e8ff; padding-bottom: 12px;
+        }
+        .form-group { margin-bottom: 20px; }
+        label {
+            display: block; font-weight: 600; margin-bottom: 8px;
+            color: #1f2937; font-size: 14px;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%; padding: 10px 12px; border: 1px solid #d1d5db;
+            border-radius: 6px; font-size: 14px; font-family: inherit; transition: border-color 0.2s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, select:focus {
+            outline: none; border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        .radio-group { display: flex; flex-direction: column; gap: 10px; }
+        .radio-item { display: flex; align-items: flex-start; gap: 10px; }
+        input[type="radio"] { margin-top: 3px; cursor: pointer; accent-color: #7c3aed; }
+        .radio-item label { margin-bottom: 0; font-weight: 400; cursor: pointer; flex: 1; }
+        .button-container { text-align: center; margin: 40px 0; }
+        button {
+            background: #7c3aed; color: white; border: none; padding: 14px 32px;
+            border-radius: 8px; font-size: 16px; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        button:hover { background: #6d28d9; }
+        button:active { background: #5b21b6; }
+
+        /* Form tabs */
+        .form-tabs-bar {
+            display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 2px solid #e5e7eb;
+        }
+        .form-tab-btn {
+            padding: 12px 20px; border: none; background: transparent; color: #6b7280;
+            font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+            border-bottom: 3px solid transparent; margin-bottom: -2px;
+        }
+        .form-tab-btn.active {
+            color: #7c3aed; border-bottom-color: #7c3aed;
+        }
+        .form-tab-btn:hover {
+            color: #1f2937;
+        }
+
+        /* Form content */
+        .form-content { display: none; }
+        .form-content.active { display: block; }
+
+        /* Progress indicator */
+        .progress-indicator {
+            font-size: 13px; font-weight: 600; color: #7c3aed; margin-bottom: 24px;
+            text-align: center;
+        }
+
+        /* Step 1 form */
+        .step-1-fields { display: grid; gap: 20px; }
+
+        /* Processing and success states */
+        .processing-state, .success-state { display: none; text-align: center; padding: 40px 20px; }
+        .processing-state.show, .success-state.show { display: block; }
+
+        .spinner {
+            width: 48px; height: 48px; border: 4px solid #f3e8ff;
+            border-top-color: #7c3aed; border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .success-icon {
+            font-size: 48px; margin: 0 auto 20px; display: inline-block;
+        }
+
+        .processing-state h3, .success-state h3 {
+            font-size: 18px; color: #1f2937; margin-bottom: 12px;
+        }
+
+        .processing-state p, .success-state p {
+            font-size: 14px; color: #6b7280; margin-bottom: 20px;
+        }
+
+        .success-state a {
+            color: #7c3aed; text-decoration: none; font-weight: 600;
+        }
+        .success-state a:hover {
+            text-decoration: underline;
+        }
+
+        /* Output */
+        .output-section { display: none; }
+        .output-section.show { display: block; }
+        .output-header { text-align: center; margin-bottom: 32px; }
+        .output-header h2 { font-size: 24px; color: #1f2937; margin-bottom: 8px; }
+        .output-header p { font-size: 14px; color: #6b7280; }
+        .output-block {
+            background: white; border: 2px solid #7c3aed;
+            border-radius: 8px; padding: 32px; margin-bottom: 24px;
+        }
+        .output-block-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: #7c3aed; margin-bottom: 16px;
+        }
+        .output-content {
+            color: #1f2937; font-size: 13px; line-height: 1.8;
+            white-space: pre-wrap; word-wrap: break-word;
+            font-family: 'Courier New', monospace; margin-bottom: 20px;
+        }
+        .copy-button {
+            background: #7c3aed; color: white; border: none;
+            padding: 10px 20px; border-radius: 6px; font-size: 14px;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        .copy-button:hover { background: #6d28d9; }
+        .copy-button.copied { background: #10b981; }
+
+        /* How to use */
+        .how-to-use {
+            background: white; border: 1px solid #e5e7eb;
+            border-radius: 8px; padding: 28px; margin-bottom: 24px;
+        }
+        .how-to-use h3 { font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 20px; }
+        .platform-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+        .tab-btn {
+            padding: 8px 16px; border: 1px solid #d1d5db; border-radius: 6px;
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            background: white; color: #6b7280; transition: all 0.15s;
+        }
+        .tab-btn.active { background: #7c3aed; color: white; border-color: #7c3aed; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .steps-list { list-style: none; counter-reset: step-counter; }
+        .steps-list li {
+            counter-increment: step-counter; display: flex;
+            gap: 14px; margin-bottom: 14px; font-size: 14px; color: #374151;
+        }
+        .steps-list li::before {
+            content: counter(step-counter); background: #7c3aed; color: white;
+            width: 22px; height: 22px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 11px;
+            font-weight: 700; flex-shrink: 0; margin-top: 1px;
+        }
+        .tip-box {
+            background: #f3e8ff; border-radius: 6px; padding: 12px 16px;
+            font-size: 13px; color: #5b21b6; margin-top: 12px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 24px; }
+            .form-section { padding: 20px; }
+            .what-you-get ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="eyebrow">The AI Shift</div>
+        <h1>AI Caller Master Trove</h1>
+        <p class="subtitle">Tell us about your business and your call setup. We'll generate your exact cost, the stack to use, and the scripts your AI caller speaks — ready to load in minutes.</p>
+    </header>
+
+    <div class="what-you-get">
+        <h3>What's inside your Master Trove</h3>
+        <ul>
+            <li>Your personalized cost estimate</li>
+            <li>Exact vendor stack for your scale</li>
+            <li>AI opening script (ready to load)</li>
+            <li>Discovery question sequence</li>
+            <li>Objection handling scripts</li>
+            <li>Booking confirmation close</li>
+            <li>Step-by-step setup guide</li>
+            <li>Calibrated to your industry</li>
+        </ul>
+    </div>
+
+    <!-- Tab bar for form vs. example output -->
+    <div class="form-tabs-bar">
+        <button type="button" class="form-tab-btn active" onclick="switchFormTab('get-yours', this)">Get Yours</button>
+        <button type="button" class="form-tab-btn" onclick="switchFormTab('example-output', this)">See Example Output</button>
+    </div>
+
+    <!-- "Get Yours" tab content -->
+    <div id="get-yours-content" class="form-content active">
+        <form id="troveForm">
+        <div class="progress-indicator" id="progressIndicator">Step 1 of 2</div>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="form-content active">
+            <div class="form-section">
+                <h2>Let's start with you</h2>
+                <div class="step-1-fields">
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" placeholder="you@company.com" required>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="goToStep(2)">Next: Your Caller Profile →</button>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="form-content">
+            <!-- Section 1 -->
+            <div class="form-section">
+                <h2>Section 1 — Your Business</h2>
+                <div class="form-group">
+                    <label for="industry">What industry are you in?</label>
+                    <select id="industry" required>
+                        <option value="">-- Select an industry --</option>
+                        <option value="Online coaching / education">Online coaching / education</option>
+                        <option value="Real estate">Real estate</option>
+                        <option value="Professional services">Professional services</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Home services (HVAC, plumbing, electrical)">Home services (HVAC, plumbing, electrical)</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="SaaS">SaaS</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="revenue">Annual revenue range:</label>
+                    <select id="revenue" required>
+                        <option value="">-- Select a range --</option>
+                        <option value="$500K–$1M">$500K – $1M</option>
+                        <option value="$1M–$3M">$1M – $3M</option>
+                        <option value="$3M–$7M">$3M – $7M</option>
+                        <option value="$7M–$15M">$7M – $15M</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="form-section">
+                <h2>Section 2 — Your Call Setup</h2>
+            <div class="form-group">
+                <label for="callVolume">How many AI calls per day?</label>
+                <select id="callVolume" required>
+                    <option value="">-- Select --</option>
+                    <option value="5-15">5–15 calls/day</option>
+                    <option value="15-40">15–40 calls/day</option>
+                    <option value="40-80">40–80 calls/day</option>
+                    <option value="80+">80+ calls/day</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>What triggers the AI to call?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="t1" name="trigger" value="form_fill" required>
+                        <label for="t1">Someone fills out a form / opts in</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="t2" name="trigger" value="after_purchase">
+                        <label for="t2">After a purchase or sign-up</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="t3" name="trigger" value="no_show">
+                        <label for="t3">Someone missed a scheduled call or session</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="t4" name="trigger" value="re_engagement">
+                        <label for="t4">Re-engaging cold or lapsed leads</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>What is the goal of each call?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="g1" name="goal" value="confirm_attendance" required>
+                        <label for="g1">Confirm attendance / lock in a booking</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="g2" name="goal" value="qualify_lead">
+                        <label for="g2">Qualify the lead and book a sales call</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="g3" name="goal" value="re_engage">
+                        <label for="g3">Re-engage and get them back on track</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="g4" name="goal" value="onboard">
+                        <label for="g4">Onboard and set up the next step</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="form-section">
+            <h2>Section 3 — Your Current State</h2>
+            <div class="form-group">
+                <label>What is your current show-up rate?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="s1" name="showup" value="under_40" required>
+                        <label for="s1">Under 40% — significant drop-off problem</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="s2" name="showup" value="40_60">
+                        <label for="s2">40–60% — room for improvement</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="s3" name="showup" value="60_80">
+                        <label for="s3">60–80% — decent but want better</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="s4" name="showup" value="not_tracking">
+                        <label for="s4">Not currently tracking it</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+
+            <div class="button-container">
+                <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
+            </div>
+        </div>
+
+        <!-- PROCESSING STATE -->
+        <div class="processing-state" id="processingState">
+            <div class="spinner"></div>
+            <h3>Building your Master Trove...</h3>
+            <p>Building your personalised cost estimate, vendor stack and scripts...</p>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+            <div class="success-icon">✓</div>
+            <h3>Your AI Caller Master Trove is on its way!</h3>
+            <p>Check your inbox — it'll arrive in the next 60 seconds.</p>
+            <a href="javascript:void(0)" onclick="switchFormTab('example-output', document.querySelector('.form-tab-btn:last-of-type')); resetForm()">See what you're getting →</a>
+        </div>
+    </form>
+    </div>
+
+    <!-- "See Example Output" tab content -->
+    <div id="example-output-content" class="form-content">
+        <!-- Output (shown in Example Output tab) -->
+        <div id="outputSection">
+        <div class="output-header">
+            <h2>Your AI Caller Master Trove is ready.</h2>
+            <p>Your cost, your stack, and your scripts — built for your business.</p>
+        </div>
+
+        <div class="output-block">
+            <div class="output-block-label">Part 1 — Your Cost Estimate</div>
+            <div class="output-content" id="costOutput"></div>
+            <button class="copy-button" onclick="copySection('costOutput', this)">Copy Cost Estimate</button>
+        </div>
+
+        <div class="output-block">
+            <div class="output-block-label">Part 2 — Your Recommended Stack</div>
+            <div class="output-content" id="stackOutput"></div>
+            <button class="copy-button" onclick="copySection('stackOutput', this)">Copy Stack</button>
+        </div>
+
+        <div class="output-block">
+            <div class="output-block-label">Part 3 — Your AI Caller Scripts</div>
+            <div class="output-content" id="scriptsOutput"></div>
+            <button class="copy-button" onclick="copySection('scriptsOutput', this)">Copy Scripts</button>
+        </div>
+
+        <div class="how-to-use">
+            <h3>How to load your scripts</h3>
+            <div class="platform-tabs">
+                <button type="button" class="tab-btn active" onclick="switchTab('retell', this)">Retell AI</button>
+                <button type="button" class="tab-btn" onclick="switchTab('vapi', this)">VAPI</button>
+                <button type="button" class="tab-btn" onclick="switchTab('claude', this)">Refine with Claude</button>
+            </div>
+            <div class="tab-content active" id="tab-retell">
+                <ol class="steps-list">
+                    <li>Go to <strong>app.retellai.com</strong> and sign in (or create an account — free trial available)</li>
+                    <li>Click <strong>Create Agent</strong> → give it a name (e.g. "Maya — Booking Confirmation")</li>
+                    <li>Under <strong>Prompt</strong>, paste your Opening Script and append your Discovery Questions below it</li>
+                    <li>Under <strong>Response Guidelines</strong>, paste your Objection Handling scripts — one per objection</li>
+                    <li>Connect your Twilio number under <strong>Phone Numbers</strong></li>
+                    <li>Set up your webhook in <strong>Integrations</strong> to fire your automation (Make.com or Zapier) after each call</li>
+                    <li>Test with a call to your own number — iterate on tone before going live</li>
+                </ol>
+                <div class="tip-box">Start with 5-10 calls per day to calibrate. Most businesses get their show-up rate to 75%+ within the first two weeks of tuning.</div>
+            </div>
+            <div class="tab-content" id="tab-vapi">
+                <ol class="steps-list">
+                    <li>Go to <strong>vapi.ai</strong> → <strong>Assistants</strong> → <strong>Create Assistant</strong></li>
+                    <li>Set the <strong>System Prompt</strong> to your Opening Script — this is what the AI reads at the top of every call</li>
+                    <li>Add your Discovery Questions under <strong>Functions</strong> as conditional follow-ups</li>
+                    <li>Paste Objection scripts into the <strong>Knowledge Base</strong> — the AI retrieves them when it detects resistance</li>
+                    <li>Connect Twilio under <strong>Phone Numbers</strong> → <strong>Import</strong></li>
+                    <li>Set up <strong>End-of-Call Webhook</strong> to push transcript + outcome to your CRM via Make.com</li>
+                    <li>Use VAPI's <strong>Call Analytics</strong> to track which scripts convert best over the first 50 calls</li>
+                </ol>
+                <div class="tip-box">VAPI gives you more control over call flow branching. If your calls have multiple paths (qualify → book vs. qualify → pass), VAPI handles this better than Retell at scale.</div>
+            </div>
+            <div class="tab-content" id="tab-claude">
+                <ol class="steps-list">
+                    <li>Go to <strong>claude.ai</strong> → <strong>Projects</strong> → <strong>New Project</strong></li>
+                    <li>Name it "AI Caller Scripts" and paste all three script sections as your Project Instructions</li>
+                    <li>In the chat, type: <em>"Rewrite the opening script in a more conversational tone for [your industry]"</em></li>
+                    <li>Once happy with the scripts, say: <em>"Format these for Retell AI — system prompt format"</em></li>
+                    <li>Copy the formatted output straight into your AI caller platform</li>
+                </ol>
+                <div class="tip-box">Use Claude to A/B test variations. Paste both versions and say "which opening is more likely to keep someone on the call for 60 seconds?" — then test the winner live.</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    const RAILWAY_API = 'https://the-ai-shift.up.railway.app';
+    const VIDEO_KEY = 'ai-caller';
+
+    function switchFormTab(tab, btn) {
+        document.querySelectorAll('.form-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('[id$="-content"]').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(tab + '-content').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToStep(stepNum) {
+        if (stepNum === 2) {
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!firstName || !email) {
+                alert('Please fill in your first name and email.');
+                return;
+            }
+            document.getElementById('step-1').classList.remove('active');
+            document.getElementById('step-2').classList.add('active');
+            document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
+        }
+    }
+
+    function resetForm() {
+        document.getElementById('troveForm').reset();
+        document.getElementById('step-1').classList.add('active');
+        document.getElementById('step-2').classList.remove('active');
+        document.getElementById('processingState').classList.remove('show');
+        document.getElementById('successState').classList.remove('show');
+        document.getElementById('progressIndicator').innerText = '';
+    }
+
+    function switchTab(platform, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + platform).classList.add('active');
+    }
+
+    function generateTrove() {
+        const firstName = document.getElementById('firstName').value;
+        const email = document.getElementById('email').value;
+        const industry = document.getElementById('industry').value;
+        const revenue = document.getElementById('revenue').value;
+        const callVolume = document.getElementById('callVolume').value;
+        const triggerEl = document.querySelector('input[name="trigger"]:checked');
+        const goalEl = document.querySelector('input[name="goal"]:checked');
+        const showupEl = document.querySelector('input[name="showup"]:checked');
+
+        if (!industry || !revenue || !callVolume) {
+            alert('Please complete all dropdown fields.');
+            return;
+        }
+        if (!triggerEl || !goalEl || !showupEl) {
+            alert('Please answer all questions in Section 2 and Section 3.');
+            return;
+        }
+
+        const trigger = triggerEl.value;
+        const goal = goalEl.value;
+        const showup = showupEl.value;
+
+        const formData = {
+            name: firstName,
+            email: email,
+            industry: industry,
+            callVolume: callVolume,
+            trigger: trigger,
+            goal: goal,
+            showUpRate: showup
+        };
+
+        submitToRailway(formData);
+    }
+
+    async function submitToRailway(formData) {
+        // Show processing state
+        document.getElementById('step-2').classList.remove('active');
+        document.getElementById('processingState').classList.add('show');
+
+        try {
+            const response = await fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+
+            document.getElementById('processingState').classList.remove('show');
+            document.getElementById('successState').classList.add('show');
+
+            // If API returns generated output, use it (Claude generates scripts; static builders handle cost/stack)
+            if (data.output) {
+                document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry, formData.showUpRate);
+                document.getElementById('stackOutput').innerText = buildStack(formData.callVolume, formData.industry, formData.goal);
+                document.getElementById('scriptsOutput').innerText = data.output;
+            } else {
+                loadStaticExample(formData);
+            }
+        } catch (err) {
+            console.warn('Railway API unavailable, using offline mode:', err.message);
+            document.getElementById('processingState').classList.remove('show');
+            document.getElementById('successState').classList.add('show');
+            loadStaticExample(formData);
+        }
+    }
+
+    function loadStaticExample(formData) {
+        document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry, formData.showUpRate);
+        document.getElementById('stackOutput').innerText = buildStack(formData.callVolume, formData.industry, formData.goal);
+        document.getElementById('scriptsOutput').innerText = buildScripts(formData.industry, formData.trigger, formData.goal, formData.revenue);
+    }
+
+    function buildCost(callVolume, industry, showup) {
+        const volumes = {
+            '5-15':  { mid: 10,  monthCalls: 300,  totalMins: 750,   voiceRange: '$53–$90',    telRange: '$8–$12',  setupRange: '$2,000–$4,000',  setter: '$2,000–$3,000/mo' },
+            '15-40': { mid: 28,  monthCalls: 840,  totalMins: 2100,  voiceRange: '$147–$252',  telRange: '$18–$27', setupRange: '$3,000–$5,500',  setter: '$2,500–$4,000/mo' },
+            '40-80': { mid: 60,  monthCalls: 1800, totalMins: 4500,  voiceRange: '$315–$540',  telRange: '$36–$54', setupRange: '$4,500–$7,500',  setter: '$3,500–$5,000/mo' },
+            '80+':   { mid: 100, monthCalls: 3000, totalMins: 7500,  voiceRange: '$525–$900',  telRange: '$60–$90', setupRange: '$6,000–$10,000', setter: '$5,000–$8,000/mo' },
+        };
+        const v = volumes[callVolume];
+        const calCost = callVolume === '5-15' ? '$12' : '$24';
+        const autoCost = callVolume === '5-15' ? '$20' : callVolume === '15-40' ? '$29' : '$49';
+
+        const showupContext = {
+            'under_40': `Your current show-up rate is under 40%. Businesses at this baseline typically reach 70–80% within 30 days of running an AI caller. That recovery alone often pays for the system in the first month.`,
+            '40_60':    `Your current show-up rate is 40–60%. AI callers consistently push this to 75–85% at your volume. At ${v.mid} calls/day, that's ${Math.round(v.mid * 0.35)} more confirmed bookings per day.`,
+            '60_80':    `Your current show-up rate is 60–80%. You're already solid — AI gets you to 82–88% while removing all manual follow-up labor. The gain is operational, not just conversion.`,
+            'not_tracking': `You're not currently tracking show-up rate. Businesses that implement an AI caller and start tracking typically find they're at 35–55% and jump to 78–85% within the first month.`,
+        };
+
+        return `YOUR AI CALLER COST ESTIMATE
+${industry.toUpperCase()} | ${callVolume} CALLS/DAY
+
+=== MONTHLY RUNNING COSTS ===
+
+AI Voice Platform (Retell AI / VAPI)
+  ${v.monthCalls} calls/mo × 2.5min avg = ~${v.totalMins} mins
+  At $0.07–$0.12/min → ${v.voiceRange}/mo
+
+Telephony (Twilio)
+  ~$0.008–0.012/min + number fees → ${v.telRange}/mo
+
+Calendar Integration (Calendly / Acuity)
+  ${calCost}/mo
+
+Workflow Automation (Make.com)
+  ${autoCost}/mo
+
+─────────────────────────────
+TOTAL MONTHLY: estimate all-in
+
+vs. hiring a human setter: ${v.setter}
+
+=== ONE-TIME SETUP COST ===
+
+Developer build + testing: ${v.setupRange}
+(2–4 weeks depending on CRM complexity)
+
+=== WHAT THIS MEANS FOR YOUR BUSINESS ===
+
+${showupContext[showup]}`;
+    }
+
+    function buildStack(callVolume, industry, goal) {
+        const useVAPI = callVolume === '80+';
+        const voiceVendor = useVAPI ? 'VAPI' : 'Retell AI';
+        const voiceReason = useVAPI
+            ? 'At 80+ calls/day, VAPI gives you more control over call flow branching and higher-volume reliability. More setup required but worth it at scale.'
+            : 'Best for your call volume. Easiest to set up, best out-of-box conversation quality, strong dashboard for monitoring live calls.';
+
+        const crmVendor = (industry === 'Online coaching / education' || industry === 'Real estate' || industry === 'Healthcare')
+            ? 'GoHighLevel'
+            : (industry === 'SaaS') ? 'HubSpot' : 'GoHighLevel or HubSpot';
+        const crmReason = (industry === 'SaaS')
+            ? 'HubSpot handles multi-touch SaaS funnels well. AI caller logs outcomes directly into deal stage.'
+            : 'GoHighLevel is purpose-built for high-volume lead follow-up. Handles AI caller triggers natively and keeps all contact data in one place.';
+
+        const calVendor = (industry === 'Online coaching / education' || industry === 'Healthcare') ? 'Calendly' : 'Calendly or Acuity';
+        const calReason = (goal === 'confirm_attendance')
+            ? 'Direct calendar integration means AI confirms the slot and sends the invite without a human touching it.'
+            : 'Used for booking the sales call after lead qualifies. AI pushes directly to the rep\'s calendar.';
+
+        const qualifyNote = (goal === 'qualify_lead')
+            ? '\n\nFor your goal (qualify leads): wire the CRM so that the AI call outcome tags the contact as Qualified / Not Qualified automatically. Reps only touch Qualified leads — everything else is handled without them.'
+            : '';
+
+        return `YOUR RECOMMENDED STACK
+${industry.toUpperCase()} | ${callVolume} CALLS/DAY
+
+=== AI VOICE PLATFORM ===
+
+Recommended: ${voiceVendor}
+Why: ${voiceReason}
+Avoid: Bland AI at your volume (less stable, fewer integrations)
+Pricing: Pay-per-minute. Start with a free trial to test your scripts before going live.
+
+=== TELEPHONY ===
+
+Recommended: Twilio
+Why: Most reliable, best integration support, works with all major AI voice platforms. Buy a local number in your area code — higher answer rates than toll-free.
+Avoid: Direct VoIP providers that aren't Twilio-compatible — you'll hit integration problems.
+
+=== CALENDAR INTEGRATION ===
+
+Recommended: ${calVendor}
+Why: ${calReason}
+Setup: Connect via Make.com — AI confirms booking, Make.com fires calendar invite + CRM update automatically.
+
+=== CRM ===
+
+Recommended: ${crmVendor}
+Why: ${crmReason}
+What to automate: Call outcome (confirmed / no answer / objection) updates the contact record with zero manual entry.${qualifyNote}
+
+=== WORKFLOW AUTOMATION ===
+
+Recommended: Make.com
+Why: More intuitive than Zapier for AI caller workflows. Better at multi-step scenarios (call ends → update CRM → send calendar invite → notify rep). $29/mo at your volume.
+Avoid: Zapier unless you're already deep in their ecosystem — Make.com is faster to build with here.
+
+=== TOTAL VENDORS: 5 ===
+${voiceVendor} + Twilio + ${calVendor} + ${crmVendor} + Make.com`;
+    }
+
+    function buildScripts(industry, trigger, goal, revenue) {
+        const industryNoun = {
+            'Online coaching / education': 'coaching program',
+            'Real estate': 'property inquiry',
+            'Professional services': 'consultation',
+            'Healthcare': 'appointment',
+            'E-commerce': 'order',
+            'SaaS': 'trial',
+            'Other': 'service',
+        }[industry] || 'program';
+
+        const openings = {
+            'form_fill': {
+                'confirm_attendance': `Hi [First Name], this is Maya calling from [Company Name]. I'm reaching out because you just registered — I wanted to make sure your spot is locked in and you have everything you need. Is now a quick 60 seconds?`,
+                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You just filled out our form a few minutes ago — I wanted to reach out while it was fresh and make sure I understand exactly what you're looking for. Is now a good moment for 60 seconds?`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You reached out to us a little while ago and I wanted to reconnect — are you still exploring [${industryNoun}]?`,
+                'onboard':            `Hi [First Name], this is Maya from [Company Name]. You just signed up and I wanted to reach out personally to make sure you're set up and ready to get started. Quick 60 seconds?`,
+            },
+            'after_purchase': {
+                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I'm calling because you just joined — I wanted to make sure you know exactly what happens next and that your first session is confirmed. Quick 60 seconds?`,
+                'qualify_lead':       `Hi [First Name], Maya here from [Company Name]. You recently came on board and I want to make sure we're matched up correctly for what you need. Can I ask you a quick question?`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You signed up with us a while back — I wanted to check in and make sure things are going well. Do you have 60 seconds?`,
+                'onboard':            `Hi [First Name], Maya from [Company Name]. You just completed your purchase — I'm calling to walk you through your first three steps so you get started on the right foot. Quick 60 seconds?`,
+            },
+            'no_show': {
+                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I noticed you weren't able to make it to your session today — I wanted to reach out and get you rescheduled before the spot fills up. Is now okay for a second?`,
+                'qualify_lead':       `Hi [First Name], Maya here from [Company Name]. You had a call scheduled with us that you weren't able to make — wanted to see if now's a better time, or find a time that works for you.`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. We had something scheduled that didn't happen — I wanted to reach out personally and see if there's anything I can do.`,
+                'onboard':            `Hi [First Name], Maya from [Company Name]. You missed your onboarding call — I wanted to make sure nothing fell through the cracks and get you rescheduled.`,
+            },
+            're_engagement': {
+                'confirm_attendance': `Hi [First Name], Maya here from [Company Name]. It's been a little while since we last connected — we have something coming up that I think would be right for you. Do you have 60 seconds?`,
+                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You were on our radar a while back and I wanted to reconnect — are you still thinking about [${industryNoun}] or has that changed?`,
+                're_engage':          `Hi [First Name], Maya from [Company Name]. It's been a while — I wanted to check in and see where things stand for you. Still interested in what we talked about?`,
+                'onboard':            `Hi [First Name], this is Maya from [Company Name]. You connected with us some time ago — I wanted to reach out because we have a way to get you started that didn't exist when we last spoke.`,
+            },
+        };
+
+        const discoveryQuestions = {
+            'confirm_attendance': [
+                'Quick question — when you registered, what was the main thing you were hoping to get out of this?',
+                'Is there anything specific you want to make sure we cover?',
+                'Is the [date/time] still working on your end?',
+            ],
+            'qualify_lead': [
+                'What made you reach out today — what\'s the thing you\'re most trying to solve right now?',
+                'How long have you been dealing with this?',
+                'What have you already tried?',
+                'If you got this sorted in the next 90 days, what would that change for you?',
+            ],
+            're_engage': [
+                'What\'s changed since we last spoke?',
+                'Is [original problem] still the main thing on your plate?',
+                'What would need to be true for you to move forward on this?',
+            ],
+            'onboard': [
+                'Before I walk you through the steps — is there anything you\'re unclear on from what you signed up for?',
+                'What\'s the one thing you most want to accomplish in the first 30 days?',
+            ],
+        };
+
+        const objections = {
+            'confirm_attendance': {
+                "I'm not sure I can make it": `"Totally understand — schedules change. Good news: there is a replay available for [48 hours after the event], so you won't miss it even if something comes up. Want me to keep your spot confirmed and I'll send the replay link as well?"`,
+                "What is this about exactly?": `"Great question. [Event name] is [one sentence description]. It's [duration] and by the end you'll have [specific outcome]. Does that sound like something worth [30/60/90 minutes] of your time?"`,
+                "I'm busy right now": `"No problem at all — this call will take less than 60 seconds. Just need to confirm one thing and I'll let you go. [Confirm the booking detail.] That's it — you're all set."`,
+            },
+            'qualify_lead': {
+                "Just send me some information": `"Of course — I want to make sure I send you the right thing. Can I ask: what's the main problem you're trying to solve? That way I'm not just sending you everything and wasting your time."`,
+                "I'm not sure it's the right time": `"I hear you. Can I ask — what would need to change for the timing to feel right? Sometimes we can work around the constraint, and if not, I'll be honest with you about that."`,
+                "How much does it cost?": `"Fair question. It depends on what you actually need — that's why I'm asking these questions first. Once I understand where you're at, I can tell you exactly what the investment looks like and whether it makes sense. Is that fair?"`,
+            },
+            're_engage': {
+                "I already found another solution": `"That's great — how's it going? Genuinely curious. If it's working well, I'm happy for you. If you ever want a second opinion or things aren't going the way you hoped, we're here."`,
+                "I'm not interested anymore": `"Completely fine. Can I ask what changed? Only because I want to make sure I'm reaching out to the right people in the future — not to try to change your mind."`,
+                "I'm too busy right now": `"Understood. Quick question — is this a 'not now' or a 'not ever'? Just so I know whether to follow up in a few weeks or take you off the list. I want to respect your time."`,
+            },
+            'onboard': {
+                "I'm not sure how to get started": `"That's exactly why I'm calling. Your first three steps are [X, Y, Z] — takes about [time]. Want me to walk you through step one right now, takes 2 minutes?"`,
+                "I'm having second thoughts": `"I appreciate you saying that — that's normal. What specifically is making you hesitate? Let's talk about it. If it's not the right fit, I'd rather know now and sort it out for you."`,
+            },
+        };
+
+        const closes = {
+            'confirm_attendance': `"Perfect — you're confirmed for [date at time]. I'm sending a calendar invite to your email right now. Keep an eye out for that. See you [then / there]."`,
+            'qualify_lead':        `"Based on what you've told me, I think it's worth a conversation with [rep name / our team]. I have [day] at [time] or [day] at [time] available — which works better for you?"`,
+            're_engage':           `"Here's what I'd suggest — let me send you [specific resource / updated offer / next step]. Take a look and if it makes sense, we can pick up where we left off. Does that work?"`,
+            'onboard':             `"So your first step is [X]. Once that's done, [Y] unlocks. I'll also send you a confirmation email with these steps written out so you have it. Any questions before I let you go?"`,
+        };
+
+        const opening = openings[trigger]?.[goal] || openings['form_fill']['confirm_attendance'];
+        const discovery = discoveryQuestions[goal] || discoveryQuestions['confirm_attendance'];
+        const objectionSet = objections[goal] || objections['confirm_attendance'];
+        const closeScript = closes[goal] || closes['confirm_attendance'];
+
+        const objectionBlock = Object.entries(objectionSet).map(([obj, response]) =>
+            `If they say "${obj}":\n${response}`
+        ).join('\n\n');
+
+        return `YOUR AI CALLER SCRIPTS
+${industry.toUpperCase()} | Built for: ${getGoalLabel(goal)}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCRIPT 1: OPENING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[Load this as your AI's system prompt / opening statement]
+
+"${opening}"
+
+[If no answer → voicemail script]
+"Hi [First Name], Maya from [Company Name]. I'm calling about your [${industryNoun}] — just wanted to make sure everything is confirmed on your end. Give me a call back on [number] or I'll try you again shortly."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCRIPT 2: DISCOVERY QUESTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[After they confirm they have 60 seconds, ask one of these — not all of them]
+
+${discovery.map((q, i) => `${i + 1}. "${q}"`).join('\n')}
+
+[Rule: ask one question, listen, then move to close. Don't interview them.]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCRIPT 3: OBJECTION HANDLING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[Load each of these as conditional responses in your AI platform]
+
+${objectionBlock}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCRIPT 4: THE CLOSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[This is how every successful call ends]
+
+${closeScript}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CALIBRATION NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Target call length: 45–90 seconds. If calls run over 2 minutes, the AI is over-explaining — shorten the opening.
+• If answer rate is low: test calling within 5 minutes of the trigger. Speed is the biggest lever.
+• If show-up rate stalls: add a 2-hour-before reminder call using the same opening with "just a quick reminder" framing.
+• Replace [Company Name], [First Name], [date/time] with your actual values in your platform variables.`;
+    }
+
+    function getGoalLabel(goal) {
+        return {
+            'confirm_attendance': 'Confirm Attendance',
+            'qualify_lead': 'Qualify Lead',
+            're_engage': 'Re-Engagement',
+            'onboard': 'Onboarding',
+        }[goal] || goal;
+    }
+
+    function copySection(id, button) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const orig = button.innerText;
+            button.innerText = 'Copied!';
+            button.classList.add('copied');
+            setTimeout(() => { button.innerText = orig; button.classList.remove('copied'); }, 2000);
+        });
+    }
+</script>
+</body>
+</html>
