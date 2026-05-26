@@ -78,7 +78,8 @@
         button:active { background: #5b21b6; }
 
         /* Form content */
-        .form-content { display: block; }
+        .form-content { display: none; }
+        .form-content.active { display: block; }
 
         /* Progress indicator */
         .progress-indicator {
@@ -418,9 +419,16 @@
                 alert('Please fill in your first name and email.');
                 return;
             }
+            // Capture email before showing step 2 — they're in Kit even if they abandon
+            fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: firstName, email })
+            }).catch(() => {}); // fire-and-forget, don't block the UI
             document.getElementById('step-1').classList.remove('active');
             document.getElementById('step-2').classList.add('active');
             document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
+            window.scrollTo(0, 0);
         }
     }
 
