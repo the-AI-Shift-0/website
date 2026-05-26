@@ -429,6 +429,11 @@
                                 <label for="email">Email address</label>
                                 <input type="email" id="email" placeholder="you@company.com" required>
                             </div>
+
+                            <div class="form-group">
+                                <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
+                                <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
+                            </div>
                         </div>
 
                         <div class="button-container">
@@ -699,6 +704,7 @@
         function generateTrove() {
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const industry = document.getElementById('industry').value;
             const revenue = document.getElementById('revenue').value;
             const repCount = document.getElementById('repCount').value;
@@ -755,6 +761,7 @@
             const formData = {
                 name: firstName,
                 email: email,
+                phone: phone,
                 industry: industryValue,
                 dealSize: dealSize,
                 coachingChallenge: painStr,

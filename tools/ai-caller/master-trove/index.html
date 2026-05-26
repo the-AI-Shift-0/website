@@ -252,6 +252,10 @@
                         <label for="email">Email address</label>
                         <input type="email" id="email" placeholder="you@company.com" required>
                     </div>
+                    <div class="form-group">
+                        <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
+                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
+                    </div>
                 </div>
             </div>
             <div class="button-container">
@@ -428,6 +432,7 @@
     function generateTrove() {
         const firstName = document.getElementById('firstName').value;
         const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value.trim();
         let industry = document.getElementById('industry').value;
         const revenue = document.getElementById('revenue').value;
         const callVolume = document.getElementById('callVolume').value;
@@ -468,7 +473,9 @@
         const formData = {
             name: firstName,
             email: email,
+            phone: phone,
             industry: industry,
+            revenue: revenue,
             callVolume: callVolume,
             trigger: triggerChecked.join(', '),
             goal: goalChecked.join(', ')
