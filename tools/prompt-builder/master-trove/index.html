@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Audience Master Trove</title>
+    <title>Prompt Builder Master Trove</title>
     <style>
         * {
             margin: 0;
@@ -171,33 +171,6 @@
         textarea {
             resize: vertical;
             min-height: 80px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        input[type="checkbox"] {
-            margin-top: 3px;
-            cursor: pointer;
-            accent-color: #7c3aed;
-            width: 16px;
-            height: 16px;
-        }
-
-        .checkbox-item label {
-            cursor: pointer;
-            font-size: 15px;
-            color: #374151;
-            font-weight: 400;
         }
 
         .button-container {
@@ -392,17 +365,17 @@
     <div class="container">
         <header>
             <div class="eyebrow">The AI Shift</div>
-            <h1>Facebook Audience Consolidator Master Trove</h1>
-            <p class="subtitle">Tell us about your contact database. We'll build a custom Claude prompt to enrich and consolidate your data — so Facebook can match 5x more of your contacts.</p>
+            <h1>Prompt Builder Master Trove</h1>
+            <p class="subtitle">Tell us what you're trying to do with AI and we'll build a custom prompt that gets you consistent results — ready to paste into Claude, ChatGPT, or Gemini.</p>
         </header>
 
         <div class="what-you-get">
             <h3>What's inside your Master Trove</h3>
             <ul>
-                <li>Data enrichment prompt (copy into Claude)</li>
-                <li>Export checklist for your data sources</li>
-                <li>Step-by-step enrichment guide</li>
-                <li>Facebook upload instructions</li>
+                <li>Custom system prompt (copy and paste ready)</li>
+                <li>Setup instructions for your AI tool</li>
+                <li>3 starter prompts to use immediately</li>
+                <li>Common mistakes to avoid</li>
             </ul>
         </div>
 
@@ -430,103 +403,50 @@
                     </div>
 
                     <div class="button-container">
-                        <button type="button" onclick="nextStep()">Next: Your Audience Profile →</button>
+                        <button type="button" onclick="nextStep()">Next: Your Prompt Profile →</button>
                     </div>
                 </div>
 
-                <!-- Step 2: Business & Audience Qualification -->
+                <!-- Step 2: Prompt Profile -->
                 <div class="form-tab-content" id="step2">
                     <div class="form-section">
-                        <h2>Your Audience Profile</h2>
+                        <h2>Your Prompt Profile</h2>
 
                         <div class="form-group">
-                            <label for="industry">What industry are you in?</label>
-                            <select id="industry" required>
-                                <option value="">-- Select an industry --</option>
-                                <option value="Online coaching / education">Online coaching / education</option>
-                                <option value="E-commerce">E-commerce</option>
-                                <option value="Professional services">Professional services</option>
-                                <option value="Real estate">Real estate</option>
-                                <option value="Healthcare">Healthcare</option>
-                                <option value="SaaS">SaaS</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
-                            <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                            <label for="role">What's your role or job function?</label>
+                            <input type="text" id="role" placeholder="e.g., Sales manager, Operations lead, Marketing director" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="revenue">Annual revenue range:</label>
-                            <select id="revenue" required>
-                                <option value="">-- Select a range --</option>
-                                <option value="$500K–$1M">$500K – $1M</option>
-                                <option value="$1M–$3M">$1M – $3M</option>
-                                <option value="$3M–$7M">$3M – $7M</option>
-                                <option value="$7M–$15M">$7M – $15M</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="businessType">What type of business are you?</label>
-                            <select id="businessType" required>
+                            <label for="aiTool">Which AI tool do you mainly use?</label>
+                            <select id="aiTool" required>
                                 <option value="">-- Select --</option>
-                                <option value="B2B service provider">B2B service provider</option>
-                                <option value="B2C product seller">B2C product seller</option>
-                                <option value="Membership / subscription">Membership / subscription</option>
-                                <option value="Agency / consultant">Agency / consultant</option>
-                                <option value="Other">Other</option>
+                                <option value="Claude">Claude</option>
+                                <option value="ChatGPT">ChatGPT</option>
+                                <option value="Gemini">Gemini</option>
+                                <option value="Multiple tools">Multiple tools</option>
                             </select>
                         </div>
-                        <div class="form-group" id="businessTypeOtherGroup" style="display:none; margin-top: -8px;">
-                            <input type="text" id="businessTypeOther" placeholder="Tell us your business type">
+
+                        <div class="form-group">
+                            <label for="mainTask">What's the main task you want AI to help with?</label>
+                            <textarea id="mainTask" placeholder="e.g., Writing follow-up emails to clients, summarizing meeting notes, analyzing sales data..." required></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label>What data do you have about your audience? (select all that apply)</label>
-                            <div class="checkbox-group" id="dataSourcesGroup">
-                                <div class="checkbox-item"><input type="checkbox" id="ds-email" name="dataSources" value="Email list"><label for="ds-email">Email list</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ds-phone" name="dataSources" value="Phone numbers"><label for="ds-phone">Phone numbers</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ds-pixel" name="dataSources" value="Facebook pixel data"><label for="ds-pixel">Facebook pixel data</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ds-web" name="dataSources" value="Website analytics"><label for="ds-web">Website analytics</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ds-crm" name="dataSources" value="CRM data"><label for="ds-crm">CRM data</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ds-none" name="dataSources" value="Just starting out"><label for="ds-none">Just starting out</label></div>
-                            </div>
-                            <div id="dataSourcesOtherGroup" style="display:none; margin-top: 4px;">
-                                <textarea id="dataSourcesOther" placeholder="Anything else? Add notes here..."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactCount">How many contacts / records do you have?</label>
-                            <select id="contactCount" required>
+                            <label for="tone">What tone should the output have?</label>
+                            <select id="tone" required>
                                 <option value="">-- Select --</option>
-                                <option value="Under 1,000">Under 1,000</option>
-                                <option value="1,000 - 10,000">1,000 - 10,000</option>
-                                <option value="10,000 - 50,000">10,000 - 50,000</option>
-                                <option value="50,000 - 100,000">50,000 - 100,000</option>
-                                <option value="100,000+">100,000+</option>
+                                <option value="Professional">Professional</option>
+                                <option value="Direct and concise">Direct and concise</option>
+                                <option value="Friendly and conversational">Friendly and conversational</option>
+                                <option value="Formal">Formal</option>
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>What do you want to achieve with Facebook ads? (select all that apply)</label>
-                            <div class="checkbox-group" id="adGoalGroup">
-                                <div class="checkbox-item"><input type="checkbox" id="ag-awareness" name="adGoal" value="Brand awareness"><label for="ag-awareness">Brand awareness</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ag-consideration" name="adGoal" value="Consideration / traffic"><label for="ag-consideration">Consideration / traffic</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ag-conversions" name="adGoal" value="Sales / conversions"><label for="ag-conversions">Sales / conversions</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ag-leads" name="adGoal" value="Lead generation"><label for="ag-leads">Lead generation</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ag-retargeting" name="adGoal" value="Retargeting / remarketing"><label for="ag-retargeting">Retargeting / remarketing</label></div>
-                                <div class="checkbox-item"><input type="checkbox" id="ag-other" name="adGoal" value="Something else"><label for="ag-other">Something else</label></div>
-                            </div>
-                            <div id="adGoalOtherGroup" style="display:none; margin-top: 4px;">
-                                <textarea id="adGoalOther" placeholder="Anything else? Add notes here..."></textarea>
-                            </div>
                         </div>
                     </div>
 
                     <div class="button-container">
-                        <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
+                        <button type="button" onclick="generateTrove()">Build My Prompt →</button>
                         <button class="back-link" type="button" onclick="prevStep()">← Back</button>
                     </div>
                 </div>
@@ -546,8 +466,8 @@
                 <!-- Success state -->
                 <div class="success-state" id="successState">
                     <div class="success-icon">✓</div>
-                    <h3>Your Facebook Audience Consolidator is being built</h3>
-                    <p class="success-sub">We're analyzing your contact database and building your custom data enrichment prompt right now. It usually lands in your inbox within 60 seconds.</p>
+                    <h3>Your Prompt Builder Master Trove is being built</h3>
+                    <p class="success-sub">We're building your custom AI prompt right now. It usually lands in your inbox within 60 seconds.</p>
                     <div class="email-tip">
                         <strong>Check your inbox</strong> — subject line will include "Master Trove."<br><br>
                         Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
@@ -555,9 +475,9 @@
                     <div class="whats-inside">
                         <div class="whats-inside-label">What's on its way</div>
                         <ul>
-                            <li>→ A custom Claude prompt to consolidate and enrich your contact database for Facebook matching</li>
-                            <li>→ Data export checklist covering your specific sources (CRM, email, forms, etc.)</li>
-                            <li>→ Step-by-step guide to enrich your contacts and upload to Facebook Custom Audiences</li>
+                            <li>→ A custom system prompt built for your specific role and task — ready to paste</li>
+                            <li>→ Setup instructions for your chosen AI tool</li>
+                            <li>→ Three starter prompts you can use immediately</li>
                         </ul>
                     </div>
                     <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -569,44 +489,8 @@
 
     <script>
         const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
-        const VIDEO_KEY = 'fb-audience';
+        const VIDEO_KEY = 'prompt-builder';
         let currentStep = 1;
-
-        // Industry "Other" text input visibility
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('industry').addEventListener('change', function() {
-                const otherGroup = document.getElementById('industryOtherGroup');
-                otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
-            });
-
-            document.getElementById('businessType').addEventListener('change', function() {
-                const otherGroup = document.getElementById('businessTypeOtherGroup');
-                otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
-            });
-
-            // Data Sources checkboxes visibility
-            document.querySelectorAll('input[name="dataSources"]').forEach(checkbox => {
-                checkbox.addEventListener('change', updateDataSourcesVisibility);
-            });
-
-            // Ad Goal checkboxes visibility
-            document.querySelectorAll('input[name="adGoal"]').forEach(checkbox => {
-                checkbox.addEventListener('change', updateAdGoalVisibility);
-            });
-        });
-
-        function updateDataSourcesVisibility() {
-            const otherGroup = document.getElementById('dataSourcesOtherGroup');
-            const hasAny = document.querySelectorAll('input[name="dataSources"]:checked').length > 0;
-            const otherChecked = document.getElementById('ds-none').checked;
-            otherGroup.style.display = hasAny && otherChecked ? 'block' : 'none';
-        }
-
-        function updateAdGoalVisibility() {
-            const otherGroup = document.getElementById('adGoalOtherGroup');
-            const otherChecked = document.getElementById('ag-other').checked;
-            otherGroup.style.display = otherChecked ? 'block' : 'none';
-        }
 
         function nextStep() {
             const firstName = document.getElementById('firstName').value.trim();
@@ -643,63 +527,17 @@
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
-            const industry = document.getElementById('industry').value;
-            const revenue = document.getElementById('revenue').value;
-            const businessType = document.getElementById('businessType').value;
-            const contactCount = document.getElementById('contactCount').value;
+            const role = document.getElementById('role').value.trim();
+            const aiTool = document.getElementById('aiTool').value;
+            const mainTask = document.getElementById('mainTask').value.trim();
+            const tone = document.getElementById('tone').value;
 
-            // Industry custom text
-            let industryValue = industry;
-            if (industry === 'Other') {
-                const customIndustry = document.getElementById('industryOther').value.trim();
-                if (customIndustry) {
-                    industryValue = customIndustry;
-                }
-            }
-
-            // Business type custom text
-            let businessTypeValue = businessType;
-            if (businessType === 'Other') {
-                const customBT = document.getElementById('businessTypeOther').value.trim();
-                if (customBT) {
-                    businessTypeValue = customBT;
-                }
-            }
-
-            // Data sources
-            const dataSources = Array.from(document.querySelectorAll('input[name="dataSources"]:checked')).map(cb => cb.value);
-            let dataSourcesStr = dataSources.join(', ');
-            const dataSourcesNote = document.getElementById('dataSourcesOther').value.trim();
-            if (dataSourcesNote) {
-                dataSourcesStr += (dataSourcesStr ? '; ' : '') + dataSourcesNote;
-            }
-
-            // Ad goals
-            const adGoals = Array.from(document.querySelectorAll('input[name="adGoal"]:checked')).map(cb => cb.value);
-            let adGoalStr = adGoals.join(', ');
-            const adGoalNote = document.getElementById('adGoalOther').value.trim();
-            if (adGoalNote) {
-                adGoalStr += (adGoalStr ? '; ' : '') + adGoalNote;
-            }
-
-            // Validation
-            if (!industryValue || !revenue || !businessTypeValue || dataSources.length === 0 || !contactCount || adGoals.length === 0) {
+            if (!role || !aiTool || !mainTask || !tone) {
                 alert('Please complete all required fields.');
                 return;
             }
 
-            const formData = {
-                name: firstName,
-                email: email,
-                phone: phone,
-                industry: industryValue,
-                revenue: revenue,
-                businessType: businessTypeValue,
-                dataSources: dataSourcesStr,
-                contactCount: contactCount,
-                adGoal: adGoalStr
-            };
-
+            const formData = { name: firstName, email, phone, role, aiTool, mainTask, tone };
             submitToRailway(formData);
         }
 
