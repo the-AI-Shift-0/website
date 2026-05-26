@@ -445,24 +445,12 @@
                             <h2>Your Sales Profile</h2>
 
                             <div class="form-group">
-                                <label>Which AI tool do you use?</label>
-                                <div class="radio-group">
-                                    <div class="radio-item">
-                                        <input type="radio" id="platform-claude" name="platform" value="Claude">
-                                        <label for="platform-claude">Claude (claude.ai)</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="platform-chatgpt" name="platform" value="ChatGPT">
-                                        <label for="platform-chatgpt">ChatGPT (chatgpt.com)</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="platform-gemini" name="platform" value="Gemini">
-                                        <label for="platform-gemini">Gemini (gemini.google.com)</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="platform-unsure" name="platform" value="" checked>
-                                        <label for="platform-unsure">Not sure yet — show me all three</label>
-                                    </div>
+                                <label>Which AI tool do you use? (select all that apply)</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item"><input type="checkbox" id="platform-claude" name="platform" value="Claude"><label for="platform-claude">Claude (claude.ai)</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="platform-chatgpt" name="platform" value="ChatGPT"><label for="platform-chatgpt">ChatGPT (chatgpt.com)</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="platform-gemini" name="platform" value="Gemini"><label for="platform-gemini">Gemini (gemini.google.com)</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="platform-unsure" name="platform" value="Not sure yet"><label for="platform-unsure">Not sure yet — show me all three</label></div>
                                 </div>
                             </div>
 
@@ -573,31 +561,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label>What objection kills the most deals?</label>
-                                <div class="radio-group">
-                                    <div class="radio-item">
-                                        <input type="radio" id="obj1" name="objection" value="Price / budget" required>
-                                        <label for="obj1">Price / budget</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="obj2" name="objection" value="Not the right time">
-                                        <label for="obj2">Not the right time</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="obj3" name="objection" value="Happy with current solution">
-                                        <label for="obj3">Happy with current solution</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="obj4" name="objection" value="Need to think about it / send more info">
-                                        <label for="obj4">Need to think about it / send more info</label>
-                                    </div>
+                                <label>What objection kills the most deals? (select all that apply)</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item"><input type="checkbox" id="obj1" name="objection" value="Price / budget"><label for="obj1">Price / budget</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="obj2" name="objection" value="Not the right time"><label for="obj2">Not the right time</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="obj3" name="objection" value="Happy with current solution"><label for="obj3">Happy with current solution</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="obj4" name="objection" value="Need to think about it / send more info"><label for="obj4">Need to think about it / send more info</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="obj-other" name="objection" value="Other"><label for="obj-other">Other</label></div>
                                 </div>
+                                <textarea id="objectionOther" placeholder="Anything else? Describe the objection..." rows="2" style="display:none; margin-top:8px; width:100%;"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
-                            <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
+                            <label for="phone">Mobile number</label>
+                            <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
                         </div>
 
                         <div class="button-container">
@@ -671,6 +649,14 @@
                     otherGroup.style.display = otherChecked ? 'block' : 'none';
                 });
             });
+
+            // Objection "Other" checkbox visibility
+            document.querySelectorAll('input[name="objection"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const otherChecked = document.getElementById('obj-other').checked;
+                    document.getElementById('objectionOther').style.display = otherChecked ? 'block' : 'none';
+                });
+            });
         });
 
         function nextStep() {
@@ -736,8 +722,12 @@
                 }
             }
 
-            const objChecked = document.querySelector('input[name="objection"]:checked');
-            const platformChecked = document.querySelector('input[name="platform"]:checked');
+            const objChecked = Array.from(document.querySelectorAll('input[name="objection"]:checked')).map(cb => cb.value);
+            const objOtherVal = document.getElementById('objectionOther').value.trim();
+            if (objChecked.includes('Other') && objOtherVal) {
+                objChecked[objChecked.indexOf('Other')] = objOtherVal;
+            }
+            const platformChecked = Array.from(document.querySelectorAll('input[name="platform"]:checked')).map(cb => cb.value);
 
             // Industry: use custom text if "Other" selected
             let industryValue = industry;
@@ -756,8 +746,8 @@
                 alert('Please select at least one sales problem.');
                 return;
             }
-            if (!objChecked) {
-                alert('Please select the objection that kills the most deals.');
+            if (objChecked.length === 0) {
+                alert('Please select at least one objection.');
                 return;
             }
 
@@ -768,8 +758,8 @@
                 industry: industryValue,
                 dealSize: dealSize,
                 coachingChallenge: painStr,
-                methodology: objChecked.value,
-                platform: platformChecked ? platformChecked.value : '',
+                methodology: objChecked.join(', '),
+                platform: platformChecked.join(', '),
                 revenue: revenue,
                 repCount: repCount,
                 salesCycle: salesCycle,
@@ -779,32 +769,24 @@
             submitToRailway(formData);
         }
 
-        async function submitToRailway(formData) {
+        function submitToRailway(formData) {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
 
-            try {
-                const response = await fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
+            fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            }).catch(err => console.warn('Railway API error:', err.message));
 
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
+            }
 
+            setTimeout(() => {
                 document.getElementById('processingState').classList.remove('show');
                 document.getElementById('successState').classList.add('show');
-
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
-                }
-
-            } catch (err) {
-                console.warn('Railway API error:', err.message);
-                document.getElementById('processingState').classList.remove('show');
-                document.getElementById('errorState').classList.add('show');
-            }
+            }, 2000);
         }
 
         function resetToForm() {

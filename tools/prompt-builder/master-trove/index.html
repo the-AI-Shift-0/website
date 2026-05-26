@@ -443,8 +443,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
-                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
+                        <label for="phone">Mobile number</label>
+                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
                     </div>
 
                     <div class="button-container">
@@ -543,32 +543,24 @@
             submitToRailway(formData);
         }
 
-        async function submitToRailway(formData) {
+        function submitToRailway(formData) {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
 
-            try {
-                const response = await fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
+            fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            }).catch(err => console.warn('Railway API error:', err.message));
 
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
+            }
 
+            setTimeout(() => {
                 document.getElementById('processingState').classList.remove('show');
                 document.getElementById('successState').classList.add('show');
-
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
-                }
-
-            } catch (err) {
-                console.warn('Railway API error:', err.message);
-                document.getElementById('processingState').classList.remove('show');
-                document.getElementById('errorState').classList.add('show');
-            }
+            }, 2000);
         }
 
         function resetToForm() {
