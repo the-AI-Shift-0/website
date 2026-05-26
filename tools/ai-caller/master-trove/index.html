@@ -56,11 +56,11 @@
             display: block; font-weight: 600; margin-bottom: 8px;
             color: #1f2937; font-size: 14px;
         }
-        input[type="text"], input[type="email"], select {
+        input[type="text"], input[type="email"], input[type="tel"], select {
             width: 100%; padding: 10px 12px; border: 1px solid #d1d5db;
             border-radius: 6px; font-size: 14px; font-family: inherit; transition: border-color 0.2s;
         }
-        input[type="text"]:focus, input[type="email"]:focus, select:focus {
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
             outline: none; border-color: #7c3aed;
             box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
         }
@@ -252,10 +252,6 @@
                         <label for="email">Email address</label>
                         <input type="email" id="email" placeholder="you@company.com" required>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
-                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
-                    </div>
                 </div>
             </div>
             <div class="button-container">
@@ -338,6 +334,11 @@
             </div>
         </div>
 
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Mobile number <span style="font-weight:400; color:#6b7280;">(optional)</span></label>
+                <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000">
             </div>
 
             <div class="button-container">
