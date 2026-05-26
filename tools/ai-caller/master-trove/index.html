@@ -129,12 +129,26 @@
             font-size: 14px; color: #6b7280; margin-bottom: 20px;
         }
 
-        .success-state a {
-            color: #7c3aed; text-decoration: none; font-weight: 600;
+        .email-tip {
+            background: #f3e8ff; border: 1px solid #ddd6fe; border-radius: 8px;
+            padding: 16px 20px; font-size: 14px; color: #5b21b6;
+            margin: 0 auto 24px; max-width: 460px; text-align: left; line-height: 1.6;
         }
-        .success-state a:hover {
-            text-decoration: underline;
+        .email-tip strong { color: #4c1d95; }
+        .whats-inside {
+            background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+            padding: 20px 24px; max-width: 460px; margin: 0 auto; text-align: left;
         }
+        .whats-inside-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.07em; color: #7c3aed; margin-bottom: 12px;
+        }
+        .whats-inside ul { list-style: none; }
+        .whats-inside li {
+            font-size: 14px; color: #374151; padding-left: 20px;
+            position: relative; margin-bottom: 6px;
+        }
+        .whats-inside li::before { content: "→"; position: absolute; left: 0; color: #7c3aed; font-weight: 700; }
 
         /* Output */
         .output-section { display: none; }
@@ -394,9 +408,20 @@
         <!-- SUCCESS STATE -->
         <div class="success-state" id="successState">
             <div class="success-icon">✓</div>
-            <h3>Your AI Caller Master Trove is on its way!</h3>
-            <p>Check your inbox — it'll arrive in the next 60 seconds.</p>
-            <a href="javascript:void(0)" onclick="switchFormTab('example-output', document.querySelector('.form-tab-btn:last-of-type')); resetForm()">See what you're getting →</a>
+            <h3>Your AI Caller Master Trove is being built</h3>
+            <p>We're generating your personalized cost estimate, platform stack and call scripts right now. It usually lands in your inbox within 60 seconds.</p>
+            <div class="email-tip">
+                <strong>Check your inbox</strong> — subject line will include "Master Trove."<br><br>
+                Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you don't miss our next resource.
+            </div>
+            <div class="whats-inside">
+                <div class="whats-inside-label">What's on its way</div>
+                <ul>
+                    <li>Estimated cost to build and run your AI calling system</li>
+                    <li>Platform recommendations matched to your call volume and budget</li>
+                    <li>Call script framework tailored to your trigger and goal</li>
+                </ul>
+            </div>
         </div>
     </form>
     </div>
