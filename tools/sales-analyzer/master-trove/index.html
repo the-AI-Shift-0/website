@@ -202,6 +202,11 @@
             flex: 1;
         }
 
+        .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+        .checkbox-item { display: flex; align-items: center; gap: 8px; }
+        .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+        .checkbox-item label { cursor: pointer; font-size: 15px; color: #374151; }
+
         .button-container {
             text-align: center;
             margin: 40px 0 0;
@@ -279,6 +284,9 @@
         }
 
         .success-state { text-align: center; padding: 48px 32px; }
+
+        .error-state { display: none; text-align: center; padding: 40px 20px; }
+        .error-state.show { display: block; }
 
         .success-icon {
             font-size: 48px;
@@ -468,6 +476,9 @@
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
+                            <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
+                                <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                            </div>
 
                             <div class="form-group">
                                 <label for="revenue">Annual revenue range:</label>
@@ -477,17 +488,6 @@
                                     <option value="$1M–$3M">$1M – $3M</option>
                                     <option value="$3M–$7M">$3M – $7M</option>
                                     <option value="$7M–$15M">$7M – $15M</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="teamSize">Team size:</label>
-                                <select id="teamSize" required>
-                                    <option value="">-- Select a size --</option>
-                                    <option value="1-5">1-5</option>
-                                    <option value="6-15">6-15</option>
-                                    <option value="16-30">16-30</option>
-                                    <option value="30+">30+</option>
                                 </select>
                             </div>
 
@@ -526,37 +526,46 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="recordingTool">Call recording tool:</label>
-                                <select id="recordingTool" required>
-                                    <option value="">-- Select --</option>
-                                    <option value="Gong">Gong</option>
-                                    <option value="Fathom">Fathom</option>
-                                    <option value="Fireflies">Fireflies</option>
-                                    <option value="Otter">Otter</option>
-                                    <option value="Zoom (manual export)">Zoom (manual export)</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <label>Call recording tool (select all that apply):</label>
+                                <div class="checkbox-group" id="recordingToolGroup">
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-zoom" name="recordingTool" value="Zoom"><label for="rt-zoom">Zoom</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-otter" name="recordingTool" value="Otter.ai"><label for="rt-otter">Otter.ai</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-firefly" name="recordingTool" value="Fireflies"><label for="rt-firefly">Fireflies</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-fathom" name="recordingTool" value="Fathom"><label for="rt-fathom">Fathom</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-gong" name="recordingTool" value="Gong"><label for="rt-gong">Gong</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="rt-other" name="recordingTool" value="Other"><label for="rt-other">Other</label></div>
+                                </div>
+                                <div id="recordingToolOtherGroup" style="display:none; margin-top: 4px;">
+                                    <input type="text" id="recordingToolOther" placeholder="What do you use?">
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label>What's your biggest coaching problem right now?</label>
-                                <div class="radio-group">
-                                    <div class="radio-item">
-                                        <input type="radio" id="pain1" name="pain" value="No visibility into what reps actually say on calls" required>
+                                <label>What's your biggest sales problem right now?</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pain1" name="pain" value="No visibility into what reps actually say on calls">
                                         <label for="pain1">No visibility into what reps actually say on calls</label>
                                     </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="pain2" name="pain" value="Can't identify patterns — every rep seems like a different problem">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pain2" name="pain" value="Can't identify patterns — every rep seems like a different problem">
                                         <label for="pain2">Can't identify patterns — every rep seems like a different problem</label>
                                     </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="pain3" name="pain" value="Too many calls to review — only catching issues after deals are lost">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pain3" name="pain" value="Too many calls to review — only catching issues after deals are lost">
                                         <label for="pain3">Too many calls to review — only catching issues after deals are lost</label>
                                     </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="pain4" name="pain" value="Reps sit through coaching but nothing changes">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pain4" name="pain" value="Reps sit through coaching but nothing changes">
                                         <label for="pain4">Reps sit through coaching but nothing changes</label>
                                     </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pain-other" name="pain" value="Something else">
+                                        <label for="pain-other">Something else</label>
+                                    </div>
+                                </div>
+                                <div id="painOtherGroup" style="display:none; margin-top: 4px;">
+                                    <textarea id="painOther" placeholder="Describe your biggest sales challenge..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px;"></textarea>
                                 </div>
                             </div>
 
@@ -595,6 +604,12 @@
                         <p>Analyzing your sales profile...</p>
                     </div>
 
+                    <!-- Error state -->
+                    <div class="error-state" id="errorState">
+                        <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
+                        <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
+                    </div>
+
                     <!-- Success state -->
                     <div class="success-state" id="successState">
                         <div class="success-icon">✓</div>
@@ -607,11 +622,12 @@
                         <div class="whats-inside">
                             <div class="whats-inside-label">What's on its way</div>
                             <ul>
-                                <li>Your recommended sales methodology and exactly why it fits your deal size</li>
-                                <li>A custom system prompt — paste it into your AI tool and it becomes your personal sales coach</li>
-                                <li>Three coaching focus areas for your next 5 calls, each with a specific tactic</li>
+                                <li>→ A diagnosis of what's costing your team the most deals right now — specific to your industry and deal size</li>
+                                <li>→ A sales system you can put in front of your team on their next call, not next quarter</li>
+                                <li>→ Built around the objection that kills your deals most often — not a generic framework</li>
                             </ul>
                         </div>
+                        <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
                     </div>
                 </form>
         </div>
@@ -622,6 +638,32 @@
         const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
         const VIDEO_KEY = 'sales-analyzer';
         let currentStep = 1;
+
+        // Industry "Other" text input visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('industry').addEventListener('change', function() {
+                const otherGroup = document.getElementById('industryOtherGroup');
+                otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
+            });
+
+            // Recording tool "Other" checkbox visibility
+            document.querySelectorAll('input[name="recordingTool"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const otherGroup = document.getElementById('recordingToolOtherGroup');
+                    const otherChecked = document.getElementById('rt-other').checked;
+                    otherGroup.style.display = otherChecked ? 'block' : 'none';
+                });
+            });
+
+            // Pain "Something else" checkbox visibility
+            document.querySelectorAll('input[name="pain"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const otherGroup = document.getElementById('painOtherGroup');
+                    const otherChecked = document.getElementById('pain-other').checked;
+                    otherGroup.style.display = otherChecked ? 'block' : 'none';
+                });
+            });
+        });
 
         function nextStep() {
             const firstName = document.getElementById('firstName').value.trim();
@@ -659,22 +701,50 @@
             const email = document.getElementById('email').value.trim();
             const industry = document.getElementById('industry').value;
             const revenue = document.getElementById('revenue').value;
-            const teamSize = document.getElementById('teamSize').value;
             const repCount = document.getElementById('repCount').value;
             const dealSize = document.getElementById('dealSize').value;
             const salesCycle = document.getElementById('salesCycle').value;
-            const recordingTool = document.getElementById('recordingTool').value;
 
-            const painChecked = document.querySelector('input[name="pain"]:checked');
+            // Recording tools: collect checked checkboxes
+            const recordingToolCheckboxes = document.querySelectorAll('input[name="recordingTool"]:checked');
+            const recordingTools = Array.from(recordingToolCheckboxes).map(cb => cb.value);
+            let recordingToolStr = recordingTools.join(', ');
+            if (recordingTools.includes('Other')) {
+                const customTool = document.getElementById('recordingToolOther').value.trim();
+                if (customTool) {
+                    recordingToolStr = recordingToolStr.replace('Other', customTool);
+                }
+            }
+
+            // Pain: collect checked checkboxes
+            const painCheckboxes = document.querySelectorAll('input[name="pain"]:checked');
+            const painValues = Array.from(painCheckboxes).map(cb => cb.value);
+            let painStr = painValues.join('; ');
+            if (painValues.includes('Something else')) {
+                const customPain = document.getElementById('painOther').value.trim();
+                if (customPain) {
+                    painStr = painStr.replace('Something else', customPain);
+                }
+            }
+
             const objChecked = document.querySelector('input[name="objection"]:checked');
             const platformChecked = document.querySelector('input[name="platform"]:checked');
 
-            if (!industry || !revenue || !teamSize || !repCount || !dealSize || !salesCycle || !recordingTool) {
-                alert('Please complete all dropdown fields.');
+            // Industry: use custom text if "Other" selected
+            let industryValue = industry;
+            if (industry === 'Other') {
+                const customIndustry = document.getElementById('industryOther').value.trim();
+                if (customIndustry) {
+                    industryValue = customIndustry;
+                }
+            }
+
+            if (!industryValue || !revenue || !repCount || !dealSize || !salesCycle || recordingTools.length === 0) {
+                alert('Please complete all required fields.');
                 return;
             }
-            if (!painChecked) {
-                alert('Please select your biggest coaching problem.');
+            if (painValues.length === 0) {
+                alert('Please select at least one sales problem.');
                 return;
             }
             if (!objChecked) {
@@ -685,11 +755,15 @@
             const formData = {
                 name: firstName,
                 email: email,
-                industry: industry,
+                industry: industryValue,
                 dealSize: dealSize,
-                coachingChallenge: painChecked.value,
+                coachingChallenge: painStr,
                 methodology: objChecked.value,
-                platform: platformChecked ? platformChecked.value : ''
+                platform: platformChecked ? platformChecked.value : '',
+                revenue: revenue,
+                repCount: repCount,
+                salesCycle: salesCycle,
+                recordingTool: recordingToolStr
             };
 
             submitToRailway(formData);
@@ -719,8 +793,13 @@
             } catch (err) {
                 console.warn('Railway API error:', err.message);
                 document.getElementById('processingState').classList.remove('show');
-                document.getElementById('successState').classList.add('show');
+                document.getElementById('errorState').classList.add('show');
             }
+        }
+
+        function resetToForm() {
+            document.getElementById('errorState').classList.remove('show');
+            document.getElementById('step2').classList.add('active');
         }
 
         function loadStaticExample(formData) {

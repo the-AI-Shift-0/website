@@ -134,6 +134,12 @@
         }
         .whats-inside li::before { content: "→"; position: absolute; left: 0; color: #7c3aed; font-weight: 700; }
 
+        /* Checkbox group styling */
+        .checkbox-group { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+        .checkbox-item { display: flex; align-items: center; gap: 8px; }
+        .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: #7c3aed; }
+        .checkbox-item label { cursor: pointer; font-size: 15px; color: #374151; margin-bottom: 0; font-weight: 400; }
+
         /* Output */
         .output-section { display: none; }
         .output-section.show { display: block; }
@@ -274,6 +280,9 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
+                <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
+                    <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                </div>
                 <div class="form-group">
                     <label for="revenue">Annual revenue range:</label>
                     <select id="revenue" required>
@@ -300,72 +309,28 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>What triggers the AI to call?</label>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="t1" name="trigger" value="form_fill" required>
-                        <label for="t1">Someone fills out a form / opts in</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="t2" name="trigger" value="after_purchase">
-                        <label for="t2">After a purchase or sign-up</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="t3" name="trigger" value="no_show">
-                        <label for="t3">Someone missed a scheduled call or session</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="t4" name="trigger" value="re_engagement">
-                        <label for="t4">Re-engaging cold or lapsed leads</label>
-                    </div>
+                <label>What triggers the AI to call? (select all that apply)</label>
+                <div class="checkbox-group" id="triggerGroup">
+                    <div class="checkbox-item"><input type="checkbox" id="t1" name="trigger" value="form_fill"><label for="t1">Someone fills out a form / opts in</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="t2" name="trigger" value="after_purchase"><label for="t2">After a purchase or sign-up</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="t3" name="trigger" value="no_show"><label for="t3">Someone missed a scheduled call or session</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="t4" name="trigger" value="re_engagement"><label for="t4">Re-engaging cold or lapsed leads</label></div>
                 </div>
             </div>
+            <div style="margin-top: 6px; margin-bottom: 20px;">
+                <textarea id="triggerOther" placeholder="Anything else? Add notes here..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px;"></textarea>
+            </div>
             <div class="form-group">
-                <label>What is the goal of each call?</label>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="g1" name="goal" value="confirm_attendance" required>
-                        <label for="g1">Confirm attendance / lock in a booking</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="g2" name="goal" value="qualify_lead">
-                        <label for="g2">Qualify the lead and book a sales call</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="g3" name="goal" value="re_engage">
-                        <label for="g3">Re-engage and get them back on track</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="g4" name="goal" value="onboard">
-                        <label for="g4">Onboard and set up the next step</label>
-                    </div>
+                <label>What is the goal of each call? (select all that apply)</label>
+                <div class="checkbox-group" id="goalGroup">
+                    <div class="checkbox-item"><input type="checkbox" id="g1" name="goal" value="confirm_attendance"><label for="g1">Confirm attendance / lock in a booking</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="g2" name="goal" value="qualify_lead"><label for="g2">Qualify the lead and book a sales call</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="g3" name="goal" value="re_engage"><label for="g3">Re-engage and get them back on track</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="g4" name="goal" value="onboard"><label for="g4">Onboard and set up the next step</label></div>
                 </div>
             </div>
-        </div>
-
-        <!-- Section 3 -->
-        <div class="form-section">
-            <h2>Section 3 — Your Current State</h2>
-            <div class="form-group">
-                <label>What is your current show-up rate?</label>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="s1" name="showup" value="under_40" required>
-                        <label for="s1">Under 40% — significant drop-off problem</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="s2" name="showup" value="40_60">
-                        <label for="s2">40–60% — room for improvement</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="s3" name="showup" value="60_80">
-                        <label for="s3">60–80% — decent but want better</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="s4" name="showup" value="not_tracking">
-                        <label for="s4">Not currently tracking it</label>
-                    </div>
-                </div>
+            <div style="margin-top: 6px;">
+                <textarea id="goalOther" placeholder="Anything else? Add notes here..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px;"></textarea>
             </div>
         </div>
 
@@ -395,11 +360,17 @@
             <div class="whats-inside">
                 <div class="whats-inside-label">What's on its way</div>
                 <ul>
-                    <li>Estimated cost to build and run your AI calling system</li>
-                    <li>Platform recommendations matched to your call volume and budget</li>
-                    <li>Call script framework tailored to your trigger and goal</li>
+                    <li>→ What it will actually cost to build and run your calling system — broken down by platform</li>
+                    <li>→ The right platform for your call volume and how your leads come in</li>
+                    <li>→ Scripts your AI caller can run from day one — opening, qualification, and handling objections</li>
                 </ul>
             </div>
+            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
+        </div>
+        <!-- ERROR STATE -->
+        <div class="error-state" id="errorState" style="display:none; text-align:center; padding:40px 20px;">
+            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
+            <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
         </div>
     </form>
     </div>
@@ -410,6 +381,12 @@
 <script>
     const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
     const VIDEO_KEY = 'ai-caller';
+
+    // Industry "Other" reveal
+    document.getElementById('industry').addEventListener('change', function() {
+        const otherGroup = document.getElementById('industryOtherGroup');
+        otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
+    });
 
     function goToStep(stepNum) {
         if (stepNum === 2) {
@@ -451,34 +428,50 @@
     function generateTrove() {
         const firstName = document.getElementById('firstName').value;
         const email = document.getElementById('email').value;
-        const industry = document.getElementById('industry').value;
+        let industry = document.getElementById('industry').value;
         const revenue = document.getElementById('revenue').value;
         const callVolume = document.getElementById('callVolume').value;
-        const triggerEl = document.querySelector('input[name="trigger"]:checked');
-        const goalEl = document.querySelector('input[name="goal"]:checked');
-        const showupEl = document.querySelector('input[name="showup"]:checked');
 
-        if (!industry || !revenue || !callVolume) {
+        // Handle industry "Other"
+        if (industry === 'Other') {
+            const industryOther = document.getElementById('industryOther').value.trim();
+            if (!industryOther) {
+                alert('Please tell us your industry.');
+                return;
+            }
+            industry = industryOther;
+        }
+
+        // Collect triggers (checkboxes)
+        const triggerChecked = Array.from(document.querySelectorAll('input[name="trigger"]:checked')).map(el => el.value);
+        const triggerOtherVal = document.getElementById('triggerOther').value.trim();
+        if (triggerOtherVal) triggerChecked.push(triggerOtherVal);
+
+        // Collect goals (checkboxes)
+        const goalChecked = Array.from(document.querySelectorAll('input[name="goal"]:checked')).map(el => el.value);
+        const goalOtherVal = document.getElementById('goalOther').value.trim();
+        if (goalOtherVal) goalChecked.push(goalOtherVal);
+
+        if (!revenue || !callVolume) {
             alert('Please complete all dropdown fields.');
             return;
         }
-        if (!triggerEl || !goalEl || !showupEl) {
-            alert('Please answer all questions in Section 2 and Section 3.');
+        if (triggerChecked.length === 0) {
+            alert('Please select at least one trigger.');
             return;
         }
-
-        const trigger = triggerEl.value;
-        const goal = goalEl.value;
-        const showup = showupEl.value;
+        if (goalChecked.length === 0) {
+            alert('Please select at least one goal.');
+            return;
+        }
 
         const formData = {
             name: firstName,
             email: email,
             industry: industry,
             callVolume: callVolume,
-            trigger: trigger,
-            goal: goal,
-            showUpRate: showup
+            trigger: triggerChecked.join(', '),
+            goal: goalChecked.join(', ')
         };
 
         submitToRailway(formData);
@@ -508,22 +501,27 @@
 
             // If API returns generated output, use it (Claude generates scripts; static builders handle cost/stack)
             if (data.output) {
-                document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry, formData.showUpRate);
+                document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry);
                 document.getElementById('stackOutput').innerText = buildStack(formData.callVolume, formData.industry, formData.goal);
                 document.getElementById('scriptsOutput').innerText = data.output;
             } else {
                 loadStaticExample(formData);
             }
         } catch (err) {
-            console.warn('Railway API unavailable, using offline mode:', err.message);
+            console.warn('Railway API error:', err.message);
             document.getElementById('processingState').classList.remove('show');
-            document.getElementById('successState').classList.add('show');
-            loadStaticExample(formData);
+            document.getElementById('errorState').style.display = 'block';
         }
     }
 
+    function resetToForm() {
+        document.getElementById('errorState').style.display = 'none';
+        document.getElementById('step-2').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
     function loadStaticExample(formData) {
-        document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry, formData.showUpRate);
+        document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry);
         document.getElementById('stackOutput').innerText = buildStack(formData.callVolume, formData.industry, formData.goal);
         document.getElementById('scriptsOutput').innerText = buildScripts(formData.industry, formData.trigger, formData.goal, formData.revenue);
     }
@@ -576,7 +574,7 @@ Developer build + testing: ${v.setupRange}
 
 === WHAT THIS MEANS FOR YOUR BUSINESS ===
 
-${showupContext[showup]}`;
+AI callers consistently push show-up rates to 75–85% at your volume. At ${v.mid} calls/day, that translates directly to more confirmed bookings without manual follow-up labor.`;
     }
 
     function buildStack(callVolume, industry, goal) {
