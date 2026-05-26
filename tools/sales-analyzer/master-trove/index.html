@@ -35,7 +35,7 @@
         <header>
             <div class="eyebrow">The AI Shift</div>
             <h1>Sales Analyzer Master Trove</h1>
-            <p class="subtitle">Tell us about your business. We'll generate a custom system prompt trained on SPIN Selling, Challenger Sale, and 10,000 sales calls — ready to load into your AI tool of choice.</p>
+            <p class="subtitle">Tell us about your business. We'll generate a custom system prompt trained on SPIN Selling, Challenger Sale, and 10,000 sales calls  -  ready to load into your AI tool of choice.</p>
         </header>
 
         <div class="what-you-get">
@@ -87,7 +87,7 @@
                                     <div class="checkbox-item"><input type="checkbox" id="platform-claude" name="platform" value="Claude"><label for="platform-claude">Claude (claude.ai)</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="platform-chatgpt" name="platform" value="ChatGPT"><label for="platform-chatgpt">ChatGPT (chatgpt.com)</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="platform-gemini" name="platform" value="Gemini"><label for="platform-gemini">Gemini (gemini.google.com)</label></div>
-                                    <div class="checkbox-item"><input type="checkbox" id="platform-unsure" name="platform" value="Not sure yet"><label for="platform-unsure">Not sure yet — show me all three</label></div>
+                                    <div class="checkbox-item"><input type="checkbox" id="platform-unsure" name="platform" value="Not sure yet"><label for="platform-unsure">Not sure yet  -  show me all three</label></div>
                                 </div>
                             </div>
 
@@ -176,12 +176,12 @@
                                         <label for="pain1">No visibility into what reps actually say on calls</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="checkbox" id="pain2" name="pain" value="Can't identify patterns — every rep seems like a different problem">
-                                        <label for="pain2">Can't identify patterns — every rep seems like a different problem</label>
+                                        <input type="checkbox" id="pain2" name="pain" value="Can't identify patterns  -  every rep seems like a different problem">
+                                        <label for="pain2">Can't identify patterns  -  every rep seems like a different problem</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="checkbox" id="pain3" name="pain" value="Too many calls to review — only catching issues after deals are lost">
-                                        <label for="pain3">Too many calls to review — only catching issues after deals are lost</label>
+                                        <input type="checkbox" id="pain3" name="pain" value="Too many calls to review  -  only catching issues after deals are lost">
+                                        <label for="pain3">Too many calls to review  -  only catching issues after deals are lost</label>
                                     </div>
                                     <div class="checkbox-item">
                                         <input type="checkbox" id="pain4" name="pain" value="Reps sit through coaching but nothing changes">
@@ -239,15 +239,15 @@
                         <h3>Your Sales Analyzer Master Trove is being built</h3>
                         <p class="success-sub">We're running your profile through our sales call database and generating your personalized sales analysis system right now. It usually lands in your inbox within 60 seconds.</p>
                         <div class="email-tip">
-                            <strong>Check your inbox</strong> — subject line will include "Master Trove."<br><br>
+                            <strong>Check your inbox</strong>  -  subject line will include "Master Trove."<br><br>
                             Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
                         </div>
                         <div class="whats-inside">
                             <div class="whats-inside-label">What's on its way</div>
                             <ul>
-                                <li>A diagnosis of what's costing your team the most deals right now — specific to your industry and deal size</li>
+                                <li>A diagnosis of what's costing your team the most deals right now  -  specific to your industry and deal size</li>
                                 <li>A sales system you can put in front of your team on their next call, not next quarter</li>
-                                <li>Built around the objection that kills your deals most often — not a generic framework</li>
+                                <li>Built around the objection that kills your deals most often  -  not a generic framework</li>
                             </ul>
                         </div>
                         <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -305,7 +305,7 @@
                 return;
             }
 
-            // Capture email before step 2 — they're in Kit even if they abandon
+            // Capture email before step 2  -  they're in Kit even if they abandon
             fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -441,8 +441,8 @@ ${formData.industry.toUpperCase()} | CUSTOM REVENUE
 === WHAT THIS IS ===
 
 You are a world-class sales performance analyst. This system has been pre-loaded with:
-- SPIN Selling methodology (Rackham — Situation, Problem, Implication, Need-Payoff)
-- Challenger Sale framework (Dixon & Adamson — teach, tailor, take control)
+- SPIN Selling methodology (Rackham  -  Situation, Problem, Implication, Need-Payoff)
+- Challenger Sale framework (Dixon & Adamson  -  teach, tailor, take control)
 - Sandler Sales System (pain, budget, decision frameworks)
 - 10,000+ analyzed sales calls and objection response patterns
 - ${formData.industry}-specific buying patterns and objection library
@@ -462,9 +462,9 @@ When I give you a sales call transcript or recording:
 2. Return a structured coaching report
 3. After 3+ calls, identify the team pattern
 
-If I say "analyze this call" — run the full analysis.
-If I say "quick score" — return just the scorecard.
-If I say "team pattern" — compare all calls and find the shared weakness.
+If I say "analyze this call"  -  run the full analysis.
+If I say "quick score"  -  return just the scorecard.
+If I say "team pattern"  -  compare all calls and find the shared weakness.
 
 === CALL ANALYSIS FRAMEWORK ===
 
@@ -510,9 +510,9 @@ Take Control (1–10): Did the rep lead the conversation, or follow?
 KEY MOMENTS TO FLAG:
 
 - Talk ratio: if rep spoke more than 60% of the call, flag it
-- Engagement shift: the exact moment energy changed (positive or negative) — quote the line
+- Engagement shift: the exact moment energy changed (positive or negative)  -  quote the line
 - First objection: how it arrived, how it was handled, whether it was resolved or bypassed
-- ${formData.methodology}: specifically watch for this — it kills the most deals. Note exactly when and how it came up.
+- ${formData.methodology}: specifically watch for this  -  it kills the most deals. Note exactly when and how it came up.
 - Closing attempt: was there a specific ask for next steps? Were they concrete and owned?
 
 ${industryObjections}
@@ -524,18 +524,18 @@ Return this structure for every call:
 CALL VERDICT: [Strong close / Solid but left money on the table / Needs work / Struggled]
 
 SCORECARD:
-Situation Questions: X/10 — [one line of evidence]
-Problem Questions: X/10 — [one line of evidence]
-Implication Questions: X/10 — [one line of evidence]
-Need-Payoff Questions: X/10 — [one line of evidence]
-Teach: X/10 — [one line of evidence]
-Tailor: X/10 — [one line of evidence]
-Take Control: X/10 — [one line of evidence]
+Situation Questions: X/10  -  [one line of evidence]
+Problem Questions: X/10  -  [one line of evidence]
+Implication Questions: X/10  -  [one line of evidence]
+Need-Payoff Questions: X/10  -  [one line of evidence]
+Teach: X/10  -  [one line of evidence]
+Tailor: X/10  -  [one line of evidence]
+Take Control: X/10  -  [one line of evidence]
 Talk Ratio: X% rep / X% prospect
 
-THE ONE THING TO FIX: [Single most impactful coaching note — specific, not generic]
+THE ONE THING TO FIX: [Single most impactful coaching note  -  specific, not generic]
 
-THE BEST MOMENT: [What the rep did well — quote the line if possible — this gets reinforced]
+THE BEST MOMENT: [What the rep did well  -  quote the line if possible  -  this gets reinforced]
 
 OBJECTION HANDLING (${formData.methodology}): [How they handled it + what they should have done differently if applicable]
 
@@ -561,21 +561,21 @@ Paste a sales call transcript and say "analyze this call." I'll return the full 
         function getIndustryObjections(industry, topObjection) {
             const patterns = {
                 'Online coaching / education': `INDUSTRY-SPECIFIC PATTERNS (Online Coaching / Education):
-Common objection cluster: "I've tried programs before and they didn't work" — this is a trust objection, not a price objection. Probe for what specifically failed.
+Common objection cluster: "I've tried programs before and they didn't work"  -  this is a trust objection, not a price objection. Probe for what specifically failed.
 Watch for: reps pitching the program before establishing belief that the prospect can succeed.
-${topObjection === 'Price / budget' ? '"Price" in coaching usually means "I don\'t believe the ROI" — push on what the cost of NOT solving this is, not on payment plans.' : ''}`,
+${topObjection === 'Price / budget' ? '"Price" in coaching usually means "I don\'t believe the ROI"  -  push on what the cost of NOT solving this is, not on payment plans.' : ''}`,
                 'E-commerce': `INDUSTRY-SPECIFIC PATTERNS (E-commerce):
-Watch for: prospects fixated on CPAs and ROAS from day one — frame value in terms of LTV and retention, not acquisition cost.
-${topObjection === 'Happy with current solution' ? '"Happy with current solution" in e-commerce often means "our agency is managing this" — probe whether they own the relationship or the agency does.' : ''}`,
+Watch for: prospects fixated on CPAs and ROAS from day one  -  frame value in terms of LTV and retention, not acquisition cost.
+${topObjection === 'Happy with current solution' ? '"Happy with current solution" in e-commerce often means "our agency is managing this"  -  probe whether they own the relationship or the agency does.' : ''}`,
                 'Professional services': `INDUSTRY-SPECIFIC PATTERNS (Professional Services):
-Relationship-driven sale — trust is built slowly. Watch for reps who try to close too fast on a first or second call.
-${topObjection === 'Not the right time' ? '"Not the right time" in professional services is often real — probe the timeline, understand what needs to happen first, and get a specific future date.' : ''}`,
+Relationship-driven sale  -  trust is built slowly. Watch for reps who try to close too fast on a first or second call.
+${topObjection === 'Not the right time' ? '"Not the right time" in professional services is often real  -  probe the timeline, understand what needs to happen first, and get a specific future date.' : ''}`,
                 'SaaS': `INDUSTRY-SPECIFIC PATTERNS (SaaS):
 Watch for: feature-dumping. SaaS reps default to capability lists when they haven't established pain. Implication questions are critical here.
 ${topObjection === 'Need to think about it / send more info' ? '"Send more info" is almost always avoidance. Flag when reps accept this without asking what specific question the info would answer.' : ''}`,
             };
             return patterns[industry] || `INDUSTRY-SPECIFIC PATTERNS (${industry}):
-Watch for standard stall patterns — "we need to review internally," "let's reconnect next quarter," "I need to loop in my partner."
+Watch for standard stall patterns  -  "we need to review internally," "let's reconnect next quarter," "I need to loop in my partner."
 Flag any call where next steps were not specific, dated, and owned by someone.
 ${topObjection === 'Price / budget' ? 'Price objections almost always mean value was not established. Watch for how early the rep mentioned pricing and whether implication questions came before or after.' : ''}`;
         }
@@ -583,18 +583,18 @@ ${topObjection === 'Price / budget' ? 'Price objections almost always mean value
         function getDealContext(dealSize, salesCycle) {
             if (dealSize === '$50K+' || dealSize === '$15K–$50K') {
                 return `DEAL SIZE CONTEXT (${dealSize} deals):
-At this deal size, a single call rarely closes. Watch for: did the rep establish clear next steps with a specific date? Did they identify all decision-makers? Were implications fully explored — at ${dealSize}, the cost-of-inaction needs to be felt, not just acknowledged.
+At this deal size, a single call rarely closes. Watch for: did the rep establish clear next steps with a specific date? Did they identify all decision-makers? Were implications fully explored  -  at ${dealSize}, the cost-of-inaction needs to be felt, not just acknowledged.
 Multi-stakeholder flag: if only one person is on the call, probe whether they have full authority. If not, coach the rep to request a next call with all decision-makers present.`;
             }
             if (salesCycle === '1-3 months' || salesCycle === '3+ months') {
                 return `SALES CYCLE CONTEXT (${salesCycle} cycle):
-Long cycles increase the risk of "going dark" — watch for whether the rep locked in a specific next touchpoint with a date and owner. Without it, deals stall.
+Long cycles increase the risk of "going dark"  -  watch for whether the rep locked in a specific next touchpoint with a date and owner. Without it, deals stall.
 Watch for: reps who close the call warmly but leave next steps vague. The deal will die in the silence.`;
             }
             if (dealSize === 'under $1K' || dealSize === '$1K–$5K') {
                 return `DEAL SIZE CONTEXT (${dealSize} deals):
-At this price point, speed and clarity matter. Watch for: reps overcomplicating the conversation when a simple, direct close would work. Flag any call over 45 minutes — that's a sign of a rep who can't close.
-Talk ratio is especially important here — the prospect should feel heard quickly, not interviewed.`;
+At this price point, speed and clarity matter. Watch for: reps overcomplicating the conversation when a simple, direct close would work. Flag any call over 45 minutes  -  that's a sign of a rep who can't close.
+Talk ratio is especially important here  -  the prospect should feel heard quickly, not interviewed.`;
             }
             return '';
         }
