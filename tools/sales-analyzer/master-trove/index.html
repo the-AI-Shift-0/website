@@ -349,57 +349,540 @@
         .whats-inside li::before {
             content: "→";
             position: absolute;
-    // ... 523 lines omitted
+            left: 0;
+            color: #7c3aed;
+            font-weight: 700;
         }
-    // ... 522 lines omitted
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .what-you-get ul {
+                grid-template-columns: 1fr;
+            }
         }
-    // ... 521 lines omitted
+
+        @media print {
+            header, .what-you-get, .form-wrapper .form-tab-content,
+            .form-wrapper .processing-state, .success-header { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { padding: 20px; }
+            .form-wrapper { border: none; padding: 0; }
+            .trove-output { border: none; padding: 0; background: white; font-size: 11px; }
+            .success-state { display: block !important; }
+        }
+    </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    // ... 520 lines omitted
+    gtag('js', new Date());
+    gtag('config', 'G-F7FK9M526K');
+  </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="eyebrow">The AI Shift</div>
+            <h1>Sales Analyzer Master Trove</h1>
+            <p class="subtitle">Tell us about your business. We'll generate a custom system prompt trained on SPIN Selling, Challenger Sale, and 10,000 sales calls — ready to load into your AI tool of choice.</p>
+        </header>
+
+        <div class="what-you-get">
+            <h3>What's inside your Master Trove</h3>
+            <ul>
+                <li>SPIN Selling framework</li>
+                <li>Challenger Sale methodology</li>
+                <li>Sandler objection library</li>
+                <li>10,000 call pattern database</li>
+                <li>Personalized to your industry</li>
+                <li>Calibrated to your deal size</li>
+                <li>Rep-by-rep scoring system</li>
+                <li>Team pattern detection</li>
+            </ul>
+        </div>
+
+        <div class="form-wrapper">
+                <form id="troveForm">
+                    <div class="progress-indicator" id="progressIndicator">Step 1 of 2</div>
+
+                    <!-- Step 1: Contact Info -->
+                    <div class="form-tab-content active" id="step1">
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="firstName">First name</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Which AI tool do you use?</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-claude" name="platform" value="Claude">
+                                        <label for="platform-claude">Claude (claude.ai)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-chatgpt" name="platform" value="ChatGPT">
+                                        <label for="platform-chatgpt">ChatGPT (chatgpt.com)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-gemini" name="platform" value="Gemini">
+                                        <label for="platform-gemini">Gemini (gemini.google.com)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-unsure" name="platform" value="" checked>
+                                        <label for="platform-unsure">Not sure yet — show me all three</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="button" onclick="nextStep()">Next: Your Sales Profile →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Full form -->
+                    <div class="form-tab-content" id="step2">
+                        <div class="form-section">
+                            <h2>Your Sales Profile</h2>
+
+                            <div class="form-group">
+                                <label for="industry">What industry are you in?</label>
+                                <select id="industry" required>
+                                    <option value="">-- Select an industry --</option>
+                                    <option value="Online coaching / education">Online coaching / education</option>
+                                    <option value="E-commerce">E-commerce</option>
+                                    <option value="Professional services">Professional services</option>
+                                    <option value="Real estate">Real estate</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="SaaS">SaaS</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="revenue">Annual revenue range:</label>
+                                <select id="revenue" required>
+                                    <option value="">-- Select a range --</option>
+                                    <option value="$500K–$1M">$500K – $1M</option>
+                                    <option value="$1M–$3M">$1M – $3M</option>
+                                    <option value="$3M–$7M">$3M – $7M</option>
+                                    <option value="$7M–$15M">$7M – $15M</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="teamSize">Team size:</label>
+                                <select id="teamSize" required>
+                                    <option value="">-- Select a size --</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="6-15">6-15</option>
+                                    <option value="16-30">16-30</option>
+                                    <option value="30+">30+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="repCount">Number of sales reps:</label>
+                                <select id="repCount" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="1-2">1-2</option>
+                                    <option value="3-5">3-5</option>
+                                    <option value="6-10">6-10</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dealSize">Average deal size:</label>
+                                <select id="dealSize" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="under $1K">under $1K</option>
+                                    <option value="$1K–$5K">$1K – $5K</option>
+                                    <option value="$5K–$15K">$5K – $15K</option>
+                                    <option value="$15K–$50K">$15K – $50K</option>
+                                    <option value="$50K+">$50K+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="salesCycle">Typical sales cycle:</label>
+                                <select id="salesCycle" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="under 1 week">under 1 week</option>
+                                    <option value="1-4 weeks">1-4 weeks</option>
+                                    <option value="1-3 months">1-3 months</option>
+                                    <option value="3+ months">3+ months</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recordingTool">Call recording tool:</label>
+                                <select id="recordingTool" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="Gong">Gong</option>
+                                    <option value="Fathom">Fathom</option>
+                                    <option value="Fireflies">Fireflies</option>
+                                    <option value="Otter">Otter</option>
+                                    <option value="Zoom (manual export)">Zoom (manual export)</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>What's your biggest coaching problem right now?</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="pain1" name="pain" value="No visibility into what reps actually say on calls" required>
+                                        <label for="pain1">No visibility into what reps actually say on calls</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pain2" name="pain" value="Can't identify patterns — every rep seems like a different problem">
+                                        <label for="pain2">Can't identify patterns — every rep seems like a different problem</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pain3" name="pain" value="Too many calls to review — only catching issues after deals are lost">
+                                        <label for="pain3">Too many calls to review — only catching issues after deals are lost</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pain4" name="pain" value="Reps sit through coaching but nothing changes">
+                                        <label for="pain4">Reps sit through coaching but nothing changes</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>What objection kills the most deals?</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="obj1" name="objection" value="Price / budget" required>
+                                        <label for="obj1">Price / budget</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="obj2" name="objection" value="Not the right time">
+                                        <label for="obj2">Not the right time</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="obj3" name="objection" value="Happy with current solution">
+                                        <label for="obj3">Happy with current solution</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="obj4" name="objection" value="Need to think about it / send more info">
+                                        <label for="obj4">Need to think about it / send more info</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="button" onclick="generateTrove()">Generate My Sales Report →</button>
+                            <button class="back-link" type="button" onclick="prevStep()">← Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Processing state -->
+                    <div class="processing-state" id="processingState">
+                        <div class="spinner"></div>
+                        <p>Analyzing your sales profile...</p>
+                    </div>
+
+                    <!-- Success state -->
+                    <div class="success-state" id="successState">
+                        <div class="success-icon">✓</div>
+                        <h3>Your Sales Analyzer Master Trove is being built</h3>
+                        <p class="success-sub">We're running your profile through our sales call database and generating your personalized coaching system right now. It usually lands in your inbox within 60 seconds.</p>
+                        <div class="email-tip">
+                            <strong>Check your inbox</strong> — subject line will include "Master Trove."<br><br>
+                            Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
+                        </div>
+                        <div class="whats-inside">
+                            <div class="whats-inside-label">What's on its way</div>
+                            <ul>
+                                <li>Your recommended sales methodology and exactly why it fits your deal size</li>
+                                <li>A custom system prompt — paste it into your AI tool and it becomes your personal sales coach</li>
+                                <li>Three coaching focus areas for your next 5 calls, each with a specific tactic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+        </div>
+
+    </div>
+
+    <script>
+        const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
+        const VIDEO_KEY = 'sales-analyzer';
+        let currentStep = 1;
+
         function nextStep() {
-    // ... 519 lines omitted
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!firstName || !email) {
+                alert('Please fill in your name and email.');
+                return;
             }
-    // ... 518 lines omitted
+
+            currentStep = 2;
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
+            window.scrollTo(0, 0);
         }
-    // ... 517 lines omitted
+
         function prevStep() {
-    // ... 516 lines omitted
+            currentStep = 1;
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            document.getElementById('progressIndicator').innerText = 'Step 1 of 2';
+            window.scrollTo(0, 0);
         }
-    // ... 515 lines omitted
+
         function generateTrove() {
-    // ... 514 lines omitted
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const industry = document.getElementById('industry').value;
+            const revenue = document.getElementById('revenue').value;
+            const teamSize = document.getElementById('teamSize').value;
+            const repCount = document.getElementById('repCount').value;
+            const dealSize = document.getElementById('dealSize').value;
+            const salesCycle = document.getElementById('salesCycle').value;
+            const recordingTool = document.getElementById('recordingTool').value;
+
+            const painChecked = document.querySelector('input[name="pain"]:checked');
+            const objChecked = document.querySelector('input[name="objection"]:checked');
+            const platformChecked = document.querySelector('input[name="platform"]:checked');
+
+            if (!industry || !revenue || !teamSize || !repCount || !dealSize || !salesCycle || !recordingTool) {
+                alert('Please complete all dropdown fields.');
+                return;
             }
-    // ... 513 lines omitted
+            if (!painChecked) {
+                alert('Please select your biggest coaching problem.');
+                return;
             }
-    // ... 512 lines omitted
+            if (!objChecked) {
+                alert('Please select the objection that kills the most deals.');
+                return;
             }
-    // ... 511 lines omitted
+
+            const formData = {
+                name: firstName,
+                email: email,
+                industry: industry,
+                dealSize: dealSize,
+                coachingChallenge: painChecked.value,
+                methodology: objChecked.value,
+                platform: platformChecked ? platformChecked.value : ''
+            };
+
+            submitToRailway(formData);
         }
-    // ... 510 lines omitted
+
         async function submitToRailway(formData) {
-    // ... 509 lines omitted
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('processingState').classList.add('show');
+
+            try {
+                const response = await fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+
+                document.getElementById('processingState').classList.remove('show');
+                document.getElementById('successState').classList.add('show');
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
                 }
-    // ... 508 lines omitted
+
+            } catch (err) {
+                console.warn('Railway API error:', err.message);
+                document.getElementById('processingState').classList.remove('show');
+                document.getElementById('successState').classList.add('show');
             }
         }
-    // ... 506 lines omitted
-        function _noop(formData) {
-    // ... 505 lines omitted
+
+        function loadStaticExample(formData) {
+            const industryObjections = getIndustryObjections(formData.industry, formData.methodology);
+            const dealContext = getDealContext(formData.dealSize, '1-4 weeks');
+
+            const troveContent = `SALES ANALYZER MASTER TROVE
+${formData.industry.toUpperCase()} | CUSTOM REVENUE
+
+=== WHAT THIS IS ===
+
+You are a world-class sales performance analyst. This system has been pre-loaded with:
+- SPIN Selling methodology (Rackham — Situation, Problem, Implication, Need-Payoff)
+- Challenger Sale framework (Dixon & Adamson — teach, tailor, take control)
+- Sandler Sales System (pain, budget, decision frameworks)
+- 10,000+ analyzed sales calls and objection response patterns
+- ${formData.industry}-specific buying patterns and objection library
+
+=== BUSINESS CONTEXT ===
+
+Industry: ${formData.industry}
+Coaching Challenge: ${formData.coachingChallenge}
+Most Damaging Objection: ${formData.methodology}
+
+${dealContext}
+
+=== HOW TO USE THIS ===
+
+When I give you a sales call transcript or recording:
+1. Analyze it using the full framework below
+2. Return a structured coaching report
+3. After 3+ calls, identify the team pattern
+
+If I say "analyze this call" — run the full analysis.
+If I say "quick score" — return just the scorecard.
+If I say "team pattern" — compare all calls and find the shared weakness.
+
+=== CALL ANALYSIS FRAMEWORK ===
+
+SPIN SCORING (score each 1–10 with evidence from the call):
+
+Situation Questions (1–10): Did the rep uncover current state before pitching?
+- 8–10: Asked 3+ situation questions before presenting anything
+- 5–7: Asked some questions but moved to pitch too soon
+- 1–4: Jumped straight to features and benefits
+
+Problem Questions (1–10): Did they surface the real pain or accept surface symptoms?
+- 8–10: Dug beneath the stated problem to find the real business impact
+- 5–7: Acknowledged the problem but didn't probe deeper
+- 1–4: Took the prospect's first answer and moved on
+
+Implication Questions (1–10): Did they amplify the cost of inaction?
+- 8–10: Made the prospect articulate what this problem is costing them
+- 5–7: Mentioned consequences but didn't make the prospect feel them
+- 1–4: Never established why solving this matters now
+
+Need-Payoff Questions (1–10): Did the prospect sell themselves?
+- 8–10: Prospect said out loud why this solution matters to them
+- 5–7: Rep told the prospect the value instead of drawing it out
+- 1–4: Rep closed on features, not on prospect-stated needs
+
+CHALLENGER DIMENSIONS (score each 1–10 with evidence):
+
+Teach (1–10): Did the rep introduce a perspective the prospect hadn't considered?
+- 8–10: Reframed how the prospect thinks about the problem
+- 5–7: Shared some insight but it wasn't surprising or specific
+- 1–4: Nodded along with what the prospect already believed
+
+Tailor (1–10): Did they connect insights to this specific prospect's situation?
+- 8–10: Every insight referenced something specific about this business
+- 5–7: Generic framing with a few personalized details
+- 1–4: Same pitch they give everyone
+
+Take Control (1–10): Did the rep lead the conversation, or follow?
+- 8–10: Drove agenda, redirected tangents, asked for commitment
+- 5–7: Held direction most of the time but ceded ground on price/timeline
+- 1–4: Prospect controlled the call
+
+KEY MOMENTS TO FLAG:
+
+- Talk ratio: if rep spoke more than 60% of the call, flag it
+- Engagement shift: the exact moment energy changed (positive or negative) — quote the line
+- First objection: how it arrived, how it was handled, whether it was resolved or bypassed
+- ${formData.methodology}: specifically watch for this — it kills the most deals. Note exactly when and how it came up.
+- Closing attempt: was there a specific ask for next steps? Were they concrete and owned?
+
+${industryObjections}
+
+=== COACHING OUTPUT FORMAT ===
+
+Return this structure for every call:
+
+CALL VERDICT: [Strong close / Solid but left money on the table / Needs work / Struggled]
+
+SCORECARD:
+Situation Questions: X/10 — [one line of evidence]
+Problem Questions: X/10 — [one line of evidence]
+Implication Questions: X/10 — [one line of evidence]
+Need-Payoff Questions: X/10 — [one line of evidence]
+Teach: X/10 — [one line of evidence]
+Tailor: X/10 — [one line of evidence]
+Take Control: X/10 — [one line of evidence]
+Talk Ratio: X% rep / X% prospect
+
+THE ONE THING TO FIX: [Single most impactful coaching note — specific, not generic]
+
+THE BEST MOMENT: [What the rep did well — quote the line if possible — this gets reinforced]
+
+OBJECTION HANDLING (${formData.methodology}): [How they handled it + what they should have done differently if applicable]
+
+NEXT STEPS QUALITY: [Were they specific? Who owns them? Rated: Strong / Weak / None]
+
+=== TEAM PATTERN DETECTION ===
+
+After analyzing 3 or more calls from the same team, produce:
+
+TEAM PATTERN REPORT:
+- The one coaching problem showing up across every rep (not just one of them)
+- The shared strength to protect (what everyone does well)
+- Priority order: fix [X] before [Y] because [reason]
+- The one drill that would move the whole team
+
+=== YOU ARE NOW READY ===
+
+Paste a sales call transcript and say "analyze this call." I'll return the full coaching report.`;
+
+            document.getElementById('troveOutput').innerText = troveContent;
         }
-    // ... 504 lines omitted
+
         function getIndustryObjections(industry, topObjection) {
-    // ... 503 lines omitted
+            const patterns = {
+                'Online coaching / education': `INDUSTRY-SPECIFIC PATTERNS (Online Coaching / Education):
+Common objection cluster: "I've tried programs before and they didn't work" — this is a trust objection, not a price objection. Probe for what specifically failed.
+Watch for: reps pitching the program before establishing belief that the prospect can succeed.
+${topObjection === 'Price / budget' ? '"Price" in coaching usually means "I don\'t believe the ROI" — push on what the cost of NOT solving this is, not on payment plans.' : ''}`,
+                'E-commerce': `INDUSTRY-SPECIFIC PATTERNS (E-commerce):
+Watch for: prospects fixated on CPAs and ROAS from day one — frame value in terms of LTV and retention, not acquisition cost.
+${topObjection === 'Happy with current solution' ? '"Happy with current solution" in e-commerce often means "our agency is managing this" — probe whether they own the relationship or the agency does.' : ''}`,
+                'Professional services': `INDUSTRY-SPECIFIC PATTERNS (Professional Services):
+Relationship-driven sale — trust is built slowly. Watch for reps who try to close too fast on a first or second call.
+${topObjection === 'Not the right time' ? '"Not the right time" in professional services is often real — probe the timeline, understand what needs to happen first, and get a specific future date.' : ''}`,
+                'SaaS': `INDUSTRY-SPECIFIC PATTERNS (SaaS):
+Watch for: feature-dumping. SaaS reps default to capability lists when they haven't established pain. Implication questions are critical here.
+${topObjection === 'Need to think about it / send more info' ? '"Send more info" is almost always avoidance. Flag when reps accept this without asking what specific question the info would answer.' : ''}`,
+            };
+            return patterns[industry] || `INDUSTRY-SPECIFIC PATTERNS (${industry}):
+Watch for standard stall patterns — "we need to review internally," "let's reconnect next quarter," "I need to loop in my partner."
+Flag any call where next steps were not specific, dated, and owned by someone.
+${topObjection === 'Price / budget' ? 'Price objections almost always mean value was not established. Watch for how early the rep mentioned pricing and whether implication questions came before or after.' : ''}`;
         }
-    // ... 502 lines omitted
+
         function getDealContext(dealSize, salesCycle) {
-    // ... 501 lines omitted
+            if (dealSize === '$50K+' || dealSize === '$15K–$50K') {
+                return `DEAL SIZE CONTEXT (${dealSize} deals):
+At this deal size, a single call rarely closes. Watch for: did the rep establish clear next steps with a specific date? Did they identify all decision-makers? Were implications fully explored — at ${dealSize}, the cost-of-inaction needs to be felt, not just acknowledged.
+Multi-stakeholder flag: if only one person is on the call, probe whether they have full authority. If not, coach the rep to request a next call with all decision-makers present.`;
             }
-    // ... 500 lines omitted
+            if (salesCycle === '1-3 months' || salesCycle === '3+ months') {
+                return `SALES CYCLE CONTEXT (${salesCycle} cycle):
+Long cycles increase the risk of "going dark" — watch for whether the rep locked in a specific next touchpoint with a date and owner. Without it, deals stall.
+Watch for: reps who close the call warmly but leave next steps vague. The deal will die in the silence.`;
             }
-    // ... 499 lines omitted
+            if (dealSize === 'under $1K' || dealSize === '$1K–$5K') {
+                return `DEAL SIZE CONTEXT (${dealSize} deals):
+At this price point, speed and clarity matter. Watch for: reps overcomplicating the conversation when a simple, direct close would work. Flag any call over 45 minutes — that's a sign of a rep who can't close.
+Talk ratio is especially important here — the prospect should feel heard quickly, not interviewed.`;
             }
-    // ... 498 lines omitted
+            return '';
         }
-// ... 497 more lines (total: 874)    </script>
+    </script>
 </body>
 </html>

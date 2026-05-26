@@ -77,25 +77,8 @@
         button:hover { background: #6d28d9; }
         button:active { background: #5b21b6; }
 
-        /* Form tabs */
-        .form-tabs-bar {
-            display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 2px solid #e5e7eb;
-        }
-        .form-tab-btn {
-            padding: 12px 20px; border: none; background: transparent; color: #6b7280;
-            font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s;
-            border-bottom: 3px solid transparent; margin-bottom: -2px;
-        }
-        .form-tab-btn.active {
-            color: #7c3aed; border-bottom-color: #7c3aed;
-        }
-        .form-tab-btn:hover {
-            color: #1f2937;
-        }
-
         /* Form content */
-        .form-content { display: none; }
-        .form-content.active { display: block; }
+        .form-content { display: block; }
 
         /* Progress indicator */
         .progress-indicator {
@@ -244,13 +227,7 @@
         </ul>
     </div>
 
-    <!-- Tab bar for form vs. example output -->
-    <div class="form-tabs-bar">
-        <button type="button" class="form-tab-btn active" onclick="switchFormTab('get-yours', this)">Get Yours</button>
-        <button type="button" class="form-tab-btn" onclick="switchFormTab('example-output', this)">See Example Output</button>
-    </div>
-
-    <!-- "Get Yours" tab content -->
+    <!-- Form -->
     <div id="get-yours-content" class="form-content active">
         <form id="troveForm">
         <div class="progress-indicator" id="progressIndicator">Step 1 of 2</div>
@@ -426,91 +403,12 @@
     </form>
     </div>
 
-    <!-- "See Example Output" tab content -->
-    <div id="example-output-content" class="form-content">
-        <!-- Output (shown in Example Output tab) -->
-        <div id="outputSection">
-        <div class="output-header">
-            <h2>Your AI Caller Master Trove is ready.</h2>
-            <p>Your cost, your stack, and your scripts — built for your business.</p>
-        </div>
-
-        <div class="output-block">
-            <div class="output-block-label">Part 1 — Your Cost Estimate</div>
-            <div class="output-content" id="costOutput"></div>
-            <button class="copy-button" onclick="copySection('costOutput', this)">Copy Cost Estimate</button>
-        </div>
-
-        <div class="output-block">
-            <div class="output-block-label">Part 2 — Your Recommended Stack</div>
-            <div class="output-content" id="stackOutput"></div>
-            <button class="copy-button" onclick="copySection('stackOutput', this)">Copy Stack</button>
-        </div>
-
-        <div class="output-block">
-            <div class="output-block-label">Part 3 — Your AI Caller Scripts</div>
-            <div class="output-content" id="scriptsOutput"></div>
-            <button class="copy-button" onclick="copySection('scriptsOutput', this)">Copy Scripts</button>
-        </div>
-
-        <div class="how-to-use">
-            <h3>How to load your scripts</h3>
-            <div class="platform-tabs">
-                <button type="button" class="tab-btn active" onclick="switchTab('retell', this)">Retell AI</button>
-                <button type="button" class="tab-btn" onclick="switchTab('vapi', this)">VAPI</button>
-                <button type="button" class="tab-btn" onclick="switchTab('claude', this)">Refine with Claude</button>
-            </div>
-            <div class="tab-content active" id="tab-retell">
-                <ol class="steps-list">
-                    <li>Go to <strong>app.retellai.com</strong> and sign in (or create an account — free trial available)</li>
-                    <li>Click <strong>Create Agent</strong> → give it a name (e.g. "Maya — Booking Confirmation")</li>
-                    <li>Under <strong>Prompt</strong>, paste your Opening Script and append your Discovery Questions below it</li>
-                    <li>Under <strong>Response Guidelines</strong>, paste your Objection Handling scripts — one per objection</li>
-                    <li>Connect your Twilio number under <strong>Phone Numbers</strong></li>
-                    <li>Set up your webhook in <strong>Integrations</strong> to fire your automation (Make.com or Zapier) after each call</li>
-                    <li>Test with a call to your own number — iterate on tone before going live</li>
-                </ol>
-                <div class="tip-box">Start with 5-10 calls per day to calibrate. Most businesses get their show-up rate to 75%+ within the first two weeks of tuning.</div>
-            </div>
-            <div class="tab-content" id="tab-vapi">
-                <ol class="steps-list">
-                    <li>Go to <strong>vapi.ai</strong> → <strong>Assistants</strong> → <strong>Create Assistant</strong></li>
-                    <li>Set the <strong>System Prompt</strong> to your Opening Script — this is what the AI reads at the top of every call</li>
-                    <li>Add your Discovery Questions under <strong>Functions</strong> as conditional follow-ups</li>
-                    <li>Paste Objection scripts into the <strong>Knowledge Base</strong> — the AI retrieves them when it detects resistance</li>
-                    <li>Connect Twilio under <strong>Phone Numbers</strong> → <strong>Import</strong></li>
-                    <li>Set up <strong>End-of-Call Webhook</strong> to push transcript + outcome to your CRM via Make.com</li>
-                    <li>Use VAPI's <strong>Call Analytics</strong> to track which scripts convert best over the first 50 calls</li>
-                </ol>
-                <div class="tip-box">VAPI gives you more control over call flow branching. If your calls have multiple paths (qualify → book vs. qualify → pass), VAPI handles this better than Retell at scale.</div>
-            </div>
-            <div class="tab-content" id="tab-claude">
-                <ol class="steps-list">
-                    <li>Go to <strong>claude.ai</strong> → <strong>Projects</strong> → <strong>New Project</strong></li>
-                    <li>Name it "AI Caller Scripts" and paste all three script sections as your Project Instructions</li>
-                    <li>In the chat, type: <em>"Rewrite the opening script in a more conversational tone for [your industry]"</em></li>
-                    <li>Once happy with the scripts, say: <em>"Format these for Retell AI — system prompt format"</em></li>
-                    <li>Copy the formatted output straight into your AI caller platform</li>
-                </ol>
-                <div class="tip-box">Use Claude to A/B test variations. Paste both versions and say "which opening is more likely to keep someone on the call for 60 seconds?" — then test the winner live.</div>
-            </div>
-        </div>
-    </div>
-    </div>
     </div>
 </div>
 
 <script>
     const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
     const VIDEO_KEY = 'ai-caller';
-
-    function switchFormTab(tab, btn) {
-        document.querySelectorAll('.form-tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('[id$="-content"]').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(tab + '-content').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
 
     function goToStep(stepNum) {
         if (stepNum === 2) {
