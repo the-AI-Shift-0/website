@@ -101,7 +101,6 @@
             margin-bottom: 24px;
         }
 
-
         .form-tab-content {
             display: none;
         }
@@ -146,6 +145,7 @@
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="number"],
         select,
         textarea {
@@ -159,6 +159,7 @@
         }
 
         input[type="text"]:focus,
+        input[type="email"]:focus,
         input[type="number"]:focus,
         select:focus,
         textarea:focus {
@@ -201,18 +202,9 @@
             flex: 1;
         }
 
-        .text-input-reveal {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .text-input-reveal.show {
-            display: block;
-        }
-
         .button-container {
             text-align: center;
-            margin: 40px 0;
+            margin: 40px 0 0;
         }
 
         button {
@@ -235,14 +227,33 @@
             background: #5b21b6;
         }
 
-        .processing-state,
-        .success-state {
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #7c3aed;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            text-decoration: underline;
+        }
+
+        .processing-state {
             display: none;
             text-align: center;
             padding: 60px 40px;
         }
 
-        .processing-state.show,
+        .processing-state.show {
+            display: block;
+        }
+
+        .success-state {
+            display: none;
+        }
+
         .success-state.show {
             display: block;
         }
@@ -267,197 +278,58 @@
             font-weight: 500;
         }
 
+        .success-header {
+            text-align: center;
+            padding: 40px 0 24px;
+        }
+
         .success-icon {
             font-size: 48px;
             margin-bottom: 16px;
         }
 
-        .success-state h3 {
-            font-size: 20px;
+        .success-header h3 {
+            font-size: 22px;
             color: #1f2937;
             margin-bottom: 8px;
             font-weight: 700;
         }
 
-        .success-state p {
+        .success-header p {
             font-size: 14px;
             color: #6b7280;
             margin-bottom: 20px;
         }
 
-        .success-cta {
-            display: inline-block;
+        .download-btn {
             background: #7c3aed;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 28px;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            text-decoration: none;
             transition: background 0.2s;
         }
 
-        .success-cta:hover {
+        .download-btn:hover {
             background: #6d28d9;
         }
 
-        .output-section {
-            display: none;
-        }
-
-        .output-section.show {
-            display: block;
-        }
-
-        .output-header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .output-header h2 {
-            font-size: 24px;
-            color: #1f2937;
-            margin-bottom: 8px;
-        }
-
-        .output-header p {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        .output-box {
-            background: white;
-            border: 2px solid #7c3aed;
+        .trove-output {
+            background: #f8f7ff;
+            border: 1px solid #e5e7eb;
             border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 24px;
-        }
-
-        .output-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #7c3aed;
-            margin-bottom: 16px;
-        }
-
-        .output-content {
-            color: #1f2937;
+            padding: 28px 32px;
+            margin-top: 8px;
             font-size: 13px;
             line-height: 1.8;
             white-space: pre-wrap;
             word-wrap: break-word;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 20px;
-        }
-
-        .copy-button {
-            background: #7c3aed;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .copy-button:hover {
-            background: #6d28d9;
-        }
-
-        .copy-button.copied {
-            background: #10b981;
-        }
-
-        .how-to-use {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 28px;
-            margin-bottom: 24px;
-        }
-
-        .how-to-use h3 {
-            font-size: 16px;
-            font-weight: 700;
             color: #1f2937;
-            margin-bottom: 20px;
-        }
-
-        .platform-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tab-btn {
-            padding: 8px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            background: white;
-            color: #6b7280;
-            transition: all 0.15s;
-        }
-
-        .tab-btn.active {
-            background: #7c3aed;
-            color: white;
-            border-color: #7c3aed;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .steps-list {
-            list-style: none;
-            counter-reset: step-counter;
-        }
-
-        .steps-list li {
-            counter-increment: step-counter;
-            display: flex;
-            gap: 14px;
-            margin-bottom: 14px;
-            font-size: 14px;
-            color: #374151;
-        }
-
-        .steps-list li::before {
-            content: counter(step-counter);
-            background: #7c3aed;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .tip-box {
-            background: #f3e8ff;
-            border-radius: 6px;
-            padding: 12px 16px;
-            font-size: 13px;
-            color: #5b21b6;
-            margin-top: 12px;
+            font-family: 'Courier New', monospace;
+            text-align: left;
         }
 
         @media (max-width: 600px) {
@@ -465,13 +337,24 @@
                 font-size: 24px;
             }
 
-            .form-section {
-                padding: 20px;
-            }
-
             .what-you-get ul {
                 grid-template-columns: 1fr;
             }
+
+            .trove-output {
+                padding: 20px 16px;
+                font-size: 12px;
+            }
+        }
+
+        @media print {
+            header, .what-you-get, .form-wrapper .form-tab-content,
+            .form-wrapper .processing-state, .success-header { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { padding: 20px; }
+            .form-wrapper { border: none; padding: 0; }
+            .trove-output { border: none; padding: 0; background: white; font-size: 11px; }
+            .success-state { display: block !important; }
         }
     </style>
   <!-- Google Analytics 4 -->
@@ -488,7 +371,7 @@
         <header>
             <div class="eyebrow">The AI Shift</div>
             <h1>Sales Analyzer Master Trove</h1>
-            <p class="subtitle">Tell us about your business. We'll generate a custom system prompt trained on SPIN Selling, Challenger Sale, and 10,000 sales calls — ready to load into Claude.</p>
+            <p class="subtitle">Tell us about your business. We'll generate a custom system prompt trained on SPIN Selling, Challenger Sale, and 10,000 sales calls — ready to load into your AI tool of choice.</p>
         </header>
 
         <div class="what-you-get">
@@ -520,6 +403,28 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Which AI tool do you use?</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-claude" name="platform" value="Claude">
+                                        <label for="platform-claude">Claude (claude.ai)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-chatgpt" name="platform" value="ChatGPT">
+                                        <label for="platform-chatgpt">ChatGPT (chatgpt.com)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-gemini" name="platform" value="Gemini">
+                                        <label for="platform-gemini">Gemini (gemini.google.com)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="platform-unsure" name="platform" value="" checked>
+                                        <label for="platform-unsure">Not sure yet — show me all three</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -663,21 +568,25 @@
 
                         <div class="button-container">
                             <button type="button" onclick="generateTrove()">Generate My Sales Report →</button>
+                            <button class="back-link" type="button" onclick="prevStep()">← Back</button>
                         </div>
                     </div>
 
                     <!-- Processing state -->
                     <div class="processing-state" id="processingState">
                         <div class="spinner"></div>
-                        <p>Analysing your sales profile...</p>
+                        <p>Analyzing your sales profile...</p>
                     </div>
 
                     <!-- Success state -->
                     <div class="success-state" id="successState">
-                        <div class="success-icon">✓</div>
-                        <h3>Your personalised sales report is on its way!</h3>
-                        <p>Check your inbox — it'll arrive in the next 60 seconds.</p>
-                        <a href="example-output.html" class="success-cta">See example output →</a>
+                        <div class="success-header">
+                            <div class="success-icon">✓</div>
+                            <h3>Your Master Trove is ready</h3>
+                            <p>A copy has been sent to your inbox. Download it below or scroll to read.</p>
+                            <button class="download-btn" onclick="window.print()">Download as PDF</button>
+                        </div>
+                        <div id="troveOutput" class="trove-output"></div>
                     </div>
                 </form>
         </div>
@@ -689,17 +598,9 @@
         const VIDEO_KEY = 'sales-analyzer';
         let currentStep = 1;
 
-
-        function switchTab(platform, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('tab-' + platform).classList.add('active');
-        }
-
         function nextStep() {
-            const firstName = document.getElementById('firstName').value;
-            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
 
             if (!firstName || !email) {
                 alert('Please fill in your name and email.');
@@ -710,11 +611,20 @@
             document.getElementById('step1').classList.remove('active');
             document.getElementById('step2').classList.add('active');
             document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
+            window.scrollTo(0, 0);
+        }
+
+        function prevStep() {
+            currentStep = 1;
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            document.getElementById('progressIndicator').innerText = 'Step 1 of 2';
+            window.scrollTo(0, 0);
         }
 
         function generateTrove() {
-            const firstName = document.getElementById('firstName').value;
-            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
             const industry = document.getElementById('industry').value;
             const revenue = document.getElementById('revenue').value;
             const teamSize = document.getElementById('teamSize').value;
@@ -725,6 +635,7 @@
 
             const painChecked = document.querySelector('input[name="pain"]:checked');
             const objChecked = document.querySelector('input[name="objection"]:checked');
+            const platformChecked = document.querySelector('input[name="platform"]:checked');
 
             if (!industry || !revenue || !teamSize || !repCount || !dealSize || !salesCycle || !recordingTool) {
                 alert('Please complete all dropdown fields.');
@@ -739,23 +650,20 @@
                 return;
             }
 
-            const pain = painChecked.value;
-            const objection = objChecked.value;
-
             const formData = {
                 name: firstName,
                 email: email,
                 industry: industry,
                 dealSize: dealSize,
-                coachingChallenge: pain,
-                methodology: objection
+                coachingChallenge: painChecked.value,
+                methodology: objChecked.value,
+                platform: platformChecked ? platformChecked.value : ''
             };
 
             submitToRailway(formData);
         }
 
         async function submitToRailway(formData) {
-            // Show processing state
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
 
@@ -776,9 +684,8 @@
                     gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
                 }
 
-                // If API returns generated output, use it; otherwise use static example
                 if (data.output) {
-                    document.getElementById('exampleTroveOutput').innerText = data.output;
+                    document.getElementById('troveOutput').innerText = data.output;
                 } else {
                     loadStaticExample(formData);
                 }
@@ -914,7 +821,7 @@ TEAM PATTERN REPORT:
 
 Paste a sales call transcript and say "analyze this call." I'll return the full coaching report.`;
 
-            document.getElementById('exampleTroveOutput').innerText = troveContent;
+            document.getElementById('troveOutput').innerText = troveContent;
         }
 
         function getIndustryObjections(industry, topObjection) {
@@ -957,156 +864,6 @@ Talk ratio is especially important here — the prospect should feel heard quick
             }
             return '';
         }
-
-        function copyTrove(button) {
-            const text = document.getElementById('exampleTroveOutput').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const orig = button.innerText;
-                button.innerText = 'Copied!';
-                button.classList.add('copied');
-                setTimeout(() => {
-                    button.innerText = orig;
-                    button.classList.remove('copied');
-                }, 2000);
-            });
-        }
-
-        // Populate example output on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const exampleContent = `SALES ANALYZER MASTER TROVE
-ONLINE COACHING / EDUCATION | $1M–$3M REVENUE
-
-=== WHAT THIS IS ===
-
-You are a world-class sales performance analyst. This system has been pre-loaded with:
-- SPIN Selling methodology (Rackham — Situation, Problem, Implication, Need-Payoff)
-- Challenger Sale framework (Dixon & Adamson — teach, tailor, take control)
-- Sandler Sales System (pain, budget, decision frameworks)
-- 10,000+ analyzed sales calls and objection response patterns
-- Online coaching / education-specific buying patterns and objection library
-
-=== BUSINESS CONTEXT ===
-
-Industry: Online coaching / education
-Annual Revenue: $1M–$3M
-Team Size: 6-15 people
-Sales Reps: 3-5
-Average Deal Size: $5K–$15K
-Sales Cycle: 1-4 weeks
-Call Recording: Gong
-
-Current coaching challenge: Can't identify patterns — every rep seems like a different problem
-Most damaging objection: Price / budget
-
-DEAL SIZE CONTEXT ($5K–$15K deals):
-At this deal size, a single call rarely closes. Watch for: did the rep establish clear next steps with a specific date? Did they identify all decision-makers? Were implications fully explored — at $5K–$15K, the cost-of-inaction needs to be felt, not just acknowledged.
-Multi-stakeholder flag: if only one person is on the call, probe whether they have full authority. If not, coach the rep to request a next call with all decision-makers present.
-
-=== HOW TO USE THIS ===
-
-When I give you a sales call transcript or recording:
-1. Analyze it using the full framework below
-2. Return a structured coaching report
-3. After 3+ calls, identify the team pattern
-
-If I say "analyze this call" — run the full analysis.
-If I say "quick score" — return just the scorecard.
-If I say "team pattern" — compare all calls and find the shared weakness.
-
-=== CALL ANALYSIS FRAMEWORK ===
-
-SPIN SCORING (score each 1–10 with evidence from the call):
-
-Situation Questions (1–10): Did the rep uncover current state before pitching?
-- 8–10: Asked 3+ situation questions before presenting anything
-- 5–7: Asked some questions but moved to pitch too soon
-- 1–4: Jumped straight to features and benefits
-
-Problem Questions (1–10): Did they surface the real pain or accept surface symptoms?
-- 8–10: Dug beneath the stated problem to find the real business impact
-- 5–7: Acknowledged the problem but didn't probe deeper
-- 1–4: Took the prospect's first answer and moved on
-
-Implication Questions (1–10): Did they amplify the cost of inaction?
-- 8–10: Made the prospect articulate what this problem is costing them
-- 5–7: Mentioned consequences but didn't make the prospect feel them
-- 1–4: Never established why solving this matters now
-
-Need-Payoff Questions (1–10): Did the prospect sell themselves?
-- 8–10: Prospect said out loud why this solution matters to them
-- 5–7: Rep told the prospect the value instead of drawing it out
-- 1–4: Rep closed on features, not on prospect-stated needs
-
-CHALLENGER DIMENSIONS (score each 1–10 with evidence):
-
-Teach (1–10): Did the rep introduce a perspective the prospect hadn't considered?
-- 8–10: Reframed how the prospect thinks about the problem
-- 5–7: Shared some insight but it wasn't surprising or specific
-- 1–4: Nodded along with what the prospect already believed
-
-Tailor (1–10): Did they connect insights to this specific prospect's situation?
-- 8–10: Every insight referenced something specific about this business
-- 5–7: Generic framing with a few personalized details
-- 1–4: Same pitch they give everyone
-
-Take Control (1–10): Did the rep lead the conversation, or follow?
-- 8–10: Drove agenda, redirected tangents, asked for commitment
-- 5–7: Held direction most of the time but ceded ground on price/timeline
-- 1–4: Prospect controlled the call
-
-KEY MOMENTS TO FLAG:
-
-- Talk ratio: if rep spoke more than 60% of the call, flag it
-- Engagement shift: the exact moment energy changed (positive or negative) — quote the line
-- First objection: how it arrived, how it was handled, whether it was resolved or bypassed
-- Price / budget objection: specifically watch for this — it kills the most deals. Note exactly when and how it came up.
-- Closing attempt: was there a specific ask for next steps? Were they concrete and owned?
-
-INDUSTRY-SPECIFIC PATTERNS (Online Coaching / Education):
-Common objection cluster: "I've tried programs before and they didn't work" — this is a trust objection, not a price objection. Probe for what specifically failed.
-Watch for: reps pitching the program before establishing belief that the prospect can succeed.
-"Price" in coaching usually means "I don't believe the ROI" — push on what the cost of NOT solving this is, not on payment plans.
-
-=== COACHING OUTPUT FORMAT ===
-
-Return this structure for every call:
-
-CALL VERDICT: [Strong close / Solid but left money on the table / Needs work / Struggled]
-
-SCORECARD:
-Situation Questions: X/10 — [one line of evidence]
-Problem Questions: X/10 — [one line of evidence]
-Implication Questions: X/10 — [one line of evidence]
-Need-Payoff Questions: X/10 — [one line of evidence]
-Teach: X/10 — [one line of evidence]
-Tailor: X/10 — [one line of evidence]
-Take Control: X/10 — [one line of evidence]
-Talk Ratio: X% rep / X% prospect
-
-THE ONE THING TO FIX: [Single most impactful coaching note — specific, not generic]
-
-THE BEST MOMENT: [What the rep did well — quote the line if possible — this gets reinforced]
-
-OBJECTION HANDLING (Price / budget): [How they handled it + what they should have done differently if applicable]
-
-NEXT STEPS QUALITY: [Were they specific? Who owns them? Rated: Strong / Weak / None]
-
-=== TEAM PATTERN DETECTION ===
-
-After analyzing 3 or more calls from the same team, produce:
-
-TEAM PATTERN REPORT:
-- The one coaching problem showing up across every rep (not just one of them)
-- The shared strength to protect (what everyone does well)
-- Priority order: fix [X] before [Y] because [reason]
-- The one drill that would move the whole team
-
-=== YOU ARE NOW READY ===
-
-Paste a sales call transcript and say "analyze this call." I'll return the full coaching report.`;
-
-            document.getElementById('exampleTroveOutput').innerText = exampleContent;
-        });
     </script>
 </body>
 </html>
