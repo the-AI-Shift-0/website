@@ -345,25 +345,51 @@
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
 
+            const submitButton = document.querySelector('button[onclick="generateTrove()"]');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Generating...';
+            }
+
             fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
-            }).catch(err => console.warn('Railway API error:', err.message));
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('API error');
+                }
+                return response.json();
+            }).then(data => {
+                if (data.success) {
+                    document.getElementById('processingState').classList.remove('show');
+                    document.getElementById('successState').classList.add('show');
+                } else {
+                    showError();
+                }
+            }).catch(err => {
+                console.warn('Railway API error:', err.message);
+                showError();
+            }).finally(() => {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Generate My Master Trove →';
+                }
+            });
 
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
             }
-
-            setTimeout(() => {
-                document.getElementById('processingState').classList.remove('show');
-                document.getElementById('successState').classList.add('show');
-            }, 2000);
         }
 
         function resetToForm() {
             document.getElementById('errorState').classList.remove('show');
             document.getElementById('step2').classList.add('active');
+        }
+
+        function showError() {
+            document.getElementById('processingState').classList.remove('show');
+            document.getElementById('errorState').classList.add('show');
         }
     </script>
 </body>

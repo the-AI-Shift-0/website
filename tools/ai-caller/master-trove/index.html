@@ -140,6 +140,16 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="showUpRate">What's your current show-up rate?</label>
+                <select id="showUpRate" required>
+                    <option value="">-- Select --</option>
+                    <option value="under_40">Under 50%</option>
+                    <option value="40_60">50-70%</option>
+                    <option value="60_80">70-85%</option>
+                    <option value="85+">85%+</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>What triggers the AI to call? (select all that apply)</label>
                 <div class="checkbox-group" id="triggerGroup">
                     <div class="checkbox-item"><input type="checkbox" id="t1" name="trigger" value="form_fill"><label for="t1">Someone fills out a form / opts in</label></div>
@@ -268,6 +278,7 @@
         let industry = document.getElementById('industry').value;
         const revenue = document.getElementById('revenue').value;
         const callVolume = document.getElementById('callVolume').value;
+        const showUpRate = document.getElementById('showUpRate').value;
 
         // Handle industry "Other"
         if (industry === 'Other') {
@@ -289,7 +300,7 @@
         const goalOtherVal = document.getElementById('goalOther').value.trim();
         if (goalOtherVal) goalChecked.push(goalOtherVal);
 
-        if (!revenue || !callVolume) {
+        if (!revenue || !callVolume || !showUpRate) {
             alert('Please complete all dropdown fields.');
             return;
         }
@@ -309,6 +320,7 @@
             industry: industry,
             revenue: revenue,
             callVolume: callVolume,
+            showUpRate: showUpRate,
             trigger: triggerChecked.join(', '),
             goal: goalChecked.join(', ')
         };
@@ -320,20 +332,46 @@
         document.getElementById('step-2').classList.remove('active');
         document.getElementById('processingState').classList.add('show');
 
+        const submitButton = document.querySelector('button[onclick="generateTrove()"]');
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Generating...';
+        }
+
         fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
-        }).catch(err => console.warn('Railway API error:', err.message));
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('API error');
+            }
+            return response.json();
+        }).then(data => {
+            if (data.success) {
+                document.getElementById('processingState').classList.remove('show');
+                document.getElementById('successState').classList.add('show');
+            } else {
+                showAICallerError();
+            }
+        }).catch(err => {
+            console.warn('Railway API error:', err.message);
+            showAICallerError();
+        }).finally(() => {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Generate My Master Trove →';
+            }
+        });
 
         if (typeof gtag !== 'undefined') {
             gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
         }
+    }
 
-        setTimeout(() => {
-            document.getElementById('processingState').classList.remove('show');
-            document.getElementById('successState').classList.add('show');
-        }, 2000);
+    function showAICallerError() {
+        document.getElementById('processingState').classList.remove('show');
+        document.getElementById('errorState').style.display = 'block';
     }
 
     function resetToForm() {

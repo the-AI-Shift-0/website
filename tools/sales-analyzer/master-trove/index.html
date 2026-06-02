@@ -395,7 +395,7 @@
                 industry: industryValue,
                 dealSize: dealSize,
                 coachingChallenge: painStr,
-                methodology: objChecked.join(', '),
+                topObjection: objChecked.join(', '),
                 platform: platformChecked.join(', '),
                 revenue: revenue,
                 repCount: repCount,
@@ -410,20 +410,46 @@
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
 
+            const submitButton = document.querySelector('button[onclick="generateTrove()"]');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Generating...';
+            }
+
             fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
-            }).catch(err => console.warn('Railway API error:', err.message));
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('API error');
+                }
+                return response.json();
+            }).then(data => {
+                if (data.success) {
+                    document.getElementById('processingState').classList.remove('show');
+                    document.getElementById('successState').classList.add('show');
+                } else {
+                    showError();
+                }
+            }).catch(err => {
+                console.warn('Railway API error:', err.message);
+                showError();
+            }).finally(() => {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Generate My Sales Report →';
+                }
+            });
 
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
             }
+        }
 
-            setTimeout(() => {
-                document.getElementById('processingState').classList.remove('show');
-                document.getElementById('successState').classList.add('show');
-            }, 2000);
+        function showError() {
+            document.getElementById('processingState').classList.remove('show');
+            document.getElementById('errorState').classList.add('show');
         }
 
         function resetToForm() {
@@ -432,7 +458,7 @@
         }
 
         function loadStaticExample(formData) {
-            const industryObjections = getIndustryObjections(formData.industry, formData.methodology);
+            const industryObjections = getIndustryObjections(formData.industry, formData.topObjection);
             const dealContext = getDealContext(formData.dealSize, '1-4 weeks');
 
             const troveContent = `SALES ANALYZER MASTER TROVE
@@ -451,7 +477,7 @@ You are a world-class sales performance analyst. This system has been pre-loaded
 
 Industry: ${formData.industry}
 Coaching Challenge: ${formData.coachingChallenge}
-Most Damaging Objection: ${formData.methodology}
+Most Damaging Objection: ${formData.topObjection}
 
 ${dealContext}
 
@@ -512,7 +538,7 @@ KEY MOMENTS TO FLAG:
 - Talk ratio: if rep spoke more than 60% of the call, flag it
 - Engagement shift: the exact moment energy changed (positive or negative)  -  quote the line
 - First objection: how it arrived, how it was handled, whether it was resolved or bypassed
-- ${formData.methodology}: specifically watch for this  -  it kills the most deals. Note exactly when and how it came up.
+- ${formData.topObjection}: specifically watch for this  -  it kills the most deals. Note exactly when and how it came up.
 - Closing attempt: was there a specific ask for next steps? Were they concrete and owned?
 
 ${industryObjections}
@@ -537,7 +563,7 @@ THE ONE THING TO FIX: [Single most impactful coaching note  -  specific, not gen
 
 THE BEST MOMENT: [What the rep did well  -  quote the line if possible  -  this gets reinforced]
 
-OBJECTION HANDLING (${formData.methodology}): [How they handled it + what they should have done differently if applicable]
+OBJECTION HANDLING (${formData.topObjection}): [How they handled it + what they should have done differently if applicable]
 
 NEXT STEPS QUALITY: [Were they specific? Who owns them? Rated: Strong / Weak / None]
 
