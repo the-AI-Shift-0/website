@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FB Audience Unifier - Build Facebook Custom Audiences That Actually Match</title>
+  <meta name="description" content="Your contacts are scattered across 5+ tools. FB Audience Unifier pulls them together, normalizes every email and phone, and outputs one clean Custom Audience CSV.">
+  <meta property="og:title" content="FB Audience Unifier — The AI Shift">
+  <meta property="og:description" content="Your contacts are scattered across 5+ tools. AI that unifies, deduplicates, and enriches your contact data so Facebook can actually find them.">
+  <meta property="og:url" content="https://theaishift.biz/tools/fb-audience/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://theaishift.biz/brand/profile-pic.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FB Audience Unifier — The AI Shift">
+  <meta name="twitter:description" content="Turn your scattered contact data into a Facebook Custom Audience with a 60-70% match rate. No data engineer required.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
+
+    /* ── HEADER NAV ── */
+    .header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(248, 247, 255, 0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e9d5ff;
+      padding: 16px 40px;
+    }
+    .nav { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-size: 13px; font-weight: 800; color: #111827; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 24px; margin-left: auto; }
+    .nav-link { font-size: 14px; font-weight: 600; color: #6b7280; text-decoration: none; transition: color 0.15s; }
+    .nav-link:hover { color: #111827; }
+    .nav-link.active { color: #7c3aed; border-bottom: 2px solid #7c3aed; padding-bottom: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 720px; margin: 0 auto; padding: 80px 32px 60px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 16px;
+    }
+    .hero-h1 {
+      font-size: clamp(28px, 5vw, 42px); font-weight: 800; color: #111827;
+      letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 16px; color: #6b7280; line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      max-width: 720px; margin: 0 auto; padding: 0 32px 64px;
+    }
+    .benefits-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+    }
+    .benefit-grid {
+      display: grid; gap: 14px;
+    }
+    .benefit-item {
+      background: #fff; border: 1px solid #e9d5ff; border-radius: 10px;
+      padding: 16px 20px; text-align: left;
+    }
+    .benefit-item-title {
+      font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 4px;
+    }
+    .benefit-item-desc {
+      font-size: 13px; color: #6b7280; line-height: 1.5;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works {
+      max-width: 720px; margin: 0 auto; padding: 64px 32px;
+      background: #fff; border: 1px solid #e9d5ff; border-radius: 12px;
+    }
+    .section-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+    }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
+      margin-bottom: 40px;
+    }
+    .step {
+      text-align: center;
+    }
+    .step-num {
+      font-size: 32px; font-weight: 800; color: #7c3aed; margin-bottom: 8px;
+    }
+    .step-title {
+      font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px; color: #6b7280; line-height: 1.5;
+    }
+
+    .demo-link {
+      display: inline-block; background: #7c3aed; color: #fff;
+      font-size: 14px; font-weight: 700; padding: 12px 24px;
+      border-radius: 8px; text-decoration: none; transition: background 0.15s;
+    }
+    .demo-link:hover { background: #6d28d9; }
+
+    /* ── CTA BOXES ── */
+    .cta-section {
+      max-width: 960px; margin: 0 auto; padding: 64px 32px;
+    }
+    .cta-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+    }
+    .cta-box {
+      background: #7c3aed; border-radius: 12px; padding: 32px 28px;
+      text-align: center;
+    }
+    .cta-eyebrow {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #ddd6fe; margin-bottom: 12px;
+    }
+    .cta-title {
+      font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .cta-desc {
+      font-size: 13px; color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-block; background: #fff; color: #7c3aed;
+      font-size: 14px; font-weight: 800; padding: 12px 24px;
+      border-radius: 8px; text-decoration: none; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1e1b4b; padding: 32px;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 12px; color: rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 680px) {
+      .nav-link { font-size: 13px; }
+      .header { padding: 16px 20px; }
+      .nav { gap: 20px; }
+      .nav-links { gap: 12px; }
+      .hero { padding: 60px 20px 40px; }
+      .how-steps { gap: 16px; }
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F7FK9M526K');
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="nav">
+    <a href="https://theaishift.biz" class="nav-logo">
+      <span class="nav-logo-text">The AI Shift</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://theaishift.biz" class="nav-link">Home</a>
+      <a href="https://theaishift.biz/tools/" class="nav-link active">Tools</a>
+      <a href="https://theaishift.biz/about/" class="nav-link">About</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">FB Audience Unifier</p>
+  <h1 class="hero-h1">Your ad budget is wasted on contacts Facebook can't find</h1>
+  <p class="hero-sub">Your contacts are split across your CRM, email platform, scheduler, and payment tools. FB Audience Unifier pulls them together, normalizes every email and phone number, and outputs one clean Custom Audience CSV with a 60-70% match rate.</p>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-label">What It Does</div>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <div class="benefit-item-title">Unify contacts from every tool</div>
+      <div class="benefit-item-desc">Export CSVs from HubSpot, GoHighLevel, Mailchimp, Calendly, Stripe, and 9+ others. The AI handles every export format.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Multiply email match rate automatically</div>
+      <div class="benefit-item-desc">Email tag stripping, Gmail dot normalization, Googlemail/Gmail swap - each variant is a separate row. More rows means more matches.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Normalize phone to E.164 format</div>
+      <div class="benefit-item-desc">Every phone number converted to the format Facebook requires. Country code inferred from location data when missing.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-item-title">Upload-ready in one step</div>
+      <div class="benefit-item-desc">Output is a clean Facebook Custom Audience CSV with all required columns. Drop it into Ads Manager and you're done.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="max-width: 960px; margin: 0 auto; padding: 0 32px;">
+  <div class="how-it-works">
+    <div class="section-label">How It Works</div>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">List your data sources</div>
+        <div class="step-desc">Tell us which tools hold your contacts. We build an extraction guide for each one.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">AI unifies and enriches</div>
+        <div class="step-desc">Paste CSV exports one at a time. The AI deduplicates, normalizes, and creates email variants.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Upload to Facebook</div>
+        <div class="step-desc">Download the clean CSV and upload directly to Facebook Ads Manager as a Custom Audience.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="cta-grid">
+    <div class="cta-box">
+      <div class="cta-eyebrow">Get Started Free</div>
+      <div class="cta-title">Master Trove</div>
+      <div class="cta-desc">Get your personalized unifier built for your exact data stack - with extraction guides for every tool you use.</div>
+      <a href="https://theaishift.biz/tools/fb-audience/master-trove/" class="cta-btn">Access Master Trove</a>
+    </div>
+    <div class="cta-box">
+      <div class="cta-eyebrow">Learn More</div>
+      <div class="cta-title">Watch The Episode</div>
+      <div class="cta-desc">See a real business go from 978K scattered rows to a 355K-contact Custom Audience with a 69% match rate.</div>
+      <a href="#" class="cta-btn">Watch Full Episode</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
