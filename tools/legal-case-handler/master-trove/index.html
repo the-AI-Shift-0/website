@@ -24,19 +24,19 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>Legal Case Handler Master Trove</h1>
-        <p class="subtitle">Tell us about your legal situation. We'll generate a jurisdiction-specific action plan  -  what to gather, what to ask your lawyer, and what to do right now.</p>
+        <p class="subtitle">Get a private legal knowledge base tailored to your jurisdiction and business structure. Ask any legal question to your own Claude Project  -  your case details never leave your device.</p>
     </header>
 
     <div class="what-you-get">
         <h3>What's inside your Master Trove</h3>
         <ul>
-            <li>IGNORE / RESPOND / FIRE A LAWYER verdict</li>
-            <li>Legal merit score (1-10) for your threat</li>
-            <li>Financial exposure estimate (low / mid / high)</li>
-            <li>Draft response letter (if verdict is RESPOND)</li>
-            <li>Jurisdiction-specific AI triage system prompt</li>
-            <li>Document checklist for your threat type</li>
-            <li>3 questions to ask your lawyer</li>
+            <li>A private Claude Projects knowledge base with your jurisdiction's legal framework</li>
+            <li>Custom prompts for answering your specific legal questions</li>
+            <li>Industry-tailored checklists and templates (no personal data needed)</li>
+            <li>Guidance on what documents to prepare before consulting a lawyer</li>
+            <li>Best practices for structuring your business legally</li>
+            <li>Compliance and risk considerations for your business type</li>
+            <li>Quick-reference legal terms and concepts for your jurisdiction</li>
         </ul>
     </div>
 
@@ -57,90 +57,65 @@
                     </div>
                 </div>
                 <div class="button-container">
-                    <button type="button" onclick="goToStep(2)">Next: Your Legal Situation →</button>
+                    <button type="button" onclick="goToStep(2)">Next: Your Legal Context →</button>
                 </div>
             </div>
 
-            <!-- Step 2: Legal Details -->
+            <!-- Step 2: Legal Context -->
             <div class="form-content" id="step2">
                 <div class="form-section">
-                    <h2>Your Legal Situation</h2>
+                    <h2>Your Legal Context</h2>
+
+                    <div class="form-group">
+                        <label for="jurisdiction">What state or country is your business in?</label>
+                        <select id="jurisdiction" required>
+                            <option value="">-- Select a jurisdiction --</option>
+                            <option value="US">United States</option>
+                            <option value="US-CA">United States - California</option>
+                            <option value="US-TX">United States - Texas</option>
+                            <option value="US-NY">United States - New York</option>
+                            <option value="US-FL">United States - Florida</option>
+                            <option value="US-other">United States - Other State</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="IN">India</option>
+                            <option value="SG">Singapore</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessStructure">What is your business structure?</label>
+                        <select id="businessStructure" required>
+                            <option value="">-- Select a business structure --</option>
+                            <option value="llc">LLC</option>
+                            <option value="s-corp">S-Corp</option>
+                            <option value="c-corp">C-Corp</option>
+                            <option value="sole-proprietor">Sole Proprietor</option>
+                            <option value="private-limited">Private Limited Company</option>
+                            <option value="sole-trader">Sole Trader</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <label for="industry">What industry are you in?</label>
                         <select id="industry" required>
                             <option value="">-- Select an industry --</option>
-                            <option value="Online coaching / education">Online coaching / education</option>
-                            <option value="E-commerce">E-commerce</option>
-                            <option value="Professional services">Professional services</option>
-                            <option value="Real estate">Real estate</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="SaaS">SaaS</option>
-                            <option value="Other">Other</option>
+                            <option value="e-commerce">E-commerce / Retail</option>
+                            <option value="professional-services">Professional Services</option>
+                            <option value="coaching-consulting">Coaching / Consulting</option>
+                            <option value="healthcare">Healthcare / Wellness</option>
+                            <option value="construction">Construction / Trades</option>
+                            <option value="tech-saas">Tech / SaaS</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="food-hospitality">Food / Hospitality</option>
+                            <option value="other">Other</option>
                         </select>
-                    </div>
-                    <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
-                        <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="revenue">Annual revenue range:</label>
-                        <select id="revenue" required>
-                            <option value="">-- Select a range --</option>
-                            <option value="$500K–$1M">$500K – $1M</option>
-                            <option value="$1M–$3M">$1M – $3M</option>
-                            <option value="$3M–$7M">$3M – $7M</option>
-                            <option value="$7M–$15M">$7M – $15M</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jurisdiction">What state or country is your business in?</label>
-                        <input type="text" id="jurisdiction" placeholder="e.g., California, Texas, UK" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>What type of legal threat are you facing? (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat1" name="threatType" value="Contract dispute">
-                                <label for="threat1">Contract dispute</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat2" name="threatType" value="IP infringement">
-                                <label for="threat2">IP infringement</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat3" name="threatType" value="Employment issue">
-                                <label for="threat3">Employment issue</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat4" name="threatType" value="Regulatory/compliance">
-                                <label for="threat4">Regulatory/compliance</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat5" name="threatType" value="Customer claim">
-                                <label for="threat5">Customer claim</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat6" name="threatType" value="Vendor dispute">
-                                <label for="threat6">Vendor dispute</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="threat7" name="threatType" value="Other">
-                                <label for="threat7">Other</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="businessDescription">Briefly describe your legal situation:</label>
-                        <textarea id="businessDescription" placeholder="What happened? Who is involved? What are they asking for?" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="additionalNotes">Anything else about the legal situation?</label>
-                        <textarea id="additionalNotes" placeholder="Add any other details that might help..."></textarea>
                     </div>
                 </div>
 
@@ -150,7 +125,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button type="button" onclick="generateTrove()">Generate My Legal Action Plan →</button>
+                    <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
                     <button class="back-link" type="button" onclick="goToStep(1)">← Back</button>
                 </div>
             </div>
@@ -158,8 +133,8 @@
             <!-- Processing state -->
             <div class="processing-state" id="processingState">
                 <div class="spinner"></div>
-                <h3>Building your Legal Action Plan...</h3>
-                <p>Analyzing your situation and creating your jurisdiction-specific roadmap...</p>
+                <h3>Building your Private Legal Knowledge Base...</h3>
+                <p>Generating your jurisdiction and structure-specific Master Trove...</p>
             </div>
 
             <!-- Error state -->
@@ -171,18 +146,18 @@
             <!-- Success state -->
             <div class="success-state" id="successState">
                 <div class="success-icon">✓</div>
-                <h3>Your Legal Case Handler Master Trove is being built</h3>
-                <p>We're generating your jurisdiction-specific action plan and legal roadmap right now. It usually lands in your inbox within 60 seconds.</p>
+                <h3>Your Legal Case Handler Master Trove is ready</h3>
+                <p>Your private legal knowledge base has been generated and is on its way to your inbox. It usually arrives within 60 seconds.</p>
                 <div class="email-tip">
                     <strong>Check your inbox</strong>  -  subject line will include "Master Trove."<br><br>
                     Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
                 </div>
                 <div class="whats-inside">
-                    <div class="whats-inside-label">What's on its way</div>
+                    <div class="whats-inside-label">What's inside</div>
                     <ul>
-                        <li>A jurisdiction-specific action plan tailored to your legal threat and business type</li>
-                        <li>The critical documents to gather and organize before talking to a lawyer</li>
-                        <li>Three power questions to ask your attorney and what to do in the next 48 hours</li>
+                        <li>A private knowledge base tailored to your jurisdiction and business structure</li>
+                        <li>Ready-to-use Claude Project prompts for your legal questions</li>
+                        <li>Checklists and templates for your industry and business type</li>
                     </ul>
                 </div>
                 <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -196,10 +171,7 @@
     const VIDEO_KEY = 'legal-case-handler';
 
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('industry').addEventListener('change', function() {
-            const otherGroup = document.getElementById('industryOtherGroup');
-            otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
-        });
+        // No dynamic field logic needed for new form
     });
 
     function goToStep(stepNum) {
@@ -226,22 +198,11 @@
         const firstName = document.getElementById('firstName').value.trim();
         const email = document.getElementById('email').value.trim();
         const phone = document.getElementById('phone').value.trim();
+        const jurisdiction = document.getElementById('jurisdiction').value;
+        const businessStructure = document.getElementById('businessStructure').value;
         const industry = document.getElementById('industry').value;
-        const revenue = document.getElementById('revenue').value;
-        const jurisdiction = document.getElementById('jurisdiction').value.trim();
-        const businessDescription = document.getElementById('businessDescription').value.trim();
-        const additionalNotes = document.getElementById('additionalNotes').value.trim();
 
-        let industryValue = industry;
-        if (industry === 'Other') {
-            const customIndustry = document.getElementById('industryOther').value.trim();
-            if (customIndustry) industryValue = customIndustry;
-        }
-
-        const threatCheckboxes = document.querySelectorAll('input[name="threatType"]:checked');
-        const threatTypes = Array.from(threatCheckboxes).map(cb => cb.value);
-
-        if (!industryValue || !revenue || !jurisdiction || threatTypes.length === 0 || !businessDescription) {
+        if (!jurisdiction || !businessStructure || !industry) {
             alert('Please complete all required fields.');
             return;
         }
@@ -250,12 +211,9 @@
             name: firstName,
             email: email,
             phone: phone,
-            industry: industryValue,
-            revenue: revenue,
             jurisdiction: jurisdiction,
-            threatType: threatTypes.join(', '),
-            businessDescription: businessDescription,
-            additionalNotes: additionalNotes
+            businessStructure: businessStructure,
+            industry: industry
         };
 
         submitToRailway(formData);
@@ -268,7 +226,7 @@
         const submitButton = document.querySelector('button[onclick="generateTrove()"]');
         if (submitButton) {
             submitButton.disabled = true;
-            submitButton.textContent = 'Generating...';
+            submitButton.textContent = 'Generating Master Trove...';
         }
 
         fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {

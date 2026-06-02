@@ -129,51 +129,57 @@
             <!-- Section 2 -->
             <div class="form-section">
                 <h2>Section 2  -  Your Call Setup</h2>
-            <div class="form-group">
-                <label for="callVolume">How many AI calls per day?</label>
-                <select id="callVolume" required>
-                    <option value="">-- Select --</option>
-                    <option value="5-15">5–15 calls/day</option>
-                    <option value="15-40">15–40 calls/day</option>
-                    <option value="40-80">40–80 calls/day</option>
-                    <option value="80+">80+ calls/day</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="showUpRate">What's your current show-up rate?</label>
-                <select id="showUpRate" required>
-                    <option value="">-- Select --</option>
-                    <option value="under_40">Under 50%</option>
-                    <option value="40_60">50-70%</option>
-                    <option value="60_80">70-85%</option>
-                    <option value="85+">85%+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>What triggers the AI to call? (select all that apply)</label>
-                <div class="checkbox-group" id="triggerGroup">
-                    <div class="checkbox-item"><input type="checkbox" id="t1" name="trigger" value="form_fill"><label for="t1">Someone fills out a form / opts in</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="t2" name="trigger" value="after_purchase"><label for="t2">After a purchase or sign-up</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="t3" name="trigger" value="no_show"><label for="t3">Someone missed a scheduled call or session</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="t4" name="trigger" value="re_engagement"><label for="t4">Re-engaging cold or lapsed leads</label></div>
+                <div class="form-group">
+                    <label for="callVolume">How many AI calls per day?</label>
+                    <select id="callVolume" required>
+                        <option value="">-- Select --</option>
+                        <option value="5-15">5–15 calls/day</option>
+                        <option value="15-40">15–40 calls/day</option>
+                        <option value="40-80">40–80 calls/day</option>
+                        <option value="80+">80+ calls/day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="callingUseCase">What kind of AI calling system do you want to build?</label>
+                    <select id="callingUseCase" required>
+                        <option value="">-- Select --</option>
+                        <option value="appointment-scheduling">Appointment scheduling</option>
+                        <option value="lead-followup">Lead follow-up</option>
+                        <option value="customer-reengagement">Customer re-engagement</option>
+                        <option value="payment-recovery">Payment recovery</option>
+                        <option value="customer-service">Customer service / inbound</option>
+                        <option value="outbound-sales">Outbound sales</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group" id="useCaseOtherGroup" style="display:none; margin-top: -8px;">
+                    <input type="text" id="useCaseOther" placeholder="Tell us your use case">
+                </div>
+                <div class="form-group">
+                    <label for="techLevel">What's your technical skill level?</label>
+                    <select id="techLevel" required>
+                        <option value="">-- Select --</option>
+                        <option value="no-code">No code - I need a no-code solution</option>
+                        <option value="will-hire">I'll hire a developer</option>
+                        <option value="can-code">I can code / build it myself</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="currentCRM">What CRM do you currently use?</label>
+                    <select id="currentCRM" required>
+                        <option value="">-- Select --</option>
+                        <option value="hubspot">HubSpot</option>
+                        <option value="salesforce">Salesforce</option>
+                        <option value="gohighlevel">GoHighLevel</option>
+                        <option value="activecampaign">ActiveCampaign</option>
+                        <option value="none">No CRM</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group" id="crmOtherGroup" style="display:none; margin-top: -8px;">
+                    <input type="text" id="crmOther" placeholder="Tell us which CRM">
                 </div>
             </div>
-            <div style="margin-top: 6px; margin-bottom: 20px;">
-                <textarea id="triggerOther" placeholder="Anything else? Add notes here..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px; font-family:inherit;"></textarea>
-            </div>
-            <div class="form-group">
-                <label>What is the goal of each call? (select all that apply)</label>
-                <div class="checkbox-group" id="goalGroup">
-                    <div class="checkbox-item"><input type="checkbox" id="g1" name="goal" value="confirm_attendance"><label for="g1">Confirm attendance / lock in a booking</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="g2" name="goal" value="qualify_lead"><label for="g2">Qualify the lead and book a sales call</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="g3" name="goal" value="re_engage"><label for="g3">Re-engage and get them back on track</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="g4" name="goal" value="onboard"><label for="g4">Onboard and set up the next step</label></div>
-                </div>
-            </div>
-            <div style="margin-top: 6px;">
-                <textarea id="goalOther" placeholder="Anything else? Add notes here..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px; font-family:inherit;"></textarea>
-            </div>
-        </div>
 
             <div class="form-section">
                 <div class="form-group">
@@ -234,6 +240,18 @@
         otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
     });
 
+    // Use Case "Other" reveal
+    document.getElementById('callingUseCase').addEventListener('change', function() {
+        const otherGroup = document.getElementById('useCaseOtherGroup');
+        otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
+    });
+
+    // CRM "Other" reveal
+    document.getElementById('currentCRM').addEventListener('change', function() {
+        const otherGroup = document.getElementById('crmOtherGroup');
+        otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
+    });
+
     function goToStep(stepNum) {
         if (stepNum === 2) {
             const firstName = document.getElementById('firstName').value.trim();
@@ -278,7 +296,9 @@
         let industry = document.getElementById('industry').value;
         const revenue = document.getElementById('revenue').value;
         const callVolume = document.getElementById('callVolume').value;
-        const showUpRate = document.getElementById('showUpRate').value;
+        let callingUseCase = document.getElementById('callingUseCase').value;
+        const techLevel = document.getElementById('techLevel').value;
+        let currentCRM = document.getElementById('currentCRM').value;
 
         // Handle industry "Other"
         if (industry === 'Other') {
@@ -290,26 +310,28 @@
             industry = industryOther;
         }
 
-        // Collect triggers (checkboxes)
-        const triggerChecked = Array.from(document.querySelectorAll('input[name="trigger"]:checked')).map(el => el.value);
-        const triggerOtherVal = document.getElementById('triggerOther').value.trim();
-        if (triggerOtherVal) triggerChecked.push(triggerOtherVal);
-
-        // Collect goals (checkboxes)
-        const goalChecked = Array.from(document.querySelectorAll('input[name="goal"]:checked')).map(el => el.value);
-        const goalOtherVal = document.getElementById('goalOther').value.trim();
-        if (goalOtherVal) goalChecked.push(goalOtherVal);
-
-        if (!revenue || !callVolume || !showUpRate) {
-            alert('Please complete all dropdown fields.');
-            return;
+        // Handle use case "Other"
+        if (callingUseCase === 'other') {
+            const useCaseOther = document.getElementById('useCaseOther').value.trim();
+            if (!useCaseOther) {
+                alert('Please tell us your use case.');
+                return;
+            }
+            callingUseCase = useCaseOther;
         }
-        if (triggerChecked.length === 0) {
-            alert('Please select at least one trigger.');
-            return;
+
+        // Handle CRM "Other"
+        if (currentCRM === 'other') {
+            const crmOther = document.getElementById('crmOther').value.trim();
+            if (!crmOther) {
+                alert('Please tell us your CRM.');
+                return;
+            }
+            currentCRM = crmOther;
         }
-        if (goalChecked.length === 0) {
-            alert('Please select at least one goal.');
+
+        if (!revenue || !callVolume || !callingUseCase || !techLevel || !currentCRM) {
+            alert('Please complete all required fields.');
             return;
         }
 
@@ -320,9 +342,9 @@
             industry: industry,
             revenue: revenue,
             callVolume: callVolume,
-            showUpRate: showUpRate,
-            trigger: triggerChecked.join(', '),
-            goal: goalChecked.join(', ')
+            callingUseCase: callingUseCase,
+            techLevel: techLevel,
+            currentCRM: currentCRM
         };
 
         submitToRailway(formData);
