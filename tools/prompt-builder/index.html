@@ -15,12 +15,12 @@
   <meta name="twitter:description" content="Stop writing vague prompts and getting generic outputs. Get a personalized prompt engineering expert that knows your role and industry.">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fffbeb; color: #111827; }
 
     .header {
       position: sticky; top: 0; z-index: 10;
       background: rgba(248, 247, 255, 0.95); backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e9d5ff;
+      border-bottom: 1px solid #fef3c7;
       padding: 16px 40px;
     }
     .nav { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
@@ -29,7 +29,7 @@
     .nav-links { display: flex; gap: 24px; margin-left: auto; }
     .nav-link { font-size: 14px; font-weight: 600; color: #6b7280; text-decoration: none; transition: color 0.15s; }
     .nav-link:hover { color: #111827; }
-    .nav-link.active { color: #7c3aed; border-bottom: 2px solid #7c3aed; padding-bottom: 2px; }
+    .nav-link.active { color: #b45309; border-bottom: 2px solid #b45309; padding-bottom: 2px; }
 
     .hero {
       max-width: 720px; margin: 0 auto; padding: 80px 32px 60px;
@@ -37,7 +37,7 @@
     }
     .hero-eyebrow {
       font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #7c3aed; margin-bottom: 16px;
+      color: #b45309; margin-bottom: 16px;
     }
     .hero-h1 {
       font-size: clamp(28px, 5vw, 42px); font-weight: 800; color: #111827;
@@ -53,11 +53,11 @@
     }
     .benefits-label {
       font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+      color: #b45309; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #fef3c7;
     }
     .benefit-grid { display: grid; gap: 14px; }
     .benefit-item {
-      background: #fff; border: 1px solid #e9d5ff; border-radius: 10px;
+      background: #fff; border: 1px solid #fef3c7; border-radius: 10px;
       padding: 16px 20px; text-align: left;
     }
     .benefit-item-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 4px; }
@@ -65,37 +65,37 @@
 
     .how-it-works {
       max-width: 720px; margin: 0 auto; padding: 64px 32px;
-      background: #fff; border: 1px solid #e9d5ff; border-radius: 12px;
+      background: #fff; border: 1px solid #fef3c7; border-radius: 12px;
     }
     .section-label {
       font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #7c3aed; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9d5ff;
+      color: #b45309; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #fef3c7;
     }
     .how-steps {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
     }
     .step { text-align: center; }
-    .step-num { font-size: 32px; font-weight: 800; color: #7c3aed; margin-bottom: 8px; }
+    .step-num { font-size: 32px; font-weight: 800; color: #b45309; margin-bottom: 8px; }
     .step-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 8px; }
     .step-desc { font-size: 13px; color: #6b7280; line-height: 1.5; }
 
     .cta-section { max-width: 960px; margin: 0 auto; padding: 64px 32px; }
     .cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .cta-box { background: #7c3aed; border-radius: 12px; padding: 32px 28px; text-align: center; }
+    .cta-box { background: #b45309; border-radius: 12px; padding: 32px 28px; text-align: center; }
     .cta-eyebrow {
       font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #ddd6fe; margin-bottom: 12px;
+      color: #fde68a; margin-bottom: 12px;
     }
     .cta-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.01em; }
     .cta-desc { font-size: 13px; color: rgba(255, 255, 255, 0.8); margin-bottom: 20px; line-height: 1.6; }
     .cta-btn {
-      display: inline-block; background: #fff; color: #7c3aed;
+      display: inline-block; background: #fff; color: #b45309;
       font-size: 14px; font-weight: 800; padding: 12px 24px;
       border-radius: 8px; text-decoration: none; transition: opacity 0.15s;
     }
     .cta-btn:hover { opacity: 0.9; }
 
-    .footer { background: #1e1b4b; padding: 32px; text-align: center; }
+    .footer { background: #451a03; padding: 32px; text-align: center; }
     .footer-text { font-size: 12px; color: rgba(255, 255, 255, 0.35); }
 
     @media (max-width: 680px) {
@@ -136,6 +136,8 @@
   <h1 class="hero-h1">Stop writing vague prompts and getting generic AI outputs</h1>
   <p class="hero-sub">Most people use AI like a search engine and wonder why the results are mediocre. Prompt Builder gives you a personalized prompt engineering expert that knows your role, your industry, and your AI platform - and generates structured, context-aware prompts for any task instantly.</p>
 </section>
+
+<p style="text-align:center;font-size:0.85rem;color:#6b7280;margin:0 auto;padding:0 32px 28px;max-width:600px;">Built inside a multi-seven-figure business. We use this every week.</p>
 
 <section class="benefits">
   <div class="benefits-label">What It Does</div>
@@ -188,7 +190,7 @@
       <div class="cta-eyebrow">Get Started Free</div>
       <div class="cta-title">Master Trove</div>
       <div class="cta-desc">Get your personalized prompt engineering expert built for your role, your AI platform, and your industry.</div>
-      <a href="https://theaishift.biz/tools/prompt-builder/master-trove/" class="cta-btn">Access Master Trove</a>
+      <a href="https://theaishift.biz/tools/prompt-builder/master-trove/" class="cta-btn">Get My Prompt System</a>
     </div>
     <div class="cta-box">
       <div class="cta-eyebrow">Learn More</div>

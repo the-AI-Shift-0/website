@@ -9,30 +9,30 @@
         .form-content { display: none; }
         .form-content.active { display: block; }
         .form-section { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
-        .form-section h2 { font-size: 18px; color: #7c3aed; margin-bottom: 20px; border-bottom: 2px solid #f3e8ff; padding-bottom: 12px; }
+        .form-section h2 { font-size: 18px; color: #1d4ed8; margin-bottom: 20px; border-bottom: 2px solid #eff6ff; padding-bottom: 12px; }
         .step-1-fields { display: grid; gap: 20px; }
         .output-section { display: none; }
         .output-section.show { display: block; }
         .output-header { text-align: center; margin-bottom: 32px; }
         .output-header h2 { font-size: 24px; color: #1f2937; margin-bottom: 8px; }
         .output-header p { font-size: 14px; color: #6b7280; }
-        .output-block { background: white; border: 2px solid #7c3aed; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
-        .output-block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7c3aed; margin-bottom: 16px; }
+        .output-block { background: white; border: 2px solid #1d4ed8; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+        .output-block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #1d4ed8; margin-bottom: 16px; }
         .output-content { color: #1f2937; font-size: 13px; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word; font-family: 'Courier New', monospace; margin-bottom: 20px; }
-        .copy-button { background: #7c3aed; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .copy-button:hover { background: #6d28d9; }
+        .copy-button { background: #1d4ed8; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .copy-button:hover { background: #1e40af; }
         .copy-button.copied { background: #10b981; }
         .how-to-use { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 28px; margin-bottom: 24px; }
         .how-to-use h3 { font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 20px; }
         .platform-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
         .tab-btn { padding: 8px 16px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; background: white; color: #6b7280; transition: all 0.15s; }
-        .tab-btn.active { background: #7c3aed; color: white; border-color: #7c3aed; }
+        .tab-btn.active { background: #1d4ed8; color: white; border-color: #1d4ed8; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .steps-list { list-style: none; counter-reset: step-counter; }
         .steps-list li { counter-increment: step-counter; display: flex; gap: 14px; margin-bottom: 14px; font-size: 14px; color: #374151; }
-        .steps-list li::before { content: counter(step-counter); background: #7c3aed; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .tip-box { background: #f3e8ff; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #5b21b6; margin-top: 12px; }
+        .steps-list li::before { content: counter(step-counter); background: #1d4ed8; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .tip-box { background: #eff6ff; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #1e40af; margin-top: 12px; }
     </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
@@ -217,12 +217,12 @@
                     <li>Scripts your AI caller can run from day one  -  opening, qualification, and handling objections</li>
                 </ul>
             </div>
-            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
+            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #1d4ed8;">hello@theaishift.biz</a> and we'll sort it.</p>
         </div>
         <!-- ERROR STATE -->
         <div class="error-state" id="errorState" style="display:none; text-align:center; padding:40px 20px;">
-            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
-            <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
+            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#1d4ed8;">hello@theaishift.biz</a></p>
+            <button type="button" onclick="resetToForm()" style="background:#1d4ed8; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
         </div>
     </form>
     </div>
