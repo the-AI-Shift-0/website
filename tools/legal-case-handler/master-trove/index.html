@@ -117,6 +117,17 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="platform">Which AI tool do you mainly use?</label>
+                        <select id="platform" required>
+                            <option value="">-- Select an AI tool --</option>
+                            <option value="Claude">Claude</option>
+                            <option value="ChatGPT">ChatGPT</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="I use multiple / not sure">I use multiple / not sure</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -171,7 +182,13 @@
     const VIDEO_KEY = 'legal-case-handler';
 
     document.addEventListener('DOMContentLoaded', function() {
-        // No dynamic field logic needed for new form
+        // Pre-fill from URL params (abandonment nudge email links)
+        const params = new URLSearchParams(window.location.search);
+        const pName = params.get('name');
+        const pEmail = params.get('email');
+        if (pName) document.getElementById('firstName').value = pName;
+        if (pEmail) document.getElementById('email').value = pEmail;
+        if (pName && pEmail) goToStep(2);
     });
 
     function goToStep(stepNum) {
@@ -201,8 +218,9 @@
         const jurisdiction = document.getElementById('jurisdiction').value;
         const businessStructure = document.getElementById('businessStructure').value;
         const industry = document.getElementById('industry').value;
+        const platform = document.getElementById('platform').value;
 
-        if (!jurisdiction || !businessStructure || !industry) {
+        if (!jurisdiction || !businessStructure || !industry || !platform) {
             alert('Please complete all required fields.');
             return;
         }
@@ -213,7 +231,8 @@
             phone: phone,
             jurisdiction: jurisdiction,
             businessStructure: businessStructure,
-            industry: industry
+            industry: industry,
+            platform: platform
         };
 
         submitToRailway(formData);

@@ -294,6 +294,14 @@
                     document.getElementById('objectionOther').style.display = otherChecked ? 'block' : 'none';
                 });
             });
+
+            // Pre-fill from URL params (abandonment nudge email links)
+            const params = new URLSearchParams(window.location.search);
+            const pName = params.get('name');
+            const pEmail = params.get('email');
+            if (pName) document.getElementById('firstName').value = pName;
+            if (pEmail) document.getElementById('email').value = pEmail;
+            if (pName && pEmail) nextStep();
         });
 
         function nextStep() {

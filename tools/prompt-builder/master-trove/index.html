@@ -155,6 +155,16 @@
         const VIDEO_KEY = 'prompt-builder';
         let currentStep = 1;
 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pre-fill from URL params (abandonment nudge email links)
+            const params = new URLSearchParams(window.location.search);
+            const pName = params.get('name');
+            const pEmail = params.get('email');
+            if (pName) document.getElementById('firstName').value = pName;
+            if (pEmail) document.getElementById('email').value = pEmail;
+            if (pName && pEmail) nextStep();
+        });
+
         function nextStep() {
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();

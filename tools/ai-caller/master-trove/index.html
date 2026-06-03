@@ -186,6 +186,16 @@
                     <label for="phone">Mobile number</label>
                     <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
                 </div>
+                <div class="form-group">
+                    <label for="platform">Which AI tool do you mainly use?</label>
+                    <select id="platform" required>
+                        <option value="">-- Select --</option>
+                        <option value="Claude">Claude</option>
+                        <option value="ChatGPT">ChatGPT</option>
+                        <option value="Gemini">Gemini</option>
+                        <option value="I use multiple / not sure">I use multiple / not sure</option>
+                    </select>
+                </div>
             </div>
 
             <div class="button-container">
@@ -273,6 +283,16 @@
         }
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pre-fill from URL params (abandonment nudge email links)
+        const params = new URLSearchParams(window.location.search);
+        const pName = params.get('name');
+        const pEmail = params.get('email');
+        if (pName) document.getElementById('firstName').value = pName;
+        if (pEmail) document.getElementById('email').value = pEmail;
+        if (pName && pEmail) goToStep(2);
+    });
+
     function resetForm() {
         document.getElementById('troveForm').reset();
         document.getElementById('step-1').classList.add('active');
@@ -299,6 +319,7 @@
         let callingUseCase = document.getElementById('callingUseCase').value;
         const techLevel = document.getElementById('techLevel').value;
         let currentCRM = document.getElementById('currentCRM').value;
+        const platform = document.getElementById('platform').value;
 
         // Handle industry "Other"
         if (industry === 'Other') {
@@ -330,7 +351,7 @@
             currentCRM = crmOther;
         }
 
-        if (!revenue || !callVolume || !callingUseCase || !techLevel || !currentCRM) {
+        if (!revenue || !callVolume || !callingUseCase || !techLevel || !currentCRM || !platform) {
             alert('Please complete all required fields.');
             return;
         }
@@ -344,7 +365,8 @@
             callVolume: callVolume,
             callingUseCase: callingUseCase,
             techLevel: techLevel,
-            currentCRM: currentCRM
+            currentCRM: currentCRM,
+            platform: platform
         };
 
         submitToRailway(formData);

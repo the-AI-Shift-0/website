@@ -163,6 +163,17 @@
                         <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="platform">Which AI tool do you mainly use?</label>
+                        <select id="platform" required>
+                            <option value="">-- Select one --</option>
+                            <option value="Claude">Claude</option>
+                            <option value="ChatGPT">ChatGPT</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="I use multiple / not sure">I use multiple / not sure</option>
+                        </select>
+                    </div>
+
                     <div class="button-container">
                         <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
                         <button class="back-link" type="button" onclick="prevStep()">← Back</button>
@@ -231,6 +242,14 @@
             document.querySelectorAll('input[name="adGoal"]').forEach(checkbox => {
                 checkbox.addEventListener('change', updateAdGoalVisibility);
             });
+
+            // Pre-fill from URL params (abandonment nudge email links)
+            const params = new URLSearchParams(window.location.search);
+            const pName = params.get('name');
+            const pEmail = params.get('email');
+            if (pName) document.getElementById('firstName').value = pName;
+            if (pEmail) document.getElementById('email').value = pEmail;
+            if (pName && pEmail) nextStep();
         });
 
         function updateDataSourcesVisibility() {
@@ -281,10 +300,17 @@
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const platform = document.getElementById('platform').value;
             const industry = document.getElementById('industry').value;
             const revenue = document.getElementById('revenue').value;
             const businessType = document.getElementById('businessType').value;
             const contactCount = document.getElementById('contactCount').value;
+
+            // Platform validation
+            if (!platform) {
+                alert('Please select which AI tool you use.');
+                return;
+            }
 
             // Industry custom text
             let industryValue = industry;
@@ -330,6 +356,7 @@
                 name: firstName,
                 email: email,
                 phone: phone,
+                platform: platform,
                 industry: industryValue,
                 revenue: revenue,
                 businessType: businessTypeValue,
