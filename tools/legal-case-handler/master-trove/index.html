@@ -10,6 +10,9 @@
         .form-content.active { display: block; }
         .form-section { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
         .form-section h2 { font-size: 18px; color: #15803d; margin-bottom: 20px; border-bottom: 2px solid #f0fdf4; padding-bottom: 12px; }
+        .legal-disclaimer-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-top: 16px; }
+        .legal-disclaimer-box label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 13px; color: #374151; line-height: 1.5; }
+        .legal-disclaimer-box input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; accent-color: #15803d; width: 16px; height: 16px; }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
     <script>
@@ -55,6 +58,12 @@
                         <label for="email">Email address</label>
                         <input type="email" id="email" placeholder="you@company.com" required>
                     </div>
+                </div>
+                <div class="legal-disclaimer-box">
+                    <label>
+                        <input type="checkbox" id="legalConsent" required>
+                        I understand this tool provides legal reference information only  -  not legal advice. The AI Shift accepts no liability for actions taken based on its output. I will always consult a qualified lawyer before making legal decisions.
+                    </label>
                 </div>
                 <div class="button-container">
                     <button type="button" onclick="goToStep(2)">Next: Your Legal Context →</button>
@@ -195,8 +204,13 @@
         if (stepNum === 2) {
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();
+            const consent = document.getElementById('legalConsent').checked;
             if (!firstName || !email) {
                 alert('Please fill in your first name and email.');
+                return;
+            }
+            if (!consent) {
+                alert('Please confirm you understand this tool provides reference information only, not legal advice.');
                 return;
             }
             fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
