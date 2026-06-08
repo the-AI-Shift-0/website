@@ -91,15 +91,6 @@
                             <textarea id="mainTask" placeholder="e.g., Writing follow-up emails to clients, summarizing meeting notes, analyzing sales data..." required></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="communicationStyle">How do you mainly interact with AI?</label>
-                            <select id="communicationStyle" required>
-                                <option value="">-- Select --</option>
-                                <option value="voice">Voice (I speak to it)</option>
-                                <option value="text">Text (I type my prompts)</option>
-                            </select>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label for="phone">Mobile number</label>
@@ -201,14 +192,13 @@
             const role = document.getElementById('role').value.trim();
             const aiTool = document.getElementById('aiTool').value;
             const mainTask = document.getElementById('mainTask').value.trim();
-            const communicationStyle = document.getElementById('communicationStyle').value;
 
-            if (!role || !aiTool || !mainTask || !communicationStyle) {
+            if (!role || !aiTool || !mainTask) {
                 alert('Please complete all required fields.');
                 return;
             }
 
-            const formData = { name: firstName, email, phone, role, aiTool, mainTask, communicationStyle };
+            const formData = { name: firstName, email, phone, role, aiTool, mainTask };
             submitToRailway(formData);
         }
 
