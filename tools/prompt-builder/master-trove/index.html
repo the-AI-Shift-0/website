@@ -92,13 +92,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="tone">What tone should the output have?</label>
-                            <select id="tone" required>
+                            <label for="communicationStyle">How do you mainly interact with AI?</label>
+                            <select id="communicationStyle" required>
                                 <option value="">-- Select --</option>
-                                <option value="Professional">Professional</option>
-                                <option value="Direct and concise">Direct and concise</option>
-                                <option value="Friendly and conversational">Friendly and conversational</option>
-                                <option value="Formal">Formal</option>
+                                <option value="voice">Voice (I speak to it)</option>
+                                <option value="text">Text (I type my prompts)</option>
                             </select>
                         </div>
                     </div>
@@ -203,14 +201,14 @@
             const role = document.getElementById('role').value.trim();
             const aiTool = document.getElementById('aiTool').value;
             const mainTask = document.getElementById('mainTask').value.trim();
-            const tone = document.getElementById('tone').value;
+            const communicationStyle = document.getElementById('communicationStyle').value;
 
-            if (!role || !aiTool || !mainTask || !tone) {
+            if (!role || !aiTool || !mainTask || !communicationStyle) {
                 alert('Please complete all required fields.');
                 return;
             }
 
-            const formData = { name: firstName, email, phone, role, aiTool, mainTask, tone };
+            const formData = { name: firstName, email, phone, role, aiTool, mainTask, communicationStyle };
             submitToRailway(formData);
         }
 
