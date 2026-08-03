@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Builder Master Trove</title>
+    <title>Prompt Builder  -  The AI Shift</title>
     <link rel="stylesheet" href="/shared/forms.css">
     <style>
         .form-wrapper { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
@@ -25,18 +25,18 @@
     <div class="container">
         <header>
             <div class="eyebrow">The AI Shift</div>
-            <h1>Prompt Builder Master Trove</h1>
-            <p class="subtitle">Tell us what you're trying to do with AI and we'll build a custom prompt that gets you consistent results  -  ready to paste into Claude, ChatGPT, or Gemini.</p>
+            <h1>Prompt Builder</h1>
+            <p class="subtitle">Answer three questions and we'll build you an AI prompt writer. Upload it once to Claude, ChatGPT or Gemini, and your whole team gets expert prompts  -  without anyone learning how.</p>
         </header>
 
         <div class="what-you-get">
-            <h3>What's inside your Master Trove</h3>
+            <h3>What you're getting</h3>
             <ul>
                 <li>Why generic prompts fail your specific role</li>
                 <li>Role, context and constraints tuned to your work</li>
                 <li>Setup instructions for Claude, ChatGPT or Gemini</li>
-                <li>3 starter prompts to get results immediately</li>
-                <li>3 prompt mistakes people in your role make</li>
+                <li>5 starter prompts to get results immediately</li>
+                <li>7 prompt mistakes to avoid in your role</li>
                 <li>Calibrated to your role, task, and how you use AI</li>
             </ul>
         </div>
@@ -61,14 +61,14 @@
                     </div>
 
                     <div class="button-container">
-                        <button type="button" onclick="nextStep()">Next: Your Prompt Profile →</button>
+                        <button type="button" onclick="nextStep()">Next: About your work →</button>
                     </div>
                 </div>
 
-                <!-- Step 2: Prompt Profile -->
+                <!-- Step 2: About your work -->
                 <div class="form-tab-content" id="step2">
                     <div class="form-section">
-                        <h2>Your Prompt Profile</h2>
+                        <h2>About your work</h2>
 
                         <div class="form-group">
                             <label for="role">What's your role or job function?</label>
@@ -93,8 +93,8 @@
 
 
                     <div class="form-group">
-                        <label for="phone">Mobile number</label>
-                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
+                        <label for="phone">Mobile number (optional)</label>
+                        <input type="tel" id="phone" placeholder="Only if you'd like setup help by text">
                     </div>
 
                     <div class="button-container">
@@ -106,7 +106,7 @@
                 <!-- Processing state -->
                 <div class="processing-state" id="processingState">
                     <div class="spinner"></div>
-                    <p>Building your Master Trove...</p>
+                    <p>Building your Prompt Builder...</p>
                 </div>
 
                 <!-- Error state -->
@@ -118,10 +118,10 @@
                 <!-- Success state -->
                 <div class="success-state" id="successState">
                     <div class="success-icon">✓</div>
-                    <h3>Building your personalized system prompt now</h3>
+                    <h3>Your Prompt Builder is on its way</h3>
                     <p class="success-sub">Based on your answers, we're custom-generating your AI system prompt from scratch - written around your specific role, task, and the way you want the AI to respond. Not a template. Give it a minute or two and check your inbox.</p>
                     <div class="email-tip">
-                        <strong>Check your inbox</strong>  -  subject line will include "Master Trove."<br><br>
+                        <strong>Check your inbox</strong>  -  subject line will include "Prompt Builder."<br><br>
                         Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
                     </div>
                     <div class="whats-inside">
@@ -129,7 +129,7 @@
                         <ul>
                             <li>A custom system prompt built for your specific role and task  -  ready to paste</li>
                             <li>Setup instructions for your chosen AI tool</li>
-                            <li>Three starter prompts you can use immediately</li>
+                            <li>Five starter prompts you can use immediately</li>
                         </ul>
                     </div>
                     <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #b45309;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -234,7 +234,7 @@
             }).finally(() => {
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Generate My Prompt →';
+                    submitButton.textContent = 'Build My Prompt →';
                 }
             });
 
