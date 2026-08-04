@@ -9,6 +9,16 @@
         .form-content { display: none; }
         .form-content.active { display: block; }
         .form-section { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+        /* This page has no .form-wrapper - the card belongs to each step. When a
+           step is hidden on submit, the confirmation had nothing around it and
+           rendered on the bare page background. Same card as .form-section. */
+        /* Base classes, not .show - this page toggles errorState through
+           style.display rather than the class, so a .show selector would miss it.
+           Harmless while hidden. */
+        .processing-state, .success-state, .error-state {
+            background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+            padding: 32px; margin-bottom: 24px;
+        }
         .form-section h2 { font-size: 18px; color: #1d4ed8; margin-bottom: 20px; border-bottom: 2px solid #eff6ff; padding-bottom: 12px; }
         .step-1-fields { display: grid; gap: 20px; }
         .output-section { display: none; }
