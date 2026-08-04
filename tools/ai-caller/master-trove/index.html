@@ -183,8 +183,8 @@
 
             <div class="form-section">
                 <div class="form-group">
-                    <label for="phone">Mobile number</label>
-                    <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
+                    <label for="phone">Mobile number (optional)</label>
+                    <input type="tel" id="phone" placeholder="Only if you'd like setup help by text">
                 </div>
                 <div class="form-group">
                     <label for="platform">Which AI tool do you mainly use?</label>
@@ -199,7 +199,7 @@
             </div>
 
             <div class="button-container">
-                <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
+                <button type="button" onclick="generateTrove()">Get My Master Trove →</button>
             </div>
         </div>
 
@@ -404,7 +404,7 @@
         }).finally(() => {
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Generate My Master Trove →';
+                submitButton.textContent = 'Get My Master Trove →';
             }
         });
 

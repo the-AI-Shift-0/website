@@ -134,6 +134,14 @@
       border-radius: 8px; text-decoration: none; transition: opacity 0.15s;
     }
     .cta-btn:hover { opacity: 0.9; }
+  /* STANDARD: a CTA whose destination is not set yet does not render at all.
+     Placeholder hrefs used to ship a live "Watch Full Episode" button that went
+     nowhere. The box reappears automatically the moment a real URL is filled in,
+     so nobody has to remember to unhide it. The .cta-grid is auto-fit, so the
+     surviving box expands and leaves no gap. */
+  .cta-box:has(> .cta-btn[href="#"]),
+  .cta-box:has(> .cta-btn[href=""]),
+  .cta-box:has(> .cta-btn:not([href])) { display: none; }
 
     /* ── FOOTER ── */
     .footer {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Audience Master Trove</title>
+    <title>Facebook Audience Consolidator Master Trove</title>
     <link rel="stylesheet" href="/shared/forms.css">
     <style>
         .form-wrapper { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
@@ -159,8 +159,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Mobile number</label>
-                        <input type="tel" id="phone" placeholder="e.g., +1 555 000 0000" required>
+                        <label for="phone">Mobile number (optional)</label>
+                        <input type="tel" id="phone" placeholder="Only if you'd like setup help by text">
                     </div>
 
                     <div class="form-group">
@@ -175,7 +175,7 @@
                     </div>
 
                     <div class="button-container">
-                        <button type="button" onclick="generateTrove()">Generate My Master Trove →</button>
+                        <button type="button" onclick="generateTrove()">Get My Master Trove →</button>
                         <button class="back-link" type="button" onclick="prevStep()">← Back</button>
                     </div>
                 </div>
@@ -400,7 +400,7 @@
             }).finally(() => {
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Generate My Master Trove →';
+                    submitButton.textContent = 'Get My Master Trove →';
                 }
             });
 
