@@ -48,7 +48,7 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>AI Caller Master Trove</h1>
-        <p class="subtitle">Tell us about your business and your call setup. We'll generate your exact cost, the stack to use, and the scripts your AI caller speaks  -  ready to load in minutes.</p>
+        <p class="subtitle">Tell us about your business and your call setup. We'll generate your exact cost, the stack to use, and the scripts your AI caller speaks - ready to load in minutes.</p>
     </header>
 
     <div class="what-you-get">
@@ -94,7 +94,7 @@
         <div id="step-2" class="form-content">
             <!-- Section 1 -->
             <div class="form-section">
-                <h2>Section 1  -  Your Business</h2>
+                <h2>Section 1 - Your Business</h2>
                 <div class="form-group">
                     <label for="industry">What industry are you in?</label>
                     <select id="industry" required>
@@ -128,7 +128,7 @@
 
             <!-- Section 2 -->
             <div class="form-section">
-                <h2>Section 2  -  Your Call Setup</h2>
+                <h2>Section 2 - Your Call Setup</h2>
                 <div class="form-group">
                     <label for="callVolume">How many AI calls per day?</label>
                     <select id="callVolume" required>
@@ -216,15 +216,15 @@
             <h3>Building your personalized AI Caller system now</h3>
             <p>Based on your answers, we're custom-generating your cost breakdown, platform recommendation, and call scripts from scratch - built around your offer, your call volume, and your leads. Not a template. Give it a minute or two and check your inbox.</p>
             <div class="email-tip">
-                <strong>Check your inbox</strong>  -  subject line will include "Master Trove."<br><br>
+                <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
                 Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you don't miss our next resource.
             </div>
             <div class="whats-inside">
                 <div class="whats-inside-label">What's on its way</div>
                 <ul>
-                    <li>What it will actually cost to build and run your calling system  -  broken down by platform</li>
+                    <li>What it will actually cost to build and run your calling system - broken down by platform</li>
                     <li>The right platform for your call volume and how your leads come in</li>
-                    <li>Scripts your AI caller can run from day one  -  opening, qualification, and handling objections</li>
+                    <li>Scripts your AI caller can run from day one - opening, qualification, and handling objections</li>
                 </ul>
             </div>
             <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #1d4ed8;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -269,7 +269,7 @@
                 alert('Please fill in your first name and email.');
                 return;
             }
-            // Capture email before showing step 2  -  they're in Kit even if they abandon
+            // Capture email before showing step 2 - they're in Kit even if they abandon
             fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -450,7 +450,7 @@
         const showupContext = {
             'under_40': `Your current show-up rate is under 40%. Businesses at this baseline typically reach 70–80% within 30 days of running an AI caller. That recovery alone often pays for the system in the first month.`,
             '40_60':    `Your current show-up rate is 40–60%. AI callers consistently push this to 75–85% at your volume. At ${v.mid} calls/day, that's ${Math.round(v.mid * 0.35)} more confirmed bookings per day.`,
-            '60_80':    `Your current show-up rate is 60–80%. You're already solid  -  AI gets you to 82–88% while removing all manual follow-up labor. The gain is operational, not just conversion.`,
+            '60_80':    `Your current show-up rate is 60–80%. You're already solid - AI gets you to 82–88% while removing all manual follow-up labor. The gain is operational, not just conversion.`,
             'not_tracking': `You're not currently tracking show-up rate. Businesses that implement an AI caller and start tracking typically find they're at 35–55% and jump to 78–85% within the first month.`,
         };
 
@@ -507,7 +507,7 @@ AI callers consistently push show-up rates to 75–85% at your volume. At ${v.mi
             : 'Used for booking the sales call after lead qualifies. AI pushes directly to the rep\'s calendar.';
 
         const qualifyNote = (goal === 'qualify_lead')
-            ? '\n\nFor your goal (qualify leads): wire the CRM so that the AI call outcome tags the contact as Qualified / Not Qualified automatically. Reps only touch Qualified leads  -  everything else is handled without them.'
+            ? '\n\nFor your goal (qualify leads): wire the CRM so that the AI call outcome tags the contact as Qualified / Not Qualified automatically. Reps only touch Qualified leads - everything else is handled without them.'
             : '';
 
         return `YOUR RECOMMENDED STACK
@@ -523,14 +523,14 @@ Pricing: Pay-per-minute. Start with a free trial to test your scripts before goi
 === TELEPHONY ===
 
 Recommended: Twilio
-Why: Most reliable, best integration support, works with all major AI voice platforms. Buy a local number in your area code  -  higher answer rates than toll-free.
-Avoid: Direct VoIP providers that aren't Twilio-compatible  -  you'll hit integration problems.
+Why: Most reliable, best integration support, works with all major AI voice platforms. Buy a local number in your area code - higher answer rates than toll-free.
+Avoid: Direct VoIP providers that aren't Twilio-compatible - you'll hit integration problems.
 
 === CALENDAR INTEGRATION ===
 
 Recommended: ${calVendor}
 Why: ${calReason}
-Setup: Connect via Make.com  -  AI confirms booking, Make.com fires calendar invite + CRM update automatically.
+Setup: Connect via Make.com - AI confirms booking, Make.com fires calendar invite + CRM update automatically.
 
 === CRM ===
 
@@ -542,7 +542,7 @@ What to automate: Call outcome (confirmed / no answer / objection) updates the c
 
 Recommended: Make.com
 Why: More intuitive than Zapier for AI caller workflows. Better at multi-step scenarios (call ends → update CRM → send calendar invite → notify rep). $29/mo at your volume.
-Avoid: Zapier unless you're already deep in their ecosystem  -  Make.com is faster to build with here.
+Avoid: Zapier unless you're already deep in their ecosystem - Make.com is faster to build with here.
 
 === TOTAL VENDORS: 5 ===
 ${voiceVendor} + Twilio + ${calVendor} + ${crmVendor} + Make.com`;
@@ -561,39 +561,39 @@ ${voiceVendor} + Twilio + ${calVendor} + ${crmVendor} + Make.com`;
 
         const openings = {
             'form_fill': {
-                'confirm_attendance': `Hi [First Name], this is Maya calling from [Company Name]. I'm reaching out because you just registered  -  I wanted to make sure your spot is locked in and you have everything you need. Is now a quick 60 seconds?`,
-                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You just filled out our form a few minutes ago  -  I wanted to reach out while it was fresh and make sure I understand exactly what you're looking for. Is now a good moment for 60 seconds?`,
-                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You reached out to us a little while ago and I wanted to reconnect  -  are you still exploring [${industryNoun}]?`,
+                'confirm_attendance': `Hi [First Name], this is Maya calling from [Company Name]. I'm reaching out because you just registered - I wanted to make sure your spot is locked in and you have everything you need. Is now a quick 60 seconds?`,
+                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You just filled out our form a few minutes ago - I wanted to reach out while it was fresh and make sure I understand exactly what you're looking for. Is now a good moment for 60 seconds?`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You reached out to us a little while ago and I wanted to reconnect - are you still exploring [${industryNoun}]?`,
                 'onboard':            `Hi [First Name], this is Maya from [Company Name]. You just signed up and I wanted to reach out personally to make sure you're set up and ready to get started. Quick 60 seconds?`,
             },
             'after_purchase': {
-                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I'm calling because you just joined  -  I wanted to make sure you know exactly what happens next and that your first session is confirmed. Quick 60 seconds?`,
+                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I'm calling because you just joined - I wanted to make sure you know exactly what happens next and that your first session is confirmed. Quick 60 seconds?`,
                 'qualify_lead':       `Hi [First Name], Maya here from [Company Name]. You recently came on board and I want to make sure we're matched up correctly for what you need. Can I ask you a quick question?`,
-                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You signed up with us a while back  -  I wanted to check in and make sure things are going well. Do you have 60 seconds?`,
-                'onboard':            `Hi [First Name], Maya from [Company Name]. You just completed your purchase  -  I'm calling to walk you through your first three steps so you get started on the right foot. Quick 60 seconds?`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. You signed up with us a while back - I wanted to check in and make sure things are going well. Do you have 60 seconds?`,
+                'onboard':            `Hi [First Name], Maya from [Company Name]. You just completed your purchase - I'm calling to walk you through your first three steps so you get started on the right foot. Quick 60 seconds?`,
             },
             'no_show': {
-                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I noticed you weren't able to make it to your session today  -  I wanted to reach out and get you rescheduled before the spot fills up. Is now okay for a second?`,
-                'qualify_lead':       `Hi [First Name], Maya here from [Company Name]. You had a call scheduled with us that you weren't able to make  -  wanted to see if now's a better time, or find a time that works for you.`,
-                're_engage':          `Hi [First Name], this is Maya from [Company Name]. We had something scheduled that didn't happen  -  I wanted to reach out personally and see if there's anything I can do.`,
-                'onboard':            `Hi [First Name], Maya from [Company Name]. You missed your onboarding call  -  I wanted to make sure nothing fell through the cracks and get you rescheduled.`,
+                'confirm_attendance': `Hi [First Name], this is Maya from [Company Name]. I noticed you weren't able to make it to your session today - I wanted to reach out and get you rescheduled before the spot fills up. Is now okay for a second?`,
+                'qualify_lead':       `Hi [First Name], Maya here from [Company Name]. You had a call scheduled with us that you weren't able to make - wanted to see if now's a better time, or find a time that works for you.`,
+                're_engage':          `Hi [First Name], this is Maya from [Company Name]. We had something scheduled that didn't happen - I wanted to reach out personally and see if there's anything I can do.`,
+                'onboard':            `Hi [First Name], Maya from [Company Name]. You missed your onboarding call - I wanted to make sure nothing fell through the cracks and get you rescheduled.`,
             },
             're_engagement': {
-                'confirm_attendance': `Hi [First Name], Maya here from [Company Name]. It's been a little while since we last connected  -  we have something coming up that I think would be right for you. Do you have 60 seconds?`,
-                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You were on our radar a while back and I wanted to reconnect  -  are you still thinking about [${industryNoun}] or has that changed?`,
-                're_engage':          `Hi [First Name], Maya from [Company Name]. It's been a while  -  I wanted to check in and see where things stand for you. Still interested in what we talked about?`,
-                'onboard':            `Hi [First Name], this is Maya from [Company Name]. You connected with us some time ago  -  I wanted to reach out because we have a way to get you started that didn't exist when we last spoke.`,
+                'confirm_attendance': `Hi [First Name], Maya here from [Company Name]. It's been a little while since we last connected - we have something coming up that I think would be right for you. Do you have 60 seconds?`,
+                'qualify_lead':       `Hi [First Name], this is Maya from [Company Name]. You were on our radar a while back and I wanted to reconnect - are you still thinking about [${industryNoun}] or has that changed?`,
+                're_engage':          `Hi [First Name], Maya from [Company Name]. It's been a while - I wanted to check in and see where things stand for you. Still interested in what we talked about?`,
+                'onboard':            `Hi [First Name], this is Maya from [Company Name]. You connected with us some time ago - I wanted to reach out because we have a way to get you started that didn't exist when we last spoke.`,
             },
         };
 
         const discoveryQuestions = {
             'confirm_attendance': [
-                'Quick question  -  when you registered, what was the main thing you were hoping to get out of this?',
+                'Quick question - when you registered, what was the main thing you were hoping to get out of this?',
                 'Is there anything specific you want to make sure we cover?',
                 'Is the [date/time] still working on your end?',
             ],
             'qualify_lead': [
-                'What made you reach out today  -  what\'s the thing you\'re most trying to solve right now?',
+                'What made you reach out today - what\'s the thing you\'re most trying to solve right now?',
                 'How long have you been dealing with this?',
                 'What have you already tried?',
                 'If you got this sorted in the next 90 days, what would that change for you?',
@@ -604,37 +604,37 @@ ${voiceVendor} + Twilio + ${calVendor} + ${crmVendor} + Make.com`;
                 'What would need to be true for you to move forward on this?',
             ],
             'onboard': [
-                'Before I walk you through the steps  -  is there anything you\'re unclear on from what you signed up for?',
+                'Before I walk you through the steps - is there anything you\'re unclear on from what you signed up for?',
                 'What\'s the one thing you most want to accomplish in the first 30 days?',
             ],
         };
 
         const objections = {
             'confirm_attendance': {
-                "I'm not sure I can make it": `"Totally understand  -  schedules change. Good news: there is a replay available for [48 hours after the event], so you won't miss it even if something comes up. Want me to keep your spot confirmed and I'll send the replay link as well?"`,
+                "I'm not sure I can make it": `"Totally understand - schedules change. Good news: there is a replay available for [48 hours after the event], so you won't miss it even if something comes up. Want me to keep your spot confirmed and I'll send the replay link as well?"`,
                 "What is this about exactly?": `"Great question. [Event name] is [one sentence description]. It's [duration] and by the end you'll have [specific outcome]. Does that sound like something worth [30/60/90 minutes] of your time?"`,
-                "I'm busy right now": `"No problem at all  -  this call will take less than 60 seconds. Just need to confirm one thing and I'll let you go. [Confirm the booking detail.] That's it  -  you're all set."`,
+                "I'm busy right now": `"No problem at all - this call will take less than 60 seconds. Just need to confirm one thing and I'll let you go. [Confirm the booking detail.] That's it - you're all set."`,
             },
             'qualify_lead': {
-                "Just send me some information": `"Of course  -  I want to make sure I send you the right thing. Can I ask: what's the main problem you're trying to solve? That way I'm not just sending you everything and wasting your time."`,
-                "I'm not sure it's the right time": `"I hear you. Can I ask  -  what would need to change for the timing to feel right? Sometimes we can work around the constraint, and if not, I'll be honest with you about that."`,
-                "How much does it cost?": `"Fair question. It depends on what you actually need  -  that's why I'm asking these questions first. Once I understand where you're at, I can tell you exactly what the investment looks like and whether it makes sense. Is that fair?"`,
+                "Just send me some information": `"Of course - I want to make sure I send you the right thing. Can I ask: what's the main problem you're trying to solve? That way I'm not just sending you everything and wasting your time."`,
+                "I'm not sure it's the right time": `"I hear you. Can I ask - what would need to change for the timing to feel right? Sometimes we can work around the constraint, and if not, I'll be honest with you about that."`,
+                "How much does it cost?": `"Fair question. It depends on what you actually need - that's why I'm asking these questions first. Once I understand where you're at, I can tell you exactly what the investment looks like and whether it makes sense. Is that fair?"`,
             },
             're_engage': {
-                "I already found another solution": `"That's great  -  how's it going? Genuinely curious. If it's working well, I'm happy for you. If you ever want a second opinion or things aren't going the way you hoped, we're here."`,
-                "I'm not interested anymore": `"Completely fine. Can I ask what changed? Only because I want to make sure I'm reaching out to the right people in the future  -  not to try to change your mind."`,
-                "I'm too busy right now": `"Understood. Quick question  -  is this a 'not now' or a 'not ever'? Just so I know whether to follow up in a few weeks or take you off the list. I want to respect your time."`,
+                "I already found another solution": `"That's great - how's it going? Genuinely curious. If it's working well, I'm happy for you. If you ever want a second opinion or things aren't going the way you hoped, we're here."`,
+                "I'm not interested anymore": `"Completely fine. Can I ask what changed? Only because I want to make sure I'm reaching out to the right people in the future - not to try to change your mind."`,
+                "I'm too busy right now": `"Understood. Quick question - is this a 'not now' or a 'not ever'? Just so I know whether to follow up in a few weeks or take you off the list. I want to respect your time."`,
             },
             'onboard': {
-                "I'm not sure how to get started": `"That's exactly why I'm calling. Your first three steps are [X, Y, Z]  -  takes about [time]. Want me to walk you through step one right now, takes 2 minutes?"`,
-                "I'm having second thoughts": `"I appreciate you saying that  -  that's normal. What specifically is making you hesitate? Let's talk about it. If it's not the right fit, I'd rather know now and sort it out for you."`,
+                "I'm not sure how to get started": `"That's exactly why I'm calling. Your first three steps are [X, Y, Z] - takes about [time]. Want me to walk you through step one right now, takes 2 minutes?"`,
+                "I'm having second thoughts": `"I appreciate you saying that - that's normal. What specifically is making you hesitate? Let's talk about it. If it's not the right fit, I'd rather know now and sort it out for you."`,
             },
         };
 
         const closes = {
-            'confirm_attendance': `"Perfect  -  you're confirmed for [date at time]. I'm sending a calendar invite to your email right now. Keep an eye out for that. See you [then / there]."`,
-            'qualify_lead':        `"Based on what you've told me, I think it's worth a conversation with [rep name / our team]. I have [day] at [time] or [day] at [time] available  -  which works better for you?"`,
-            're_engage':           `"Here's what I'd suggest  -  let me send you [specific resource / updated offer / next step]. Take a look and if it makes sense, we can pick up where we left off. Does that work?"`,
+            'confirm_attendance': `"Perfect - you're confirmed for [date at time]. I'm sending a calendar invite to your email right now. Keep an eye out for that. See you [then / there]."`,
+            'qualify_lead':        `"Based on what you've told me, I think it's worth a conversation with [rep name / our team]. I have [day] at [time] or [day] at [time] available - which works better for you?"`,
+            're_engage':           `"Here's what I'd suggest - let me send you [specific resource / updated offer / next step]. Take a look and if it makes sense, we can pick up where we left off. Does that work?"`,
             'onboard':             `"So your first step is [X]. Once that's done, [Y] unlocks. I'll also send you a confirmation email with these steps written out so you have it. Any questions before I let you go?"`,
         };
 
@@ -654,18 +654,18 @@ ${industry.toUpperCase()} | Built for: ${getGoalLabel(goal)}
 SCRIPT 1: OPENING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[Load this as your AI's system prompt / opening statement]
+[Load this as your AI's opening statement]
 
 "${opening}"
 
 [If no answer → voicemail script]
-"Hi [First Name], Maya from [Company Name]. I'm calling about your [${industryNoun}]  -  just wanted to make sure everything is confirmed on your end. Give me a call back on [number] or I'll try you again shortly."
+"Hi [First Name], Maya from [Company Name]. I'm calling about your [${industryNoun}] - just wanted to make sure everything is confirmed on your end. Give me a call back on [number] or I'll try you again shortly."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SCRIPT 2: DISCOVERY QUESTIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[After they confirm they have 60 seconds, ask one of these  -  not all of them]
+[After they confirm they have 60 seconds, ask one of these - not all of them]
 
 ${discovery.map((q, i) => `${i + 1}. "${q}"`).join('\n')}
 
@@ -691,7 +691,7 @@ ${closeScript}
 CALIBRATION NOTES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-• Target call length: 45–90 seconds. If calls run over 2 minutes, the AI is over-explaining  -  shorten the opening.
+• Target call length: 45–90 seconds. If calls run over 2 minutes, the AI is over-explaining - shorten the opening.
 • If answer rate is low: test calling within 5 minutes of the trigger. Speed is the biggest lever.
 • If show-up rate stalls: add a 2-hour-before reminder call using the same opening with "just a quick reminder" framing.
 • Replace [Company Name], [First Name], [date/time] with your actual values in your platform variables.`;
