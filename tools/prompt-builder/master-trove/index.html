@@ -93,8 +93,8 @@
 
 
                     <div class="form-group">
-                        <label for="phone">Mobile number (optional)</label>
-                        <input type="tel" id="phone" placeholder="Only if you'd like setup help by text">
+                        <label for="phone">Mobile number</label>
+                        <input type="tel" id="phone">
                     </div>
 
                     <div class="button-container">
@@ -205,6 +205,7 @@
         function submitToRailway(formData) {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
+            window.scrollTo(0, 0);
 
             const submitButton = document.querySelector('button[onclick="generateTrove()"]');
             if (submitButton) {
@@ -225,6 +226,7 @@
                 if (data.success) {
                     document.getElementById('processingState').classList.remove('show');
                     document.getElementById('successState').classList.add('show');
+            window.scrollTo(0, 0);
                 } else {
                     showError();
                 }
@@ -251,6 +253,7 @@
         function showError() {
             document.getElementById('processingState').classList.remove('show');
             document.getElementById('errorState').classList.add('show');
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
