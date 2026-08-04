@@ -103,12 +103,7 @@
                     </div>
                 </div>
 
-            </form>
-        </div>
-
-                <!-- Processing / error / success live OUTSIDE #step2 on purpose.
-                     submitToRailway() hides step2, so anything nested inside it can
-                     never paint no matter what .show does. -->
+                </div><!-- /#step2 -->
                 <!-- Processing state -->
                 <div class="processing-state" id="processingState">
                     <div class="spinner"></div>
@@ -140,6 +135,14 @@
                     </div>
                     <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #b45309;">hello@theaishift.biz</a> and we'll sort it.</p>
                 </div>
+
+            </form>
+        </div>
+
+                <!-- Processing / error / success live OUTSIDE #step2 on purpose.
+                     submitToRailway() hides step2, so anything nested inside it can
+                     never paint no matter what .show does. -->
+
 
 
     </div>
@@ -261,6 +264,5 @@
             window.scrollTo(0, 0);
         }
     </script>
-    </div><!-- /.container -->
 </body>
 </html>
