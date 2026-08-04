@@ -293,6 +293,8 @@
     });
 
     function resetForm() {
+            var _pi2 = document.getElementById('progressIndicator');
+            if (_pi2) _pi2.style.display = '';
         document.getElementById('troveForm').reset();
         document.getElementById('step-1').classList.add('active');
         document.getElementById('step-2').classList.remove('active');
@@ -374,6 +376,8 @@
     function submitToRailway(formData) {
         document.getElementById('step-2').classList.remove('active');
         document.getElementById('processingState').classList.add('show');
+            var _pi = document.getElementById('progressIndicator');
+            if (_pi) _pi.style.display = 'none';  // no step counter above a confirmation
             window.scrollTo(0, 0);
 
         const submitButton = document.querySelector('button[onclick="generateTrove()"]');

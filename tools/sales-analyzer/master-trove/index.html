@@ -417,6 +417,8 @@
         function submitToRailway(formData) {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('processingState').classList.add('show');
+            var _pi = document.getElementById('progressIndicator');
+            if (_pi) _pi.style.display = 'none';  // no step counter above a confirmation
             window.scrollTo(0, 0);
 
             const submitButton = document.querySelector('button[onclick="generateTrove()"]');
@@ -464,6 +466,8 @@
         }
 
         function resetToForm() {
+            var _pi2 = document.getElementById('progressIndicator');
+            if (_pi2) _pi2.style.display = '';
             document.getElementById('errorState').classList.remove('show');
             document.getElementById('step2').classList.add('active');
         }
