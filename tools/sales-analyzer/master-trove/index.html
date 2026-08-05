@@ -395,6 +395,10 @@
                 alert('Please select at least one objection.');
                 return;
             }
+            if (platformChecked.length === 0) {
+                alert('Please select at least one AI tool.');
+                return;
+            }
 
             const formData = {
                 name: firstName,
