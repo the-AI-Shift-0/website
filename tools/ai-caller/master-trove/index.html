@@ -123,7 +123,7 @@
                     <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
                 </div>
                 <div class="form-group">
-                    <label for="callVolume">How Many AI Calls per Day?</label>
+                    <label for="callVolume">How Many Calls Do You Expect the AI Caller to Make per Day?</label>
                     <select id="callVolume" required>
                         <option value="">-- Select --</option>
                         <option value="5-15">5–15 calls/day</option>
@@ -188,6 +188,7 @@
 
             <div class="button-container">
                 <button type="button" onclick="generateTrove()">Get My AI Caller Blueprint →</button>
+                <button class="back-link" type="button" onclick="prevStep()">← Back</button>
             </div>
         </div>
 
@@ -300,6 +301,12 @@
             goToStepURL(2, true);
             trackStepView(2);
         }
+    }
+
+    function prevStep() {
+        // Real back navigation, not a second pushState - keeps forward/back symmetric
+        // and reuses the history entry popstate already knows how to restore.
+        history.back();
     }
 
     document.addEventListener('DOMContentLoaded', function() {
