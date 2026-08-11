@@ -19,30 +19,30 @@
             background: white; border: 1px solid #e5e7eb; border-radius: 8px;
             padding: 32px; margin-bottom: 24px;
         }
-        .form-section h2 { font-size: 18px; color: #1d4ed8; margin-bottom: 20px; border-bottom: 2px solid #eff6ff; padding-bottom: 12px; }
+        .form-section h2 { font-size: 18px; color: #7c3aed; margin-bottom: 20px; border-bottom: 2px solid #f8f7ff; padding-bottom: 12px; }
         .step-1-fields { display: grid; gap: 20px; }
         .output-section { display: none; }
         .output-section.show { display: block; }
         .output-header { text-align: center; margin-bottom: 32px; }
         .output-header h2 { font-size: 24px; color: #1f2937; margin-bottom: 8px; }
         .output-header p { font-size: 14px; color: #6b7280; }
-        .output-block { background: white; border: 2px solid #1d4ed8; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
-        .output-block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #1d4ed8; margin-bottom: 16px; }
+        .output-block { background: white; border: 2px solid #7c3aed; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+        .output-block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7c3aed; margin-bottom: 16px; }
         .output-content { color: #1f2937; font-size: 13px; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word; font-family: 'Courier New', monospace; margin-bottom: 20px; }
-        .copy-button { background: #1d4ed8; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .copy-button:hover { background: #1e40af; }
+        .copy-button { background: #7c3aed; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .copy-button:hover { background: #6d28d9; }
         .copy-button.copied { background: #10b981; }
         .how-to-use { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 28px; margin-bottom: 24px; }
         .how-to-use h3 { font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 20px; }
         .platform-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
         .tab-btn { padding: 8px 16px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; background: white; color: #6b7280; transition: all 0.15s; }
-        .tab-btn.active { background: #1d4ed8; color: white; border-color: #1d4ed8; }
+        .tab-btn.active { background: #7c3aed; color: white; border-color: #7c3aed; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .steps-list { list-style: none; counter-reset: step-counter; }
         .steps-list li { counter-increment: step-counter; display: flex; gap: 14px; margin-bottom: 14px; font-size: 14px; color: #374151; }
-        .steps-list li::before { content: counter(step-counter); background: #1d4ed8; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .tip-box { background: #eff6ff; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #1e40af; margin-top: 12px; }
+        .steps-list li::before { content: counter(step-counter); background: #7c3aed; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .tip-box { background: #f8f7ff; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #6d28d9; margin-top: 12px; }
     </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
@@ -83,30 +83,28 @@
         <!-- STEP 1 -->
         <div id="step-1" class="form-content active">
             <div class="form-section">
-                <h2>Let's start with you</h2>
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">First name</label>
+                        <label for="firstName">Your Name</label>
                         <input type="text" id="firstName" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email address</label>
+                        <label for="email">Email Address</label>
                         <input type="email" id="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
             <div class="button-container">
-                <button type="button" onclick="goToStep(2)">Next: Your Caller Profile →</button>
+                <button type="button" onclick="goToStep(2)">Next</button>
             </div>
         </div>
 
         <!-- STEP 2 -->
         <div id="step-2" class="form-content">
-            <!-- Section 1 -->
             <div class="form-section">
-                <h2>Section 1 - Your Business</h2>
+                <h2>Your Caller Profile</h2>
                 <div class="form-group">
-                    <label for="industry">What industry are you in?</label>
+                    <label for="industry">What Industry Are You In?</label>
                     <select id="industry" required>
                         <option value="">-- Select an industry --</option>
                         <option value="Online coaching / education">Online coaching / education</option>
@@ -124,13 +122,8 @@
                 <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
                     <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
                 </div>
-            </div>
-
-            <!-- Section 2 -->
-            <div class="form-section">
-                <h2>Section 2 - Your Call Setup</h2>
                 <div class="form-group">
-                    <label for="callVolume">How many AI calls per day?</label>
+                    <label for="callVolume">How Many AI Calls per Day?</label>
                     <select id="callVolume" required>
                         <option value="">-- Select --</option>
                         <option value="5-15">5–15 calls/day</option>
@@ -140,23 +133,21 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="callingUseCase">What kind of AI calling system do you want to build?</label>
-                    <select id="callingUseCase" required>
-                        <option value="">-- Select --</option>
-                        <option value="appointment-scheduling">Appointment scheduling</option>
-                        <option value="lead-followup">Lead follow-up</option>
-                        <option value="customer-reengagement">Customer re-engagement</option>
-                        <option value="payment-recovery">Payment recovery</option>
-                        <option value="customer-service">Customer service / inbound</option>
-                        <option value="outbound-sales">Outbound sales</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group" id="useCaseOtherGroup" style="display:none; margin-top: -8px;">
-                    <input type="text" id="useCaseOther" placeholder="Tell us your use case">
+                    <label>What Kind of AI Calling System Do You Want to Build? (Select All That Apply)</label>
+                    <div class="checkbox-group" id="callingUseCaseGroup">
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-appointment" name="callingUseCase" value="Appointment scheduling"><label for="ucc-appointment">Appointment scheduling</label></div>
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-followup" name="callingUseCase" value="Lead follow-up"><label for="ucc-followup">Lead follow-up</label></div>
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-reengagement" name="callingUseCase" value="Customer re-engagement"><label for="ucc-reengagement">Customer re-engagement</label></div>
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-payment" name="callingUseCase" value="Payment recovery"><label for="ucc-payment">Payment recovery</label></div>
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-service" name="callingUseCase" value="Customer service / inbound"><label for="ucc-service">Customer service / inbound</label></div>
+                        <div class="checkbox-item"><input type="checkbox" id="ucc-sales" name="callingUseCase" value="Outbound sales"><label for="ucc-sales">Outbound sales</label></div>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <textarea id="useCaseOther" placeholder="Anything else? Add notes here..." rows="2"></textarea>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="techLevel">What's your technical skill level?</label>
+                    <label for="techLevel">What's Your Technical Skill Level?</label>
                     <select id="techLevel" required>
                         <option value="">-- Select --</option>
                         <option value="no-code">No code - I need a no-code solution</option>
@@ -165,7 +156,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="currentCRM">What CRM do you currently use?</label>
+                    <label for="currentCRM">What CRM Do You Currently Use?</label>
                     <select id="currentCRM" required>
                         <option value="">-- Select --</option>
                         <option value="hubspot">HubSpot</option>
@@ -179,15 +170,12 @@
                 <div class="form-group" id="crmOtherGroup" style="display:none; margin-top: -8px;">
                     <input type="text" id="crmOther" placeholder="Tell us which CRM">
                 </div>
-            </div>
-
-            <div class="form-section">
                 <div class="form-group">
-                    <label for="phone">Mobile number</label>
+                    <label for="phone">Mobile Number</label>
                     <input type="tel" id="phone">
                 </div>
                 <div class="form-group">
-                    <label for="platform">Which AI tool do you mainly use?</label>
+                    <label for="platform">Which AI Tool Do You Mainly Use?</label>
                     <select id="platform" required>
                         <option value="">-- Select --</option>
                         <option value="Claude">Claude</option>
@@ -227,12 +215,12 @@
                     <li>Scripts your AI caller can run from day one once it's live - opening, qualification, and handling objections</li>
                 </ul>
             </div>
-            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #1d4ed8;">hello@theaishift.biz</a> and we'll sort it.</p>
+            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
         </div>
         <!-- ERROR STATE -->
         <div class="error-state" id="errorState" style="display:none; text-align:center; padding:40px 20px;">
-            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#1d4ed8;">hello@theaishift.biz</a></p>
-            <button type="button" onclick="resetToForm()" style="background:#1d4ed8; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
+            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
+            <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
         </div>
     </form>
     </div>
@@ -249,16 +237,49 @@
         otherGroup.style.display = this.value === 'Other' ? 'block' : 'none';
     });
 
-    // Use Case "Other" reveal
-    document.getElementById('callingUseCase').addEventListener('change', function() {
-        const otherGroup = document.getElementById('useCaseOtherGroup');
-        otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
-    });
-
     // CRM "Other" reveal
     document.getElementById('currentCRM').addEventListener('change', function() {
         const otherGroup = document.getElementById('crmOtherGroup');
         otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
+    });
+
+    // Pure DOM update - shared by goToStep and the browser Back/Forward buttons.
+    // Never changes the URL itself.
+    function showStep(step) {
+        document.getElementById('step-1').classList.toggle('active', step === 1);
+        document.getElementById('step-2').classList.toggle('active', step === 2);
+        const pi = document.getElementById('progressIndicator');
+        if (pi) pi.innerText = 'Step ' + step + ' of 2';
+        window.scrollTo(0, 0);
+    }
+
+    // Step 1's URL never moves - it's the CTA already published in a video.
+    // Later steps get ?step=N via pushState so GA4 can report them separately.
+    function goToStepURL(step, push) {
+        const url = new URL(window.location.href);
+        if (step === 1) {
+            url.search = '';
+        } else {
+            url.searchParams.set('step', String(step));
+        }
+        const state = { step: step };
+        if (push) {
+            history.pushState(state, '', url.pathname + url.search);
+        } else {
+            history.replaceState(state, '', url.pathname + url.search);
+        }
+    }
+
+    function trackStepView(step) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'trove_step_view', { event_category: 'engagement', event_label: VIDEO_KEY, step: step });
+        }
+    }
+
+    window.addEventListener('popstate', function(event) {
+        const step = (event.state && event.state.step) || 1;
+        showStep(step);
+        trackStepView(step);
     });
 
     function goToStep(stepNum) {
@@ -275,10 +296,9 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: firstName, email })
             }).catch(() => {}); // fire-and-forget, don't block the UI
-            document.getElementById('step-1').classList.remove('active');
-            document.getElementById('step-2').classList.add('active');
-            document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
-            window.scrollTo(0, 0);
+            showStep(2);
+            goToStepURL(2, true);
+            trackStepView(2);
         }
     }
 
@@ -289,6 +309,11 @@
         const pEmail = params.get('email');
         if (pName) document.getElementById('firstName').value = pName;
         if (pEmail) document.getElementById('email').value = pEmail;
+
+        // Establish base history state and strip a stray ?step - a cold load of a
+        // later step has no answers in memory, so it must never strand on a blank step.
+        goToStepURL(1, false);
+
         if (pName && pEmail) goToStep(2);
     });
 
@@ -316,7 +341,7 @@
         const phone = document.getElementById('phone').value.trim();
         let industry = document.getElementById('industry').value;
         const callVolume = document.getElementById('callVolume').value;
-        let callingUseCase = document.getElementById('callingUseCase').value;
+        const callingUseCaseChecked = Array.from(document.querySelectorAll('input[name="callingUseCase"]:checked')).map(cb => cb.value);
         const techLevel = document.getElementById('techLevel').value;
         let currentCRM = document.getElementById('currentCRM').value;
         const platform = document.getElementById('platform').value;
@@ -331,14 +356,11 @@
             industry = industryOther;
         }
 
-        // Handle use case "Other"
-        if (callingUseCase === 'other') {
-            const useCaseOther = document.getElementById('useCaseOther').value.trim();
-            if (!useCaseOther) {
-                alert('Please tell us your use case.');
-                return;
-            }
-            callingUseCase = useCaseOther;
+        // Combine selected use cases with the free-text notes field
+        let callingUseCase = callingUseCaseChecked.join(', ');
+        const useCaseNotes = document.getElementById('useCaseOther').value.trim();
+        if (useCaseNotes) {
+            callingUseCase += (callingUseCase ? '; ' : '') + useCaseNotes;
         }
 
         // Handle CRM "Other"
@@ -351,7 +373,7 @@
             currentCRM = crmOther;
         }
 
-        if (!callVolume || !callingUseCase || !techLevel || !currentCRM || !platform) {
+        if (!industry || !callVolume || callingUseCaseChecked.length === 0 || !techLevel || !currentCRM || !platform) {
             alert('Please complete all required fields.');
             return;
         }

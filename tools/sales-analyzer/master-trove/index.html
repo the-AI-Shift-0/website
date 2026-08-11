@@ -10,7 +10,7 @@
         .form-tab-content { display: none; }
         .form-tab-content.active { display: block; }
         .form-section { background: white; border: none; padding: 0; margin-bottom: 24px; }
-        .form-section h2 { font-size: 16px; color: #0f766e; margin-bottom: 20px; border-bottom: 2px solid #f0fdfa; padding-bottom: 12px; }
+        .form-section h2 { font-size: 16px; color: #7c3aed; margin-bottom: 20px; border-bottom: 2px solid #f8f7ff; padding-bottom: 12px; }
         @media print {
             header, .what-you-get, .form-wrapper .form-tab-content,
             .form-wrapper .processing-state, .success-header { display: none !important; }
@@ -60,19 +60,19 @@
                     <div class="form-tab-content active" id="step1">
                         <div class="form-section">
                             <div class="form-group">
-                                <label for="firstName">First name</label>
+                                <label for="firstName">Your Name</label>
                                 <input type="text" id="firstName" placeholder="e.g., Brad" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email address</label>
+                                <label for="email">Email Address</label>
                                 <input type="email" id="email" placeholder="you@company.com" required>
                             </div>
 
                         </div>
 
                         <div class="button-container">
-                            <button type="button" onclick="nextStep()">Next: Your Sales Profile →</button>
+                            <button type="button" onclick="nextStep()">Next</button>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                             <h2>Your Sales Profile</h2>
 
                             <div class="form-group">
-                                <label>Which AI tool do you use? (select all that apply)</label>
+                                <label>Which AI Tool Do You Use? (Select All That Apply)</label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item"><input type="checkbox" id="platform-claude" name="platform" value="Claude"><label for="platform-claude">Claude (claude.ai)</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="platform-chatgpt" name="platform" value="ChatGPT"><label for="platform-chatgpt">ChatGPT (chatgpt.com)</label></div>
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="industry">What industry are you in?</label>
+                                <label for="industry">What Industry Are You In?</label>
                                 <select id="industry" required>
                                     <option value="">-- Select an industry --</option>
                                     <option value="Online coaching / education">Online coaching / education</option>
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="revenue">Annual revenue range:</label>
+                                <label for="revenue">Annual Revenue Range</label>
                                 <select id="revenue" required>
                                     <option value="">-- Select a range --</option>
                                     <option value="$500K–$1M">$500K – $1M</option>
@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="repCount">Number of sales reps:</label>
+                                <label for="repCount">Number of Sales Reps</label>
                                 <select id="repCount" required>
                                     <option value="">-- Select --</option>
                                     <option value="1-2">1-2</option>
@@ -131,7 +131,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dealSize">Average deal size:</label>
+                                <label for="dealSize">Average Deal Size</label>
                                 <select id="dealSize" required>
                                     <option value="">-- Select --</option>
                                     <option value="under $1K">under $1K</option>
@@ -143,7 +143,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="salesCycle">Typical sales cycle:</label>
+                                <label for="salesCycle">Typical Sales Cycle</label>
                                 <select id="salesCycle" required>
                                     <option value="">-- Select --</option>
                                     <option value="under 1 week">under 1 week</option>
@@ -154,7 +154,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Call recording tool (select all that apply):</label>
+                                <label>Call Recording Tool (Select All That Apply)</label>
                                 <div class="checkbox-group" id="recordingToolGroup">
                                     <div class="checkbox-item"><input type="checkbox" id="rt-zoom" name="recordingTool" value="Zoom"><label for="rt-zoom">Zoom</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="rt-otter" name="recordingTool" value="Otter.ai"><label for="rt-otter">Otter.ai</label></div>
@@ -169,7 +169,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>What's your biggest sales problem right now?</label>
+                                <label>What's Your Biggest Sales Problem Right Now? (Select All That Apply)</label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item">
                                         <input type="checkbox" id="pain1" name="pain" value="No visibility into what reps actually say on calls">
@@ -198,7 +198,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>What objection kills the most deals? (select all that apply)</label>
+                                <label>What Objection Kills the Most Deals? (Select All That Apply)</label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item"><input type="checkbox" id="obj1" name="objection" value="Price / budget"><label for="obj1">Price / budget</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="obj2" name="objection" value="Not the right time"><label for="obj2">Not the right time</label></div>
@@ -211,7 +211,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Mobile number</label>
+                            <label for="phone">Mobile Number</label>
                             <input type="tel" id="phone">
                         </div>
 
@@ -229,8 +229,8 @@
 
                     <!-- Error state -->
                     <div class="error-state" id="errorState">
-                        <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#0f766e;">hello@theaishift.biz</a></p>
-                        <button type="button" onclick="resetToForm()" style="background:#0f766e; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
+                        <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
+                        <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
                     </div>
 
                     <!-- Success state -->
@@ -250,7 +250,7 @@
                                 <li>Built around the objection that kills your deals most often - not a generic framework</li>
                             </ul>
                         </div>
-                        <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #0f766e;">hello@theaishift.biz</a> and we'll sort it.</p>
+                        <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
                     </div>
                 </form>
         </div>
@@ -301,7 +301,52 @@
             const pEmail = params.get('email');
             if (pName) document.getElementById('firstName').value = pName;
             if (pEmail) document.getElementById('email').value = pEmail;
+
+            // Establish base history state and strip a stray ?step - a cold load of a
+            // later step has no answers in memory, so it must never strand on a blank step.
+            goToStepURL(1, false);
+
             if (pName && pEmail) nextStep();
+        });
+
+        // Pure DOM update - shared by nextStep, prevStep (via popstate) and the
+        // browser Back/Forward buttons. Never changes the URL itself.
+        function showStep(step) {
+            currentStep = step;
+            document.getElementById('step1').classList.toggle('active', step === 1);
+            document.getElementById('step2').classList.toggle('active', step === 2);
+            const pi = document.getElementById('progressIndicator');
+            if (pi) pi.innerText = 'Step ' + step + ' of 2';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 1's URL never moves - it's the CTA already published in a video.
+        // Later steps get ?step=N via pushState so GA4 can report them separately.
+        function goToStepURL(step, push) {
+            const url = new URL(window.location.href);
+            if (step === 1) {
+                url.search = '';
+            } else {
+                url.searchParams.set('step', String(step));
+            }
+            const state = { step: step };
+            if (push) {
+                history.pushState(state, '', url.pathname + url.search);
+            } else {
+                history.replaceState(state, '', url.pathname + url.search);
+            }
+        }
+
+        function trackStepView(step) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'trove_step_view', { event_category: 'engagement', event_label: VIDEO_KEY, step: step });
+            }
+        }
+
+        window.addEventListener('popstate', function(event) {
+            const step = (event.state && event.state.step) || 1;
+            showStep(step);
+            trackStepView(step);
         });
 
         function nextStep() {
@@ -320,19 +365,15 @@
                 body: JSON.stringify({ name: firstName, email })
             }).catch(() => {}); // fire-and-forget
 
-            currentStep = 2;
-            document.getElementById('step1').classList.remove('active');
-            document.getElementById('step2').classList.add('active');
-            document.getElementById('progressIndicator').innerText = 'Step 2 of 2';
-            window.scrollTo(0, 0);
+            showStep(2);
+            goToStepURL(2, true);
+            trackStepView(2);
         }
 
         function prevStep() {
-            currentStep = 1;
-            document.getElementById('step2').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-            document.getElementById('progressIndicator').innerText = 'Step 1 of 2';
-            window.scrollTo(0, 0);
+            // Real back navigation, not a second pushState - keeps forward/back symmetric
+            // and reuses the history entry popstate already knows how to restore.
+            history.back();
         }
 
         function generateTrove() {
