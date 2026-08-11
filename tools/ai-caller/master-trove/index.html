@@ -58,7 +58,7 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>AI Caller Master Trove</h1>
-        <p class="subtitle">Tell us about your business and your call setup. We'll generate your exact cost, the stack to use, and the scripts your AI caller speaks - ready to load in minutes.</p>
+        <p class="subtitle">Tell us about your business and your call setup. We'll generate the blueprint - your exact cost, which platform to use, and the scripts your AI caller will speak once it's built. Follow it yourself or hand it to a developer.</p>
     </header>
 
     <div class="what-you-get">
@@ -123,16 +123,6 @@
                 </div>
                 <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
                     <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
-                </div>
-                <div class="form-group">
-                    <label for="revenue">Annual revenue range:</label>
-                    <select id="revenue" required>
-                        <option value="">-- Select a range --</option>
-                        <option value="$500K–$1M">$500K – $1M</option>
-                        <option value="$1M–$3M">$1M – $3M</option>
-                        <option value="$3M–$7M">$3M – $7M</option>
-                        <option value="$7M–$15M">$7M – $15M</option>
-                    </select>
                 </div>
             </div>
 
@@ -234,7 +224,7 @@
                 <ul>
                     <li>What it will actually cost to build and run your calling system - broken down by platform</li>
                     <li>The right platform for your call volume and how your leads come in</li>
-                    <li>Scripts your AI caller can run from day one - opening, qualification, and handling objections</li>
+                    <li>Scripts your AI caller can run from day one once it's live - opening, qualification, and handling objections</li>
                 </ul>
             </div>
             <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #1d4ed8;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -325,7 +315,6 @@
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value.trim();
         let industry = document.getElementById('industry').value;
-        const revenue = document.getElementById('revenue').value;
         const callVolume = document.getElementById('callVolume').value;
         let callingUseCase = document.getElementById('callingUseCase').value;
         const techLevel = document.getElementById('techLevel').value;
@@ -362,7 +351,7 @@
             currentCRM = crmOther;
         }
 
-        if (!revenue || !callVolume || !callingUseCase || !techLevel || !currentCRM || !platform) {
+        if (!callVolume || !callingUseCase || !techLevel || !currentCRM || !platform) {
             alert('Please complete all required fields.');
             return;
         }
@@ -372,7 +361,6 @@
             email: email,
             phone: phone,
             industry: industry,
-            revenue: revenue,
             callVolume: callVolume,
             callingUseCase: callingUseCase,
             techLevel: techLevel,
@@ -443,7 +431,7 @@
     function loadStaticExample(formData) {
         document.getElementById('costOutput').innerText = buildCost(formData.callVolume, formData.industry);
         document.getElementById('stackOutput').innerText = buildStack(formData.callVolume, formData.industry, formData.goal);
-        document.getElementById('scriptsOutput').innerText = buildScripts(formData.industry, formData.trigger, formData.goal, formData.revenue);
+        document.getElementById('scriptsOutput').innerText = buildScripts(formData.industry, formData.trigger, formData.goal);
     }
 
     function buildCost(callVolume, industry, showup) {
@@ -558,7 +546,7 @@ Avoid: Zapier unless you're already deep in their ecosystem - Make.com is faster
 ${voiceVendor} + Twilio + ${calVendor} + ${crmVendor} + Make.com`;
     }
 
-    function buildScripts(industry, trigger, goal, revenue) {
+    function buildScripts(industry, trigger, goal) {
         const industryNoun = {
             'Online coaching / education': 'coaching program',
             'Real estate': 'property inquiry',
