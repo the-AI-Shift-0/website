@@ -213,6 +213,7 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 16px;
   }
+  .tool-card-link { text-decoration: none; color: inherit; display: block; }
   .tool-card {
     background: #fff;
     border: 1px solid #e9d5ff;
@@ -341,8 +342,8 @@
   <img src="brand/profile-pic.png" alt="The AI Shift" class="header-logo">
   <span class="header-wordmark">The AI Shift</span>
   <nav class="header-nav">
-    <a href="/tools/sales-analyzer/">Sales Analyzer</a>
-    <a href="/tools/ai-caller/">AI Caller</a>
+    <a href="/" class="active">Home</a>
+    <a href="/tools/">Tools</a>
     <a href="/about/">About</a>
   </nav>
 </header>
@@ -392,30 +393,22 @@
     <p class="tools-sub">Every video ships with a free Master Trove: a ready-to-deploy AI system tailored to your business type.</p>
   </div>
   <div class="tools-grid">
-    <div class="tool-card">
-      <p class="tool-name">Sales Analyzer</p>
-      <p class="tool-desc">Analyze sales calls with AI. Spot patterns, coach reps, close more deals.</p>
-      <span class="tool-tag">Sales</span>
-      <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #059669; background: #d1fae5; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
-    </div>
-    <div class="tool-card">
+    <a href="/tools/ai-caller/master-trove/" class="tool-card-link">
+  <div class="tool-card">
       <p class="tool-name">AI Caller</p>
       <p class="tool-desc">Calculate your AI calling costs. Get a vendor stack and ready-made scripts.</p>
       <span class="tool-tag">Operations</span>
       <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #059669; background: #d1fae5; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
     </div>
-    <div class="tool-card">
+    </a>
+    <a href="/tools/prompt-builder/master-trove/" class="tool-card-link">
+  <div class="tool-card">
       <p class="tool-name">Prompt Builder</p>
       <p class="tool-desc">Build custom AI prompts for your business in minutes. No prompt engineering needed.</p>
       <span class="tool-tag">Productivity</span>
       <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9ca3af; background: #f3f4f6; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
     </div>
-    <div class="tool-card">
-      <p class="tool-name">Audience Consolidator</p>
-      <p class="tool-desc">Unify your Facebook audience data for sharper targeting and lower ad spend.</p>
-      <span class="tool-tag">Marketing</span>
-      <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9ca3af; background: #f3f4f6; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
-    </div>
+    </a>
   </div>
 </section>
 
