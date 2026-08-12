@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Engine Master Trove</title>
+    <link rel="stylesheet" href="/shared/forms.css">
+    <style>
+        .form-content { display: none; }
+        .form-content.active { display: block; }
+        .form-section { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+        /* No .form-wrapper on this page - the card belongs to each step, so the
+           confirmation states need the same card or they render on bare page. */
+        .processing-state, .success-state, .error-state {
+            background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+            padding: 32px; margin-bottom: 24px;
+        }
+        .form-section h2 { font-size: 18px; color: #7c3aed; margin-bottom: 20px; border-bottom: 2px solid #f8f7ff; padding-bottom: 12px; }
+        .step-1-fields { display: grid; gap: 20px; }
+    </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F7FK9M526K');
+  </script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="eyebrow">The AI Shift</div>
+        <h1>Research Engine Master Trove</h1>
+        <p class="subtitle">Tell us who you want in the room. We&#x27;ll generate a research engine that runs a full audience pass before every stage or podcast - so you walk in knowing what they actually care about.</p>
+    </header>
+
+    <div class="what-you-get">
+        <h3>What's inside your Master Trove</h3>
+        <ul>
+            <li>A full audience research pass</li>
+            <li>Run it before every appearance</li>
+            <li>Built around who you want in the room</li>
+            <li>A run-of-show for the appearance</li>
+            <li>Finds what they actually care about</li>
+            <li>Shapes your opening and your close</li>
+            <li>Reusable for any stage or show</li>
+            <li>Step-by-step setup guide</li>
+        </ul>
+    </div>
+
+    <!-- Form -->
+    <div id="get-yours-content" class="form-content active">
+        <form id="troveForm">
+        <div class="progress-indicator" id="progressIndicator">Step 1 of 2</div>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="form-content active">
+            <div class="form-section">
+                <div class="step-1-fields">
+                    <div class="form-group">
+                        <label for="firstName">Your Name</label>
+                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@company.com" required>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="goToStep(2)">Next</button>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="form-content">
+            <div class="form-section">
+                <h2>Your Audience Profile</h2>
+                <div class="form-group">
+                    <label for="whatYouSell">What Do You Sell?</label>
+                    <textarea id="whatYouSell" rows="3" placeholder="e.g., A done-for-you bookkeeping service for trades businesses turning over $1M-$5M" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="whoYouWant">Who Do You Want in the Room?</label>
+                    <textarea id="whoYouWant" rows="3" placeholder="e.g., Owners of plumbing and electrical firms with 10-40 staff who still do the books themselves" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="desiredOutcome">What Do You Want Them to Do Afterwards?</label>
+                    <textarea id="desiredOutcome" rows="3" placeholder="e.g., Book a 20-minute review call, or join the waitlist for the next intake" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="aiTool">Which AI Tool Do You Mainly Use?</label>
+                    <select id="aiTool" required>
+                        <option value="">-- Select --</option>
+                        <option value="Claude">Claude</option>
+                        <option value="ChatGPT">ChatGPT</option>
+                        <option value="Gemini">Gemini</option>
+                        <option value="I use multiple / not sure">I use multiple / not sure</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="button" onclick="generateTrove()">Get My Research Engine →</button>
+                <button class="back-link" type="button" onclick="prevStep()">← Back</button>
+            </div>
+        </div>
+
+        <!-- PROCESSING STATE -->
+        <div class="processing-state" id="processingState">
+            <div class="spinner"></div>
+            <h3>Building your Master Trove...</h3>
+            <p>Generating your personalised Research Engine...</p>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+            <div class="success-icon">✓</div>
+            <h3>Building your Research Engine now</h3>
+            <p>We're assembling it around your answers now. Give it a minute or two and check your inbox.</p>
+            <div class="email-tip">
+                <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
+                Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you don't miss our next resource.
+            </div>
+            <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
+        </div>
+        <!-- ERROR STATE -->
+        <div class="error-state" id="errorState" style="display:none; text-align:center; padding:40px 20px;">
+            <p style="color:#dc2626; font-size:16px; margin-bottom:12px;">Something went wrong. Please try again or email <a href="mailto:hello@theaishift.biz" style="color:#7c3aed;">hello@theaishift.biz</a></p>
+            <button type="button" onclick="resetToForm()" style="background:#7c3aed; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px;">Try Again</button>
+        </div>
+    </form>
+    </div>
+
+    </div>
+
+<script>
+    const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
+    const VIDEO_KEY = 'message-to-audience';
+
+    // Pure DOM update - shared by goToStep and the browser Back/Forward buttons.
+    // Never changes the URL itself.
+    function showStep(step) {
+        document.getElementById('step-1').classList.toggle('active', step === 1);
+        document.getElementById('step-2').classList.toggle('active', step === 2);
+        const pi = document.getElementById('progressIndicator');
+        if (pi) pi.innerText = 'Step ' + step + ' of 2';
+        window.scrollTo(0, 0);
+    }
+
+    // Step 1's URL never moves - it's the CTA published in a video.
+    // Later steps get ?step=N via pushState so GA4 can report them separately.
+    function goToStepURL(step, push) {
+        const url = new URL(window.location.href);
+        if (step === 1) {
+            url.search = '';
+        } else {
+            url.searchParams.set('step', String(step));
+        }
+        const state = { step: step };
+        if (push) {
+            history.pushState(state, '', url.pathname + url.search);
+        } else {
+            history.replaceState(state, '', url.pathname + url.search);
+        }
+    }
+
+    function trackStepView(step) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'trove_step_view', { event_category: 'engagement', event_label: VIDEO_KEY, step: step });
+        }
+    }
+
+    window.addEventListener('popstate', function(event) {
+        const step = (event.state && event.state.step) || 1;
+        showStep(step);
+        trackStepView(step);
+    });
+
+    function goToStep(stepNum) {
+        if (stepNum === 2) {
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!firstName || !email) {
+                alert('Please fill in your first name and email.');
+                return;
+            }
+            // Capture email before showing step 2 - they're in Kit even if they abandon
+            fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: firstName, email })
+            }).catch(() => {}); // fire-and-forget, don't block the UI
+            showStep(2);
+            goToStepURL(2, true);
+            trackStepView(2);
+        }
+    }
+
+    function prevStep() {
+        // Real back navigation, not a second pushState - keeps forward/back
+        // symmetric and reuses the history entry popstate already restores.
+        history.back();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pre-fill from URL params (abandonment nudge email links)
+        const params = new URLSearchParams(window.location.search);
+        const pName = params.get('name');
+        const pEmail = params.get('email');
+        if (pName) document.getElementById('firstName').value = pName;
+        if (pEmail) document.getElementById('email').value = pEmail;
+
+        // Establish base history state and strip a stray ?step - a cold load of a
+        // later step has no answers in memory, so it must never strand on a blank step.
+        goToStepURL(1, false);
+
+        if (pName && pEmail) goToStep(2);
+    });
+
+    function generateTrove() {
+        const firstName = document.getElementById('firstName').value;
+        const email = document.getElementById('email').value;
+        const whatYouSell = document.getElementById('whatYouSell').value.trim();
+        const whoYouWant = document.getElementById('whoYouWant').value.trim();
+        const desiredOutcome = document.getElementById('desiredOutcome').value.trim();
+        const aiTool = document.getElementById('aiTool').value.trim();
+
+        if (!whatYouSell || !whoYouWant || !desiredOutcome || !aiTool) {
+            alert('Please complete all required fields.');
+            return;
+        }
+
+        const formData = {
+            name: firstName,
+            email: email,
+            whatYouSell: whatYouSell,
+            whoYouWant: whoYouWant,
+            desiredOutcome: desiredOutcome,
+            aiTool: aiTool
+        };
+
+        submitToRailway(formData);
+    }
+
+    function submitToRailway(formData) {
+        document.getElementById('step-2').classList.remove('active');
+        document.getElementById('processingState').classList.add('show');
+        const _pi = document.getElementById('progressIndicator');
+        if (_pi) _pi.style.display = 'none';  // no step counter above a confirmation
+        window.scrollTo(0, 0);
+
+        const submitButton = document.querySelector('button[onclick="generateTrove()"]');
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Generating...';
+        }
+
+        fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('API error');
+            }
+            return response.json();
+        }).then(data => {
+            if (data.success) {
+                document.getElementById('processingState').classList.remove('show');
+                document.getElementById('successState').classList.add('show');
+                window.scrollTo(0, 0);
+            } else {
+                showTroveError();
+            }
+        }).catch(err => {
+            console.warn('Railway API error:', err.message);
+            showTroveError();
+        }).finally(() => {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Get My Research Engine →';
+            }
+        });
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'master_trove_submit', { event_category: 'engagement', event_label: VIDEO_KEY, value: 1 });
+        }
+    }
+
+    function showTroveError() {
+        document.getElementById('processingState').classList.remove('show');
+        document.getElementById('errorState').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
+    function resetToForm() {
+        document.getElementById('errorState').style.display = 'none';
+        document.getElementById('step-2').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
+</body>
+</html>
