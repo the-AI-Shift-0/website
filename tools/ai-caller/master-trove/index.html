@@ -85,12 +85,12 @@
             <div class="form-section">
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">Your Name</label>
-                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                        <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
+                        <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
@@ -104,8 +104,8 @@
             <div class="form-section">
                 <h2>Your Caller Profile</h2>
                 <div class="form-group">
-                    <label for="industry">What Industry Are You In?</label>
-                    <select id="industry" required>
+                    <label for="industry">What Industry Are You In? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="industry" name="industry" autocomplete="off" required>
                         <option value="">-- Select an industry --</option>
                         <option value="Online coaching / education">Online coaching / education</option>
                         <option value="Real estate">Real estate</option>
@@ -120,11 +120,12 @@
                     </select>
                 </div>
                 <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
-                    <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                    <label for="industryOther">Tell Us Your Industry <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="industryOther" name="industryOther" autocomplete="off" placeholder="Tell us your industry (e.g. AC unit repair)">
                 </div>
                 <div class="form-group">
-                    <label for="callVolume">How Many Calls Do You Expect the AI Caller to Make per Day?</label>
-                    <select id="callVolume" required>
+                    <label for="callVolume">How Many Calls Do You Expect the AI Caller to Make per Day? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="callVolume" name="callVolume" autocomplete="off" required>
                         <option value="">-- Select --</option>
                         <option value="5-15">5–15 calls/day</option>
                         <option value="15-40">15–40 calls/day</option>
@@ -133,7 +134,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>What Kind of AI Calling System Do You Want to Build? (Select All That Apply)</label>
+                    <label>What Kind of AI Calling System Do You Want to Build? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                     <div class="checkbox-group" id="callingUseCaseGroup">
                         <div class="checkbox-item"><input type="checkbox" id="ucc-appointment" name="callingUseCase" value="Appointment scheduling"><label for="ucc-appointment">Appointment scheduling</label></div>
                         <div class="checkbox-item"><input type="checkbox" id="ucc-followup" name="callingUseCase" value="Lead follow-up"><label for="ucc-followup">Lead follow-up</label></div>
@@ -143,12 +144,13 @@
                         <div class="checkbox-item"><input type="checkbox" id="ucc-sales" name="callingUseCase" value="Outbound sales"><label for="ucc-sales">Outbound sales</label></div>
                     </div>
                     <div style="margin-top: 8px;">
-                        <textarea id="useCaseOther" placeholder="Anything else? Add notes here..." rows="2"></textarea>
+                        <label for="useCaseOther">Anything Else the Calls Should Do? <span class="opt">(optional)</span></label>
+                        <textarea id="useCaseOther" name="useCaseOther" autocomplete="off" placeholder="Anything else? Add notes here..." rows="2"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="techLevel">What's Your Technical Skill Level?</label>
-                    <select id="techLevel" required>
+                    <label for="techLevel">What's Your Technical Skill Level? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="techLevel" name="techLevel" autocomplete="off" required>
                         <option value="">-- Select --</option>
                         <option value="no-code">No code - I need a no-code solution</option>
                         <option value="will-hire">I'll hire a developer</option>
@@ -156,8 +158,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="currentCRM">What CRM Do You Currently Use?</label>
-                    <select id="currentCRM" required>
+                    <label for="currentCRM">What CRM Do You Currently Use? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="currentCRM" name="currentCRM" autocomplete="off" required>
                         <option value="">-- Select --</option>
                         <option value="hubspot">HubSpot</option>
                         <option value="salesforce">Salesforce</option>
@@ -168,11 +170,12 @@
                     </select>
                 </div>
                 <div class="form-group" id="crmOtherGroup" style="display:none; margin-top: -8px;">
-                    <input type="text" id="crmOther" placeholder="Tell us which CRM">
+                    <label for="crmOther">Tell Us Which CRM <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="crmOther" name="crmOther" autocomplete="off" placeholder="Tell us which CRM">
                 </div>
                 <div class="form-group">
-                    <label for="platform">Which AI Tool Do You Mainly Use?</label>
-                    <select id="platform" required>
+                    <label for="platform">Which AI Tool Do You Mainly Use? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="platform" name="platform" autocomplete="off" required>
                         <option value="">-- Select --</option>
                         <option value="Claude">Claude</option>
                         <option value="ChatGPT">ChatGPT</option>
@@ -199,7 +202,7 @@
         <div class="success-state" id="successState">
             <div class="success-icon">✓</div>
             <h3>Building your personalized AI Caller blueprint now</h3>
-            <p>Based on your answers, we're custom-generating your cost breakdown, platform recommendation, and call scripts from scratch - built around what you want the calls to do, your call volume, and your leads. Not a template. Give it a minute or two and check your inbox.</p>
+            <p>Based on your answers, we're building your personalized AI Caller blueprint - your cost breakdown, your platform recommendation and your call scripts, built around your industry, what you want the calls to do, your call volume, your technical setup and your CRM. Give it a minute or two and check your inbox.</p>
             <div class="email-tip">
                 <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
                 Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you don't miss our next resource.
@@ -208,7 +211,7 @@
                 <div class="whats-inside-label">What's on its way</div>
                 <ul>
                     <li>What it will actually cost to build and run your calling system - broken down by platform</li>
-                    <li>The right platform for your call volume and how your leads come in</li>
+                    <li>The right platform for your call volume, your technical setup and your CRM</li>
                     <li>Ten call script templates for your industry - opening, discovery, objections, both closes and voicemail</li>
                 </ul>
             </div>

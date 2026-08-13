@@ -43,7 +43,7 @@
             <li>It asks before it answers</li>
             <li>A prompt for pressure-testing numbers</li>
             <li>Works in Claude, ChatGPT or Gemini</li>
-            <li>Set it once, it applies every time</li>
+            <li>Set the baseline once, then fire the right prompt at the decision</li>
             <li>Step-by-step setup guide</li>
         </ul>
     </div>
@@ -58,12 +58,12 @@
             <div class="form-section">
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">Your Name</label>
-                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                        <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
+                        <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
@@ -77,16 +77,16 @@
             <div class="form-section">
                 <h2>The Decision You Are Weighing</h2>
                 <div class="form-group">
-                    <label for="decision">What Decision Are You Trying to Make?</label>
-                    <textarea id="decision" rows="3" placeholder="e.g., Whether to hire a second salesperson now or wait until we&#x27;ve closed two more retainers" required></textarea>
+                    <label for="decision">What Decision Are You Trying to Make? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="decision" name="decision" autocomplete="off" rows="3" placeholder="e.g., Whether to hire a second salesperson now or wait until we&#x27;ve closed two more retainers" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="business">What Does Your Business Do?</label>
-                    <textarea id="business" rows="3" placeholder="e.g., We run paid ads for dental practices across Australia. 40 clients on retainer." required></textarea>
+                    <label for="business">What Does Your Business Do? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="business" name="business" autocomplete="off" rows="3" placeholder="e.g., We run paid ads for dental practices across Australia. 40 clients on retainer." required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="wantedAnswer">What Answer Are You Hoping to Hear?</label>
-                    <textarea id="wantedAnswer" rows="3" placeholder="Be honest - this is the whole point. The ruleset uses it to work out where you&#x27;re likely fooling yourself." required></textarea>
+                    <label for="wantedAnswer">What Answer Are You Hoping to Hear? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="wantedAnswer" name="wantedAnswer" autocomplete="off" rows="3" placeholder="Be honest - this is the whole point. The ruleset uses it to work out where you&#x27;re likely fooling yourself." required></textarea>
                 </div>
             </div>
 

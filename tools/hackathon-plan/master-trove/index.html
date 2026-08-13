@@ -59,12 +59,12 @@
             <div class="form-section">
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">Your Name</label>
-                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                        <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
+                        <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
@@ -78,12 +78,12 @@
             <div class="form-section">
                 <h2>Your Team</h2>
                 <div class="form-group">
-                    <label for="teamSize">How Many People Are Taking Part?</label>
-                    <input type="text" id="teamSize" placeholder="e.g., 12, or &quot;about 20 across two offices&quot;" required>
+                    <label for="teamSize">How Many People Are Taking Part? <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="teamSize" name="teamSize" autocomplete="off" placeholder="e.g., 12, or &quot;about 20 across two offices&quot;" required>
                 </div>
                 <div class="form-group">
-                    <label for="outsourcedWork">What Do You Currently Pay Other People to Do?</label>
-                    <textarea id="outsourcedWork" rows="3" placeholder="e.g., Bookkeeping, video editing, cold email outreach, our website, first-line customer support" required></textarea>
+                    <label for="outsourcedWork">What Do You Currently Pay Other People to Do? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="outsourcedWork" name="outsourcedWork" autocomplete="off" rows="3" placeholder="e.g., Bookkeeping, video editing, cold email outreach, our website, first-line customer support" required></textarea>
                 </div>
             </div>
 

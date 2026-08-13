@@ -59,12 +59,12 @@
             <div class="form-section">
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">Your Name</label>
-                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                        <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
+                        <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
@@ -78,16 +78,16 @@
             <div class="form-section">
                 <h2>Your Audience Profile</h2>
                 <div class="form-group">
-                    <label for="whatYouSell">What Do You Sell?</label>
-                    <textarea id="whatYouSell" rows="3" placeholder="e.g., A done-for-you bookkeeping service for trades businesses turning over $1M-$5M" required></textarea>
+                    <label for="whatYouSell">What Do You Sell? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="whatYouSell" name="whatYouSell" autocomplete="off" rows="3" placeholder="e.g., A done-for-you bookkeeping service for trades businesses turning over $1M-$5M" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="whoYouWant">Who Do You Want in the Room?</label>
-                    <textarea id="whoYouWant" rows="3" placeholder="e.g., Owners of plumbing and electrical firms with 10-40 staff who still do the books themselves" required></textarea>
+                    <label for="whoYouWant">Who Do You Want in the Room? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="whoYouWant" name="whoYouWant" autocomplete="off" rows="3" placeholder="e.g., Owners of plumbing and electrical firms with 10-40 staff who still do the books themselves" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="desiredOutcome">What Do You Want Them to Do Afterwards?</label>
-                    <textarea id="desiredOutcome" rows="3" placeholder="e.g., Book a 20-minute review call, or join the waitlist for the next intake" required></textarea>
+                    <label for="desiredOutcome">What Do You Want Them to Do Afterwards? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="desiredOutcome" name="desiredOutcome" autocomplete="off" rows="3" placeholder="e.g., Book a 20-minute review call, or join the waitlist for the next intake" required></textarea>
                 </div>
             </div>
 

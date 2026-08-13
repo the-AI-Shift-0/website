@@ -51,13 +51,13 @@
                 <div class="form-tab-content active" id="step1">
                     <div class="form-section">
                         <div class="form-group">
-                            <label for="firstName">Your Name</label>
-                            <input type="text" id="firstName" placeholder="e.g., Brad" required>
+                            <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                            <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Brad" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="you@company.com" required>
+                            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                         </div>
 
                     </div>
@@ -73,8 +73,8 @@
                         <h2>Your Audience Profile</h2>
 
                         <div class="form-group">
-                            <label for="industry">What Industry Are You In?</label>
-                            <select id="industry" required>
+                            <label for="industry">What Industry Are You In? <span class="req" aria-hidden="true">*</span></label>
+                            <select id="industry" name="industry" autocomplete="off" required>
                                 <option value="">-- Select an industry --</option>
                                 <option value="Online coaching / education">Online coaching / education</option>
                                 <option value="E-commerce">E-commerce</option>
@@ -86,12 +86,13 @@
                             </select>
                         </div>
                         <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
-                            <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                            <label for="industryOther">Tell Us Your Industry <span class="opt">(optional)</span></label>
+                            <input type="text" id="industryOther" name="industryOther" autocomplete="off" placeholder="Tell us your industry (e.g. AC unit repair)">
                         </div>
 
                         <div class="form-group">
-                            <label for="revenue">Annual Revenue Range</label>
-                            <select id="revenue" required>
+                            <label for="revenue">Annual Revenue Range <span class="req" aria-hidden="true">*</span></label>
+                            <select id="revenue" name="revenue" autocomplete="off" required>
                                 <option value="">-- Select a range --</option>
                                 <option value="$500K–$1M">$500K – $1M</option>
                                 <option value="$1M–$3M">$1M – $3M</option>
@@ -101,8 +102,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="businessType">What Type of Business Are You?</label>
-                            <select id="businessType" required>
+                            <label for="businessType">What Type of Business Are You? <span class="req" aria-hidden="true">*</span></label>
+                            <select id="businessType" name="businessType" autocomplete="off" required>
                                 <option value="">-- Select --</option>
                                 <option value="B2B service provider">B2B service provider</option>
                                 <option value="B2C product seller">B2C product seller</option>
@@ -112,11 +113,12 @@
                             </select>
                         </div>
                         <div class="form-group" id="businessTypeOtherGroup" style="display:none; margin-top: -8px;">
-                            <input type="text" id="businessTypeOther" placeholder="Tell us your business type">
+                            <label for="businessTypeOther">Tell Us Your Business Type <span class="opt">(optional)</span></label>
+                            <input type="text" id="businessTypeOther" name="businessTypeOther" autocomplete="off" placeholder="Tell us your business type">
                         </div>
 
                         <div class="form-group">
-                            <label>What Data Do You Have About Your Audience? (Select All That Apply)</label>
+                            <label>What Data Do You Have About Your Audience? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                             <div class="checkbox-group" id="dataSourcesGroup">
                                 <div class="checkbox-item"><input type="checkbox" id="ds-email" name="dataSources" value="Email list"><label for="ds-email">Email list</label></div>
                                 <div class="checkbox-item"><input type="checkbox" id="ds-phone" name="dataSources" value="Phone numbers"><label for="ds-phone">Phone numbers</label></div>
@@ -126,13 +128,14 @@
                                 <div class="checkbox-item"><input type="checkbox" id="ds-none" name="dataSources" value="Just starting out"><label for="ds-none">Just starting out</label></div>
                             </div>
                             <div id="dataSourcesOtherGroup" style="display:none; margin-top: 4px;">
-                                <textarea id="dataSourcesOther" placeholder="Anything else? Add notes here..."></textarea>
+                                <label for="dataSourcesOther">Any Other Audience Data? <span class="opt">(optional)</span></label>
+                                <textarea id="dataSourcesOther" name="dataSourcesOther" autocomplete="off" placeholder="Anything else? Add notes here..."></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="contactCount">How Many Contacts / Records Do You Have?</label>
-                            <select id="contactCount" required>
+                            <label for="contactCount">How Many Contacts / Records Do You Have? <span class="req" aria-hidden="true">*</span></label>
+                            <select id="contactCount" name="contactCount" autocomplete="off" required>
                                 <option value="">-- Select --</option>
                                 <option value="Under 1,000">Under 1,000</option>
                                 <option value="1,000 - 10,000">1,000 - 10,000</option>
@@ -143,7 +146,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>What Do You Want to Achieve With Facebook Ads? (Select All That Apply)</label>
+                            <label>What Do You Want to Achieve With Facebook Ads? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                             <div class="checkbox-group" id="adGoalGroup">
                                 <div class="checkbox-item"><input type="checkbox" id="ag-awareness" name="adGoal" value="Brand awareness"><label for="ag-awareness">Brand awareness</label></div>
                                 <div class="checkbox-item"><input type="checkbox" id="ag-consideration" name="adGoal" value="Consideration / traffic"><label for="ag-consideration">Consideration / traffic</label></div>
@@ -153,19 +156,20 @@
                                 <div class="checkbox-item"><input type="checkbox" id="ag-other" name="adGoal" value="Something else"><label for="ag-other">Something else</label></div>
                             </div>
                             <div id="adGoalOtherGroup" style="display:none; margin-top: 4px;">
-                                <textarea id="adGoalOther" placeholder="Anything else? Add notes here..."></textarea>
+                                <label for="adGoalOther">Any Other Goal? <span class="opt">(optional)</span></label>
+                                <textarea id="adGoalOther" name="adGoalOther" autocomplete="off" placeholder="Anything else? Add notes here..."></textarea>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Mobile Number</label>
-                        <input type="tel" id="phone">
+                        <label for="phone">Mobile Number <span class="opt">(optional)</span></label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel">
                     </div>
 
                     <div class="form-group">
-                        <label for="platform">Which AI Tool Do You Mainly Use?</label>
-                        <select id="platform" required>
+                        <label for="platform">Which AI Tool Do You Mainly Use? <span class="req" aria-hidden="true">*</span></label>
+                        <select id="platform" name="platform" autocomplete="off" required>
                             <option value="">-- Select one --</option>
                             <option value="Claude">Claude</option>
                             <option value="ChatGPT">ChatGPT</option>

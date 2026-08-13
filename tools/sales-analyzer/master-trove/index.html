@@ -60,13 +60,13 @@
                     <div class="form-tab-content active" id="step1">
                         <div class="form-section">
                             <div class="form-group">
-                                <label for="firstName">Your Name</label>
-                                <input type="text" id="firstName" placeholder="e.g., Brad" required>
+                                <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Brad" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="you@company.com" required>
+                                <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                             </div>
 
                         </div>
@@ -82,7 +82,7 @@
                             <h2>Your Sales Profile</h2>
 
                             <div class="form-group">
-                                <label>Which AI Tool Do You Use? (Select All That Apply)</label>
+                                <label>Which AI Tool Do You Use? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item"><input type="checkbox" id="platform-claude" name="platform" value="Claude"><label for="platform-claude">Claude (claude.ai)</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="platform-chatgpt" name="platform" value="ChatGPT"><label for="platform-chatgpt">ChatGPT (chatgpt.com)</label></div>
@@ -92,8 +92,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="industry">What Industry Are You In?</label>
-                                <select id="industry" required>
+                                <label for="industry">What Industry Are You In? <span class="req" aria-hidden="true">*</span></label>
+                                <select id="industry" name="industry" autocomplete="off" required>
                                     <option value="">-- Select an industry --</option>
                                     <option value="Online coaching / education">Online coaching / education</option>
                                     <option value="E-commerce">E-commerce</option>
@@ -105,12 +105,13 @@
                                 </select>
                             </div>
                             <div class="form-group" id="industryOtherGroup" style="display:none; margin-top: -8px;">
-                                <input type="text" id="industryOther" placeholder="Tell us your industry (e.g. AC unit repair)">
+                                <label for="industryOther">Tell Us Your Industry <span class="opt">(optional)</span></label>
+                                <input type="text" id="industryOther" name="industryOther" autocomplete="off" placeholder="Tell us your industry (e.g. AC unit repair)">
                             </div>
 
                             <div class="form-group">
-                                <label for="revenue">Annual Revenue Range</label>
-                                <select id="revenue" required>
+                                <label for="revenue">Annual Revenue Range <span class="req" aria-hidden="true">*</span></label>
+                                <select id="revenue" name="revenue" autocomplete="off" required>
                                     <option value="">-- Select a range --</option>
                                     <option value="$500K–$1M">$500K – $1M</option>
                                     <option value="$1M–$3M">$1M – $3M</option>
@@ -120,8 +121,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="repCount">Number of Sales Reps</label>
-                                <select id="repCount" required>
+                                <label for="repCount">Number of Sales Reps <span class="req" aria-hidden="true">*</span></label>
+                                <select id="repCount" name="repCount" autocomplete="off" required>
                                     <option value="">-- Select --</option>
                                     <option value="1-2">1-2</option>
                                     <option value="3-5">3-5</option>
@@ -131,8 +132,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dealSize">Average Deal Size</label>
-                                <select id="dealSize" required>
+                                <label for="dealSize">Average Deal Size <span class="req" aria-hidden="true">*</span></label>
+                                <select id="dealSize" name="dealSize" autocomplete="off" required>
                                     <option value="">-- Select --</option>
                                     <option value="under $1K">under $1K</option>
                                     <option value="$1K–$5K">$1K – $5K</option>
@@ -143,8 +144,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="salesCycle">Typical Sales Cycle</label>
-                                <select id="salesCycle" required>
+                                <label for="salesCycle">Typical Sales Cycle <span class="req" aria-hidden="true">*</span></label>
+                                <select id="salesCycle" name="salesCycle" autocomplete="off" required>
                                     <option value="">-- Select --</option>
                                     <option value="under 1 week">under 1 week</option>
                                     <option value="1-4 weeks">1-4 weeks</option>
@@ -154,7 +155,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Call Recording Tool (Select All That Apply)</label>
+                                <label>Call Recording Tool (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                                 <div class="checkbox-group" id="recordingToolGroup">
                                     <div class="checkbox-item"><input type="checkbox" id="rt-zoom" name="recordingTool" value="Zoom"><label for="rt-zoom">Zoom</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="rt-otter" name="recordingTool" value="Otter.ai"><label for="rt-otter">Otter.ai</label></div>
@@ -164,12 +165,13 @@
                                     <div class="checkbox-item"><input type="checkbox" id="rt-other" name="recordingTool" value="Other"><label for="rt-other">Other</label></div>
                                 </div>
                                 <div id="recordingToolOtherGroup" style="display:none; margin-top: 4px;">
-                                    <input type="text" id="recordingToolOther" placeholder="What do you use?">
+                                    <label for="recordingToolOther">Which Recording Tool Do You Use? <span class="opt">(optional)</span></label>
+                                    <input type="text" id="recordingToolOther" name="recordingToolOther" autocomplete="off" placeholder="What do you use?">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>What's Your Biggest Sales Problem Right Now? (Select All That Apply)</label>
+                                <label>What's Your Biggest Sales Problem Right Now? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item">
                                         <input type="checkbox" id="pain1" name="pain" value="No visibility into what reps actually say on calls">
@@ -193,12 +195,13 @@
                                     </div>
                                 </div>
                                 <div id="painOtherGroup" style="display:none; margin-top: 4px;">
-                                    <textarea id="painOther" placeholder="Describe your biggest sales challenge..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px;"></textarea>
+                                    <label for="painOther">Describe Your Sales Problem <span class="opt">(optional)</span></label>
+                                    <textarea id="painOther" name="painOther" autocomplete="off" placeholder="Describe your biggest sales challenge..." rows="2" style="width:100%; padding:8px; border:1px solid #e5e7eb; border-radius:6px; font-size:14px;"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>What Objection Kills the Most Deals? (Select All That Apply)</label>
+                                <label>What Objection Kills the Most Deals? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item"><input type="checkbox" id="obj1" name="objection" value="Price / budget"><label for="obj1">Price / budget</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="obj2" name="objection" value="Not the right time"><label for="obj2">Not the right time</label></div>
@@ -206,13 +209,16 @@
                                     <div class="checkbox-item"><input type="checkbox" id="obj4" name="objection" value="Need to think about it / send more info"><label for="obj4">Need to think about it / send more info</label></div>
                                     <div class="checkbox-item"><input type="checkbox" id="obj-other" name="objection" value="Other"><label for="obj-other">Other</label></div>
                                 </div>
-                                <textarea id="objectionOther" placeholder="Anything else? Describe the objection..." rows="2" style="display:none; margin-top:8px; width:100%;"></textarea>
+                                <div id="objectionOtherGroup" style="display:none; margin-top:8px;">
+                                    <label for="objectionOther">Describe the Objection <span class="opt">(optional)</span></label>
+                                    <textarea id="objectionOther" name="objectionOther" autocomplete="off" placeholder="Anything else? Describe the objection..." rows="2" style="width:100%;"></textarea>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Mobile Number</label>
-                            <input type="tel" id="phone">
+                            <label for="phone">Mobile Number <span class="opt">(optional)</span></label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel">
                         </div>
 
                         <div class="button-container">
@@ -320,7 +326,7 @@
             document.querySelectorAll('input[name="objection"]').forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     const otherChecked = document.getElementById('obj-other').checked;
-                    document.getElementById('objectionOther').style.display = otherChecked ? 'block' : 'none';
+                    document.getElementById('objectionOtherGroup').style.display = otherChecked ? 'block' : 'none';
                 });
             });
 
