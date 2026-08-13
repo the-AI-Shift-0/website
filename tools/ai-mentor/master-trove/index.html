@@ -32,14 +32,13 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>Ruleset Master Trove</h1>
-        <p class="subtitle">Bring a real decision you are stuck on. We&#x27;ll generate a ruleset that makes your AI push back on your thinking instead of agreeing with you - with your numbers and your context already loaded.</p>
+        <p class="subtitle">Bring a real decision you are stuck on. We&#x27;ll generate a ruleset that makes your AI push back on your thinking instead of agreeing with you - with your own decision already written into it.</p>
     </header>
 
     <div class="what-you-get">
         <h3>What's inside your Master Trove</h3>
         <ul>
             <li>A ruleset that disagrees with you</li>
-            <li>Loaded with your real numbers</li>
             <li>Nine prompts that push back on you</li>
             <li>It asks before it answers</li>
             <li>A prompt for pressure-testing numbers</li>
@@ -80,10 +79,6 @@
                 <div class="form-group">
                     <label for="decision">What Decision Are You Trying to Make?</label>
                     <textarea id="decision" rows="3" placeholder="e.g., Whether to hire a second salesperson now or wait until we&#x27;ve closed two more retainers" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="numbers">What Are the Relevant Numbers?</label>
-                    <textarea id="numbers" rows="3" placeholder="e.g., $1.4M revenue, 34% margin, 8 staff, 4 months runway, average deal $22k" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="business">What Does Your Business Do?</label>
@@ -246,11 +241,10 @@
         const firstName = document.getElementById('firstName').value;
         const email = document.getElementById('email').value;
         const decision = document.getElementById('decision').value.trim();
-        const numbers = document.getElementById('numbers').value.trim();
         const business = document.getElementById('business').value.trim();
         const wantedAnswer = document.getElementById('wantedAnswer').value.trim();
 
-        if (!decision || !numbers || !business || !wantedAnswer) {
+        if (!decision || !business || !wantedAnswer) {
             alert('Please complete all required fields.');
             return;
         }
@@ -259,7 +253,6 @@
             name: firstName,
             email: email,
             decision: decision,
-            numbers: numbers,
             business: business,
             wantedAnswer: wantedAnswer
         };

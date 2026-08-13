@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Engine Master Trove</title>
+    <title>Audience Messaging Expert Master Trove</title>
     <link rel="stylesheet" href="/shared/forms.css">
     <style>
         .form-content { display: none; }
@@ -31,8 +31,8 @@
 <div class="container">
     <header>
         <div class="eyebrow">The AI Shift</div>
-        <h1>Research Engine Master Trove</h1>
-        <p class="subtitle">Tell us who you want in the room. We&#x27;ll generate a research engine that runs a full audience pass before every stage or podcast - so you walk in knowing what they actually care about.</p>
+        <h1>Audience Messaging Expert Master Trove</h1>
+        <p class="subtitle">Tell us who you want in the room. We&#x27;ll generate an Audience Messaging Expert that runs a full audience pass before every stage or podcast - so you walk in knowing what they actually care about.</p>
     </header>
 
     <div class="what-you-get">
@@ -89,20 +89,10 @@
                     <label for="desiredOutcome">What Do You Want Them to Do Afterwards?</label>
                     <textarea id="desiredOutcome" rows="3" placeholder="e.g., Book a 20-minute review call, or join the waitlist for the next intake" required></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="aiTool">Which AI Tool Do You Mainly Use?</label>
-                    <select id="aiTool" required>
-                        <option value="">-- Select --</option>
-                        <option value="Claude">Claude</option>
-                        <option value="ChatGPT">ChatGPT</option>
-                        <option value="Gemini">Gemini</option>
-                        <option value="I use multiple / not sure">I use multiple / not sure</option>
-                    </select>
-                </div>
             </div>
 
             <div class="button-container">
-                <button type="button" onclick="generateTrove()">Get My Research Engine →</button>
+                <button type="button" onclick="generateTrove()">Get My Audience Messaging Expert →</button>
                 <button class="back-link" type="button" onclick="prevStep()">← Back</button>
             </div>
         </div>
@@ -111,13 +101,13 @@
         <div class="processing-state" id="processingState">
             <div class="spinner"></div>
             <h3>Building your Master Trove...</h3>
-            <p>Generating your personalised Research Engine...</p>
+            <p>Generating your personalised Audience Messaging Expert...</p>
         </div>
 
         <!-- SUCCESS STATE -->
         <div class="success-state" id="successState">
             <div class="success-icon">✓</div>
-            <h3>Building your Research Engine now</h3>
+            <h3>Building your Audience Messaging Expert now</h3>
             <p>We're assembling it around your answers now. Give it a minute or two and check your inbox.</p>
             <div class="email-tip">
                 <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
@@ -254,9 +244,8 @@
         const whatYouSell = document.getElementById('whatYouSell').value.trim();
         const whoYouWant = document.getElementById('whoYouWant').value.trim();
         const desiredOutcome = document.getElementById('desiredOutcome').value.trim();
-        const aiTool = document.getElementById('aiTool').value.trim();
 
-        if (!whatYouSell || !whoYouWant || !desiredOutcome || !aiTool) {
+        if (!whatYouSell || !whoYouWant || !desiredOutcome) {
             alert('Please complete all required fields.');
             return;
         }
@@ -266,8 +255,7 @@
             email: email,
             whatYouSell: whatYouSell,
             whoYouWant: whoYouWant,
-            desiredOutcome: desiredOutcome,
-            aiTool: aiTool
+            desiredOutcome: desiredOutcome
         };
 
         submitToRailway(formData);
@@ -309,7 +297,7 @@
         }).finally(() => {
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Get My Research Engine →';
+                submitButton.textContent = 'Get My Audience Messaging Expert →';
             }
         });
 
