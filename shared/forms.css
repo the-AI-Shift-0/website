@@ -88,6 +88,25 @@ label {
     font-size: 14px;
 }
 
+/* Required vs optional, marked on the label itself.
+   Until 2026-08-13 no control on any of these forms carried either marker, so a
+   form with three genuinely optional questions read as a wall of mandatory ones
+   and people abandoned it rather than skip a field they were allowed to skip.
+   Asterisk on required, "(optional)" spelled out otherwise - the word, not a
+   second symbol, because a symbol needs a legend and a legend needs reading. */
+label .req {
+    color: #dc2626;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+label .opt {
+    color: #6b7280;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],

@@ -32,20 +32,19 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>AI Copywriter Master Trove</h1>
-        <p class="subtitle">Tell us what you sell and who buys it. We&#x27;ll generate a copywriter calibrated to your business - your offer, your buyer, your voice - so the copy it writes sounds like you and sells what you actually sell.</p>
+        <p class="subtitle">Tell us what you sell and who buys it. You get a file you upload once to Claude, ChatGPT or Gemini - and from then on the next sales page, launch sequence, ad or SMS is a prompt away instead of a brief away. You do not have to decide which campaign you want first.</p>
     </header>
 
     <div class="what-you-get">
         <h3>What's inside your Master Trove</h3>
         <ul>
-            <li>A copywriter tuned to your offer</li>
-            <li>Matched to your brand voice</li>
-            <li>Calibrated to your buyer</li>
-            <li>A prompt for your first campaign</li>
-            <li>Sales page structure</li>
-            <li>Email sequence framework</li>
-            <li>Ad and SMS angles</li>
-            <li>Step-by-step setup guide</li>
+            <li>A copywriter that already knows your offer and your buyer</li>
+            <li>A Prompt Pack with a ready prompt for all six campaign types</li>
+            <li>Sales page, launch email sequence and single email</li>
+            <li>Ad, webinar promotion and SMS sequence</li>
+            <li>An objection-handling framework it applies to every draft</li>
+            <li>An iteration layer for pushing a first draft further</li>
+            <li>Step-by-step setup guide for Claude, ChatGPT or Gemini</li>
         </ul>
     </div>
 
@@ -59,12 +58,12 @@
             <div class="form-section">
                 <div class="step-1-fields">
                     <div class="form-group">
-                        <label for="firstName">Your Name</label>
-                        <input type="text" id="firstName" placeholder="e.g., Sarah" required>
+                        <label for="firstName">Your Name <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="e.g., Sarah" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
+                        <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
                     </div>
                 </div>
             </div>
@@ -78,40 +77,28 @@
             <div class="form-section">
                 <h2>Your Business Profile</h2>
                 <div class="form-group">
-                    <label for="whatYouSell">What Do You Sell?</label>
-                    <textarea id="whatYouSell" rows="3" placeholder="e.g., A 12-week group coaching program for agency owners who want to stop trading hours for money" required></textarea>
+                    <label for="whatYouSell">What Do You Sell? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="whatYouSell" name="whatYouSell" rows="3" placeholder="e.g., A 12-week group coaching program for agency owners who want to stop trading hours for money" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="pricePoint">What Does It Cost?</label>
-                    <input type="text" id="pricePoint" placeholder="e.g., $4,000 one-time, or $500/month">
+                    <label for="pricePoint">What Does It Cost? <span class="opt">(optional)</span></label>
+                    <input type="text" id="pricePoint" name="pricePoint" placeholder="e.g., $4,000 one-time, or $500/month">
                 </div>
                 <div class="form-group">
-                    <label for="customerRole">Who Buys It?</label>
-                    <textarea id="customerRole" rows="3" placeholder="e.g., Agency owners doing $500k-$2M who have 3-10 staff and are stuck doing delivery themselves" required></textarea>
+                    <label for="customerRole">Who Buys It? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="customerRole" name="customerRole" rows="3" placeholder="e.g., Agency owners doing $500k-$2M who have 3-10 staff and are stuck doing delivery themselves" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="topPain">What Is the Single Biggest Problem They Come to You With?</label>
-                    <textarea id="topPain" rows="3" placeholder="e.g., They&#x27;re the bottleneck. Every client wants them personally and they can&#x27;t take a holiday." required></textarea>
+                    <label for="topPain">What Is the Single Biggest Problem They Come to You With? <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="topPain" name="topPain" rows="3" placeholder="e.g., They&#x27;re the bottleneck. Every client wants them personally and they can&#x27;t take a holiday." required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="businessContext">Anything Else We Should Know About Your Business?</label>
-                    <textarea id="businessContext" rows="3" placeholder="Optional. Market, competitors, what makes you different, anything that shapes how you sell."></textarea>
+                    <label for="businessContext">Anything Else We Should Know About Your Business? <span class="opt">(optional)</span></label>
+                    <textarea id="businessContext" name="businessContext" rows="3" placeholder="Market, competitors, what makes you different, anything that shapes how you sell."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="brandVoice">How Would You Describe Your Voice?</label>
-                    <textarea id="brandVoice" rows="3" placeholder="Optional. e.g., Direct and unsentimental. No hype, no exclamation marks. Short sentences."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="firstCampaign">What Should It Write First?</label>
-                    <select id="firstCampaign" required>
-                        <option value="">-- Select --</option>
-                        <option value="Sales page">A sales page</option>
-                        <option value="Launch email sequence">A launch email sequence</option>
-                        <option value="Single email">A single email</option>
-                        <option value="Ad">An ad</option>
-                        <option value="Webinar promotion">Webinar promotion</option>
-                        <option value="SMS sequence">An SMS sequence</option>
-                    </select>
+                    <label for="brandVoice">How Would You Describe Your Voice? <span class="opt">(optional)</span></label>
+                    <textarea id="brandVoice" name="brandVoice" rows="3" placeholder="e.g., Direct and unsentimental. No hype, no exclamation marks. Short sentences."></textarea>
                 </div>
             </div>
 
@@ -271,10 +258,13 @@
         const topPain = document.getElementById('topPain').value.trim();
         const businessContext = document.getElementById('businessContext').value.trim();
         const brandVoice = document.getElementById('brandVoice').value.trim();
-        const firstCampaign = document.getElementById('firstCampaign').value.trim();
 
-        if (!whatYouSell || !customerRole || !topPain || !firstCampaign) {
-            alert('Please complete all required fields.');
+        // Only the three starred questions gate submission. pricePoint,
+        // businessContext and brandVoice are marked optional on the label and
+        // must stay genuinely optional here - the generator omits each section
+        // entirely when its answer is blank rather than substituting filler.
+        if (!whatYouSell || !customerRole || !topPain) {
+            alert('Please complete the questions marked with a star.');
             return;
         }
 
@@ -286,8 +276,7 @@
             customerRole: customerRole,
             topPain: topPain,
             businessContext: businessContext,
-            brandVoice: brandVoice,
-            firstCampaign: firstCampaign
+            brandVoice: brandVoice
         };
 
         submitToRailway(formData);
