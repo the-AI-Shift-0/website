@@ -35,16 +35,16 @@
         <header>
             <div class="eyebrow">The AI Shift</div>
             <h1>Sales Analyzer Master Trove</h1>
-            <p class="subtitle">Tell us about your business. We'll build you a custom sales analyst trained on SPIN Selling, Challenger Sale, and 10,000 sales calls - ready to load into your AI tool of choice.</p>
+            <p class="subtitle">Tell us about your business. You get a sales analyst built on SPIN Selling, the Challenger Sale and Cialdini's principles, with a reference library of 3,400 sales conversations bundled in - customized for you, and set up for Claude, ChatGPT or Gemini.</p>
         </header>
 
         <div class="what-you-get">
             <h3>What's inside your Master Trove</h3>
             <ul>
                 <li>Your recommended sales framework</li>
-                <li>Your complete sales analyst, ready to upload</li>
+                <li>Your complete sales analyst, in one file</li>
                 <li>Rep call-scoring system</li>
-                <li>Top 3 mistakes your reps are making now</li>
+                <li>The mistakes to watch for in your market</li>
                 <li>Platform setup for Claude, ChatGPT, or Gemini</li>
                 <li>Personalized to your industry and deal size</li>
                 <li>Why other frameworks don't fit your situation</li>
@@ -242,8 +242,8 @@
                     <!-- Success state -->
                     <div class="success-state" id="successState">
                         <div class="success-icon">✓</div>
-                        <h3>Building your personalized Sales Analyzer now</h3>
-                        <p class="success-sub">Based on your answers, we're custom-generating your sales analysis system from scratch - calibrated to your industry, deal size, and the objection that costs you the most deals. Not a template. Give it a minute or two and check your inbox.</p>
+                        <h3>Building your Sales Analyzer now</h3>
+                        <p class="success-sub">We're putting your sales analysis system together now, customized for you - your industry, your deal size, and the objection you told us costs you the most deals. Give it a minute or two and check your inbox.</p>
                         <div class="email-tip">
                             <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
                             Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you never miss a resource.
@@ -251,9 +251,9 @@
                         <div class="whats-inside">
                             <div class="whats-inside-label">What's on its way</div>
                             <ul>
-                                <li>A diagnosis of what's costing your team the most deals right now - specific to your industry and deal size</li>
+                                <li>A scoring framework for the objection you named, in your industry and at your deal size</li>
                                 <li>A sales system you can put in front of your team on their next call, not next quarter</li>
-                                <li>Built around the objection that kills your deals most often - not a generic framework</li>
+                                <li>Built around the objection that kills your deals most often</li>
                             </ul>
                         </div>
                         <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
@@ -552,173 +552,14 @@
             document.getElementById('step2').classList.add('active');
         }
 
-        function loadStaticExample(formData) {
-            const industryObjections = getIndustryObjections(formData.industry, formData.topObjection);
-            const dealContext = getDealContext(formData.dealSize, '1-4 weeks');
-
-            const troveContent = `SALES ANALYZER MASTER TROVE
-${formData.industry.toUpperCase()} | CUSTOM REVENUE
-
-=== WHAT THIS IS ===
-
-You are a world-class sales performance analyst. This system has been pre-loaded with:
-- SPIN Selling methodology (Rackham - Situation, Problem, Implication, Need-Payoff)
-- Challenger Sale framework (Dixon & Adamson - teach, tailor, take control)
-- Sandler Sales System (pain, budget, decision frameworks)
-- 10,000+ analyzed sales calls and objection response patterns
-- ${formData.industry}-specific buying patterns and objection library
-
-=== BUSINESS CONTEXT ===
-
-Industry: ${formData.industry}
-Coaching Challenge: ${formData.coachingChallenge}
-Most Damaging Objection: ${formData.topObjection}
-
-${dealContext}
-
-=== HOW TO USE THIS ===
-
-When I give you a sales call transcript or recording:
-1. Analyze it using the full framework below
-2. Return a structured coaching report
-3. After 3+ calls, identify the team pattern
-
-If I say "analyze this call" - run the full analysis.
-If I say "quick score" - return just the scorecard.
-If I say "team pattern" - compare all calls and find the shared weakness.
-
-=== CALL ANALYSIS FRAMEWORK ===
-
-SPIN SCORING (score each 1–10 with evidence from the call):
-
-Situation Questions (1–10): Did the rep uncover current state before pitching?
-- 8–10: Asked 3+ situation questions before presenting anything
-- 5–7: Asked some questions but moved to pitch too soon
-- 1–4: Jumped straight to features and benefits
-
-Problem Questions (1–10): Did they surface the real pain or accept surface symptoms?
-- 8–10: Dug beneath the stated problem to find the real business impact
-- 5–7: Acknowledged the problem but didn't probe deeper
-- 1–4: Took the prospect's first answer and moved on
-
-Implication Questions (1–10): Did they amplify the cost of inaction?
-- 8–10: Made the prospect articulate what this problem is costing them
-- 5–7: Mentioned consequences but didn't make the prospect feel them
-- 1–4: Never established why solving this matters now
-
-Need-Payoff Questions (1–10): Did the prospect sell themselves?
-- 8–10: Prospect said out loud why this solution matters to them
-- 5–7: Rep told the prospect the value instead of drawing it out
-- 1–4: Rep closed on features, not on prospect-stated needs
-
-CHALLENGER DIMENSIONS (score each 1–10 with evidence):
-
-Teach (1–10): Did the rep introduce a perspective the prospect hadn't considered?
-- 8–10: Reframed how the prospect thinks about the problem
-- 5–7: Shared some insight but it wasn't surprising or specific
-- 1–4: Nodded along with what the prospect already believed
-
-Tailor (1–10): Did they connect insights to this specific prospect's situation?
-- 8–10: Every insight referenced something specific about this business
-- 5–7: Generic framing with a few personalized details
-- 1–4: Same pitch they give everyone
-
-Take Control (1–10): Did the rep lead the conversation, or follow?
-- 8–10: Drove agenda, redirected tangents, asked for commitment
-- 5–7: Held direction most of the time but ceded ground on price/timeline
-- 1–4: Prospect controlled the call
-
-KEY MOMENTS TO FLAG:
-
-- Talk ratio: if rep spoke more than 60% of the call, flag it
-- Engagement shift: the exact moment energy changed (positive or negative) - quote the line
-- First objection: how it arrived, how it was handled, whether it was resolved or bypassed
-- ${formData.topObjection}: specifically watch for this - it kills the most deals. Note exactly when and how it came up.
-- Closing attempt: was there a specific ask for next steps? Were they concrete and owned?
-
-${industryObjections}
-
-=== COACHING OUTPUT FORMAT ===
-
-Return this structure for every call:
-
-CALL VERDICT: [Strong close / Solid but left money on the table / Needs work / Struggled]
-
-SCORECARD:
-Situation Questions: X/10 - [one line of evidence]
-Problem Questions: X/10 - [one line of evidence]
-Implication Questions: X/10 - [one line of evidence]
-Need-Payoff Questions: X/10 - [one line of evidence]
-Teach: X/10 - [one line of evidence]
-Tailor: X/10 - [one line of evidence]
-Take Control: X/10 - [one line of evidence]
-Talk Ratio: X% rep / X% prospect
-
-THE ONE THING TO FIX: [Single most impactful coaching note - specific, not generic]
-
-THE BEST MOMENT: [What the rep did well - quote the line if possible - this gets reinforced]
-
-OBJECTION HANDLING (${formData.topObjection}): [How they handled it + what they should have done differently if applicable]
-
-NEXT STEPS QUALITY: [Were they specific? Who owns them? Rated: Strong / Weak / None]
-
-=== TEAM PATTERN DETECTION ===
-
-After analyzing 3 or more calls from the same team, produce:
-
-TEAM PATTERN REPORT:
-- The one coaching problem showing up across every rep (not just one of them)
-- The shared strength to protect (what everyone does well)
-- Priority order: fix [X] before [Y] because [reason]
-- The one drill that would move the whole team
-
-=== YOU ARE NOW READY ===
-
-Paste a sales call transcript and say "analyze this call." I'll return the full coaching report.`;
-
-            document.getElementById('troveOutput').innerText = troveContent;
-        }
-
-        function getIndustryObjections(industry, topObjection) {
-            const patterns = {
-                'Online coaching / education': `INDUSTRY-SPECIFIC PATTERNS (Online Coaching / Education):
-Common objection cluster: "I've tried programs before and they didn't work" - this is a trust objection, not a price objection. Probe for what specifically failed.
-Watch for: reps pitching the program before establishing belief that the prospect can succeed.
-${topObjection === 'Price / budget' ? '"Price" in coaching usually means "I don\'t believe the ROI" - push on what the cost of NOT solving this is, not on payment plans.' : ''}`,
-                'E-commerce': `INDUSTRY-SPECIFIC PATTERNS (E-commerce):
-Watch for: prospects fixated on CPAs and ROAS from day one - frame value in terms of LTV and retention, not acquisition cost.
-${topObjection === 'Happy with current solution' ? '"Happy with current solution" in e-commerce often means "our agency is managing this" - probe whether they own the relationship or the agency does.' : ''}`,
-                'Professional services': `INDUSTRY-SPECIFIC PATTERNS (Professional Services):
-Relationship-driven sale - trust is built slowly. Watch for reps who try to close too fast on a first or second call.
-${topObjection === 'Not the right time' ? '"Not the right time" in professional services is often real - probe the timeline, understand what needs to happen first, and get a specific future date.' : ''}`,
-                'SaaS': `INDUSTRY-SPECIFIC PATTERNS (SaaS):
-Watch for: feature-dumping. SaaS reps default to capability lists when they haven't established pain. Implication questions are critical here.
-${topObjection === 'Need to think about it / send more info' ? '"Send more info" is almost always avoidance. Flag when reps accept this without asking what specific question the info would answer.' : ''}`,
-            };
-            return patterns[industry] || `INDUSTRY-SPECIFIC PATTERNS (${industry}):
-Watch for standard stall patterns - "we need to review internally," "let's reconnect next quarter," "I need to loop in my partner."
-Flag any call where next steps were not specific, dated, and owned by someone.
-${topObjection === 'Price / budget' ? 'Price objections almost always mean value was not established. Watch for how early the rep mentioned pricing and whether implication questions came before or after.' : ''}`;
-        }
-
-        function getDealContext(dealSize, salesCycle) {
-            if (dealSize === '$50K+' || dealSize === '$15K–$50K') {
-                return `DEAL SIZE CONTEXT (${dealSize} deals):
-At this deal size, a single call rarely closes. Watch for: did the rep establish clear next steps with a specific date? Did they identify all decision-makers? Were implications fully explored - at ${dealSize}, the cost-of-inaction needs to be felt, not just acknowledged.
-Multi-stakeholder flag: if only one person is on the call, probe whether they have full authority. If not, coach the rep to request a next call with all decision-makers present.`;
-            }
-            if (salesCycle === '1-3 months' || salesCycle === '3+ months') {
-                return `SALES CYCLE CONTEXT (${salesCycle} cycle):
-Long cycles increase the risk of "going dark" - watch for whether the rep locked in a specific next touchpoint with a date and owner. Without it, deals stall.
-Watch for: reps who close the call warmly but leave next steps vague. The deal will die in the silence.`;
-            }
-            if (dealSize === 'under $1K' || dealSize === '$1K–$5K') {
-                return `DEAL SIZE CONTEXT (${dealSize} deals):
-At this price point, speed and clarity matter. Watch for: reps overcomplicating the conversation when a simple, direct close would work. Flag any call over 45 minutes - that's a sign of a rep who can't close.
-Talk ratio is especially important here - the prospect should feel heard quickly, not interviewed.`;
-            }
-            return '';
-        }
+        // REMOVED 2026-08-13: ~165 lines of dead JavaScript - loadStaticExample(),
+        // getIndustryObjections() and getDealContext(). Nothing ever called them,
+        // they wrote into a #troveOutput element that does not exist in this
+        // document (audit_forms.py had been warning about exactly that), and the
+        // block carried its own "10,000+ analyzed sales calls" line - a false count
+        // in a second place, where no page audit would think to look for it. The
+        // real number is 3,411 transcripts. Dead code that makes claims is worse
+        // than dead code.
     </script>
 </body>
 </html>

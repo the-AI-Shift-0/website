@@ -32,15 +32,15 @@
     <header>
         <div class="eyebrow">The AI Shift</div>
         <h1>The Hackathon Playbook</h1>
-        <p class="subtitle">Run the same internal hackathon we run. Tell us how big your team is and what you currently pay other people to do, and we&#x27;ll generate the plan - the schedule, the brief, and what to build first.</p>
+        <p class="subtitle">Run the same internal hackathon we ran. It is the actual plan from the day that worked for us - the teach, the timed round, the scoring, the build week, demo day - customized for you. Two questions, about twenty seconds.</p>
     </header>
 
     <div class="what-you-get">
         <h3>What's inside your Master Trove</h3>
         <ul>
             <li>A full hackathon run sheet</li>
-            <li>Sized to your team</li>
-            <li>What to build first</li>
+            <li>Customized for you</li>
+            <li>How they choose what to build</li>
             <li>The brief you hand your staff</li>
             <li>How to judge what gets built</li>
             <li>What to do the week after</li>
@@ -79,7 +79,14 @@
                 <h2>Your Team</h2>
                 <div class="form-group">
                     <label for="teamSize">How Many People Are Taking Part? <span class="req" aria-hidden="true">*</span></label>
-                    <input type="text" id="teamSize" name="teamSize" autocomplete="off" placeholder="e.g., 12, or &quot;about 20 across two offices&quot;" required>
+                    <select id="teamSize" name="teamSize" autocomplete="off" required>
+                        <option value="">Select a range...</option>
+                        <option value="1-5">1-5 people</option>
+                        <option value="6-15">6-15 people</option>
+                        <option value="16-30">16-30 people</option>
+                        <option value="31-100">31-100 people</option>
+                        <option value="100+">More than 100 people</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="outsourcedWork">What Do You Currently Pay Other People to Do? <span class="req" aria-hidden="true">*</span></label>
@@ -97,7 +104,7 @@
         <div class="processing-state" id="processingState">
             <div class="spinner"></div>
             <h3>Building your Master Trove...</h3>
-            <p>Generating your personalised Hackathon Playbook...</p>
+            <p>Putting your Hackathon Playbook together...</p>
         </div>
 
         <!-- SUCCESS STATE -->
