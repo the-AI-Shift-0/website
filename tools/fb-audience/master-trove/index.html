@@ -219,6 +219,35 @@
     <script>
         const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
         const VIDEO_KEY = 'fb-audience';
+
+    // Traffic attribution. Every published YouTube CTA carries utm_source/medium/
+    // campaign, but goToStepURL(1) blanks the query string on load and step 2
+    // rewrites it - so the UTMs exist only during this first script evaluation.
+    // Read them now, before DOMContentLoaded, and stash them for the later POST.
+    const ATTRIBUTION = (function () {
+        const STORE_KEY = 'tas_attribution_' + VIDEO_KEY;
+        const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+        let saved = null;
+        try { saved = JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) {}
+        // First touch wins, and the set is atomic: never blend utm_source from this
+        // visit with utm_campaign from the last one, which would read as real data.
+        if (saved && Object.keys(saved).length) return saved;
+
+        const params = new URLSearchParams(window.location.search);
+        const found = {};
+        UTM_KEYS.forEach(function (k) {
+            const v = (params.get(k) || '').trim();
+            if (v) found[k] = v.slice(0, 200);
+        });
+        // YouTube's redirect wrapper usually destroys the referrer - which is the
+        // whole reason the UTMs exist. Keep it only when it is genuinely external.
+        const ref = (document.referrer || '').trim();
+        if (ref && ref.indexOf(window.location.origin) !== 0) found.referrer = ref.slice(0, 500);
+
+        try { sessionStorage.setItem(STORE_KEY, JSON.stringify(found)); } catch (e) {}
+        return found;
+    })();
+
         let currentStep = 1;
 
         // Industry "Other" text input visibility
@@ -323,7 +352,7 @@
             fetch(`${RAILWAY_API}/subscribe/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: firstName, email })
+                body: JSON.stringify({ name: firstName, email, attribution: ATTRIBUTION })
             }).catch(() => {});
 
             showStep(2);
@@ -425,7 +454,7 @@
             fetch(`${RAILWAY_API}/generate/${VIDEO_KEY}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ ...formData, attribution: ATTRIBUTION })
             }).then(response => {
                 if (!response.ok) {
                     throw new Error('API error');
