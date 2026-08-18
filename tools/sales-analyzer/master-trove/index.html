@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Analyzer Master Trove</title>
+    <title>Sales Call Analyzer Master Trove</title>
     <link rel="stylesheet" href="/shared/forms.css">
     <style>
         .form-wrapper { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
@@ -34,8 +34,8 @@
     <div class="container">
         <header>
             <div class="eyebrow">The AI Shift</div>
-            <h1>Sales Analyzer Master Trove</h1>
-            <p class="subtitle">Tell us about your business. You get a sales analyst built on SPIN Selling, the Challenger Sale and Cialdini's principles, with a reference library of 3,400 sales conversations bundled in - customized for you, and set up for Claude, ChatGPT or Gemini.</p>
+            <h1>Sales Call Analyzer Master Trove</h1>
+            <p class="subtitle">Tell us about your business. You get a sales analyst built on SPIN Selling, the Challenger Sale and Cialdini's principles, with a reference library of 3,400+ sales conversations bundled in - customized for you, and set up for Claude, ChatGPT or Gemini.</p>
         </header>
 
         <div class="what-you-get">
@@ -222,7 +222,7 @@
                         </div>
 
                         <div class="button-container">
-                            <button type="button" onclick="generateTrove()">Get My Sales Analyzer →</button>
+                            <button type="button" onclick="generateTrove()">Get My Sales Call Analyzer →</button>
                             <button class="back-link" type="button" onclick="prevStep()">← Back</button>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                     <!-- Processing state -->
                     <div class="processing-state" id="processingState">
                         <div class="spinner"></div>
-                        <p>Custom-building your Sales Analyzer...</p>
+                        <p>Custom-building your Sales Call Analyzer...</p>
                     </div>
 
                     <!-- Error state -->
@@ -242,7 +242,7 @@
                     <!-- Success state -->
                     <div class="success-state" id="successState">
                         <div class="success-icon">✓</div>
-                        <h3>Building your Sales Analyzer now</h3>
+                        <h3>Building your Sales Call Analyzer now</h3>
                         <p class="success-sub">We're putting your sales analysis system together now, customized for you - your industry, your deal size, and the objection you told us costs you the most deals. Give it a minute or two and check your inbox.</p>
                         <div class="email-tip">
                             <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
@@ -530,7 +530,7 @@
             }).finally(() => {
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Get My Sales Analyzer →';
+                    submitButton.textContent = 'Get My Sales Call Analyzer →';
                 }
             });
 
@@ -558,7 +558,7 @@
         // document (audit_forms.py had been warning about exactly that), and the
         // block carried its own "10,000+ analyzed sales calls" line - a false count
         // in a second place, where no page audit would think to look for it. The
-        // real number is 3,411 transcripts. Dead code that makes claims is worse
+        // real number is 3,400+ transcripts. Dead code that makes claims is worse
         // than dead code.
     </script>
 </body>
