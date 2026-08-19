@@ -35,7 +35,7 @@
         <header>
             <div class="eyebrow">The AI Shift</div>
             <h1>Sales Call Analyzer Master Trove</h1>
-            <p class="subtitle">Tell us about your business. You get a sales analyst built on SPIN Selling, the Challenger Sale and Cialdini's principles, with a reference library of 3,400+ sales conversations bundled in - customized for you, and set up for Claude, ChatGPT or Gemini.</p>
+            <p class="subtitle">Tell us about your business. You get a sales analyst set up for Claude, ChatGPT or Gemini: paste in any call transcript and it scores the call on five fixed measures, quotes the moment that cost you the deal, and gives your rep the words to use next time. Built around your industry, your deal size and the objection you hear most.</p>
         </header>
 
         <div class="what-you-get">
@@ -556,10 +556,11 @@
         // getIndustryObjections() and getDealContext(). Nothing ever called them,
         // they wrote into a #troveOutput element that does not exist in this
         // document (audit_forms.py had been warning about exactly that), and the
-        // block carried its own "10,000+ analyzed sales calls" line - a false count
-        // in a second place, where no page audit would think to look for it. The
-        // real number is 3,400+ transcripts. Dead code that makes claims is worse
-        // than dead code.
+        // block carried a hardcoded corpus-size claim - a false count in a second
+        // place, where no page audit would think to look for it. Dead code that
+        // makes claims is worse than dead code. UPDATED 2026-08-19: the corpus
+        // claim is retired everywhere; the deliverable ships an original
+        // methodology reference, not a transcript library.
     </script>
 </body>
 </html>

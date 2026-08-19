@@ -1,5 +1,5 @@
 /* ============================================================
-   The AI Shift — Master Trove shared form styles
+   The AI Shift - Master Trove shared form styles
    Edit here; changes apply to all 5 Master Trove pages.
    ============================================================ */
 
@@ -77,7 +77,7 @@ h1 { font-size: 32px; margin-bottom: 12px; color: #1f2937; }
     font-weight: 700;
 }
 
-/* Form inputs — font-family:inherit is critical, prevents browser-default monospace */
+/* Form inputs - font-family:inherit is critical, prevents browser-default monospace */
 .form-group { margin-bottom: 20px; }
 
 label {

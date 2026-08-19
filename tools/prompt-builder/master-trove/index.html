@@ -71,8 +71,8 @@
                         <h2>About your work</h2>
 
                         <div class="form-group">
-                            <label for="role">What's Your Role or Job Function? <span class="req" aria-hidden="true">*</span></label>
-                            <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="e.g., Sales manager, Operations lead, Marketing director" required>
+                            <label for="role">What's Your Role or Job Function? <span class="opt">(optional, improves your file)</span></label>
+                            <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="e.g., Sales manager, Operations lead, Marketing director">
                         </div>
 
                         <div class="form-group">
@@ -87,8 +87,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="mainTask">What's the Main Task You Want AI to Help With? <span class="req" aria-hidden="true">*</span></label>
-                            <textarea id="mainTask" name="mainTask" autocomplete="off" placeholder="e.g., Writing follow-up emails to clients, summarizing meeting notes, analyzing sales data..." required></textarea>
+                            <label for="mainTask">What's the Main Task You Want AI to Help With? <span class="opt">(optional, improves your file)</span></label>
+                            <textarea id="mainTask" name="mainTask" autocomplete="off" placeholder="e.g., Writing follow-up emails to clients, summarizing meeting notes, analyzing sales data..."></textarea>
                         </div>
 
 
@@ -271,8 +271,12 @@
             const aiTool = document.getElementById('aiTool').value;
             const mainTask = document.getElementById('mainTask').value.trim();
 
-            if (!role || !aiTool || !mainTask) {
-                alert('Please complete all required fields.');
+            // A11, owner 2026-08-19: role and mainTask are OPTIONAL, because the published
+            // video tells viewers at [09:19]-[09:30] "you can just leave these things blank".
+            // aiTool stays required - the setup guide's upload instructions name the platform,
+            // so a blank there breaks the instructions rather than just making them blander.
+            if (!aiTool) {
+                alert('Please choose which AI tool you mainly use.');
                 return;
             }
 
