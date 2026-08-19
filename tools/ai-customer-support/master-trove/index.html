@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Search Kit Master Trove</title>
+    <title>AI Customer Support Master Trove</title>
     <link rel="stylesheet" href="/shared/forms.css">
     <style>
         .form-content { display: none; }
         .form-content.active { display: block; }
         .form-section { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
-        /* No .form-wrapper on this page - the card belongs to each step, so the
-           confirmation states need the same card or they render on bare page. */
+        /* This page has no .form-wrapper - the card belongs to each step. When a
+           step is hidden on submit, the confirmation would have nothing around it
+           and would render on the bare page background. Same card as .form-section. */
+        /* Base classes, not .show - errorState is toggled through style.display
+           rather than the class, so a .show selector would miss it. Harmless
+           while hidden. */
         .processing-state, .success-state, .error-state {
             background: white; border: 1px solid #e5e7eb; border-radius: 8px;
             padding: 32px; margin-bottom: 24px;
         }
         .form-section h2 { font-size: 18px; color: #7c3aed; margin-bottom: 20px; border-bottom: 2px solid #f8f7ff; padding-bottom: 12px; }
         .step-1-fields { display: grid; gap: 20px; }
+        /* The lead receives a document. Nothing they get connects to a helpdesk,
+           reads a ticket or sends a reply, and the page has to say so in its own
+           voice - not only by omission. */
+        .not-software { margin-top: 18px; padding: 14px 16px; background: #f8f7ff; border-radius: 6px; font-size: 13px; line-height: 1.6; color: #4c1d95; }
     </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
@@ -31,22 +39,24 @@
 <div class="container">
     <header>
         <div class="eyebrow">The AI Shift</div>
-        <h1>AI Search Kit Master Trove</h1>
-        <p class="subtitle">Find out what ChatGPT, Claude and Gemini actually say about your business when a buyer asks. We build you a file to load into your own AI. It hands you the questions to run, you paste the answers back, and it tells you whether you were cited and which sources to fix first.</p>
+        <h1>AI Customer Support Master Trove</h1>
+        <p class="subtitle">Tell us where your customer queries land and whether you have a CRM, and we'll write you a blueprint of what an AI customer support setup looks like for your business - the pieces it needs, how a ticket moves through them, and the checks that stop it sending a bad reply - so you can build it or hand it to a developer.</p>
     </header>
 
     <div class="what-you-get">
         <h3>What's inside your Master Trove</h3>
         <ul>
-            <li>One file you load into Claude, ChatGPT or Gemini</li>
-            <li>A query set built for your buyer</li>
-            <li>A verdict on whether you were cited</li>
-            <li>What the AI says about you, and who else it names</li>
-            <li>The sources shaping that answer, ranked by how often they appear</li>
-            <li>What to fix first, and roughly how long each takes to show up</li>
-            <li>Re-run it monthly to track movement</li>
-            <li>Step-by-step setup guide PDF</li>
+            <li>Your ticket-to-reply flow written out step by step, from the query landing to the reply going out</li>
+            <li>The approval layer specified - what a second AI model checks before anything is sent, and what it does with each verdict</li>
+            <li>The escalation path - what happens when a reply fails the check twice, who gets tagged and where</li>
+            <li>The history lookup written for your situation - using your CRM if you have one, and what to put in place first if you don't</li>
+            <li>What each piece of the setup is for, so you can tell which parts you already have</li>
+            <li>Your build options - do it yourself, hand it to a developer, or give it to your team - with a brief you can paste into a hiring post</li>
+            <li>What to have ready before anyone starts: your product journey, your forms, your billing and escalation rules, your refunds and offers</li>
+            <li>The whole blueprint as a file you load into Claude, ChatGPT or Gemini, so you can keep asking it questions</li>
+            <li>A setup guide PDF that takes you from the download to your first question</li>
         </ul>
+        <p class="not-software"><strong>This is a blueprint, not software.</strong> Nothing you receive connects to your helpdesk, reads a ticket, drafts a reply or posts to Slack. It is the plan - so you, your team or a developer can build it.</p>
     </div>
 
     <!-- Form -->
@@ -76,42 +86,61 @@
         <!-- STEP 2 -->
         <div id="step-2" class="form-content">
             <div class="form-section">
-                <h2>Your Brand Profile</h2>
+                <h2>Your Support Setup</h2>
                 <div class="form-group">
-                    <label>Which AI Tools Do You Use? (Select All That Apply) <span class="req" aria-hidden="true">*</span></label>
-                    <div class="checkbox-group" id="platformGroup">
-                        <div class="checkbox-item"><input type="checkbox" id="platform-claude" name="platform" value="Claude"><label for="platform-claude">Claude</label></div>
-                        <div class="checkbox-item"><input type="checkbox" id="platform-chatgpt" name="platform" value="ChatGPT"><label for="platform-chatgpt">ChatGPT</label></div>
-                        <div class="checkbox-item"><input type="checkbox" id="platform-gemini" name="platform" value="Gemini"><label for="platform-gemini">Gemini</label></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="brandName">What Is Your Business Called? <span class="req" aria-hidden="true">*</span></label>
-                    <input type="text" id="brandName" name="brandName" autocomplete="organization" placeholder="e.g., Your Business Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="website">What Is Your Website? <span class="opt">(optional)</span></label>
-                    <input type="text" id="website" name="website" autocomplete="url" placeholder="Optional. e.g., yourbusiness.com">
-                </div>
-                <div class="form-group">
-                    <label for="offering">What Do You Offer? <span class="req" aria-hidden="true">*</span></label>
-                    <textarea id="offering" name="offering" autocomplete="off" rows="3" placeholder="e.g., Cosmetic and general dentistry for families in north Sydney. Implants, whitening, clear aligners." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="buyerType">Who Are You Trying to Reach? <span class="req" aria-hidden="true">*</span></label>
-                    <select id="buyerType" name="buyerType" autocomplete="off" required>
+                    <label for="supportPlatform">Where Do Your Customer Queries Land? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="supportPlatform" name="supportPlatform" autocomplete="off" required>
                         <option value="">-- Select --</option>
-                        <option value="Local consumers">Local consumers</option>
-                        <option value="National consumers">Consumers nationally</option>
-                        <option value="Small businesses">Small businesses</option>
-                        <option value="Mid-market">Mid-market companies</option>
-                        <option value="Enterprise">Enterprise</option>
+                        <option value="shared-inbox">A shared email inbox</option>
+                        <option value="zendesk">Zendesk</option>
+                        <option value="freshdesk">Freshdesk</option>
+                        <option value="zoho-desk">Zoho Desk</option>
+                        <option value="intercom">Intercom</option>
+                        <option value="gorgias">Gorgias</option>
+                        <option value="help-scout">Help Scout</option>
+                        <option value="hubspot">HubSpot service desk</option>
+                        <option value="salesforce-service-cloud">Salesforce Service Cloud</option>
+                        <option value="whatsapp-or-dms">WhatsApp or social messages</option>
+                        <option value="phone">The phone</option>
+                        <option value="other">Other</option>
                     </select>
+                </div>
+                <div class="form-group" id="supportPlatformOtherGroup" style="display:none; margin-top: -8px;">
+                    <label for="supportPlatformOther">Tell Us Where They Land <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="supportPlatformOther" name="supportPlatformOther" autocomplete="off" placeholder="e.g. Front, Crisp, our own portal">
+                </div>
+                <div class="form-group">
+                    <label for="hasCRM">Do You Have a CRM? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="hasCRM" name="hasCRM" autocomplete="off" required>
+                        <option value="">-- Select --</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group" id="currentCRMGroup" style="display:none;">
+                    <label for="currentCRM">Which One? <span class="req" aria-hidden="true">*</span></label>
+                    <select id="currentCRM" name="currentCRM" autocomplete="off">
+                        <option value="">-- Select --</option>
+                        <option value="hubspot">HubSpot</option>
+                        <option value="salesforce">Salesforce</option>
+                        <option value="zoho">Zoho CRM</option>
+                        <option value="pipedrive">Pipedrive</option>
+                        <option value="gohighlevel">GoHighLevel</option>
+                        <option value="activecampaign">ActiveCampaign</option>
+                        <option value="monday">Monday.com</option>
+                        <option value="dynamics">Microsoft Dynamics</option>
+                        <option value="spreadsheet">A spreadsheet</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group" id="crmOtherGroup" style="display:none; margin-top: -8px;">
+                    <label for="crmOther">Tell Us Which CRM <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="crmOther" name="crmOther" autocomplete="off" placeholder="Tell us which CRM">
                 </div>
             </div>
 
             <div class="button-container">
-                <button type="button" onclick="generateTrove()">Get My AI Search Kit →</button>
+                <button type="button" onclick="generateTrove()">Get My AI Customer Support Blueprint →</button>
                 <button class="back-link" type="button" onclick="prevStep()">← Back</button>
             </div>
         </div>
@@ -120,17 +149,25 @@
         <div class="processing-state" id="processingState">
             <div class="spinner"></div>
             <h3>Building your Master Trove...</h3>
-            <p>Generating your personalised AI Search Kit...</p>
+            <p>Writing your ticket-to-reply flow, your approval layer and your build options...</p>
         </div>
 
         <!-- SUCCESS STATE -->
         <div class="success-state" id="successState">
             <div class="success-icon">✓</div>
-            <h3>Building your AI Search Kit now</h3>
-            <p>We're assembling it around your answers now. Give it a minute or two and check your inbox.</p>
+            <h3>Writing your AI Customer Support Blueprint now</h3>
+            <p>Based on your answers, we're writing your blueprint - your ticket-to-reply flow, the approval layer that checks a reply before it goes out, the escalation path and your build options, written around where your queries land and whether you have a CRM. Give it a minute or two and check your inbox.</p>
             <div class="email-tip">
                 <strong>Check your inbox</strong> - subject line will include "Master Trove."<br><br>
                 Not there? Check your <strong>Spam</strong> or <strong>Promotions</strong> tab and move us to Primary so you don't miss our next resource.
+            </div>
+            <div class="whats-inside">
+                <div class="whats-inside-label">What's on its way</div>
+                <ul>
+                    <li>Your ticket-to-reply flow, step by step, for where your queries actually land</li>
+                    <li>The approval layer specified - what the second model checks, and what it does with each verdict</li>
+                    <li>Your build options and a brief you can hand straight to a developer</li>
+                </ul>
             </div>
             <p style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center;">Didn't receive it? Email us at <a href="mailto:hello@theaishift.biz" style="color: #7c3aed;">hello@theaishift.biz</a> and we'll sort it.</p>
         </div>
@@ -146,7 +183,7 @@
 
 <script>
     const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
-    const VIDEO_KEY = 'ai-seo';
+    const VIDEO_KEY = 'ai-customer-support';
 
     // Traffic attribution. Every published YouTube CTA carries utm_source/medium/
     // campaign, but goToStepURL(1) blanks the query string on load and step 2
@@ -176,18 +213,50 @@
         return found;
     })();
 
+    // Support platform "Other" reveal
+    document.getElementById('supportPlatform').addEventListener('change', function() {
+        document.getElementById('supportPlatformOtherGroup').style.display = this.value === 'other' ? 'block' : 'none';
+    });
+
+    // "Which one?" only exists if they said they have a CRM. Hiding it also clears
+    // it - otherwise a lead who picks HubSpot, changes their mind to "No" and
+    // submits sends hasCRM=no alongside currentCRM=hubspot, and resolveCRM()
+    // treats a named CRM as a yes. The blueprint would then assume a CRM they
+    // just told us they do not have, which is the one branch this field exists
+    // to get right.
+    document.getElementById('hasCRM').addEventListener('change', function() {
+        const show = this.value === 'yes';
+        document.getElementById('currentCRMGroup').style.display = show ? 'block' : 'none';
+        if (!show) {
+            document.getElementById('currentCRM').value = '';
+            document.getElementById('crmOther').value = '';
+            document.getElementById('crmOtherGroup').style.display = 'none';
+        }
+    });
+
+    // CRM "Other" reveal
+    document.getElementById('currentCRM').addEventListener('change', function() {
+        document.getElementById('crmOtherGroup').style.display = this.value === 'other' ? 'block' : 'none';
+    });
 
     // Pure DOM update - shared by goToStep and the browser Back/Forward buttons.
-    // Never changes the URL itself.
+    // Never changes the URL itself. Written as explicit add/remove rather than
+    // classList.toggle so audit_forms.py can still identify the step containers
+    // it checks the state blocks against; a toggle() makes that check vacuous.
     function showStep(step) {
-        document.getElementById('step-1').classList.toggle('active', step === 1);
-        document.getElementById('step-2').classList.toggle('active', step === 2);
+        if (step === 1) {
+            document.getElementById('step-1').classList.add('active');
+            document.getElementById('step-2').classList.remove('active');
+        } else {
+            document.getElementById('step-1').classList.remove('active');
+            document.getElementById('step-2').classList.add('active');
+        }
         const pi = document.getElementById('progressIndicator');
         if (pi) pi.innerText = 'Step ' + step + ' of 2';
         window.scrollTo(0, 0);
     }
 
-    // Step 1's URL never moves - it's the CTA published in a video.
+    // Step 1's URL never moves - it's the CTA already published in a video.
     // Later steps get ?step=N via pushState so GA4 can report them separately.
     function goToStepURL(step, push) {
         const url = new URL(window.location.href);
@@ -243,8 +312,8 @@
     }
 
     function prevStep() {
-        // Real back navigation, not a second pushState - keeps forward/back
-        // symmetric and reuses the history entry popstate already restores.
+        // Real back navigation, not a second pushState - keeps forward/back symmetric
+        // and reuses the history entry popstate already knows how to restore.
         history.back();
     }
 
@@ -264,27 +333,58 @@
     });
 
     function generateTrove() {
-        const firstName = document.getElementById('firstName').value;
-        const email = document.getElementById('email').value;
-        const platform = Array.from(document.querySelectorAll('input[name="platform"]:checked')).map(cb => cb.value).join(', ');
-        const brandName = document.getElementById('brandName').value.trim();
-        const website = document.getElementById('website').value.trim();
-        const offering = document.getElementById('offering').value.trim();
-        const buyerType = document.getElementById('buyerType').value.trim();
+        const firstName = document.getElementById('firstName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        let supportPlatform = document.getElementById('supportPlatform').value;
+        const hasCRM = document.getElementById('hasCRM').value;
+        let currentCRM = document.getElementById('currentCRM').value;
 
-        if (!platform || !brandName || !offering || !buyerType) {
+        // required= is decorative here - the submit control is type="button" with
+        // no checkValidity() - so this hand-written guard is the real validation.
+        if (!supportPlatform || !hasCRM) {
             alert('Please complete all required fields.');
             return;
         }
 
+        // Handle support platform "Other"
+        if (supportPlatform === 'other') {
+            const other = document.getElementById('supportPlatformOther').value.trim();
+            if (!other) {
+                alert('Please tell us where your customer queries land.');
+                return;
+            }
+            supportPlatform = other;
+        }
+
+        if (hasCRM === 'yes') {
+            if (!currentCRM) {
+                alert('Please tell us which CRM you use.');
+                return;
+            }
+            // Handle CRM "Other"
+            if (currentCRM === 'other') {
+                const crmOther = document.getElementById('crmOther').value.trim();
+                if (!crmOther) {
+                    alert('Please tell us which CRM you use.');
+                    return;
+                }
+                currentCRM = crmOther;
+            }
+        } else {
+            // Never send a CRM name alongside "No" - resolveCRM() reads a named
+            // CRM as a yes and the blueprint would assume one they do not have.
+            currentCRM = '';
+        }
+
+        // Keys match what prompts/ai-customer-support.js destructures:
+        // { hasCRM, currentCRM, supportPlatform }. `name` is the payload key the
+        // server splits into a first name - the input id is firstName, the key is not.
         const formData = {
             name: firstName,
             email: email,
-            platform: platform,
-            brandName: brandName,
-            website: website,
-            offering: offering,
-            buyerType: buyerType
+            hasCRM: hasCRM,
+            currentCRM: currentCRM,
+            supportPlatform: supportPlatform
         };
 
         submitToRailway(formData);
@@ -326,7 +426,8 @@
         }).finally(() => {
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Get My AI Search Kit →';
+                // The label lives twice - here and in the HTML. Change both.
+                submitButton.textContent = 'Get My AI Customer Support Blueprint →';
             }
         });
 
@@ -342,10 +443,10 @@
     }
 
     function resetToForm() {
-        const _pi2 = document.getElementById('progressIndicator');
-        if (_pi2) _pi2.style.display = '';
         document.getElementById('errorState').style.display = 'none';
         document.getElementById('step-2').classList.add('active');
+        const _pi = document.getElementById('progressIndicator');
+        if (_pi) _pi.style.display = '';
         window.scrollTo(0, 0);
     }
 </script>

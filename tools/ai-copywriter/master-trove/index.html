@@ -184,7 +184,13 @@
     function goToStepURL(step, push) {
         const url = new URL(window.location.href);
         if (step === 1) {
-            url.search = '';
+            // Drop ONLY the step param. This used to be `url.search = ''`, which blanked
+                // the WHOLE query string and took the UTMs with it on first load, so whether
+                // GA4 ever saw utm_source/medium/campaign came down to whether its page_view
+                // happened to fire before this ran. Our own ATTRIBUTION capture reads them
+                // earlier and is unaffected, but GA4 reads the URL independently and
+                // script-order luck is not a tracking strategy. Owner, 2026-08-19.
+                url.searchParams.delete('step');
         } else {
             url.searchParams.set('step', String(step));
         }
