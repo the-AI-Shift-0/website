@@ -183,6 +183,18 @@ button {
 button:hover { background: #6d28d9; }
 button:active { background: #5b21b6; }
 
+/* Consent notice: sits above Next (step 1 - the email is sent to /subscribe there)
+   and above the final submit. One style for every opt-in form. */
+.form-notice {
+    max-width: 440px;
+    margin: 0 auto 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6b7280;
+    text-align: center;
+}
+.form-notice a { color: #7c3aed; text-decoration: underline; }
+
 .back-link {
     display: block;
     text-align: center;
