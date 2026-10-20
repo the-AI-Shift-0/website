@@ -37,3 +37,6 @@
   .ais-nav a:not(.ais-cta) { display: none; }
   .ais-footer .ais-wrap { flex-direction: column; }
 }
+
+/* forms.css styles bare header elements; keep the site header flush and left-aligned */
+.ais-header{margin-bottom:0;text-align:left}
