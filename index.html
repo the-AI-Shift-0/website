@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Caller by The AI Shift - Get Every Client Who Pays Onto Your Calendar</title>
-<meta name="description" content="AI Caller is an AI voice agent that phones your clients to book, confirm and recover appointments, and logs every outcome. In production at Coach Foundation from March 2026. Opening to a small number of businesses.">
+<title>AI Caller by The AI Shift - Call Playbooks for Every Stage of the Client Journey</title>
+<meta name="description" content="AI Caller is an AI voice agent with pre-built call playbooks for every stage of the customer journey: new leads, booking, onboarding, reminders and no-show recovery. In production at Coach Foundation since March 2026. Opening to a small number of businesses.">
 <meta property="og:title" content="AI Caller by The AI Shift">
-<meta property="og:description" content="An AI voice agent that phones your clients to book, confirm and recover appointments, and logs every outcome. Opening to a small number of businesses.">
+<meta property="og:description" content="An AI voice agent with pre-built call playbooks for every stage of the customer journey. Your team stops chasing. Opening to a small number of businesses.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://theaishift.biz/">
 <link rel="icon" type="image/png" href="/brand/profile-pic.png">
@@ -137,14 +137,28 @@
   .card p { font-size: 15px; color: var(--ink-2); }
   .problem-close { margin-top: 32px; font-size: 18px; font-weight: 700; color: var(--ink); max-width: 720px; }
 
-  /* What it does */
-  .calls-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
-  .call-type { display: flex; gap: 16px; align-items: flex-start; }
+  /* Playbooks */
+  .journey-label { margin-top: 40px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  .calls-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-top: 14px; }
+  .calls-grid .call-type { grid-column: span 2; }
+  .calls-grid .call-type:nth-child(n+4), .calls-grid.next .call-type { grid-column: span 3; }
+  .call-type { background: #fff; border: 1px solid var(--tint-2); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 4px; }
+  .call-type.soon { background: var(--bg); border-style: dashed; }
+  .call-type .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
   .call-type .badge {
-    width: 44px; height: 44px; border-radius: 12px; background: var(--tint); color: var(--purple);
+    width: 40px; height: 40px; border-radius: 12px; background: var(--tint); color: var(--purple);
     display: flex; align-items: center; justify-content: center; flex: none;
   }
-  .call-type .when { font-size: 13px; font-weight: 700; color: var(--purple); margin-bottom: 2px; }
+  .status {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 99px; white-space: nowrap;
+  }
+  .status.live { background: var(--purple); color: #fff; }
+  .status.soon { background: #fff; color: var(--purple-deep); border: 1px solid #c4b5fd; }
+  .call-type .when { font-size: 13px; font-weight: 700; color: var(--purple); }
+  .call-type h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; }
+  .call-type p:not(.when) { font-size: 15px; color: var(--ink-2); }
+  .playbook-close { margin-top: 32px; font-size: 18px; font-weight: 700; max-width: 720px; }
 
   /* During the call */
   .during { background: var(--bg); }
@@ -181,7 +195,7 @@
   .proof .eyebrow { color: var(--tint-2); }
   .proof h2 { color: #fff; }
   .proof .lede { color: rgba(255,255,255,0.85); }
-  .stats { list-style: none; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
   .stats li {
     background: rgba(255,255,255,0.06); border: 1px solid rgba(233,213,255,0.25); border-radius: 14px; padding: 22px 20px;
     font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.45;
@@ -249,12 +263,14 @@
   .state-success { background: none; color: var(--ink); margin-top: 0; padding: 8px 0 0; }
   .state-success strong { display: block; font-size: 20px; margin-bottom: 6px; }
 
-  /* Free resources strip */
-  .resources { border-top: 1px solid var(--tint-2); padding: 28px 0; }
-  .resources .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; font-size: 15px; color: var(--ink-3); }
-  .resources strong { color: var(--ink); }
-  .resources a { font-weight: 700; text-decoration: none; }
-  .resources a:hover { text-decoration: underline; }
+  /* The AI Shift media (secondary) */
+  .media { border-top: 1px solid var(--tint-2); padding: 40px 0; }
+  .media .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; }
+  .media h2 { font-size: 20px; margin-bottom: 6px; }
+  .media p { font-size: 15px; color: var(--ink-2); max-width: 520px; }
+  .media-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+  .media-links a { font-weight: 700; font-size: 15px; text-decoration: none; }
+  .media-links a:hover { text-decoration: underline; }
 
   /* Footer */
   .site-footer { background: #1e1b4b; color: rgba(255,255,255,0.75); padding: 40px 0; font-size: 14px; }
@@ -267,6 +283,8 @@
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .call-card { max-width: 440px; }
     .card-grid, .steps { grid-template-columns: 1fr; }
+    .calls-grid { grid-template-columns: repeat(2, 1fr); }
+    .calls-grid .call-type, .calls-grid .call-type:nth-child(n+4), .calls-grid.next .call-type { grid-column: auto; }
     .do-list, .stats { grid-template-columns: repeat(2, 1fr); }
     .updates-grid { grid-template-columns: 1fr; gap: 24px; }
   }
@@ -314,7 +332,7 @@
   <div class="wrap">
     <a href="/" class="brand"><img src="brand/profile-pic.png" alt="" width="36" height="36"><span>The AI Shift</span></a>
     <nav class="site-nav" aria-label="Main">
-      <a href="#what">How it works</a>
+      <a href="#what">Playbooks</a>
       <a href="#guardrails">Guardrails</a>
       <a href="/about/">About</a>
       <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="nav-cta">Book a demo</a>
@@ -328,31 +346,31 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">AI Caller by The AI Shift</p>
-      <h1 id="hero-h">Get every client who pays onto your calendar.</h1>
-      <p class="sub">AI Caller is an AI voice agent that phones your clients to book, confirm and recover appointments, and logs every outcome. Your team stops chasing.</p>
+      <h1 id="hero-h">Every lead called. Every client followed up.</h1>
+      <p class="sub">AI Caller is an AI voice agent with pre-built call playbooks for every stage of the customer journey. It calls new leads within 60 seconds, then books, confirms, reminds and recovers, so your sales cycle runs without your team chasing.</p>
       <div class="hero-actions">
         <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="btn btn-light">Book a demo</a>
-        <a href="#what" class="btn btn-ghost">See what it does</a>
+        <a href="#what" class="btn btn-ghost">See the playbooks</a>
       </div>
       <p class="pilot-pill"><span class="dot" aria-hidden="true"></span>Pilot: opening to a small number of businesses</p>
     </div>
 
-    <figure class="call-card" aria-label="Illustration of an AI Caller onboarding call, with sample data">
+    <figure class="call-card" aria-label="Illustration of an AI Caller new lead call, with sample data">
       <div class="call-head">
         <span class="avatar"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
         <div>
-          <div class="who">Sample client</div>
-          <div class="what">Onboarding call, shortly after purchase</div>
+          <div class="who">Sample lead</div>
+          <div class="what">New lead call, under a minute after the enquiry</div>
         </div>
         <span class="call-tag">AI Caller</span>
       </div>
       <div class="bubbles">
-        <p class="bubble ai"><b>AI Caller</b>Hi, I'm calling to get your first session booked. Does this week work for you?</p>
-        <p class="bubble them"><b>Client</b>Tuesday afternoon would be good.</p>
-        <p class="bubble ai"><b>AI Caller</b>I have 3:30 pm on Tuesday. Shall I book it?</p>
+        <p class="bubble ai"><b>AI Caller</b>Hi, you just asked about a first call with us. Do you have a minute to pick a time?</p>
+        <p class="bubble them"><b>Lead</b>Yes. Thursday morning would be good.</p>
+        <p class="bubble ai"><b>AI Caller</b>I have 10:00 am on Thursday. Shall I book it?</p>
       </div>
       <ul class="outcomes">
-        <li><span class="tick"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Booked: Tue 3:30 pm</li>
+        <li><span class="tick"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Booked: Thu 10:00 am</li>
         <li><span class="tick"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Team notified</li>
         <li><span class="tick"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Outcome logged in the CRM</li>
       </ul>
@@ -364,9 +382,13 @@
 <section class="problem" aria-labelledby="problem-h">
   <div class="wrap">
     <p class="eyebrow">The problem</p>
-    <h2 id="problem-h">The sale is made. Then the client goes quiet.</h2>
-    <p class="lede">You did the hard part and won the client. What happens next depends on someone on your team finding time to pick up the phone.</p>
+    <h2 id="problem-h">Every stage needs a phone call. Your team is busy.</h2>
+    <p class="lede">From the first enquiry to the next session, the sale depends on someone finding time to pick up the phone. When the team is busy, the calls are the first thing to slip.</p>
     <div class="card-grid">
+      <div class="card">
+        <h3>Leads go cold</h3>
+        <p>A new lead comes in and waits for a call back. By the time someone rings, they have talked to someone else.</p>
+      </div>
       <div class="card">
         <h3>Paid, but never booked</h3>
         <p>A client pays, means to book a first session, and never does. Weeks later they wonder what they paid for.</p>
@@ -375,10 +397,6 @@
         <h3>No-shows nobody chases</h3>
         <p>Someone misses a session or cancels. Everyone means to call them back. Nobody does.</p>
       </div>
-      <div class="card">
-        <h3>Your team is on the next sale</h3>
-        <p>Follow-up calls are slow, repetitive work. They slip first when the team is busy, and the team is always busy.</p>
-      </div>
     </div>
     <p class="problem-close">AI Caller makes those calls for you, at the right time.</p>
   </div>
@@ -386,41 +404,55 @@
 
 <section id="what" aria-labelledby="what-h">
   <div class="wrap">
-    <p class="eyebrow">What it does</p>
-    <h2 id="what-h">Four calls your team never has to make</h2>
-    <p class="lede">AI Caller phones the clients and booked contacts you already have. Each call has one job.</p>
+    <p class="eyebrow">Call playbooks</p>
+    <h2 id="what-h">A pre-built playbook for every stage of the journey</h2>
+    <p class="lede">Each playbook is a ready-made call for one moment, with its goal, its timing and its rules already set. You switch on the ones you need.</p>
+    <p class="journey-label">Live now</p>
     <div class="calls-grid">
       <div class="call-type">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></span>
-        <div>
-          <p class="when">Shortly after someone buys</p>
-          <h3>Onboarding call</h3>
-          <p>Welcomes the new client and books their first session while they are still keen.</p>
-        </div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="status live">Live</span></div>
+        <p class="when">When a new lead comes in</p>
+        <h3>New lead call</h3>
+        <p>Calls a new lead within 60 seconds of them coming in, while they are still thinking about you, and books the next step.</p>
       </div>
       <div class="call-type">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
-        <div>
-          <p class="when">When someone books</p>
-          <h3>Confirmation call</h3>
-          <p>Confirms the time, so the booking is real and not a click they forgot about.</p>
-        </div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="status live">Live</span></div>
+        <p class="when">When someone books</p>
+        <h3>Booking confirmation</h3>
+        <p>Confirms the time, so the booking is real and not a click they forgot about.</p>
       </div>
       <div class="call-type">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg></span>
-        <div>
-          <p class="when">Before a session</p>
-          <h3>Reminder call</h3>
-          <p>Reminds them the session is coming up, and moves it if the time no longer works.</p>
-        </div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></span><span class="status live">Live</span></div>
+        <p class="when">Shortly after someone buys</p>
+        <h3>Onboarding call</h3>
+        <p>Welcomes the new client and books their first session while they are still keen.</p>
       </div>
       <div class="call-type">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg></span>
-        <div>
-          <p class="when">After a no-show or cancellation</p>
-          <h3>Recovery call</h3>
-          <p>Calls back and books a new time, instead of letting the client drift away.</p>
-        </div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg></span><span class="status live">Live</span></div>
+        <p class="when">Before a session</p>
+        <h3>Session reminder</h3>
+        <p>Reminds them the session is coming up, and moves it if the time no longer works.</p>
+      </div>
+      <div class="call-type">
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg></span><span class="status live">Live</span></div>
+        <p class="when">After a no-show or cancellation</p>
+        <h3>No-show and cancellation recovery</h3>
+        <p>Calls back and books a new time, instead of letting the client drift away.</p>
+      </div>
+    </div>
+    <p class="journey-label">Coming next</p>
+    <div class="calls-grid next">
+      <div class="call-type soon">
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-team"/></svg></span><span class="status soon">Coming next</span></div>
+        <p class="when">When a client asks for help</p>
+        <h3>Support callback</h3>
+        <p>Calls back clients who asked for help, so nobody waits for a reply that never comes.</p>
+      </div>
+      <div class="call-type soon">
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-log"/></svg></span><span class="status soon">Coming next</span></div>
+        <p class="when">Near the end of a program</p>
+        <h3>Renewal and win-back</h3>
+        <p>Reaches out to clients who are due to renew, or who have gone quiet.</p>
       </div>
     </div>
   </div>
@@ -461,37 +493,38 @@
 <section class="pilot" aria-labelledby="pilot-h">
   <div class="wrap">
     <p class="eyebrow">How a pilot works</p>
-    <h2 id="pilot-h">How a pilot starts, in three steps</h2>
+    <h2 id="pilot-h">We set it up with you</h2>
+    <p class="lede">Pre-built playbooks mean setup is configuration, not a build.</p>
     <ol class="steps">
       <li>
         <h3>Connect your calendar and CRM</h3>
         <p>AI Caller reads your open slots and writes every outcome back to your CRM.</p>
       </li>
       <li>
-        <h3>Set the calls and the rules</h3>
-        <p>Choose which calls to run, when they go out and what each call should achieve.</p>
+        <h3>Choose your playbooks</h3>
+        <p>Pick which calls to switch on, when they go out and what each call should achieve.</p>
       </li>
       <li>
         <h3>Go live</h3>
         <p>AI Caller starts calling. Your team sees bookings arrive and every outcome in the CRM.</p>
       </li>
     </ol>
-    <p class="pilot-foot">We are opening AI Caller to a small number of businesses as a pilot. It is not self-serve yet: we set it up with you.</p>
+    <p class="pilot-foot">We are opening AI Caller to a small number of businesses as a pilot. It is not self-serve yet.</p>
   </div>
 </section>
 
 <section class="proof" aria-labelledby="proof-h">
   <div class="wrap">
     <p class="eyebrow">In production</p>
-    <h2 id="proof-h">Built and proven in production</h2>
-    <p class="lede">AI Caller ran in production at Coach Foundation, our sister company, from March 2026.</p>
+    <h2 id="proof-h">First proven at Coach Foundation</h2>
+    <p class="lede">Coach Foundation, our sister company, was the first to run AI Caller in production.</p>
     <ul class="stats">
-      <li><strong>March 2026</strong>First in production</li>
-      <li><strong>1,769</strong>calls in the first three months</li>
-      <li><strong>4</strong>call types, each with its own rules</li>
+      <li><strong>78%</strong>of booked sales calls showed up, reported by Coach Foundation</li>
+      <li><strong>2,400+</strong>calls since March 2026</li>
+      <li><strong>60 seconds</strong>to call a new lead, at Coach Foundation</li>
       <li><strong>2,650</strong>automated tests</li>
     </ul>
-    <p class="proof-note">Coach Foundation is a related company and AI Caller's first user.</p>
+    <p class="proof-note">Coach Foundation is a related company and AI Caller's first user. The show-up rate and response time are its own figures.</p>
   </div>
 </section>
 
@@ -499,7 +532,7 @@
   <div class="wrap">
     <p class="eyebrow">The company</p>
     <h2 id="company-h">The AI Shift</h2>
-    <p class="lede">We build AI software for owners of growing businesses. AI Caller is the product we are opening to businesses now.</p>
+    <p class="lede">We build AI software for owners of growing businesses. AI Caller is our product, and the one we are opening to businesses now.</p>
     <div class="founders">
       <div class="founder">
         <h3>Sai Katikaneni</h3>
@@ -527,6 +560,10 @@
         <p>It holds a real two-way conversation: it listens, answers and books in the same call. It does not pretend to be human. When someone asks, it says it is an AI assistant calling for your business.</p>
       </details>
       <details>
+        <summary>What is a playbook?</summary>
+        <p>A playbook is a pre-built call for one moment in the customer journey, such as a new lead or a no-show. Its goal, timing and rules are already set. You choose which playbooks to switch on, and we configure them with you.</p>
+      </details>
+      <details>
         <summary>What does it connect to?</summary>
         <p>Your calendar, to see free slots and make bookings, and your CRM, to know who to call and to log every outcome. It can also message your team when a call is booked. We confirm your exact setup in the demo.</p>
       </details>
@@ -540,11 +577,11 @@
       </details>
       <details>
         <summary>Do I have to change my systems?</summary>
-        <p>Usually not. AI Caller connects to your calendar and CRM. Today it works with Zoho CRM and OnceHub; tell us what you use and we will confirm the fit in the demo. Your team keeps working the way it does now, with the follow-up calls taken off their list.</p>
+        <p>Usually not. AI Caller connects to your calendar and CRM. Today it works with Zoho CRM and OnceHub. Other systems are confirmed in the demo, so tell us what you use. Your team keeps working the way it does now, with the follow-up calls taken off their list.</p>
       </details>
       <details>
         <summary>Is it ready to use today?</summary>
-        <p>Not as self-serve. It ran in production at Coach Foundation, our sister company, from March 2026, and is paused while we prepare the pilot. We are opening it to a small number of businesses, set up together with you.</p>
+        <p>Not as self-serve. It has run in production at Coach Foundation, our sister company, since March 2026, and is currently paused while we prepare the pilot. We are opening it to a small number of businesses, set up together with you.</p>
       </details>
     </div>
   </div>
@@ -553,8 +590,8 @@
 <section class="final" aria-labelledby="final-h">
   <div class="wrap">
     <p class="eyebrow">Book a demo</p>
-    <h2 id="final-h">Stop losing clients you have already won</h2>
-    <p class="lede">Watch AI Caller handle a call, and find out if a pilot fits your business.</p>
+    <h2 id="final-h">Stop chasing leads and clients</h2>
+    <p class="lede">Watch AI Caller handle a call, and find out which playbooks a pilot would start with.</p>
     <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="btn btn-light">Book a demo</a>
     <p class="final-note">Or email us at <a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a>.</p>
   </div>
@@ -591,11 +628,16 @@
   </div>
 </section>
 
-<aside class="resources" aria-label="Free resources">
+<aside class="media" aria-labelledby="media-h">
   <div class="wrap">
-    <strong>Free resources</strong>
-    <a href="/tools/">Free AI tools</a>
-    <a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">The AI Shift on YouTube</a>
+    <div>
+      <h2 id="media-h">The AI Shift media</h2>
+      <p>Our YouTube channel and free tools show owners how to put AI to work in their business.</p>
+    </div>
+    <div class="media-links">
+      <a href="/tools/">Free AI tools</a>
+      <a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">The AI Shift on YouTube</a>
+    </div>
   </div>
 </aside>
 
