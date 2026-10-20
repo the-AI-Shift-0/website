@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.className='js';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Caller by The AI Shift - Call Playbooks for Every Stage of the Client Journey</title>
-<meta name="description" content="AI Caller is an AI voice agent with pre-built call playbooks for every stage of the customer journey: new leads, booking, onboarding, reminders and no-show recovery. In production at Coach Foundation since March 2026. Opening to a small number of businesses.">
+<meta name="description" content="AI Caller is an AI voice agent with pre-built call playbooks for every stage of the customer journey: new leads, booking, onboarding, reminders and no-show recovery. Built and proven at Coach Foundation since March 2026. Opening to a small number of businesses.">
 <meta property="og:title" content="AI Caller by The AI Shift">
 <meta property="og:description" content="An AI voice agent with pre-built call playbooks for every stage of the customer journey. Your team stops chasing. Opening to a small number of businesses.">
 <meta property="og:type" content="website">
@@ -38,7 +39,10 @@
     outline: 3px solid var(--purple);
     outline-offset: 3px;
   }
-  .hero a:focus-visible, .proof a:focus-visible, .final a:focus-visible, .site-header a:focus-visible { outline-color: #fff; }
+  .hero a:focus-visible, .proof a:focus-visible, .final a:focus-visible, .site-header a:focus-visible, .site-footer a:focus-visible { outline-color: #fff; }
+  .no-js .updates-form { display: none; }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: var(--purple-deep); padding: 12px 16px; z-index: 100; }
+  .skip-link:focus { left: 8px; top: 8px; outline: 3px solid var(--purple-deep); }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
   section { padding: 88px 0; }
   section[id] { scroll-margin-top: 16px; }
@@ -119,7 +123,7 @@
   .bubble { max-width: 88%; padding: 9px 12px; border-radius: 12px; line-height: 1.45; }
   .bubble.ai { background: var(--tint); color: var(--ink); border-bottom-left-radius: 4px; }
   .bubble.them { background: var(--purple); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .bubble b { display: block; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; margin-bottom: 2px; }
+  .bubble b { display: block; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
   .outcomes { list-style: none; border-top: 1px solid var(--tint-2); padding-top: 12px; display: grid; gap: 8px; }
   .outcomes li { display: flex; align-items: center; gap: 10px; font-weight: 600; }
   .outcomes .tick {
@@ -312,6 +316,7 @@
   </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -340,7 +345,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
@@ -407,34 +412,34 @@
     <p class="eyebrow">Call playbooks</p>
     <h2 id="what-h">A pre-built playbook for every stage of the journey</h2>
     <p class="lede">Each playbook is a ready-made call for one moment, with its goal, its timing and its rules already set. You switch on the ones you need.</p>
-    <p class="journey-label">Live now</p>
+    <p class="journey-label">Built and proven in production</p>
     <div class="calls-grid">
       <div class="call-type">
-        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="status live">Live</span></div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="status live">Proven</span></div>
         <p class="when">When a new lead comes in</p>
         <h3>New lead call</h3>
         <p>Calls a new lead within 60 seconds of them coming in, while they are still thinking about you, and books the next step.</p>
       </div>
       <div class="call-type">
-        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="status live">Live</span></div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="status live">Proven</span></div>
         <p class="when">When someone books</p>
         <h3>Booking confirmation</h3>
         <p>Confirms the time, so the booking is real and not a click they forgot about.</p>
       </div>
       <div class="call-type">
-        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></span><span class="status live">Live</span></div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></span><span class="status live">Proven</span></div>
         <p class="when">Shortly after someone buys</p>
         <h3>Onboarding call</h3>
         <p>Welcomes the new client and books their first session while they are still keen.</p>
       </div>
       <div class="call-type">
-        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg></span><span class="status live">Live</span></div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg></span><span class="status live">Proven</span></div>
         <p class="when">Before a session</p>
         <h3>Session reminder</h3>
         <p>Reminds them the session is coming up, and moves it if the time no longer works.</p>
       </div>
       <div class="call-type">
-        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg></span><span class="status live">Live</span></div>
+        <div class="top"><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg></span><span class="status live">Proven</span></div>
         <p class="when">After a no-show or cancellation</p>
         <h3>No-show and cancellation recovery</h3>
         <p>Calls back and books a new time, instead of letting the client drift away.</p>
@@ -515,12 +520,12 @@
 
 <section class="proof" aria-labelledby="proof-h">
   <div class="wrap">
-    <p class="eyebrow">In production</p>
+    <p class="eyebrow">Proven in production</p>
     <h2 id="proof-h">First proven at Coach Foundation</h2>
     <p class="lede">Coach Foundation, our sister company, was the first to run AI Caller in production.</p>
     <ul class="stats">
       <li><strong>78%</strong>of booked sales calls showed up, reported by Coach Foundation</li>
-      <li><strong>2,400+</strong>calls, March to October 2026</li>
+      <li><strong>1,769</strong>calls in the first three months, March to June 2026</li>
       <li><strong>60 seconds</strong>to call a new lead, at Coach Foundation</li>
       <li><strong>2,650</strong>automated tests</li>
     </ul>
@@ -605,7 +610,8 @@
       <p class="lede">We email you when AI Caller opens to more businesses and when new features ship.</p>
     </div>
     <div class="ea-card">
-      <form id="ea-form" novalidate>
+      <noscript><p class="form-notice">To join, email hello@theaishift.biz.</p></noscript>
+      <form id="ea-form" class="updates-form" novalidate>
         <div class="field">
           <label for="ea-name">Your Name <span class="opt">(optional)</span></label>
           <input type="text" id="ea-name" name="name" autocomplete="name">
@@ -615,11 +621,10 @@
           <input type="email" id="ea-email" name="email" autocomplete="email" required aria-describedby="ea-error">
         </div>
         <button type="submit" class="btn btn-primary" id="ea-btn">Get Updates</button>
-        <noscript><p class="form-notice">To get updates, email hello@theaishift.biz.</p></noscript>
         <p class="form-notice">We add you to our email list (unsubscribe anytime). You agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
       </form>
       <div class="state state-processing" id="ea-processing" role="status">Adding you to the list...</div>
-      <div class="state state-error" id="ea-error" role="alert"></div>
+      <div class="state state-error" id="ea-error" role="alert" tabindex="-1"></div>
       <div class="state state-success" id="ea-success" role="status" tabindex="-1">
         <strong>You're on the list.</strong>
         We will email you product updates. Ready sooner? <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo">Book a demo</a>.
@@ -650,7 +655,6 @@
       <p><a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a></p>
     </div>
     <ul class="footer-links">
-      <li><a href="/tools/">Tools</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -669,7 +673,7 @@
   var errorBox = document.getElementById('ea-error');
   var success = document.getElementById('ea-success');
   var BTN_TEXT = btn.textContent;
-  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]{2,}\.[^\s@]{2,}$/;
 
   function reveal(el) {
     el.classList.add('show');
@@ -718,6 +722,7 @@
     } catch (err) {
       clearTimeout(timer);
       showError('Something went wrong and you are not on the list yet. Please try again, or email hello@theaishift.biz.');
+      errorBox.focus({ preventScroll: true });
     }
   });
 })();
