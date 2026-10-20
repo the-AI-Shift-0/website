@@ -39,6 +39,8 @@
   .btn-primary:hover { background: #6d28d9; }
   .btn-secondary { padding: 11px 22px; background: transparent; color: #7c3aed; border: 1.5px solid #7c3aed; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.15s; }
   .btn-secondary:hover { background: #f3f0ff; }
+  .tool-product { font-size: 14px; font-weight: 600; color: #374151; }
+  .tool-product a { color: #7c3aed; }
   .footer { background: #1e1b4b; padding: 28px 32px; text-align: center; }
   .footer-text { font-size: 12px; color: rgba(255,255,255,0.35); }
   @media (max-width: 680px) {
@@ -65,20 +67,25 @@
     gtag('js', new Date());
     gtag('config', 'G-F7FK9M526K');
   </script>
+  <link rel="stylesheet" href="/shared/site.css">
 </head>
 <body>
 
-<header class="header">
-  <a href="/" class="header-wordmark">The AI Shift</a>
-  <nav class="header-nav">
-    <a href="/" class="header-nav">Home</a>
-    <a href="/tools/" class="active">Tools</a>
-    <a href="/about/">About</a>
-  </nav>
+<header class="ais-header">
+  <div class="ais-wrap">
+    <a href="/" class="ais-brand"><img src="/brand/profile-pic.png" alt="" width="36" height="36"><span>The AI Shift</span></a>
+    <nav class="ais-nav" aria-label="Main">
+      <a href="/">AI Caller</a>
+      <a href="/#what">Playbooks</a>
+      <a href="/#guardrails">Guardrails</a>
+      <a href="/about/">About</a>
+      <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="ais-cta">Book a demo</a>
+    </nav>
+  </div>
 </header>
 
 <div class="hero">
-  <div class="eyebrow">Free AI Tools</div>
+  <div class="eyebrow">Free AI Tools from The AI Shift Media</div>
   <h1>AI that actually works for your business</h1>
   <p class="hero-sub">No fluff. No $50K implementation fees. Tools built for businesses doing $1M-$10M who want real results, not experiments.</p>
 </div>
@@ -86,17 +93,18 @@
 <div class="tools">
 
   <div class="tool-card">
-    <div class="tool-title">AI Caller</div>
-    <p class="tool-desc">An AI that calls every new lead within 60 seconds of them booking a sales call - so they show up. We went from 30% show-up rate to 80% without adding a single team member.</p>
+    <div class="tool-title">AI Caller Blueprint</div>
+    <p class="tool-desc">A free do-it-yourself blueprint for an AI that calls every new lead within 60 seconds of them booking a sales call - so they show up. We went from a 30% show-up rate to 78% without adding a single team member.</p>
     <ul class="tool-bullets">
       <li>Calls every new lead within 60 seconds, automatically</li>
-      <li>Brings no-show rates from 70% down to under 20%</li>
+      <li>Brings no-show rates from 70% down to 22%</li>
       <li>Consistent performance 24/7 - no sick days, no off days</li>
     </ul>
     <div class="tool-actions">
-      <a href="/tools/ai-caller/master-trove/" class="btn-primary">Get My AI Caller</a>
+      <a href="/tools/ai-caller/master-trove/" class="btn-primary">Get My AI Caller Blueprint</a>
       <a href="/tools/ai-caller/" class="btn-secondary">Learn More</a>
     </div>
+    <p class="tool-product">Want AI Caller set up for you? <a href="/">See the product</a></p>
   </div>
 
   <div class="tool-card">
@@ -211,9 +219,25 @@
 
 </div>
 
-<footer class="footer">
-  <p class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></p>
-  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+<footer class="ais-footer">
+  <div class="ais-wrap">
+    <div>
+      <p>&copy; 2026 The AI Shift. <span data-legal-entity>Operated by Coach LLC, United Arab Emirates</span></p>
+      <p><a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a></p>
+    </div>
+    <ul class="ais-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+    <div class="ais-media">
+      <p class="ais-media-label">The AI Shift media</p>
+      <ul class="ais-links">
+        <li><a href="/tools/">Free AI tools</a></li>
+        <li><a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">YouTube channel</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
 </body>

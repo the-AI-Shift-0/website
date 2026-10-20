@@ -3,383 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About The AI Shift - Meet the Team</title>
-<meta name="description" content="Learn about The AI Shift team: Sai Katikaneni and Apurv Gujar. Building practical AI tools for SMB owners.">
-<meta property="og:title" content="About - The AI Shift">
-<meta property="og:description" content="Meet Sai and Apurv - the team behind The AI Shift. Practical AI tools for businesses doing $1M-$10M.">
+<title>About The AI Shift - The Company Behind AI Caller</title>
+<meta name="description" content="The AI Shift is an AI software company. We build AI Caller, an AI voice agent with pre-built call playbooks for every stage of the customer journey. Founded by Sai Blackbyrn and Apurv Gujar.">
+<meta property="og:title" content="About The AI Shift">
+<meta property="og:description" content="The AI Shift is an AI software company. We build AI Caller, an AI voice agent that makes the follow-up calls a busy team never gets to.">
 <meta property="og:url" content="https://theaishift.biz/about/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://theaishift.biz/brand/profile-pic.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About - The AI Shift">
-<meta name="twitter:description" content="Meet Sai and Apurv - the team behind The AI Shift. Practical AI tools for businesses doing $1M-$10M.">
+<meta name="twitter:title" content="About The AI Shift">
+<meta name="twitter:description" content="The AI Shift is an AI software company. We build AI Caller, an AI voice agent that makes the follow-up calls a busy team never gets to.">
+<link rel="icon" type="image/png" href="/brand/profile-pic.png">
+<link rel="canonical" href="https://theaishift.biz/about/">
 <style>
+  :root {
+    --purple: #7c3aed;
+    --purple-hover: #6d28d9;
+    --purple-deep: #5b21b6;
+    --tint: #f3f0ff;
+    --tint-2: #e9d5ff;
+    --bg: #f8f7ff;
+    --ink: #111827;
+    --ink-2: #374151;
+    --ink-3: #6b7280;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
-
-  /* ── HEADER ── */
-  .header {
-    position: relative;
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 10;
-  }
-  .header-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .header-wordmark {
-    font-size: 15px;
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .header-nav {
-    margin-left: auto;
-    display: flex;
-    gap: 32px;
-  }
-  .header-nav a {
-    font-size: 13px;
-    font-weight: 600;
-    color: #6b7280;
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .header-nav a:hover { color: #7c3aed; }
-  .header-nav a.active { color: #7c3aed; font-weight: 800; }
-
-  /* ── HERO ── */
-  .hero {
-    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    position: relative;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 20px;
-  }
-  .hero-h1 {
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .hero-sub {
-    font-size: 16px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.7;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  /* ── MISSION ── */
-  .mission {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-  .mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    margin-bottom: 80px;
-  }
-  .mission-text h2 {
-    font-size: 28px;
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .mission-text p {
-    font-size: 15px;
-    color: #4b5563;
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-  .mission-highlight {
-    font-size: 16px;
-    font-weight: 700;
-    color: #7c3aed;
-    padding: 20px;
-    background: #f3f0ff;
-    border-radius: 12px;
-    border-left: 4px solid #7c3aed;
-  }
-  .mission-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .stat-box {
-    text-align: center;
-    padding: 24px;
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: #fff;
-    border: 1px solid #e9d5ff;
-    border-radius: 12px;
-  }
-  .stat-number {
-    font-size: 32px;
-    font-weight: 800;
-    color: #7c3aed;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── TEAM ── */
-  .team {
-    background: #fff;
-    padding: 80px 40px;
-  }
-  .team-container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .team-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  .team-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    margin-bottom: 12px;
-  }
-  .team-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-  .team-sub {
-    font-size: 15px;
-    color: #6b7280;
-    line-height: 1.7;
-  }
-  .founder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 48px;
-  }
-  .founder-card {
-    background: #f9f8ff;
-    border: 1px solid #e9d5ff;
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-  }
-  .founder-avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
-    background: #e9d5ff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-  }
-  .founder-name {
-    font-size: 20px;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
-  }
-  .founder-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #7c3aed;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 20px;
-  }
-  .founder-bio {
-    font-size: 14px;
-    color: #4b5563;
-    line-height: 1.7;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-  .founder-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  .stat-item {
-    background: #fff;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #e9d5ff;
-  }
-  .stat-item-num {
-    font-size: 14px;
-    font-weight: 800;
-    color: #7c3aed;
-  }
-  .stat-item-label {
-    font-size: 10px;
-    font-weight: 600;
-    color: #9ca3af;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── CREDIBILITY ── */
-  .credibility {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-  .credibility-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  .credibility-title {
-    font-size: 28px;
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .credibility-sub {
-    font-size: 15px;
-    color: #6b7280;
-    line-height: 1.7;
-  }
-  .credibility-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-  }
-  .cred-item {
-    padding: 24px;
-    background: #fff;
-    border: 1px solid #e9d5ff;
-    border-radius: 12px;
-  }
-  .cred-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-  }
-  .cred-title {
-    font-size: 15px;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .cred-desc {
-    font-size: 13px;
-    color: #6b7280;
+    color: var(--ink);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
+  a { color: var(--purple); }
+  a:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+  .hero a:focus-visible, .final a:focus-visible { outline-color: #fff; }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: var(--purple-deep); padding: 12px 16px; z-index: 100; }
+  .skip-link:focus { left: 8px; top: 8px; outline: 3px solid var(--purple-deep); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+  .eyebrow {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--purple); margin-bottom: 12px;
+  }
+  h2 {
+    font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 16px; text-wrap: balance;
+  }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 680px; }
+  .prose p { font-size: 17px; color: var(--ink-2); max-width: 680px; margin-bottom: 16px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: 16px;
+    padding: 14px 26px; border-radius: 10px; border: 2px solid transparent; text-align: center; line-height: 1.3;
+  }
+  .btn-light { background: #fff; color: var(--purple-deep); }
+  .btn-light:hover { background: var(--tint); }
+  .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.7); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
 
-  /* ── ORIGIN STORY ── */
-  .origin {
-    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
-    padding: 80px 40px;
-    position: relative;
-    overflow: hidden;
+  /* Hero */
+  .hero {
+    background: radial-gradient(ellipse at 70% 20%, #8b5cf6 0%, var(--purple) 45%, var(--purple-deep) 100%);
+    color: #fff; padding: 80px 0 88px;
   }
-  .origin::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
-    pointer-events: none;
+  .hero .eyebrow { color: var(--tint-2); }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.1; margin-bottom: 20px; max-width: 760px; text-wrap: balance;
   }
-  .origin-inner {
-    position: relative;
-    max-width: 680px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .origin-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 16px;
-  }
-  .origin-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .origin-text {
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.8;
-  }
+  .hero p.sub { font-size: 19px; color: rgba(255,255,255,0.92); margin-bottom: 32px; max-width: 680px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  /* ── FOOTER ── */
-  .footer {
-    background: #1e1b4b;
-    padding: 48px 32px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
+  /* What we build */
+  .stats { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+  .stats li {
+    background: var(--bg); border: 1px solid var(--tint-2); border-radius: 14px; padding: 22px 20px;
+    font-size: 14px; color: var(--ink-2); line-height: 1.45;
   }
-  .footer-text {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-  }
+  .stats strong { display: block; font-size: clamp(24px, 3.2vw, 30px); font-weight: 800; color: var(--purple-deep); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
+  .note { margin-top: 18px; font-size: 13px; color: var(--ink-3); max-width: 680px; }
+  .more { margin-top: 24px; font-weight: 700; }
 
-  @media (max-width: 768px) {
-    .header { padding: 20px 24px; }
-    .header-nav { gap: 16px; }
-    .header-nav a { font-size: 12px; }
-    .mission-grid { grid-template-columns: 1fr; gap: 32px; }
-    .mission-stats { grid-template-columns: 1fr; }
-    .founder-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hero { padding: 80px 24px 60px; }
-    .mission, .credibility, .origin { padding: 60px 24px; }
-    .team { padding: 60px 24px; }
+  /* Why */
+  .why { background: var(--bg); }
+
+  /* Founders */
+  .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  .founder { background: #fff; border: 1px solid var(--tint-2); border-radius: 14px; padding: 28px; }
+  .founder h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+  .founder .role { font-size: 14px; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
+  .founder p { font-size: 15px; color: var(--ink-2); }
+  .founder a { display: inline-block; margin-top: 14px; font-weight: 700; font-size: 14px; }
+  a[data-linkedin][href=""] { display: none; }
+
+  /* Media */
+  .media { background: var(--bg); padding: 56px 0; }
+  .media h2 { font-size: 22px; margin-bottom: 8px; }
+  .media p { font-size: 16px; color: var(--ink-2); max-width: 640px; }
+  .media-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 16px; }
+  .media-links a { font-weight: 700; font-size: 15px; text-decoration: none; }
+  .media-links a:hover { text-decoration: underline; }
+
+  /* Final */
+  .final {
+    background: radial-gradient(ellipse at 50% 0%, var(--purple) 0%, var(--purple-deep) 100%);
+    color: #fff; text-align: center;
   }
-  .footer-links { margin-bottom: 10px; }
-  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px; }
-  .footer-links a:hover { color: #fff; }
+  .final .eyebrow { color: var(--tint-2); }
+  .final .lede { color: rgba(255,255,255,0.9); margin: 0 auto 32px; }
+  .final-note { margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.85); }
+  .final-note a { color: #fff; }
+
+  @media (max-width: 760px) {
+    .stats, .founders { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 56px 0; }
+    .wrap { padding: 0 16px; }
+    .hero { padding: 56px 0 64px; }
+    .hero p.sub { font-size: 17px; }
+    .hero-actions .btn, .final .btn { width: 100%; }
+  }
 </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
@@ -389,192 +134,165 @@
     gtag('js', new Date());
     gtag('config', 'G-F7FK9M526K');
   </script>
+  <link rel="stylesheet" href="/shared/site.css">
 </head>
 <body>
-
-<!-- HEADER -->
-<header class="header">
-  <img src="../brand/profile-pic.png" alt="The AI Shift" class="header-logo">
-  <span class="header-wordmark">The AI Shift</span>
-  <nav class="header-nav">
-    <a href="/">Home</a>
-    <a href="/tools/">Tools</a>
-    <a href="/about/" class="active">About</a>
-  </nav>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="ais-header">
+  <div class="ais-wrap">
+    <a href="/" class="ais-brand"><img src="/brand/profile-pic.png" alt="" width="36" height="36"><span>The AI Shift</span></a>
+    <nav class="ais-nav" aria-label="Main">
+      <a href="/">AI Caller</a>
+      <a href="/#what">Playbooks</a>
+      <a href="/#guardrails">Guardrails</a>
+      <a href="/about/" aria-current="page">About</a>
+      <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="ais-cta">Book a demo</a>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Meet The Team</p>
-    <h1 class="hero-h1">We help $1M-$10M businesses cut through the AI noise</h1>
-    <p class="hero-sub">and implement tools that actually work. Built by operators, for operators.</p>
-  </div>
-</section>
+<main id="main" tabindex="-1">
 
-<!-- MISSION -->
-<section class="mission">
-  <div class="mission-grid">
-    <div class="mission-text">
-      <h2>Our Mission</h2>
-      <p>The AI shift isn't about having access to the best tools. It's about implementing them for real business outcomes.</p>
-      <p>Most SMB owners we talk to have tried 15 AI tools. Maybe used 2. Regret 14. We've been there too.</p>
-      <p>That's why we built this differently: one tested tool per episode, proven in real companies, explained without the hype.</p>
-    </div>
-    <div class="mission-highlight">
-      <p><strong>We don't teach theory.</strong> We've done it ourselves in our own companies - cutting costs, finding revenue, removing bottlenecks. Now we're showing you exactly how.</p>
-    </div>
-  </div>
-
-  <div class="mission-stats">
-    <div class="stat-box">
-      <div class="stat-number">14</div>
-      <div class="stat-label">Years Building</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">1.4k+</div>
-      <div class="stat-label">Coached to Success</div>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <p class="eyebrow">About The AI Shift</p>
+    <h1 id="hero-h">We build AI software that makes the calls your team never gets to</h1>
+    <p class="sub">The AI Shift is an AI software company. Our product is AI Caller, an AI voice agent with pre-built call playbooks for every stage of the customer journey.</p>
+    <div class="hero-actions">
+      <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="btn btn-light">Book a demo</a>
+      <a href="/" class="btn btn-ghost">See AI Caller</a>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team">
-  <div class="team-container">
-    <div class="team-header">
-      <p class="team-eyebrow">The People</p>
-      <h2 class="team-title">Who We Are</h2>
-      <p class="team-sub">Two operators with 14+ years building, fixing, and scaling real businesses. No MBA theories. Just what works.</p>
+<section aria-labelledby="build-h">
+  <div class="wrap">
+    <p class="eyebrow">What we build</p>
+    <h2 id="build-h">AI Caller</h2>
+    <div class="prose">
+      <p>AI Caller calls new leads within 60 seconds, confirms bookings, welcomes new clients, reminds them before a session and calls back after a no-show. Each of these is a ready-made playbook with its timing and rules already set, working with your real calendar and logging every outcome in your CRM.</p>
+      <p>It went into production at Coach Foundation, our sister company, in March 2026. We are now opening it to a small number of businesses as a pilot, set up together with each one.</p>
     </div>
+    <ul class="stats">
+      <li><strong>78%</strong>of booked sales calls showed up, reported by Coach Foundation</li>
+      <li><strong>60 seconds</strong>to call a new lead, at Coach Foundation</li>
+      <li><strong>March 2026</strong>first in production, at Coach Foundation</li>
+    </ul>
+    <p class="note">Coach Foundation is a related company and AI Caller's first user. The show-up rate and response time are its own figures.</p>
+    <p class="more"><a href="/">See how AI Caller works</a></p>
+  </div>
+</section>
 
-    <div class="founder-grid">
-      <!-- SAI -->
-      <div class="founder-card">
-        <div class="founder-avatar">🎤</div>
-        <p class="founder-name">Sai Katikaneni</p>
-        <p class="founder-title">Host & Co-Founder</p>
-        <p class="founder-bio">Former investment banker turned serial operator. Founded Coach Foundation in 2015, scaling it to serve 1,400+ clients globally. Expert in business strategy, sales, and operational workflow. Sai obsesses over SMB pain points - because he's lived them.</p>
-        <div class="founder-stats">
-          <div class="stat-item">
-            <div class="stat-item-num">1.4k+</div>
-            <div class="stat-item-label">Clients Coached</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item-num">11yrs</div>
-            <div class="stat-item-label">Remote First</div>
-          </div>
-        </div>
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <p class="eyebrow">Why we built it</p>
+    <h2 id="why-h">Owners lose leads and paid clients to slow follow-up</h2>
+    <div class="prose">
+      <p>A new lead who waits hours for a call back has often spoken to someone else by then. A client who pays and never books a first session starts to wonder what they paid for. A missed session that nobody chases becomes a client who drifts away.</p>
+      <p>None of this is a skills problem. Every stage needs a phone call, and a busy team gets to the calls last. We saw it first at Coach Foundation, so we built software that makes those calls on time, every time. AI Caller is that software.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="founders-h">
+  <div class="wrap">
+    <p class="eyebrow">The founders</p>
+    <h2 id="founders-h">Who runs The AI Shift</h2>
+    <div class="founders">
+      <div class="founder">
+        <h3>Sai Blackbyrn</h3>
+        <p class="role">Co-founder</p>
+        <p>Former investment banker. Founded Coach Foundation in 2015 and grew it to 1,400+ clients. Hosts The AI Shift on YouTube.</p>
+        <a data-linkedin="sai" href="https://www.linkedin.com/in/sai-blackbyrn" target="_blank" rel="noopener" aria-label="Sai on LinkedIn">LinkedIn</a>
       </div>
-
-      <!-- APURV -->
-      <div class="founder-card">
-        <div class="founder-avatar">⚙️</div>
-        <p class="founder-name">Apurv Gujar</p>
-        <p class="founder-title">Technical Co-Founder</p>
-        <p class="founder-bio">Builder and operator with 14 years scaling companies. BITS Pilani engineer who's shipped products from AI calling to health optimization. Apurv lives in the gap between "AI sounds useful" and "it actually works" - and fixes it. Currently exploring what AI fundamentally changes about building businesses.</p>
-        <div class="founder-stats">
-          <div class="stat-item">
-            <div class="stat-item-num">14yrs</div>
-            <div class="stat-item-label">Building Companies</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item-num">3</div>
-            <div class="stat-item-label">Live Products</div>
-          </div>
-        </div>
+      <div class="founder">
+        <h3>Apurv Gujar</h3>
+        <p class="role">Technical co-founder</p>
+        <p>BITS Pilani engineer with 14 years of scaling companies. Leads the build of AI Caller.</p>
+        <a data-linkedin="apurv" href="https://www.linkedin.com/in/apurvgujar" target="_blank" rel="noopener" aria-label="Apurv on LinkedIn">LinkedIn</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CREDIBILITY / WHY TRUST US -->
-<section class="credibility">
-  <div class="credibility-header">
-    <h2 class="credibility-title">Why Trust Us</h2>
-    <p class="credibility-sub">We're not selling you courses. We're showing you what works because we've done it.</p>
-  </div>
-
-  <div class="credibility-grid">
-    <div class="cred-item">
-      <div class="cred-icon">✓</div>
-      <p class="cred-title">We've Done It First</p>
-      <p class="cred-desc">Every tool we teach has been built, tested, and refined in our own companies before you see it.</p>
-    </div>
-    <div class="cred-item">
-      <div class="cred-icon">🎯</div>
-      <p class="cred-title">We Know Your Budget</p>
-      <p class="cred-desc">We focus on SMBs with $1M-$10M revenue. Enterprise solutions don't fit. We build for you.</p>
-    </div>
-    <div class="cred-item">
-      <div class="cred-icon">⚡</div>
-      <p class="cred-title">Real Results Matter</p>
-      <p class="cred-desc">We measure in cost cut, revenue found, hours saved - not vanity metrics. We show the math.</p>
-    </div>
-    <div class="cred-item">
-      <div class="cred-icon">🔗</div>
-      <p class="cred-title">Built to Ship Fast</p>
-      <p class="cred-desc">Every tool comes with copy-paste prompts, vendor stacks, and implementation checklists. Use it today.</p>
-    </div>
-    <div class="cred-item">
-      <div class="cred-icon">📊</div>
-      <p class="cred-title">Track Real Metrics</p>
-      <p class="cred-desc">Sai built Coach Foundation to 1,400+ global clients by obsessing over what actually converts.</p>
-    </div>
-    <div class="cred-item">
-      <div class="cred-icon">🧠</div>
-      <p class="cred-title">No Hype</p>
-      <p class="cred-desc">We're operators first. We skip the AI jargon and focus on the operational outcome you need.</p>
+<section class="media" aria-labelledby="media-h">
+  <div class="wrap">
+    <h2 id="media-h">The AI Shift media</h2>
+    <p>Alongside AI Caller, we publish a YouTube channel and free AI tools that show owners how to put AI to work in their business. They are free, and separate from AI Caller.</p>
+    <div class="media-links">
+      <a href="/tools/">Free AI tools</a>
+      <a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">The AI Shift on YouTube</a>
     </div>
   </div>
 </section>
 
-<!-- ORIGIN STORY -->
-<section class="origin">
-  <div class="origin-inner">
-    <p class="origin-eyebrow">Our Story</p>
-    <h2 class="origin-title">Why We Built This</h2>
-    <p class="origin-text">We watched too many SMB owners fumble with 15 different AI tools, implement none of them well, and give up. Meanwhile, the ones who won were using 1-2 tools brilliantly and reinvesting the time saved. That's the shift. We decided to make it less lonely.</p>
+<section class="final" aria-labelledby="final-h">
+  <div class="wrap">
+    <p class="eyebrow">Talk to us</p>
+    <h2 id="final-h">See AI Caller handle a call</h2>
+    <p class="lede">Book a demo and find out which playbooks a pilot would start with.</p>
+    <a href="mailto:hello@theaishift.biz?subject=AI%20Caller%20demo" class="btn btn-light">Book a demo</a>
+    <p class="final-note">Or email us at <a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a>.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></p>
-  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
+</main>
+
+<footer class="ais-footer">
+  <div class="ais-wrap">
+    <div>
+      <p>&copy; 2026 The AI Shift. <span data-legal-entity>Operated by Coach LLC, United Arab Emirates</span></p>
+      <p><a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a></p>
+    </div>
+    <ul class="ais-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+    <div class="ais-media">
+      <p class="ais-media-label">The AI Shift media</p>
+      <ul class="ais-links">
+        <li><a href="/tools/">Free AI tools</a></li>
+        <li><a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">YouTube channel</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
-<!-- JSON-LD STRUCTURED DATA FOR EAT/E-E-A-T -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "AboutPage",
   "name": "About The AI Shift",
-  "description": "Learn about The AI Shift team: Sai Katikaneni and Apurv Gujar. Building practical AI tools for SMB owners.",
   "url": "https://theaishift.biz/about/",
-  "publisher": {
+  "description": "The AI Shift is an AI software company. It builds AI Caller, an AI voice agent with pre-built call playbooks for every stage of the customer journey.",
+  "mainEntity": {
     "@type": "Organization",
     "name": "The AI Shift",
+    "url": "https://theaishift.biz/",
     "logo": "https://theaishift.biz/brand/profile-pic.png",
+    "email": "hello@theaishift.biz",
+    "description": "An AI software company. Its product is AI Caller, an AI voice agent with pre-built call playbooks for every stage of the customer journey. It also publishes a YouTube channel and free AI tools.",
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Sai Blackbyrn",
+        "jobTitle": "Co-founder",
+        "description": "Former investment banker. Founded Coach Foundation in 2015 and grew it to 1,400+ clients.",
+        "sameAs": ["https://www.linkedin.com/in/sai-blackbyrn"]
+      },
+      {
+        "@type": "Person",
+        "name": "Apurv Gujar",
+        "jobTitle": "Technical co-founder",
+        "description": "BITS Pilani engineer with 14 years of scaling companies. Leads the build of AI Caller.",
+        "sameAs": ["https://www.linkedin.com/in/apurvgujar"]
+      }
+    ],
     "sameAs": [
       "https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ"
     ]
-  },
-  "author": [
-    {
-      "@type": "Person",
-      "name": "Sai Katikaneni",
-      "jobTitle": "Host & Co-Founder",
-      "description": "Former investment banker turned serial operator. Founded Coach Foundation in 2015, scaling it to serve 1,400+ clients globally. Expert in business strategy, sales, and operational workflow.",
-      "url": "https://coachfoundation.com"
-    },
-    {
-      "@type": "Person",
-      "name": "Apurv Gujar",
-      "jobTitle": "Technical Co-Founder",
-      "description": "Builder and operator with 14 years scaling companies. BITS Pilani engineer who has shipped products from AI calling to health optimization platforms.",
-      "url": "https://apurv.org"
-    }
-  ]
+  }
 }
 </script>
 

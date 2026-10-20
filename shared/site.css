@@ -1,0 +1,39 @@
+/* Site header and footer shared by every page except the homepage, which
+   carries the same design inline. Class names are prefixed (ais-) so they
+   never collide with a page's own .header / .footer / .nav rules, and every
+   property is set here so page-level element rules (header, p, a, ul) and
+   shared/forms.css cannot leak in. */
+.ais-header, .ais-footer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6; text-align: left; margin: 0; -webkit-font-smoothing: antialiased;
+}
+.ais-header *, .ais-footer * { box-sizing: border-box; margin: 0; padding: 0; }
+.ais-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.ais-header a:focus-visible, .ais-footer a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+.ais-header { background: #5b21b6; }
+.ais-header .ais-wrap { display: flex; align-items: center; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+.ais-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+.ais-brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; display: block; }
+.ais-brand span { font-weight: 800; font-size: 16px; letter-spacing: 0.02em; color: #fff; }
+.ais-nav { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.ais-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-size: 15px; font-weight: 600; border: 0; }
+.ais-nav a:hover, .ais-nav a[aria-current="page"] { color: #fff; }
+.ais-nav .ais-cta { background: #fff; color: #5b21b6; padding: 9px 16px; border-radius: 8px; font-weight: 700; }
+.ais-nav .ais-cta:hover { background: #f3f0ff; color: #5b21b6; }
+
+.ais-footer { background: #1e1b4b; color: rgba(255,255,255,0.75); padding: 40px 0; font-size: 14px; }
+.ais-footer .ais-wrap { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: flex-start; justify-content: space-between; }
+.ais-footer p { font-size: 14px; color: rgba(255,255,255,0.75); max-width: none; line-height: 1.6; }
+.ais-footer a { color: #fff; text-decoration: none; font-weight: 400; }
+.ais-footer a:hover { text-decoration: underline; }
+.ais-links { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; }
+.ais-links li { display: block; font-size: 14px; }
+.ais-links li::before { content: none; }
+.ais-media-label { font-size: 12px !important; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6) !important; margin-bottom: 6px !important; }
+
+@media (max-width: 640px) {
+  .ais-wrap { padding: 0 16px; }
+  .ais-nav a:not(.ais-cta) { display: none; }
+  .ais-footer .ais-wrap { flex-direction: column; }
+}
