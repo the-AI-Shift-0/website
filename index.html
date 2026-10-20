@@ -3,336 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Shift - Free AI Tools for Business Owners</title>
-<meta name="description" content="Practical AI tools for business owners who want results, not theory. Get the free resource from every episode.">
+<title>The AI Shift - The AI Platform for Growing Businesses</title>
+<meta name="description" content="The AI Shift builds AI software for owners of $1M-$10M businesses. Nine free AI tools are live today; the full platform is in early access.">
+<meta property="og:title" content="The AI Shift - The AI Platform for Growing Businesses">
+<meta property="og:description" content="AI that takes the work off the owner's desk. Nine free tools live today; the full platform is in early access.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theaishift.biz/">
+<link rel="icon" type="image/png" href="/brand/profile-pic.png">
+<link rel="canonical" href="https://theaishift.biz/">
 <style>
+  :root {
+    --purple: #7c3aed;
+    --purple-hover: #6d28d9;
+    --purple-deep: #5b21b6;
+    --tint: #f3f0ff;
+    --tint-2: #e9d5ff;
+    --bg: #f8f7ff;
+    --ink: #111827;
+    --ink-2: #374151;
+    --ink-3: #6b7280;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7ff; color: #111827; }
-
-  /* ── HEADER ── */
-  .header {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    z-index: 10;
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .header-nav {
-    margin-left: auto;
-    display: flex;
-    gap: 24px;
-  }
-  .header-nav a {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.15s;
-  }
-  .header-nav a:hover { color: #fff; }
-  .header-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .header-wordmark {
-    font-size: 15px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    opacity: 0.95;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    background: radial-gradient(ellipse at 60% 50%, #9333ea 0%, #7c3aed 40%, #5b21b6 100%);
-    padding: 140px 40px 100px;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 70%, rgba(139,92,246,0.5) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    position: relative;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 20px;
-  }
-  .hero-h1 {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .hero-h1 span { color: #e9d5ff; }
-  .hero-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-    margin-bottom: 16px;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-pills {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-  }
-  .hero-pill {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.85);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .hero-pill::before {
-    content: '▶';
-    font-size: 8px;
-    color: #c4b5fd;
-  }
-
-  /* ── FORM CARD ── */
-  .form-card {
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: #fff;
-    border-radius: 16px;
-    padding: 32px 36px;
-    max-width: 480px;
-    margin: 0 auto;
-    box-shadow: 0 20px 60px rgba(91,33,182,0.25), 0 4px 16px rgba(0,0,0,0.08);
-  }
-  .form-card-label {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    margin-bottom: 8px;
-  }
-  .form-card-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-  }
-  .form-card-sub {
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-  .form-notice { font-size: 13px; line-height: 1.5; color: #6b7280; text-align: center; margin: 0 auto 12px; max-width: 440px; }
-  .form-notice a { color: #7c3aed; text-decoration: underline; }
-  /* On the purple bottom CTA, purple links would vanish - white-on-purple instead */
-  .form-notice-dark { color: rgba(255,255,255,0.7); margin-bottom: 16px; }
-  .form-notice-dark a { color: #fff; }
-  .form-row { display: flex; gap: 8px; }
-  .form-input {
-    flex: 1;
-    padding: 13px 16px;
-    border: 1.5px solid #e9d5ff;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #111827;
-    outline: none;
-    transition: border-color 0.15s;
-    font-family: inherit;
-  }
-  .form-input:focus { border-color: #7c3aed; }
-  .form-input::placeholder { color: #9ca3af; }
-  .form-btn {
-    background: #7c3aed;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 13px 22px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: inherit;
-    transition: background 0.15s;
-  }
-  .form-btn:hover { background: #6d28d9; }
-  .form-success { display: none; text-align: center; padding: 12px 0 4px; }
-  .form-success-check {
-    width: 44px; height: 44px;
-    background: #f3f0ff;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 12px;
-    font-size: 20px;
-  }
-  .form-success-title { font-size: 16px; font-weight: 800; color: #111827; margin-bottom: 4px; }
-  .form-success-sub { font-size: 13px; color: #6b7280; }
-
-  /* ── TOOLS SECTION ── */
-  .tools {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 32px;
-  }
-  .tools-header { text-align: center; margin-bottom: 48px; }
-  .tools-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    margin-bottom: 12px;
-  }
-  .tools-title {
-    font-size: 26px;
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-  .tools-sub { font-size: 14px; color: #6b7280; line-height: 1.7; }
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .tool-card-link { text-decoration: none; color: inherit; display: block; }
-  .tool-card {
-    background: #fff;
-    border: 1px solid #e9d5ff;
-    border-radius: 14px;
-    padding: 24px;
-    transition: box-shadow 0.15s, transform 0.15s;
-  }
-  .tool-card:hover {
-    box-shadow: 0 8px 24px rgba(124,58,237,0.1);
-    transform: translateY(-2px);
-  }
-  .tool-num {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #c4b5fd;
-    margin-bottom: 10px;
-  }
-  .tool-name { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.01em; }
-  .tool-desc { font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; }
-  .tool-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    background: #f3f0ff;
-    padding: 4px 10px;
-    border-radius: 99px;
-  }
-
-  /* ── BOTTOM CTA ── */
-  .bottom-cta {
-    background: radial-gradient(ellipse at 50% 0%, #7c3aed 0%, #5b21b6 100%);
-    padding: 80px 32px;
-    text-align: center;
-  }
-  .bottom-cta-eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 16px;
-  }
-  .bottom-cta-title {
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.02em;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-  .bottom-cta-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 36px;
-    max-width: 440px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--ink);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  .bottom-form-row {
-    display: flex;
-    gap: 8px;
-    max-width: 420px;
-    margin: 0 auto;
+  a { color: var(--purple); }
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 3px solid var(--purple);
+    outline-offset: 3px;
   }
-  .bottom-input {
-    flex: 1;
-    padding: 14px 18px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    color: #111827;
-    outline: none;
-    font-family: inherit;
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 88px 0; }
+  section[id], #early-access { scroll-margin-top: 16px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--purple); margin-bottom: 12px;
   }
-  .bottom-btn {
-    background: #fff;
-    color: #7c3aed;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 14px 24px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: inherit;
-    transition: opacity 0.15s;
+  h2 {
+    font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 16px; color: var(--ink); text-wrap: balance;
   }
-  .bottom-btn:hover { opacity: 0.9; }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 640px; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: 16px;
+    padding: 14px 26px; border-radius: 10px; border: 2px solid transparent;
+    font-family: inherit; cursor: pointer; text-align: center; line-height: 1.3;
+  }
+  .btn-primary { background: var(--purple); color: #fff; }
+  .btn-primary:hover { background: var(--purple-hover); }
+  .btn-light { background: #fff; color: var(--purple-deep); }
+  .btn-light:hover { background: var(--tint); }
+  .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.7); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
 
-  /* ── FOOTER ── */
-  .footer { background: #1e1b4b; padding: 28px 32px; text-align: center; }
-  .footer-text { font-size: 12px; color: rgba(255,255,255,0.35); }
+  /* Header */
+  .site-header { background: var(--purple-deep); }
+  .site-header .wrap { display: flex; align-items: center; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .brand span { font-weight: 800; font-size: 16px; letter-spacing: 0.02em; }
+  .site-nav { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+  .site-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-size: 15px; font-weight: 600; }
+  .site-nav a:hover { color: #fff; }
+  .site-nav .nav-cta {
+    background: #fff; color: var(--purple-deep); padding: 9px 16px; border-radius: 8px; font-weight: 700;
+  }
+  .site-nav .nav-cta:hover { background: var(--tint); color: var(--purple-deep); }
 
-  @media (max-width: 600px) {
-    .hero { padding: 120px 24px 80px; }
-    .header { padding: 20px 24px; }
-    .header-nav { gap: 14px; }
-    .header-nav a { font-size: 12px; }
-    .form-card { padding: 24px 20px; }
-    .form-row, .bottom-form-row { flex-direction: column; }
-    .tools { padding: 60px 20px; }
+  /* Hero */
+  .hero {
+    background: radial-gradient(ellipse at 70% 20%, #8b5cf6 0%, var(--purple) 45%, var(--purple-deep) 100%);
+    color: #fff; padding: 96px 0 104px;
   }
-  @media (max-width: 400px) {
-    .header-nav { display: none; }
+  .hero .eyebrow { color: var(--tint-2); }
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.08; margin-bottom: 24px; max-width: 800px; text-wrap: balance;
   }
-  .footer-links { margin-bottom: 10px; }
-  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px; }
-  .footer-links a:hover { color: #fff; }
+  .hero p.sub { font-size: 19px; color: rgba(255,255,255,0.92); max-width: 640px; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-note { margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.82); }
+
+  /* Problem */
+  .problem { background: var(--bg); }
+  .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .pain {
+    background: #fff; border: 1px solid var(--tint-2); border-radius: 14px; padding: 24px;
+  }
+  .pain h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .pain p { font-size: 15px; color: var(--ink-2); }
+  .problem-close { margin-top: 32px; font-size: 18px; font-weight: 700; color: var(--ink); }
+
+  /* Platform */
+  .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .module {
+    border: 1px solid var(--tint-2); border-radius: 14px; padding: 22px; background: #fff;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .module.dev { background: var(--bg); border-style: dashed; }
+  .module h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+  .module p { font-size: 15px; color: var(--ink-2); flex: 1; }
+  .status {
+    align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+    background: var(--purple); color: #fff;
+  }
+  .module.dev .status { background: var(--tint-2); color: var(--purple-deep); }
+  .module a.module-link { font-weight: 700; font-size: 15px; text-decoration: none; }
+  .module a.module-link:hover { text-decoration: underline; }
+  .platform-foot { margin-top: 28px; font-size: 15px; color: var(--ink-3); }
+
+  /* How it works */
+  .how { background: var(--bg); }
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; counter-reset: step; }
+  .steps li { background: #fff; border-radius: 14px; padding: 24px; border: 1px solid var(--tint-2); counter-increment: step; }
+  .steps li::before {
+    content: counter(step); display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%; background: var(--purple); color: #fff;
+    font-weight: 800; margin-bottom: 14px;
+  }
+  .steps h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .steps p { font-size: 15px; color: var(--ink-2); }
+
+  /* Proof */
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .video { text-decoration: none; color: var(--ink); display: block; }
+  .video img {
+    width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+    border-radius: 12px; display: block; background: var(--tint);
+  }
+  .video span { display: block; margin-top: 12px; font-weight: 700; font-size: 16px; line-height: 1.35; }
+  .video:hover span { color: var(--purple); }
+  .kku {
+    margin-top: 48px; background: var(--tint); border-radius: 16px; padding: 32px;
+    display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+  }
+  .kku h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .kku p { color: var(--ink-2); font-size: 16px; }
+  .kku-stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px; list-style: none; }
+  .kku-stats li { font-size: 15px; color: var(--ink-2); }
+  .kku-stats strong { display: block; font-size: 28px; font-weight: 800; color: var(--purple-deep); line-height: 1.1; }
+
+  /* Company */
+  .company { background: var(--bg); }
+  .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  .founder { background: #fff; border: 1px solid var(--tint-2); border-radius: 14px; padding: 24px; }
+  .founder h3 { font-size: 18px; font-weight: 800; }
+  .founder .role { font-size: 14px; font-weight: 700; color: var(--purple); margin-bottom: 8px; }
+  .founder p { font-size: 15px; color: var(--ink-2); }
+  .founder a { display: inline-block; margin-top: 12px; font-weight: 700; font-size: 14px; }
+  a[data-linkedin][href=""] { display: none; }
+
+  /* FAQ */
+  .faq-list { margin-top: 32px; border-top: 1px solid var(--tint-2); }
+  .faq-list details { border-bottom: 1px solid var(--tint-2); }
+  .faq-list summary {
+    cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative;
+    font-weight: 700; font-size: 17px;
+  }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: '+'; position: absolute; right: 8px; top: 16px; font-size: 24px; color: var(--purple); font-weight: 400;
+  }
+  .faq-list details[open] summary::after { content: '\2212'; }
+  .faq-list details p { padding: 0 0 20px; color: var(--ink-2); font-size: 16px; max-width: 720px; }
+
+  /* Final CTA */
+  .final {
+    background: radial-gradient(ellipse at 50% 0%, var(--purple) 0%, var(--purple-deep) 100%);
+    color: #fff;
+  }
+  .final .eyebrow { color: var(--tint-2); }
+  .final h2 { color: #fff; }
+  .final .lede { color: rgba(255,255,255,0.9); }
+  .ea-card {
+    background: #fff; color: var(--ink); border-radius: 16px; padding: 32px;
+    max-width: 520px; margin-top: 36px; box-shadow: 0 20px 60px rgba(17,24,39,0.25);
+  }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+  .field label .opt { font-weight: 500; color: var(--ink-3); }
+  .field input {
+    width: 100%; padding: 13px 14px; border: 1.5px solid #c4b5fd; border-radius: 8px;
+    font-size: 16px; font-family: inherit; color: var(--ink);
+  }
+  .field input:focus { border-color: var(--purple); }
+  .field input[aria-invalid="true"] { border-color: #b91c1c; }
+  .ea-card .btn { width: 100%; }
+  .ea-card .btn[disabled] { opacity: 0.7; cursor: wait; }
+  .form-notice { font-size: 13px; color: var(--ink-3); margin-top: 14px; }
+  .state { display: none; border-radius: 10px; padding: 14px 16px; margin-top: 16px; font-size: 15px; }
+  .state.show { display: block; }
+  .state-processing { background: var(--tint); color: var(--purple-deep); }
+  .state-error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+  .state-success { background: none; color: var(--ink); margin-top: 0; padding: 8px 0 0; }
+  .state-success strong { display: block; font-size: 20px; margin-bottom: 6px; }
+
+  /* Footer */
+  .site-footer { background: #1e1b4b; color: rgba(255,255,255,0.75); padding: 40px 0; font-size: 14px; }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; }
+  .site-footer a { color: #fff; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .module-grid, .video-grid { grid-template-columns: repeat(2, 1fr); }
+    .pain-grid, .steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .wrap { padding: 0 16px; }
+    .site-nav a:not(.nav-cta) { display: none; }
+    .hero { padding: 64px 0 72px; }
+    .hero p.sub { font-size: 17px; }
+    .hero-actions .btn { width: 100%; }
+    .module-grid, .video-grid, .founders { grid-template-columns: 1fr; }
+    .kku { grid-template-columns: 1fr; padding: 24px; }
+    .kku .btn { width: 100%; }
+    .ea-card { padding: 24px 20px; }
+    .site-footer .wrap { flex-direction: column; align-items: flex-start; }
+  }
 </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7FK9M526K"></script>
@@ -345,139 +241,340 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <img src="brand/profile-pic.png" alt="The AI Shift" class="header-logo">
-  <span class="header-wordmark">The AI Shift</span>
-  <nav class="header-nav">
-    <a href="/" class="active">Home</a>
-    <a href="/tools/">Tools</a>
-    <a href="/about/">About</a>
-  </nav>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="brand/profile-pic.png" alt="" width="36" height="36"><span>The AI Shift</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#platform">Platform</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/">About</a>
+      <a href="#early-access" class="nav-cta">Early access</a>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
+<main>
+
 <section class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">The AI Shift - Free Resources</p>
-    <h1 class="hero-h1">Practical AI for business owners<br><span>who want results, not theory.</span></h1>
-    <p class="hero-sub">Each episode comes with a ready-to-use AI tool built for your specific business. Enter your email and we'll send everything to your inbox.</p>
-    <div class="hero-pills">
-      <span class="hero-pill">Cut costs</span>
-      <span class="hero-pill">Grow revenue</span>
-      <span class="hero-pill">Remove dependencies</span>
+  <div class="wrap">
+    <p class="eyebrow">The AI platform for growing businesses</p>
+    <h1>Your team is waiting on you. Hand that work to AI.</h1>
+    <p class="sub">The AI Shift builds AI software for owners of $1M-$10M businesses. It calls new leads, reviews sales calls and writes the copy your team would otherwise bring to you. Nine tools are live and free today. The full platform is in early access.</p>
+    <div class="hero-actions">
+      <a href="/tools/" class="btn btn-light">Try a free AI tool</a>
+      <a href="#early-access" class="btn btn-ghost">Join early access</a>
     </div>
-    <div class="trust-bar" style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-bottom:24px; font-size:13px; color:#6b7280;">
-      <span>Built by The AI Shift</span>
-      <span style="color:#d1d5db;">·</span>
-      <span>Free tools for SMB owners</span>
-      <span style="color:#d1d5db;">·</span>
-      <span>No credit card needed</span>
+    <p class="hero-note">No credit card. Works with Claude, ChatGPT and Gemini.</p>
+  </div>
+</section>
+
+<section class="problem" aria-labelledby="problem-h">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2 id="problem-h">Growth stalls at the owner's desk</h2>
+    <p class="lede">You hired a good team. But too much still has to go through you, and while it waits, money walks out the door.</p>
+    <div class="pain-grid">
+      <div class="pain">
+        <h3>Leads nobody calls back</h3>
+        <p>A lead books a call, hears nothing, and forgets you by the time your rep gets to them.</p>
+      </div>
+      <div class="pain">
+        <h3>Sales calls nobody reviews</h3>
+        <p>Deals are lost in ways nobody can name, and you do not have the hours to listen to every call.</p>
+      </div>
+      <div class="pain">
+        <h3>Questions that pile up</h3>
+        <p>Copy, prompts, decisions: your team waits for your answer, and the work waits with them.</p>
+      </div>
     </div>
-    <div class="form-card">
-      <p class="form-card-label">Free Access</p>
-      <p class="form-card-title">Get your free Master Trove</p>
-      <p class="form-card-sub">One email. Every Master Trove from every episode, delivered to your inbox.</p>
-      <div id="hero-form-wrap">
-        <p class="form-notice">By submitting, you'll get your Master Trove and join our email list (unsubscribe anytime). You agree to our <a href="/terms/" target="_blank" rel="noopener">Terms</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
-        <div class="form-row">
-          <input type="email" class="form-input" placeholder="your@email.com" id="hero-email">
-          <button class="form-btn" onclick="handleSubmit('hero-email','hero-form-wrap','hero-success',this)">Get Master Trove</button>
+    <p class="problem-close">Each of these is a job AI can now do, set up for your business, without you in the middle.</p>
+  </div>
+</section>
+
+<section id="platform" aria-labelledby="platform-h">
+  <div class="wrap">
+    <p class="eyebrow">The platform</p>
+    <h2 id="platform-h">One AI platform, built one job at a time</h2>
+    <p class="lede">Each module takes one job off your desk. Nine are live as free tools today. Two more are in development.</p>
+    <div class="module-grid">
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>AI Caller</h3>
+        <p>Calls every new lead within 60 seconds of booking, so more of them show up.</p>
+        <a class="module-link" href="/tools/ai-caller/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>Sales Call Analyzer</h3>
+        <p>Scores any sales call and shows the exact moment the deal turned.</p>
+        <a class="module-link" href="/tools/sales-analyzer/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>Prompt Builder</h3>
+        <p>Gives each person on your team the prompts for their role, so they stop asking you.</p>
+        <a class="module-link" href="/tools/prompt-builder/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>AI Copywriter</h3>
+        <p>Teaches your AI your offer and your buyer, so the next sales page is a prompt away.</p>
+        <a class="module-link" href="/tools/ai-copywriter/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>The Ruleset</h3>
+        <p>Makes your AI argue with your big decisions instead of agreeing with you.</p>
+        <a class="module-link" href="/tools/ai-mentor/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>Audience Consolidator</h3>
+        <p>Merges years of old lead lists into one clean file Facebook can match.</p>
+        <a class="module-link" href="/tools/fb-audience/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>AI Search Kit</h3>
+        <p>Shows what AI answers say about your company, and what to fix first.</p>
+        <a class="module-link" href="/tools/ai-seo/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>Audience Messaging Expert</h3>
+        <p>Plans your next podcast or stage slot from what that audience actually says.</p>
+        <a class="module-link" href="/tools/message-to-audience/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module">
+        <span class="status">Live</span>
+        <h3>The Hackathon Playbook</h3>
+        <p>The five-day plan that got thirty non-technical staff shipping working AI.</p>
+        <a class="module-link" href="/tools/hackathon-plan/master-trove/">Get it free &rarr;</a>
+      </article>
+      <article class="module dev">
+        <span class="status">In development</span>
+        <h3>AI Customer Support</h3>
+        <p>Answers customer questions from your own business knowledge, day and night.</p>
+      </article>
+      <article class="module dev">
+        <span class="status">In development</span>
+        <h3>Unified dashboard</h3>
+        <p>One place where every module shares your business context, so you set it up once.</p>
+      </article>
+    </div>
+    <p class="platform-foot">Live tools are free and ready to use now. Modules in development open to early access members first.</p>
+  </div>
+</section>
+
+<section class="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 id="how-h">Set up in minutes, not months</h2>
+    <ol class="steps">
+      <li>
+        <h3>Pick the job</h3>
+        <p>Choose the module for the work that lands on your desk most often.</p>
+      </li>
+      <li>
+        <h3>Tell it about your business</h3>
+        <p>Answer a few plain questions: what you sell, who buys, how your team works.</p>
+      </li>
+      <li>
+        <h3>Hand it to your team</h3>
+        <p>Get a setup built for your business in your inbox, with a guide your team can follow.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="proof-h">
+  <div class="wrap">
+    <p class="eyebrow">Proof</p>
+    <h2 id="proof-h">Watch the tools do the work</h2>
+    <p class="lede">We show each tool working on a real business problem, start to finish, on our YouTube channel.</p>
+    <div class="video-grid">
+      <a class="video" href="https://www.youtube.com/watch?v=FfB1PqTIlL0">
+        <img src="https://i.ytimg.com/vi/FfB1PqTIlL0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Video thumbnail: Make Your Team AI Prompt Experts in 3 Minutes">
+        <span>Make Your Team AI Prompt Experts in 3 Minutes</span>
+      </a>
+      <a class="video" href="https://www.youtube.com/watch?v=rLO3W2a6hdE">
+        <img src="https://i.ytimg.com/vi/rLO3W2a6hdE/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Video thumbnail: How We Got 80% of Leads to Show Up With AI">
+        <span>How We Got 80% of Leads to Show Up With AI</span>
+      </a>
+      <a class="video" href="https://www.youtube.com/watch?v=oGeZHDe-Pfo">
+        <img src="https://i.ytimg.com/vi/oGeZHDe-Pfo/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Video thumbnail: I Used AI to Analyze 1,000 Sales Calls. Here's What It Found">
+        <span>I Used AI to Analyze 1,000 Sales Calls. Here's What It Found</span>
+      </a>
+    </div>
+
+    <div class="kku">
+      <div>
+        <h3>Also built by The AI Shift: a platform where every participant ships a working AI project</h3>
+        <p>Used with two university cohorts at King Khalid University.</p>
+        <ul class="kku-stats">
+          <li><strong>56</strong>registered</li>
+          <li><strong>46</strong>completed Day 1</li>
+          <li><strong>39</strong>submitted a working project</li>
+        </ul>
+      </div>
+      <a class="btn btn-primary" href="https://aishifttraining.com/">See the case study</a>
+    </div>
+  </div>
+</section>
+
+<section class="company" aria-labelledby="company-h">
+  <div class="wrap">
+    <p class="eyebrow">The company</p>
+    <h2 id="company-h">The AI Shift</h2>
+    <p class="lede">We build AI software for owners of growing businesses. We started with free tools that each solve one problem, and we are joining them into one platform that knows your business.</p>
+    <div class="founders">
+      <div class="founder">
+        <h3>Sai Katikaneni</h3>
+        <p class="role">Co-founder</p>
+        <p>Founded Coach Foundation in 2015 and grew it to 1,400+ clients. Hosts The AI Shift on YouTube.</p>
+        <a data-linkedin="sai" href="" aria-label="Sai on LinkedIn">LinkedIn</a>
+      </div>
+      <div class="founder">
+        <h3>Apurv Gujar</h3>
+        <p class="role">Technical co-founder</p>
+        <p>Engineer with 14 years of scaling companies. Builds the tools and the platform.</p>
+        <a data-linkedin="apurv" href="" aria-label="Apurv on LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq-h">Before you start</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Is the full platform ready?</summary>
+        <p>Not yet. Nine tools are live and free to use today. AI Customer Support and the unified dashboard are in development. Early access members get them first.</p>
+      </details>
+      <details>
+        <summary>Do I need to be technical?</summary>
+        <p>No. You answer questions about your business in plain words. Each tool comes with a step-by-step guide your team can follow.</p>
+      </details>
+      <details>
+        <summary>Which AI does it work with?</summary>
+        <p>Claude, ChatGPT and Gemini. You can use the account your team already has.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>The live tools are free. Joining early access is free too.</p>
+      </details>
+      <details>
+        <summary>What happens when I join early access?</summary>
+        <p>You join our email list. We email you when new modules open and when the platform is ready for you. You can unsubscribe at any time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="early-access" aria-labelledby="ea-h">
+  <div class="wrap">
+    <p class="eyebrow">Early access</p>
+    <h2 id="ea-h">Get the platform before everyone else</h2>
+    <p class="lede">Join early access and be first to use each new module as it opens.</p>
+
+    <div class="ea-card">
+      <form id="ea-form" novalidate>
+        <div class="field">
+          <label for="ea-name">Your Name <span class="opt">(optional)</span></label>
+          <input type="text" id="ea-name" name="name" autocomplete="name">
         </div>
+        <div class="field">
+          <label for="ea-email">Email Address</label>
+          <input type="email" id="ea-email" name="email" autocomplete="email" required aria-describedby="ea-error">
+        </div>
+        <button type="submit" class="btn btn-primary" id="ea-btn">Join Early Access</button>
+        <p class="form-notice">When you join, we add you to our email list (unsubscribe anytime). You agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+      </form>
+      <div class="state state-processing" id="ea-processing" role="status">Adding you to the list...</div>
+      <div class="state state-error" id="ea-error" role="alert"></div>
+      <div class="state state-success" id="ea-success" role="status" tabindex="-1">
+        <strong>You're on the list.</strong>
+        We will email you when the next module opens. In the meantime, <a href="/tools/">try a free tool</a>.
       </div>
-      <div class="form-success" id="hero-success">
-        <div class="form-success-check">✓</div>
-        <p class="form-success-title">Check your inbox!</p>
-        <p class="form-success-sub">The tools are on their way.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- TOOLS GRID -->
-<section class="tools">
-  <div class="tools-header">
-    <p class="tools-eyebrow">What You Get</p>
-    <h2 class="tools-title">One AI tool per episode</h2>
-    <p class="tools-sub">Every video ships with a free Master Trove: a ready-to-deploy AI system tailored to your business type.</p>
-  </div>
-  <div class="tools-grid">
-    <a href="/tools/ai-caller/master-trove/" class="tool-card-link">
-  <div class="tool-card">
-      <p class="tool-name">AI Caller</p>
-      <p class="tool-desc">Calculate your AI calling costs. Get a vendor stack and ready-made scripts.</p>
-      <span class="tool-tag">Operations</span>
-      <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #059669; background: #d1fae5; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
-    </div>
-    </a>
-    <a href="/tools/prompt-builder/master-trove/" class="tool-card-link">
-  <div class="tool-card">
-      <p class="tool-name">Prompt Builder</p>
-      <p class="tool-desc">Build custom AI prompts for your business in minutes. No prompt engineering needed.</p>
-      <span class="tool-tag">Productivity</span>
-      <p style="margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9ca3af; background: #f3f4f6; padding: 4px 10px; border-radius: 99px; display: inline-block;">Live</p>
-    </div>
-    </a>
-  </div>
-</section>
+</main>
 
-<!-- BOTTOM CTA -->
-<section class="bottom-cta">
-  <p class="bottom-cta-eyebrow">Don't miss the next one</p>
-  <h2 class="bottom-cta-title">Get your free Master Trove</h2>
-  <p class="bottom-cta-sub">New tools drop every episode. Get each one the moment it goes live.</p>
-  <p class="form-notice form-notice-dark" id="bottom-notice">By submitting, you'll get your Master Trove and join our email list (unsubscribe anytime). You agree to our <a href="/terms/" target="_blank" rel="noopener">Terms</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
-  <div class="bottom-form-row">
-    <input type="email" class="bottom-input" placeholder="your@email.com" id="bottom-email">
-    <button class="bottom-btn" onclick="handleBottomSubmit(this)">Get Master Trove</button>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p>&copy; 2026 The AI Shift. <span data-legal-entity>Operated by Coach LLC, United Arab Emirates</span></p>
+      <p><a href="mailto:hello@theaishift.biz">hello@theaishift.biz</a></p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+      <li><a href="https://www.youtube.com/channel/UCKdZxnbDL_7ZaMJ6t_7pGsQ">YouTube</a></li>
+    </ul>
   </div>
-  <p id="bottom-success" style="display:none; color:rgba(255,255,255,0.85); margin-top:16px; font-size:14px; font-weight:700;">Check your inbox!</p>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></p>
-  <p class="footer-text">© 2026 The AI Shift. All rights reserved.</p>
 </footer>
 
 <script>
-const RAILWAY_API = 'https://master-trove-api-production.up.railway.app';
+(function () {
+  var form = document.getElementById('ea-form');
+  var nameInput = document.getElementById('ea-name');
+  var emailInput = document.getElementById('ea-email');
+  var btn = document.getElementById('ea-btn');
+  var processing = document.getElementById('ea-processing');
+  var errorBox = document.getElementById('ea-error');
+  var success = document.getElementById('ea-success');
+  var BTN_TEXT = btn.textContent;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-async function subscribe(email) {
-  const res = await fetch(`${RAILWAY_API}/subscribe`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email })
+  function reveal(el) {
+    el.classList.add('show');
+    el.scrollIntoView({ block: 'center', behavior: 'auto' });
+  }
+
+  function showError(message) {
+    processing.classList.remove('show');
+    errorBox.textContent = message;
+    reveal(errorBox);
+    btn.disabled = false;
+    btn.textContent = BTN_TEXT;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+    var email = emailInput.value.trim();
+    var name = nameInput.value.trim();
+    if (!EMAIL_RE.test(email)) {
+      emailInput.setAttribute('aria-invalid', 'true');
+      showError('Please enter a valid email address.');
+      emailInput.focus();
+      return;
+    }
+    emailInput.removeAttribute('aria-invalid');
+    btn.disabled = true;
+    btn.textContent = 'Joining...';
+    reveal(processing);
+    try {
+      var res = await fetch('https://master-trove-api-production.up.railway.app/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: name })
+      });
+      if (!res.ok) throw new Error('status ' + res.status);
+      processing.classList.remove('show');
+      form.style.display = 'none';
+      reveal(success);
+      success.focus({ preventScroll: true });
+      if (typeof gtag === 'function') gtag('event', 'early_access_signup');
+    } catch (err) {
+      showError('Something went wrong and you are not on the list yet. Please try again, or email hello@theaishift.biz.');
+    }
   });
-  return res.ok;
-}
-
-async function handleSubmit(inputId, wrapId, successId, btnEl) {
-  const input = document.getElementById(inputId);
-  if (!input.value || !input.value.includes('@')) {
-    input.style.borderColor = '#ef4444';
-    input.focus();
-    return;
-  }
-  if (btnEl) { btnEl.disabled = true; btnEl.textContent = 'Sending...'; }
-  await subscribe(input.value).catch(() => {});
-  document.getElementById(wrapId).style.display = 'none';
-  document.getElementById(successId).style.display = 'block';
-}
-
-async function handleBottomSubmit(btnEl) {
-  const input = document.getElementById('bottom-email');
-  if (!input.value || !input.value.includes('@')) {
-    input.style.outline = '2px solid rgba(255,255,255,0.5)';
-    input.focus();
-    return;
-  }
-  if (btnEl) { btnEl.disabled = true; btnEl.textContent = 'Sending...'; }
-  await subscribe(input.value).catch(() => {});
-  input.parentElement.style.display = 'none';
-  document.getElementById('bottom-notice').style.display = 'none';
-  document.getElementById('bottom-success').style.display = 'block';
-}
+})();
 </script>
 
 </body>
